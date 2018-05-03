@@ -5,7 +5,9 @@ import MastheadOptions from '../mastheadOptions';
 describe('MastheadOptions Component', () => {
   it('should render', () => {
     const props = {
-      user: { currentUser: { username: 'Admin' } }
+      user: { currentUser: { username: 'Admin' } },
+      logoutUser: () => {},
+      showAboutModal: () => {}
     };
 
     const component = mount(<MastheadOptions {...props} />);

@@ -2,3 +2,4 @@ ignore:
   - "src/common/*"
   - "src/setupTests.js"
   - "src/**/*store.js"
+  - "src/redux/index.js"
