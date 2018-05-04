@@ -44,10 +44,15 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
+    "compression": "^1.7.2",
+    "create-react-app": "^1.5.2",
     "detect-browser": "^2.4.0",
+    "express": "^4.16.3",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.1",
+    "npm-run-all": "^4.1.2",
+    "node-sass-chokidar": "^1.2.2",
     "patternfly": "^3.45.0",
     "patternfly-react": "^2.2.1",
     "rcue": "^3.45.0",
@@ -66,7 +71,6 @@
     "prop-types": "^15.6.1"
   },
   "devDependencies": {
-    "create-react-app": "^1.5.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
@@ -81,8 +85,6 @@
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
     "moxios": "^0.4.0",
-    "node-sass-chokidar": "^1.2.2",
-    "npm-run-all": "^4.1.2",
     "prettier": "^1.12.1",
     "redux-mock-store": "^1.4.0"
   }
