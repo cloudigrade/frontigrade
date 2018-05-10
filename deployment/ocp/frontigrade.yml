@@ -44,7 +44,7 @@ objects:
 - kind: BuildConfig
   apiVersion: v1
   metadata:
-    name: ${NAME}-build
+    name: ${NAME}
   spec:
     failedBuildsHistoryLimit: 5
     runPolicy: Serial
@@ -56,10 +56,8 @@ objects:
     output:
       to:
         kind: ImageStreamTag
-        name: ${NAME}-build:latest
+        name: ${NAME}:latest
     strategy:
-      dockerStrategy:
-        dockerfilePath: deployment/Dockerfile.build
       type: Docker
     triggers:
     - github:
@@ -71,40 +69,6 @@ objects:
     - type: ConfigChange
     - imageChange: {}
       type: ImageChange
-- kind: BuildConfig
-  apiVersion: v1
-  metadata:
-    name: ${NAME}
-  spec:
-    failedBuildsHistoryLimit: 5
-    runPolicy: Serial
-    source:
-      type: Git
-      git:
-        uri: ${FRONTIGRADE_GIT_REPO}
-        ref: ${FRONTIGRADE_GIT_REPO_BRANCH}
-      images:
-        - from:
-            kind: ImageStreamTag
-            name: ${NAME}-build:latest
-          paths:
-          - sourcePath: /app/build/
-            desitnationDir: /usr/share/nginx/html
-    output:
-      to:
-        kind: ImageStreamTag
-        name: ${NAME}:latest
-    strategy:
-      dockerStrategy:
-        dockerfilePath: deployment/Dockerfile
-      type: Docker
-    triggers:
-    - imageChange: {}
-      type: ImageChange
-- kind: ImageStream
-  apiVersion: v1
-  metadata:
-    name: ${NAME}-build
 - kind: ImageStream
   apiVersion: v1
   metadata:
@@ -112,10 +76,10 @@ objects:
 - kind: Route
   apiVersion: v1
   metadata:
-    annotations:
-      openshift.io/host.generated: "true"
     name: ${NAME}
   spec:
+    host: ${FRONTIGRADE_ROUTE_HOST}
+    path: ${FRONTIGRADE_ROUTE_PATH}
     port:
       targetPort: ${NAME}
     to:
@@ -138,7 +102,7 @@ objects:
     sessionAffinity: None
     type: ClusterIP
 parameters:
-# Project Names
+# Project Settings
 - name: NAME
   displayName: Name
   description: "Application Name"
@@ -148,6 +112,17 @@ parameters:
   displayName: Namespace
   description: "Namespace where the application is being deployed"
   value: "cloudigrade-test"
+  required: true
+# Route Settings
+- name: FRONTIGRADE_ROUTE_HOST
+  displayName: Route Hostname
+  description: "Hostname at which the application will be served."
+  value: "test.cloudigra.de"
+  required: true
+- name: FRONTIGRADE_ROUTE_PATH
+  displayName: Route Path
+  description: "Path at which the application will be served."
+  value: "/"
   required: true
 # Git Settings
 - name: FRONTIGRADE_GIT_REPO
