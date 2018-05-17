@@ -12,6 +12,34 @@ const getLocale = (messages = {}) => {
 
 const noop = Function.prototype;
 
+const setStateProp = (prop, data, options) => {
+  const { state = {}, initialState = {}, reset = true } = options;
+  let obj = { ...state }; // eslint-disable-line prefer-const
+
+  if (!state[prop]) {
+    console.error(`Error: Property ${prop} does not exist within the passed state.`, state);
+  }
+
+  if (reset && !initialState[prop]) {
+    console.warn(`Warning: Property ${prop} does not exist within the passed initialState.`, initialState);
+  }
+
+  if (reset) {
+    obj[prop] = {
+      ...state[prop],
+      ...initialState[prop],
+      ...data
+    };
+  } else {
+    obj[prop] = {
+      ...state[prop],
+      ...data
+    };
+  }
+
+  return obj;
+};
+
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const FULFILLED_ACTION = base => `${base}_FULFILLED`;
@@ -24,6 +52,7 @@ export const helpers = {
   generateId,
   getLocale,
   noop,
+  setStateProp,
   DEV_MODE,
   FULFILLED_ACTION,
   PENDING_ACTION,
