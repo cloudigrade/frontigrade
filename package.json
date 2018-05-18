@@ -23,6 +23,7 @@
       "!src/setupTests.js",
       "!src/components/app.js",
       "!src/components/loremView/**",
+      "!src/redux/index.js",
       "!src/redux/store.js"
     ],
     "snapshotSerializers": [
@@ -44,10 +45,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
-    "compression": "^1.7.2",
     "create-react-app": "^1.5.2",
     "detect-browser": "^2.4.0",
-    "express": "^4.16.3",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.1",

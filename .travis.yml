@@ -1,14 +1,32 @@
+sudo: false
 language: node_js
-
 node_js:
-  - '8'
-
+  - "8"
 cache: yarn
 
-before_script:
-  - yarn global add codecov
+jobs:
+  include:
+    - stage: test
+      node_js: "8"
+      before_script: yarn global add codecov
+      script: yarn test
+      after_success: codecov
+    - stage: test
+      if: (branch != master AND tag IS blank) OR (type IN (pull_request))
+      services: docker
+      sudo: required
+      script:
+        - docker build .
+    - stage: build and push container
+      if: (type IN (push)) AND ((branch = master) OR (tag IS present))
+      services: docker
+      sudo: required
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - if [ $TRAVIS_BRANCH == "master" ]; then
+            docker build -t cloudigrade/frontigrade:latest .;
+          else
+            docker build -t cloudigrade/frontigrade:$TRAVIS_TAG .;
+          fi
+        - docker push cloudigrade/frontigrade
 
-script:
-  - yarn test
-  - codecov
-  - yarn build
