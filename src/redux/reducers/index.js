@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import toastNotificationsReducer from './toastNotificationsReducer';
+import toastNotificationsReducers from './toastNotificationsReducers';
+import userReducers from './userReducers';
 
 const reducers = {
-  toastNotifications: toastNotificationsReducer
+  toastNotifications: toastNotificationsReducers,
+  user: userReducers
 };
 
 const reduxReducers = combineReducers(reducers);
 
-export { reduxReducers as default, reduxReducers, reducers };
+export { reduxReducers as default, reduxReducers, toastNotificationsReducers, userReducers };
