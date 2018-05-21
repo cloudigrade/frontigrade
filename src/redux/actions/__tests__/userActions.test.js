@@ -24,6 +24,18 @@ describe('UserActions', () => {
     moxios.uninstall();
   });
 
+  it('Should return response content for checkUser method', done => {
+    const store = generateStore();
+    const dispatcher = userActions.checkUser();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().user.user;
+
+      expect(response.current).toEqual('success');
+      done();
+    });
+  });
+
   it('Should return response content for createUser method', done => {
     const store = generateStore();
     const dispatcher = userActions.createUser();
@@ -68,18 +80,6 @@ describe('UserActions', () => {
       const response = store.getState().user.session;
 
       expect(response.authorized).toEqual(false);
-      done();
-    });
-  });
-
-  it('Should return response content for whoami method', done => {
-    const store = generateStore();
-    const dispatcher = userActions.whoami();
-
-    dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user.user;
-
-      expect(response.current).toEqual('success');
       done();
     });
   });

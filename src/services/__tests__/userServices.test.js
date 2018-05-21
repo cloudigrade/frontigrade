@@ -17,11 +17,11 @@ describe('UserServices', () => {
   });
 
   it('Should have specific methods', () => {
+    expect(userServices.checkUser).toBeDefined();
     expect(userServices.createUser).toBeDefined();
     expect(userServices.deleteUser).toBeDefined();
     expect(userServices.loginUser).toBeDefined();
     expect(userServices.logoutUser).toBeDefined();
-    expect(userServices.whoami).toBeDefined();
   });
 
   it('Should return promises for every method', done => {

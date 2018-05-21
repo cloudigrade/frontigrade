@@ -7,15 +7,15 @@ const initialState = {
     errorMessage: '',
     pending: false,
     fulfilled: false,
-    authorized: false
+    authorized: false,
+    userInfo: {}
   },
   user: {
     error: false,
     errorMessage: '',
     pending: false,
     fulfilled: false,
-    current: {},
-    other: {}
+    userInfo: {}
   }
 };
 
@@ -24,7 +24,6 @@ const userReducers = (state = initialState, action) => {
     // Error/Rejected
     case helpers.REJECTED_ACTION(userTypes.USER_CREATE):
     case helpers.REJECTED_ACTION(userTypes.USER_DELETE):
-    case helpers.REJECTED_ACTION(userTypes.USER_INFO):
       return helpers.setStateProp(
         'user',
         {
@@ -37,6 +36,7 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
+    case helpers.REJECTED_ACTION(userTypes.USER_INFO):
     case helpers.REJECTED_ACTION(userTypes.USER_LOGIN):
     case helpers.REJECTED_ACTION(userTypes.USER_LOGOUT):
       return helpers.setStateProp(
@@ -54,7 +54,6 @@ const userReducers = (state = initialState, action) => {
     // Loading/Pending
     case helpers.PENDING_ACTION(userTypes.USER_CREATE):
     case helpers.PENDING_ACTION(userTypes.USER_DELETE):
-    case helpers.PENDING_ACTION(userTypes.USER_INFO):
       return helpers.setStateProp(
         'user',
         {
@@ -66,6 +65,7 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
+    case helpers.PENDING_ACTION(userTypes.USER_INFO):
     case helpers.PENDING_ACTION(userTypes.USER_LOGIN):
     case helpers.PENDING_ACTION(userTypes.USER_LOGOUT):
       return helpers.setStateProp(
@@ -85,7 +85,7 @@ const userReducers = (state = initialState, action) => {
         'user',
         {
           fulfilled: true,
-          other: action.payload.data
+          userInfo: action.payload.data
         },
         {
           state,
@@ -98,7 +98,21 @@ const userReducers = (state = initialState, action) => {
         'user',
         {
           fulfilled: true,
-          other: action.payload.data
+          userInfo: action.payload.data
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(userTypes.USER_INFO):
+      return helpers.setStateProp(
+        'session',
+        {
+          fulfilled: true,
+          authorized: true,
+          userInfo: action.payload.data
         },
         {
           state,
@@ -125,19 +139,6 @@ const userReducers = (state = initialState, action) => {
         {
           fulfilled: true,
           authorized: false
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case helpers.FULFILLED_ACTION(userTypes.USER_INFO):
-      return helpers.setStateProp(
-        'user',
-        {
-          fulfilled: true,
-          current: action.payload.data
         },
         {
           state,
