@@ -1,17 +1,17 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import MastheadOptions from '../mastheadOptions';
 
 describe('MastheadOptions Component', () => {
   it('should render', () => {
     const props = {
-      user: { currentUser: { username: 'Admin' } },
+      user: { username: 'Admin' },
       logoutUser: () => {},
       showAboutModal: () => {}
     };
 
-    const component = mount(<MastheadOptions {...props} />);
+    const component = shallow(<MastheadOptions {...props} />);
 
-    expect(component.render()).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });

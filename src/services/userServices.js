@@ -22,19 +22,12 @@ import serviceConfig from './index';
  *       "detail": "Authentication credentials were not provided."
  *     }
  */
-const checkUser = () => new Promise((resolve, reject) => {
-    setTimeout(() => {
-      reject(false);
-    }, 3000);
-  });
-
-  /*
-    axios(
+const checkUser = () =>
+  axios(
     serviceConfig({
       url: process.env.REACT_APP_USER_SERVICE_CURRENT
     })
   );
-  */
 
 /**
  * @api {post} /auth/users/create/ Create user
@@ -116,13 +109,13 @@ const loginUser = (data = {}) =>
       false
     )
   ).then(success => {
-    try {
-      // ToDo: review using session/local storage instead of session cookie
+    // ToDo: review using session/local storage instead of session cookie
+    if (success.data && success.data.auth_token) {
       cookies.set(process.env.REACT_APP_AUTH_TOKEN, success.data.auth_token);
       return success;
-    } catch (e) {
-      throw new Error('User not authorized.');
     }
+
+    throw new Error('User not authorized.');
   });
 
 /**
@@ -140,12 +133,14 @@ const loginUser = (data = {}) =>
  *     }
  */
 const logoutUser = () =>
-  // ToDo: remove cookie and/or update session storage
   axios(
     serviceConfig({
       method: 'post',
       url: process.env.REACT_APP_USER_SERVICE_LOGOUT
     })
-  );
+  ).then(() => {
+    // ToDo: review using session/local storage instead of session cookie
+    cookies.remove(process.env.REACT_APP_AUTH_TOKEN);
+  });
 
 export { checkUser, createUser, deleteUser, loginUser, logoutUser };

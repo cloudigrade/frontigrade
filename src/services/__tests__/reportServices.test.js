@@ -16,11 +16,11 @@ describe('ReportServices', () => {
     moxios.uninstall();
   });
 
-  it('Should have specific methods', () => {
+  it('should have specific methods', () => {
     expect(reportServices.getReport).toBeDefined();
   });
 
-  it('Should return promises for every method', done => {
+  it('should return promises for every method', done => {
     const promises = Object.keys(reportServices).map(value => reportServices[value]());
 
     Promise.all(promises).then(success => {

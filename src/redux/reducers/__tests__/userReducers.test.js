@@ -24,7 +24,7 @@ describe('UserReducers', () => {
 
       const resultState = userReducers(undefined, dispatched);
 
-      expect(resultState).toMatchSnapshot();
+      expect({ type: helpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot();
     });
   });
 
@@ -36,7 +36,26 @@ describe('UserReducers', () => {
 
       const resultState = userReducers(undefined, dispatched);
 
-      expect(resultState).toMatchSnapshot();
+      expect({ type: helpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot();
+    });
+  });
+
+  it('should handle all defined fulfilled types', () => {
+    Object.keys(types).forEach(value => {
+      const dispatched = {
+        type: helpers.FULFILLED_ACTION(value),
+        payload: {
+          response: {
+            data: {
+              test: 'success'
+            }
+          }
+        }
+      };
+
+      const resultState = userReducers(undefined, dispatched);
+
+      expect({ type: helpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot();
     });
   });
 });

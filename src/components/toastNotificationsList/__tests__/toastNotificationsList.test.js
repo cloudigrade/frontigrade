@@ -8,9 +8,15 @@ describe('ToastNotificationsList Component', () => {
 
   it('should shallow render a basic component', () => {
     const store = generateEmptyStore();
-    const props = { show: true };
+    const props = {
+      show: true,
+      toasts: [
+        { removed: true, alertType: 'success', header: 'lorem', message: 'lorem' },
+        { removed: false, alertType: 'success', header: 'ipsum', message: 'ipsum' }
+      ]
+    };
     const wrapper = shallow(<ToastNotificationsList {...props} />, { context: { store } });
 
-    expect(wrapper.dive()).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

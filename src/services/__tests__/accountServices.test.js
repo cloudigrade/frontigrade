@@ -16,12 +16,12 @@ describe('AccountServices', () => {
     moxios.uninstall();
   });
 
-  it('Should have specific methods', () => {
+  it('should have specific methods', () => {
     expect(accountServices.getAccounts).toBeDefined();
     expect(accountServices.getAccount).toBeDefined();
   });
 
-  it('Should return promises for every method', done => {
+  it('should return promises for every method', done => {
     const promises = Object.keys(accountServices).map(value => accountServices[value]());
 
     Promise.all(promises).then(success => {

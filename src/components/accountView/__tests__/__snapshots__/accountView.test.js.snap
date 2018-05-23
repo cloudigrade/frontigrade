@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountView Component should render 1`] = `
+<div
+  class="container-fluid"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="blank-slate-pf full-page-blank-slate"
+    >
+      <div
+        class="blank-slate-pf-icon"
+      >
+        <span
+          aria-hidden="true"
+          class="pficon pficon-add-circle-o"
+        />
+      </div>
+      <h4
+        class="h1 blank-slate-pf-title"
+      >
+        Lorem Ipsum
+      </h4>
+      <p
+        class="blank-slate-pf-info"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo purus a sem ornare ullamcorper. Duis sed mi mi. Aenean risus ante, hendrerit sed cursus nec, pharetra eu nisi. Nulla in dui id leo dapibus malesuada eu placerat lacus. Phasellus pulvinar magna vel mattis commodo.
+      </p>
+      <div
+        class="blank-slate-pf-main-action"
+      >
+        <button
+          class="btn btn-lg btn-primary"
+          type="button"
+        >
+          Dolor sit amet
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

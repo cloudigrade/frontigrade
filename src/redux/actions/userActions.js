@@ -1,11 +1,10 @@
 import { userTypes } from '../constants';
 import { userServices } from '../../services/';
 
-const checkUser = () => dispatch =>
-  dispatch({
-    type: userTypes.USER_INFO,
-    payload: userServices.checkUser()
-  });
+const checkUser = () => ({
+  type: userTypes.USER_INFO,
+  payload: userServices.checkUser()
+});
 
 const createUser = data => dispatch =>
   dispatch({
@@ -25,10 +24,9 @@ const loginUser = data => dispatch =>
     payload: userServices.loginUser(data)
   });
 
-const logoutUser = () => dispatch =>
-  dispatch({
-    type: userTypes.USER_LOGOUT,
-    payload: userServices.logoutUser()
-  });
+const logoutUser = () => ({
+  type: userTypes.USER_LOGOUT,
+  payload: userServices.logoutUser()
+});
 
 export { checkUser, createUser, deleteUser, loginUser, logoutUser };

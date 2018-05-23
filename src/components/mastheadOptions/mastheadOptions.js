@@ -17,13 +17,13 @@ const MastheadOptions = ({ user, logoutUser, showAboutModal }) => (
       )}
       {!logoutUser && (
         <li className="nav-item-iconic">
-          <Icon type="pf" name="user" /> {user.currentUser && user.currentUser.username}
+          <Icon type="pf" name="user" /> {user && user.username}
         </li>
       )}
       {logoutUser && (
         <Dropdown componentClass="li" id="user">
           <Dropdown.Toggle useAnchor className="nav-item-iconic">
-            <Icon type="pf" name="user" /> {user.currentUser && user.currentUser.username}
+            <Icon type="pf" name="user" /> {user && user.username}
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <MenuItem onClick={logoutUser}>Log out</MenuItem>

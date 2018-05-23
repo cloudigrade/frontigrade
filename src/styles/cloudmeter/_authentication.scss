@@ -21,13 +21,30 @@
     background-repeat: no-repeat;
     background-size: 30%;
   }
+
+  .cloudmeter-login-brand {
+    height: auto;
+    width: 40%;
+  }
 }
 
 .cloudmeter-login-card {
   min-height: 360px;
+
+  .login-pf-header,
+  .card-pf-body {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 }
 
-.cloudmeter-login-loadingcard {
+.cloudmeter-login-card-error {
+  color: $color-pf-red-100;
+  margin-bottom: 16px;
+  min-height:20px;
+}
+
+.cloudmeter-login-loading-card {
   @extend .cloudmeter-login-card;
 
   display: flex;

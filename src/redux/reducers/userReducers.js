@@ -8,6 +8,7 @@ const initialState = {
     pending: false,
     fulfilled: false,
     authorized: false,
+    loginFailed: false,
     userInfo: {}
   },
   user: {
@@ -37,13 +38,26 @@ const userReducers = (state = initialState, action) => {
       );
 
     case helpers.REJECTED_ACTION(userTypes.USER_INFO):
-    case helpers.REJECTED_ACTION(userTypes.USER_LOGIN):
     case helpers.REJECTED_ACTION(userTypes.USER_LOGOUT):
       return helpers.setStateProp(
         'session',
         {
           error: action.error,
           errorMessage: action.payload.message
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.REJECTED_ACTION(userTypes.USER_LOGIN):
+      return helpers.setStateProp(
+        'session',
+        {
+          error: action.error,
+          errorMessage: action.payload.message,
+          loginFailed: true
         },
         {
           state,
