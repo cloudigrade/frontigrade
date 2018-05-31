@@ -30,7 +30,6 @@
       "!src/index.js",
       "!src/setupTests.js",
       "!src/components/app.js",
-      "!src/components/loremView/**",
       "!src/redux/index.js",
       "!src/redux/store.js"
     ],

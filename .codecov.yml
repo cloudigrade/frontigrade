@@ -1,5 +1,18 @@
+coverage:
+ precision: 2
+
+ range: “70…100”
+
+coverage:
+  range: "60…100"
+  status:
+    project: yes
+    patch: no
+    changes: no
+
 ignore:
   - "src/common/*"
   - "src/setupTests.js"
   - "src/**/*store.js"
   - "src/redux/index.js"
+  - "src/components/app.js"

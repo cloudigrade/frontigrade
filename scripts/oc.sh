@@ -118,7 +118,7 @@ startOc()
   GREEN="\e[32m"
   NOCOLOR="\e[39m"
   ENDPOINT="http://cloudigrade-myproject.127.0.0.1.nip.io/auth/users/create/"
-  USERNAME="test"
+  USERNAME="test@cloudigra.de"
   PASSWORD="developer"
   UPDATE=false
 
