@@ -29,4 +29,15 @@ const logoutUser = () => ({
   payload: userServices.logoutUser()
 });
 
-export { checkUser, createUser, deleteUser, loginUser, logoutUser };
+const removeStoredData = () => ({
+  type: userTypes.USER_STORED_DATA_REMOVE,
+  payload: userServices.removeStoredData()
+});
+
+const storeData = data => dispatch =>
+  dispatch({
+    type: userTypes.USER_STORED_DATA,
+    payload: userServices.storeData(data)
+  });
+
+export { checkUser, createUser, deleteUser, loginUser, logoutUser, removeStoredData, storeData };

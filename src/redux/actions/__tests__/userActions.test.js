@@ -1,3 +1,4 @@
+import cookies from 'js-cookie';
 import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
@@ -80,6 +81,21 @@ describe('UserActions', () => {
       const response = store.getState().user.session;
 
       expect(response.authorized).toEqual(false);
+      done();
+    });
+  });
+
+  it('Should return user email for storeData method', done => {
+    const cookieValue = { email: 'get spoof' };
+    cookies.set(process.env.REACT_APP_AUTH_STORED, btoa(JSON.stringify(cookieValue)));
+
+    const store = generateStore();
+    const dispatcher = userActions.storeData();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().user.session;
+
+      expect(response.storedEmail).toEqual(cookieValue.email);
       done();
     });
   });

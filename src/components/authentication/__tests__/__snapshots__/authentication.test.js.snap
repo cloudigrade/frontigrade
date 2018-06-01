@@ -12,6 +12,7 @@ exports[`Authentication Component should shallow snapshot a basic component with
 <Authentication
   checkUser={[Function]}
   loginUser={[Function]}
+  removeStoredData={[Function]}
   session={
     Object {
       "error": false,
@@ -19,6 +20,7 @@ exports[`Authentication Component should shallow snapshot a basic component with
       "pending": true,
     }
   }
+  storeData={[Function]}
 >
   <span
     className="test"

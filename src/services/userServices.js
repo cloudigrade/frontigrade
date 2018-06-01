@@ -1,5 +1,6 @@
 import axios from 'axios';
 import cookies from 'js-cookie';
+import _ from 'lodash';
 import serviceConfig from './index';
 
 /**
@@ -143,4 +144,49 @@ const logoutUser = () =>
     cookies.remove(process.env.REACT_APP_AUTH_TOKEN);
   });
 
-export { checkUser, createUser, deleteUser, loginUser, logoutUser };
+/**
+ * Get, set user stored data in a non-secure way.
+ * @param data {Object}
+ * @param remove {Boolean}
+ * @param config {Object}
+ * @returns {Promise<any>}
+ */
+const storeData = (data, remove = false, config = { extend: true }) =>
+  new Promise(resolve => {
+    const cookieName = process.env.REACT_APP_AUTH_STORED;
+    const cookieExpire = parseInt(process.env.REACT_APP_AUTH_STORED_EXPIRE, 10);
+    let cookieValue = cookies.get(cookieName);
+
+    try {
+      cookieValue = JSON.parse(atob(cookieValue));
+    } catch (e) {
+      cookieValue = {};
+    }
+
+    if (remove) {
+      cookies.remove(cookieName);
+    } else if (data) {
+      let convertedData = data;
+
+      if (!_.isPlainObject(convertedData)) {
+        convertedData = { value: convertedData };
+      }
+
+      if (config && config.extend) {
+        convertedData = Object.assign({}, cookieValue, convertedData);
+      }
+
+      cookies.set(cookieName, btoa(JSON.stringify(convertedData)), { expires: cookieExpire });
+      return resolve(convertedData);
+    }
+
+    return resolve(cookieValue);
+  });
+
+/**
+ * Remove user stored data.
+ * @returns {Promise<any>}
+ */
+const removeStoredData = () => storeData(null, true);
+
+export { checkUser, createUser, deleteUser, loginUser, logoutUser, storeData, removeStoredData };

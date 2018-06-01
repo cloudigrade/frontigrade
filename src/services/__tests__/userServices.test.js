@@ -1,3 +1,4 @@
+import cookies from 'js-cookie';
 import moxios from 'moxios';
 import { userServices } from '../';
 
@@ -42,6 +43,38 @@ describe('UserServices', () => {
 
     userServices.loginUser().catch(error => {
       expect(error.toString()).toContain('User not authorized.');
+      done();
+    });
+  });
+
+  it('should set stored data', done => {
+    const cookieValue = 'set spoof';
+
+    userServices.storeData(cookieValue).then(success => {
+      expect(btoa(JSON.stringify({ value: cookieValue }))).toEqual(cookies.get(process.env.REACT_APP_AUTH_STORED));
+      expect(success).toMatchObject({ value: cookieValue });
+      done();
+    });
+  });
+
+  it('should extend stored data', done => {
+    const cookieValue = { test: 'extend spoof' };
+    const extendValue = { extend: 'more spoof' };
+    cookies.set(process.env.REACT_APP_AUTH_STORED, btoa(JSON.stringify(cookieValue)));
+
+    userServices.storeData(extendValue).then(success => {
+      expect(success.test).toEqual(cookieValue.test);
+      expect(success.extend).toEqual(extendValue.extend);
+      done();
+    });
+  });
+
+  it('should retrieve stored data', done => {
+    const cookieValue = { test: 'get spoof' };
+    cookies.set(process.env.REACT_APP_AUTH_STORED, btoa(JSON.stringify(cookieValue)));
+
+    userServices.storeData().then(success => {
+      expect(success).toMatchObject(cookieValue);
       done();
     });
   });

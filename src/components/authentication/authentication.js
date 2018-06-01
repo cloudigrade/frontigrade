@@ -24,11 +24,17 @@ class Authentication extends React.Component {
 
     if (helpers.OC_MODE) {
       initialState = {
-        email: state.email || process.env.REACT_APP_DEV_USER,
+        email: (props.session.remember && props.session.storedEmail) || state.email || process.env.REACT_APP_DEV_USER,
         password: state.password || process.env.REACT_APP_DEV_PASSWORD,
         emailError: '',
         passwordError: '',
         formValid: true
+      };
+    } else if (props.session.remember && props.session.storedEmail) {
+      initialState = {
+        email: props.session.storedEmail,
+        emailError: '',
+        remember: props.session.remember
       };
     }
 
@@ -46,10 +52,11 @@ class Authentication extends React.Component {
   };
 
   componentDidMount() {
-    const { session, checkUser } = this.props;
+    const { session, checkUser, storeData } = this.props;
 
     if (!session.authorized) {
       checkUser();
+      storeData();
     }
   }
 
@@ -98,20 +105,38 @@ class Authentication extends React.Component {
     });
   }
 
-  login = () => {
-    const { email, password, formValid } = this.state;
-    const { checkUser, loginUser } = this.props;
+  login = event => {
+    const { email, password, remember, formValid } = this.state;
+    const { checkUser, loginUser, removeStoredData, storeData } = this.props;
+
+    event.preventDefault();
 
     if (formValid) {
       this.setState(
         {
-          formTouched: false
+          formTouched: false,
+          password: '',
+          passwordError: null
         },
         () =>
           loginUser({
             username: email,
             password
-          }).then(() => checkUser())
+          }).then(() => {
+            if (remember) {
+              storeData({ email });
+            } else {
+              this.setState(
+                {
+                  email: '',
+                  emailError: null
+                },
+                () => removeStoredData()
+              );
+            }
+
+            return checkUser();
+          })
       );
     }
   };
@@ -129,7 +154,7 @@ class Authentication extends React.Component {
           <h1>Log In to Your Account</h1>
         </header>
         <Card.Body>
-          <form autoComplete={remember ? 'on' : 'off'}>
+          <Form method="post" autoComplete={remember ? 'on' : 'off'} onSubmit={this.login}>
             <div className="cloudmeter-login-card-error help-block" aria-live="polite">
               {(!formTouched && session.error && session.loginFailed) ||
               (emailError !== '' && emailError !== null) ||
@@ -144,6 +169,7 @@ class Authentication extends React.Component {
                 type="email"
                 value={email}
                 placeholder="Email address"
+                required
                 name="email"
                 onChange={this.onChangeEmail}
               />
@@ -155,6 +181,7 @@ class Authentication extends React.Component {
                 type="password"
                 value={password}
                 placeholder="Password"
+                required
                 name="password"
                 onChange={this.onChangePassword}
               />
@@ -173,10 +200,10 @@ class Authentication extends React.Component {
                 Forgot password?
               </Button>
             </Form.FormGroup>
-            <Button bsStyle="primary" bsSize="large" className="btn-block" onClick={this.login}>
+            <Button type="submit" bsStyle="primary" bsSize="large" className="btn-block">
               Log In
             </Button>
-          </form>
+          </Form>
         </Card.Body>
       </Card>
     );
@@ -217,23 +244,30 @@ Authentication.propTypes = {
   checkUser: PropTypes.func,
   children: PropTypes.node.isRequired,
   loginUser: PropTypes.func,
+  removeStoredData: PropTypes.func,
   session: PropTypes.shape({
     error: PropTypes.bool,
     loginFailed: PropTypes.bool,
     authorized: PropTypes.bool,
-    pending: PropTypes.bool
-  })
+    pending: PropTypes.bool,
+    storedEmail: PropTypes.string
+  }),
+  storeData: PropTypes.func
 };
 
 Authentication.defaultProps = {
   checkUser: helpers.noop,
   loginUser: helpers.noop,
-  session: {}
+  removeStoredData: helpers.noop,
+  session: {},
+  storeData: helpers.noop
 };
 
 const mapDispatchToProps = dispatch => ({
   checkUser: () => dispatch(reduxActions.user.checkUser()),
-  loginUser: data => dispatch(reduxActions.user.loginUser(data))
+  loginUser: data => dispatch(reduxActions.user.loginUser(data)),
+  storeData: data => dispatch(reduxActions.user.storeData(data)),
+  removeStoredData: () => dispatch(reduxActions.user.removeStoredData())
 });
 
 const mapStateToProps = state => ({ session: state.user.session });
