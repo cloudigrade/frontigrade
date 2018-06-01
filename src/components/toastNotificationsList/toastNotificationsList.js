@@ -64,4 +64,6 @@ ToastNotificationsList.defaultProps = {
 
 const mapStateToProps = state => ({ ...state.toastNotifications });
 
-export default connect(mapStateToProps)(ToastNotificationsList);
+const ConnectedToastNotificationsList = connect(mapStateToProps)(ToastNotificationsList);
+
+export { ConnectedToastNotificationsList as default, ConnectedToastNotificationsList, ToastNotificationsList };

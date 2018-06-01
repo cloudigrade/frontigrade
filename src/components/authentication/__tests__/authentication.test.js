@@ -1,48 +1,61 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
-import Authentication from '../authentication';
+import { shallow, mount } from 'enzyme';
+import { ConnectedAuthentication, Authentication } from '../authentication';
 
 describe('Authentication Component', () => {
-  const generateEmptyStore = obj => configureMockStore()(obj);
+  const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
 
-  it('should shallow snapshot a basic component with login', () => {
-    const store = generateEmptyStore({ user: { session: { error: false, loginFailed: false, pending: true } } });
-    const wrapper = shallow(
-      <Authentication>
+  it('should render a basic component with login form', () => {
+    const store = generateEmptyStore({ user: { session: { error: false, loginFailed: false, pending: false } } });
+    const component = shallow(
+      <ConnectedAuthentication>
         <span className="test">lorem</span>
-      </Authentication>,
+      </ConnectedAuthentication>,
       { context: { store } }
     );
 
-    expect(wrapper).toMatchSnapshot();
-
-    const wrapperHtml = wrapper.html();
-    expect(wrapperHtml).toContain('Loading...');
-    expect(wrapperHtml).not.toContain('Email address or password is incorrect');
+    expect(component).toMatchSnapshot('connected');
   });
 
-  it('should have a login error', () => {
-    const store = generateEmptyStore({ user: { session: { error: true, loginFailed: true } } });
-    const wrapper = shallow(
-      <Authentication>
+  it('should render a basic component without login form', () => {
+    const props = {
+      session: {
+        authorized: true
+      }
+    };
+
+    const component = mount(
+      <Authentication {...props}>
         <span className="test">lorem</span>
-      </Authentication>,
-      { context: { store } }
+      </Authentication>
     );
 
-    expect(wrapper.html()).toContain('Email address or password is incorrect');
+    expect(component.render()).toMatchSnapshot('post-authorization');
   });
 
-  it('should shallow render a basic component without login', () => {
-    const store = generateEmptyStore({ user: { session: { authorized: true } } });
-    const wrapper = shallow(
-      <Authentication>
-        <span id="test">lorem</span>
-      </Authentication>,
-      { context: { store } }
+  it('should have specific events defined', () => {
+    const checkUser = jest.fn();
+    const props = {
+      checkUser
+    };
+    const component = mount(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
     );
+    const componentInstance = component.instance();
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(componentInstance.onChangeEmail).toBeDefined();
+    expect(componentInstance.onChangePassword).toBeDefined();
+    expect(componentInstance.onChangeRemember).toBeDefined();
+    expect(componentInstance.onLogin).toBeDefined();
+
+    expect(checkUser).toHaveBeenCalled();
+
+    component.find('input[name="email"]').simulate('change', { target: { value: '' } });
+    component.find('input[name="password"]').simulate('change', { target: { value: '123' } });
+    component.find('input[name="remember"]').simulate('change', { target: { checked: true } });
+    expect(componentInstance.state).toMatchSnapshot('expected state');
   });
 });

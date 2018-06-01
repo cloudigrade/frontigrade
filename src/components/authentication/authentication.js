@@ -90,22 +90,18 @@ class Authentication extends React.Component {
 
   onChangeRemember = event => {
     const { checked } = event.target;
+    const { removeStoredData } = this.props;
+
+    if (!checked) {
+      removeStoredData();
+    }
 
     this.setState({
       remember: checked
     });
   };
 
-  isFormValid() {
-    const { emailError, passwordError } = this.state;
-    const formValid = emailError === '' && passwordError === '';
-
-    this.setState({
-      formValid
-    });
-  }
-
-  login = event => {
+  onLogin = event => {
     const { email, password, remember, formValid } = this.state;
     const { checkUser, loginUser, removeStoredData, storeData } = this.props;
 
@@ -141,6 +137,15 @@ class Authentication extends React.Component {
     }
   };
 
+  isFormValid() {
+    const { emailError, passwordError } = this.state;
+    const formValid = emailError === '' && passwordError === '';
+
+    this.setState({
+      formValid
+    });
+  }
+
   renderLogin() {
     const { email, emailError, formTouched, password, passwordError, remember } = this.state;
     const { session } = this.props;
@@ -154,7 +159,7 @@ class Authentication extends React.Component {
           <h1>Log In to Your Account</h1>
         </header>
         <Card.Body>
-          <Form method="post" autoComplete={remember ? 'on' : 'off'} onSubmit={this.login}>
+          <Form method="post" autoComplete={remember ? 'on' : 'off'} onSubmit={this.onLogin}>
             <div className="cloudmeter-login-card-error help-block" aria-live="polite">
               {(!formTouched && session.error && session.loginFailed) ||
               (emailError !== '' && emailError !== null) ||
@@ -272,4 +277,9 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({ session: state.user.session });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Authentication);
+const ConnectedAuthentication = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Authentication);
+
+export { ConnectedAuthentication as default, ConnectedAuthentication, Authentication };
