@@ -1,0 +1,26 @@
+
+.cloudmeter-verticalnav-hide {
+  .nav-pf-vertical {
+    display: none;
+  }
+
+  .collapsed-nav .cloudmeter-content,
+  .cloudmeter-content {
+    left: 0;
+  }
+
+
+  .navbar-pf-vertical .navbar-toggle {
+    @media (min-width: $screen-sm-min) {
+      visibility: hidden;
+      width: 0;
+      margin: 0;
+    }
+  }
+
+  .nav-pf-vertical .list-group-item.collapsed-nav-item {
+    @media (min-width: $screen-sm-min) {
+      display: none;
+    }
+  }
+}

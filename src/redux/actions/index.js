@@ -1,7 +1,7 @@
 import * as userActions from './userActions';
 
 const actions = {
-  userActions
+  user: userActions
 };
 
 const reduxActions = { ...actions };

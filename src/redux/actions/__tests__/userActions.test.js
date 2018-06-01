@@ -1,3 +1,4 @@
+import cookies from 'js-cookie';
 import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
@@ -24,6 +25,18 @@ describe('UserActions', () => {
     moxios.uninstall();
   });
 
+  it('Should return response content for checkUser method', done => {
+    const store = generateStore();
+    const dispatchObj = userActions.checkUser();
+
+    store.dispatch(dispatchObj).then(() => {
+      const response = store.getState().user.session;
+
+      expect(response.userInfo).toEqual('success');
+      done();
+    });
+  });
+
   it('Should return response content for createUser method', done => {
     const store = generateStore();
     const dispatcher = userActions.createUser();
@@ -31,7 +44,7 @@ describe('UserActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().user.user;
 
-      expect(response.other).toEqual('success');
+      expect(response.userInfo).toEqual('success');
       done();
     });
   });
@@ -43,7 +56,7 @@ describe('UserActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().user.user;
 
-      expect(response.other).toEqual('success');
+      expect(response.userInfo).toEqual('success');
       done();
     });
   });
@@ -52,19 +65,19 @@ describe('UserActions', () => {
     const store = generateStore();
     const dispatcher = userActions.loginUser();
 
-    dispatcher(store.dispatch).then(() => {
+    dispatcher(store.dispatch).catch(() => {
       const response = store.getState().user.session;
 
-      expect(response.authorized).toEqual(true);
+      expect(response.errorMessage).toEqual('User not authorized.');
       done();
     });
   });
 
-  it('Should return response content for loginOut method', done => {
+  it('Should return response content for logoutUser method', done => {
     const store = generateStore();
-    const dispatcher = userActions.logoutUser();
+    const dispatchObj = userActions.logoutUser();
 
-    dispatcher(store.dispatch).then(() => {
+    store.dispatch(dispatchObj).then(() => {
       const response = store.getState().user.session;
 
       expect(response.authorized).toEqual(false);
@@ -72,14 +85,17 @@ describe('UserActions', () => {
     });
   });
 
-  it('Should return response content for whoami method', done => {
+  it('Should return user email for storeData method', done => {
+    const cookieValue = { email: 'get spoof' };
+    cookies.set(process.env.REACT_APP_AUTH_STORED, btoa(JSON.stringify(cookieValue)));
+
     const store = generateStore();
-    const dispatcher = userActions.whoami();
+    const dispatcher = userActions.storeData();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().user.user;
+      const response = store.getState().user.session;
 
-      expect(response.current).toEqual('success');
+      expect(response.storedEmail).toEqual(cookieValue.email);
       done();
     });
   });

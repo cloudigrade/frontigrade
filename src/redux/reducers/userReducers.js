@@ -7,15 +7,18 @@ const initialState = {
     errorMessage: '',
     pending: false,
     fulfilled: false,
-    authorized: false
+    authorized: false,
+    loginFailed: false,
+    remember: false,
+    storedEmail: null,
+    userInfo: {}
   },
   user: {
     error: false,
     errorMessage: '',
     pending: false,
     fulfilled: false,
-    current: {},
-    other: {}
+    userInfo: {}
   }
 };
 
@@ -24,7 +27,6 @@ const userReducers = (state = initialState, action) => {
     // Error/Rejected
     case helpers.REJECTED_ACTION(userTypes.USER_CREATE):
     case helpers.REJECTED_ACTION(userTypes.USER_DELETE):
-    case helpers.REJECTED_ACTION(userTypes.USER_INFO):
       return helpers.setStateProp(
         'user',
         {
@@ -37,8 +39,10 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
-    case helpers.REJECTED_ACTION(userTypes.USER_LOGIN):
+    case helpers.REJECTED_ACTION(userTypes.USER_INFO):
     case helpers.REJECTED_ACTION(userTypes.USER_LOGOUT):
+    case helpers.REJECTED_ACTION(userTypes.USER_STORED_DATA):
+    case helpers.REJECTED_ACTION(userTypes.USER_STORED_DATA_REMOVE):
       return helpers.setStateProp(
         'session',
         {
@@ -51,10 +55,23 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
+    case helpers.REJECTED_ACTION(userTypes.USER_LOGIN):
+      return helpers.setStateProp(
+        'session',
+        {
+          error: action.error,
+          errorMessage: action.payload.message,
+          loginFailed: true
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
     // Loading/Pending
     case helpers.PENDING_ACTION(userTypes.USER_CREATE):
     case helpers.PENDING_ACTION(userTypes.USER_DELETE):
-    case helpers.PENDING_ACTION(userTypes.USER_INFO):
       return helpers.setStateProp(
         'user',
         {
@@ -66,8 +83,11 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
+    case helpers.PENDING_ACTION(userTypes.USER_INFO):
     case helpers.PENDING_ACTION(userTypes.USER_LOGIN):
     case helpers.PENDING_ACTION(userTypes.USER_LOGOUT):
+    case helpers.PENDING_ACTION(userTypes.USER_STORED_DATA):
+    case helpers.PENDING_ACTION(userTypes.USER_STORED_DATA_REMOVE):
       return helpers.setStateProp(
         'session',
         {
@@ -85,7 +105,7 @@ const userReducers = (state = initialState, action) => {
         'user',
         {
           fulfilled: true,
-          other: action.payload.data
+          userInfo: action.payload.data
         },
         {
           state,
@@ -98,7 +118,21 @@ const userReducers = (state = initialState, action) => {
         'user',
         {
           fulfilled: true,
-          other: action.payload.data
+          userInfo: action.payload.data
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(userTypes.USER_INFO):
+      return helpers.setStateProp(
+        'session',
+        {
+          fulfilled: true,
+          authorized: true,
+          userInfo: action.payload.data
         },
         {
           state,
@@ -132,12 +166,27 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
-    case helpers.FULFILLED_ACTION(userTypes.USER_INFO):
+    case helpers.FULFILLED_ACTION(userTypes.USER_STORED_DATA):
       return helpers.setStateProp(
-        'user',
+        'session',
         {
           fulfilled: true,
-          current: action.payload.data
+          remember: true,
+          storedEmail: action.payload.email
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(userTypes.USER_STORED_DATA_REMOVE):
+      return helpers.setStateProp(
+        'session',
+        {
+          fulfilled: true,
+          remember: false,
+          storedEmail: null
         },
         {
           state,

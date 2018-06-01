@@ -1,4 +1,4 @@
-import LoremView from '../loremView/loremView';
+import AccountView from '../accountView/accountView';
 
 /**
  * Return the application base directory.
@@ -12,23 +12,11 @@ const baseName = '/';
  */
 const routes = () => [
   {
-    iconClass: 'fa fa-crosshairs',
-    title: 'Usage',
-    to: '/usage',
-    redirect: true,
-    component: LoremView
-  },
-  {
     iconClass: 'pficon pficon-orders',
     title: 'Accounts',
     to: '/accounts',
-    component: LoremView
-  },
-  {
-    iconClass: 'fa fa-id-card',
-    title: 'Users',
-    to: '/users',
-    component: LoremView
+    redirect: true,
+    component: AccountView
   }
 ];
 

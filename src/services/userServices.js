@@ -1,6 +1,34 @@
 import axios from 'axios';
 import cookies from 'js-cookie';
+import _ from 'lodash';
 import serviceConfig from './index';
+
+/**
+ * @api {get} /auth/me/ User information
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {String} email
+ * @apiSuccess {String} username
+ * @apiSuccess {Number} id
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "email": "test@redhat.com",
+ *       "id": 1,
+ *       "username": "developer"
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+const checkUser = () =>
+  axios(
+    serviceConfig({
+      url: process.env.REACT_APP_USER_SERVICE_CURRENT
+    })
+  );
 
 /**
  * @api {post} /auth/users/create/ Create user
@@ -64,7 +92,6 @@ const deleteUser = (data = {}) =>
  * @apiParam (Request message body) {String} [username] Username
  * @apiParam (Request message body) {String} [password] Password
  *
- * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {String} auth_token
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -83,9 +110,13 @@ const loginUser = (data = {}) =>
       false
     )
   ).then(success => {
-    // ToDo: review using session storage instead, resets on tab close but still have to handle logout
-    cookies.set(process.env.REACT_APP_AUTH_TOKEN, success.auth_token);
-    return success;
+    // ToDo: review using session/local storage instead of session cookie
+    if (success.data && success.data.auth_token) {
+      cookies.set(process.env.REACT_APP_AUTH_TOKEN, success.data.auth_token);
+      return success;
+    }
+
+    throw new Error('User not authorized.');
   });
 
 /**
@@ -103,39 +134,59 @@ const loginUser = (data = {}) =>
  *     }
  */
 const logoutUser = () =>
-  // ToDo: remove cookie and/or update session storage
   axios(
     serviceConfig({
       method: 'post',
       url: process.env.REACT_APP_USER_SERVICE_LOGOUT
     })
-  );
+  ).then(() => {
+    // ToDo: review using session/local storage instead of session cookie
+    cookies.remove(process.env.REACT_APP_AUTH_TOKEN);
+  });
 
 /**
- * @api {post} /auth/me/ User information
- * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
- * @apiSuccess {String} email
- * @apiSuccess {String} username
- * @apiSuccess {Number} id
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "email": "test@redhat.com",
- *       "id": 1,
- *       "username": "developer"
- *     }
- * @apiError {String} detail
- * @apiErrorExample {json} Error-Response:
- *     HTTP/1.1 401 Unauthorized
- *     {
- *       "detail": "Authentication credentials were not provided."
- *     }
+ * Get, set user stored data in a non-secure way.
+ * @param data {Object}
+ * @param remove {Boolean}
+ * @param config {Object}
+ * @returns {Promise<any>}
  */
-const whoami = () =>
-  axios(
-    serviceConfig({
-      url: process.env.REACT_APP_USER_SERVICE_CURRENT
-    })
-  );
+const storeData = (data, remove = false, config = { extend: true }) =>
+  new Promise(resolve => {
+    const cookieName = process.env.REACT_APP_AUTH_STORED;
+    const cookieExpire = parseInt(process.env.REACT_APP_AUTH_STORED_EXPIRE, 10);
+    let cookieValue = cookies.get(cookieName);
 
-export { createUser, deleteUser, loginUser, logoutUser, whoami };
+    try {
+      cookieValue = JSON.parse(atob(cookieValue));
+    } catch (e) {
+      cookieValue = {};
+    }
+
+    if (remove) {
+      cookies.remove(cookieName);
+    } else if (data) {
+      let convertedData = data;
+
+      if (!_.isPlainObject(convertedData)) {
+        convertedData = { value: convertedData };
+      }
+
+      if (config && config.extend) {
+        convertedData = Object.assign({}, cookieValue, convertedData);
+      }
+
+      cookies.set(cookieName, btoa(JSON.stringify(convertedData)), { expires: cookieExpire });
+      return resolve(convertedData);
+    }
+
+    return resolve(cookieValue);
+  });
+
+/**
+ * Remove user stored data.
+ * @returns {Promise<any>}
+ */
+const removeStoredData = () => storeData(null, true);
+
+export { checkUser, createUser, deleteUser, loginUser, logoutUser, storeData, removeStoredData };

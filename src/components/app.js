@@ -1,71 +1,64 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import _ from 'lodash';
 import { VerticalNav } from 'patternfly-react';
-import { Router, routes } from './router/router';
+import { reduxActions } from '../redux';
+import helpers from '../common/helpers';
+import { Router } from './router/router';
+import Authentication from './authentication/authentication';
 import MastheadOptions from './mastheadOptions/mastheadOptions';
 import ToastNotificationsList from './toastNotificationsList/toastNotificationsList';
 import titleImg from '../styles/images/title.svg';
 
 class App extends Component {
-  static renderContent() {
-    return (
-      <React.Fragment>
-        <ToastNotificationsList />
-        <Router />
-      </React.Fragment>
-    );
-  }
+  logoutUser = () => {
+    this.props.logoutUser();
+  };
 
-  navigateTo(path) {
-    const { history } = this.props;
-    history.push(path);
-  }
-
-  renderMenuItems() {
-    const { location } = this.props;
-    const menu = routes();
-    const activeItem = menu.find(item => _.startsWith(location.pathname, item.to));
-
-    return menu.map(item => (
-      <VerticalNav.Item
-        key={item.to}
-        title={item.title}
-        iconClass={item.iconClass}
-        active={item === activeItem || (!activeItem && item.redirect)}
-        onClick={() => this.navigateTo(item.to)}
-      />
-    ));
+  renderMenuActions() {
+    return [<VerticalNav.Item key="logout" className="collapsed-nav-item" title="Logout" onClick={this.logoutUser} />];
   }
 
   render() {
-    const user = { currentUser: { username: 'jdoe' } };
+    const { user } = this.props;
 
     return (
-      <div className="layout-pf layout-pf-fixed">
-        <VerticalNav persistentSecondary={false}>
-          <VerticalNav.Masthead>
-            <VerticalNav.Brand titleImg={titleImg} />
-            <MastheadOptions user={user} />
-          </VerticalNav.Masthead>
-          {this.renderMenuItems()}
-        </VerticalNav>
-        <div className="container-pf-nav-pf-vertical">{App.renderContent()}</div>
-      </div>
+      <Authentication>
+        <div className="layout-pf layout-pf-fixed cloudmeter-verticalnav-hide">
+          <VerticalNav persistentSecondary={false}>
+            <VerticalNav.Masthead>
+              <VerticalNav.Brand titleImg={titleImg} />
+              <MastheadOptions user={user} logoutUser={this.logoutUser} />
+            </VerticalNav.Masthead>
+            {this.renderMenuActions()}
+          </VerticalNav>
+          <div className="container-pf-nav-pf-vertical">
+            <ToastNotificationsList />
+            <Router />
+          </div>
+        </div>
+      </Authentication>
     );
   }
 }
 
 App.propTypes = {
-  location: PropTypes.object,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }).isRequired
+  logoutUser: PropTypes.func,
+  user: PropTypes.object
 };
 
 App.defaultProps = {
-  location: {}
+  logoutUser: helpers.noop,
+  user: {}
 };
 
-export default withRouter(App);
+const mapDispatchToProps = dispatch => ({
+  logoutUser: () => dispatch(reduxActions.user.logoutUser())
+});
+
+const mapStateToProps = state => ({
+  user: state.user.session.userInfo
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -21,18 +21,19 @@ describe('ToastNotificationsReducers', () => {
     };
 
     let resultState = toastNotificationsReducers(undefined, dispatched);
+    resultState = toastNotificationsReducers(resultState, dispatched);
 
-    expect(resultState.toasts.length).toEqual(1);
+    expect(resultState.toasts.length).toEqual(2);
     expect(Object.keys(resultState.toasts[0]).length).toEqual(4);
+    expect(Object.keys(resultState.toasts[1]).length).toEqual(4);
 
     dispatched = {
       type: toastNotificationTypes.TOAST_REMOVE,
       toast: resultState.toasts[0]
     };
 
-    resultState = toastNotificationsReducers(undefined, dispatched);
-
-    expect(resultState.toasts.length).toEqual(0);
+    resultState = toastNotificationsReducers(resultState, dispatched);
+    expect(resultState.toasts.filter(value => !value.removed).length).toEqual(1);
   });
 
   it('should handle pausing and resuming a toast notification', () => {

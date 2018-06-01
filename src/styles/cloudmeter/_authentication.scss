@@ -1,0 +1,72 @@
+.cloudmeter-login {
+  background-image: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  overflow-y: auto;
+  position: fixed;
+
+  @media (min-width: $screen-sm-min) {
+    background-image: url(../images/bg-login-2.png);
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 30%;
+  }
+}
+
+.cloudmeter-login-body {
+  @media (min-width: $screen-sm-min) {
+    background-image: url(../images/bg-login.png);
+    background-repeat: no-repeat;
+    background-size: 30%;
+  }
+
+  .cloudmeter-login-brand {
+    height: auto;
+    width: 40%;
+  }
+}
+
+.cloudmeter-login-card {
+  min-height: 360px;
+
+  .login-pf-header,
+  .card-pf-body {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}
+
+.cloudmeter-login-card-error {
+  color: $color-pf-red-100;
+  margin-bottom: 16px;
+  min-height:20px;
+}
+
+.cloudmeter-login-loading-card {
+  @extend .cloudmeter-login-card;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloudmeter-login.fadein {
+  opacity:0;
+  animation:fadein ease-in forwards;
+  animation-delay:.15s;
+}
+
+@-webkit-keyframes fadein           {   0%{opacity:0} 100%{opacity:1} }
+@-moz-keyframes fadein              {   0%{opacity:0} 100%{opacity:1} }
+@-o-keyframes fadein                {   0%{opacity:0} 100%{opacity:1} }
+@keyframes fadein                   {   0%{opacity:0} 100%{opacity:1} }
+
+.cloudmeter-login-settings {
+  > * {
+    margin-top: 0;
+    padding-top: 0;
+    border-top-width: 0;
+  }
+}

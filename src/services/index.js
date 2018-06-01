@@ -5,8 +5,13 @@ import * as userServices from './userServices';
 
 const authHeader = () => {
   const authToken = cookies.get(process.env.REACT_APP_AUTH_TOKEN) || '';
+
+  if (authToken === '') {
+    return {};
+  }
+
   return {
-    [process.env.REACT_APP_AUTH_HEADER]: process.env.REACT_APP_AUTH_HEADER_CONTENT.replace('{0}', authToken)
+    [process.env.REACT_APP_AUTH_HEADER]: process.env.REACT_APP_AUTH_HEADER_CONTENT.replace('{0}', ` ${authToken}`)
   };
 };
 
