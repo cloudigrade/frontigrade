@@ -3,13 +3,7 @@ import { toastNotificationTypes } from '../../constants';
 
 describe('ToastNotificationsReducers', () => {
   it('should return the initial state', () => {
-    const initialState = {
-      toasts: [],
-      paused: false,
-      displayedToasts: 0
-    };
-
-    expect(toastNotificationsReducers(undefined, {})).toEqual(initialState);
+    expect(toastNotificationsReducers.initialState).toBeDefined();
   });
 
   it('should handle adding and removing toast notifications', () => {

@@ -7,9 +7,10 @@
 // Setup for internal vertical scroll
 .cloudmeter-content {
   bottom: 0;
-  top: $navbar-pf-vertical-height;
+  left:0;
   right: 0;
-  position: fixed;
+  top: $navbar-pf-vertical-height;
+  position: relative;
 
   .collapsed-nav & {
     left: $nav-pf-vertical-collapsed-width;

@@ -14,25 +14,36 @@ const noop = Function.prototype;
 
 const setStateProp = (prop, data, options) => {
   const { state = {}, initialState = {}, reset = true } = options;
-  let obj = { ...state }; // eslint-disable-line prefer-const
+  let obj = { ...state };
 
-  if (!state[prop]) {
+  if (prop && !state[prop]) {
     console.error(`Error: Property ${prop} does not exist within the passed state.`, state);
   }
 
-  if (reset && !initialState[prop]) {
+  if (reset && prop && !initialState[prop]) {
     console.warn(`Warning: Property ${prop} does not exist within the passed initialState.`, initialState);
   }
 
-  if (reset) {
+  if (reset && prop) {
     obj[prop] = {
       ...state[prop],
       ...initialState[prop],
       ...data
     };
-  } else {
+  } else if (reset && !prop) {
+    obj = {
+      ...state,
+      ...initialState,
+      ...data
+    };
+  } else if (prop) {
     obj[prop] = {
       ...state[prop],
+      ...data
+    };
+  } else {
+    obj = {
+      ...state,
       ...data
     };
   }

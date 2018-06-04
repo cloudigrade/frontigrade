@@ -1,18 +1,24 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import AccountView from '../accountView';
+import configureMockStore from 'redux-mock-store';
+import { mount, shallow } from 'enzyme';
+import { ConnectedAccountView, AccountView } from '../accountView';
 
 describe('AccountView Component', () => {
-  it('should render', () => {
-    const primaryClick = jest.fn();
-    const props = {
-      primaryClick
-    };
+  const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
+
+  it('should render a connected component', () => {
+    const store = generateEmptyStore({ account: {} });
+    const component = shallow(<ConnectedAccountView />, { context: { store } });
+
+    expect(component.dive()).toMatchSnapshot('connected');
+  });
+
+  it('should render a non-connected component', () => {
+    const props = {};
 
     const component = mount(<AccountView {...props} />);
     expect(component.render()).toMatchSnapshot();
 
-    component.find('button').simulate('click');
-    expect(primaryClick).toBeCalled();
+    expect(component.find('button').length).toEqual(1);
   });
 });

@@ -122,10 +122,8 @@ const loginUser = (data = {}) =>
 /**
  * @api {post} /auth/token/destroy/ Logout user
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *     }
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 204 OK
  * @apiError {String} detail
  * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 400 Bad Request

@@ -37,15 +37,25 @@ Setting Docker up on a Linux machine can include an additional convenience step.
      ```
 
 ### Development Serve
-This is the default context for running the UI with a local mock API
+This is the default context for running the UI with a local mock API. You need the base Frontigrade requirements to run this context.
   ```
   $ npm start
   ```
-  
+There are limitations in running against the mock serve, accuracy in API responses is much more lenient. Meaning server responses may not throw the appropriate errors where needed.
+
+#### OpenShift local serve
+
 Once you've gone through the [Cloudigrade install process](https://github.com/cloudigrade/cloudigrade#developer-environment), and confirmed [tooling for Cloudigrade](https://github.com/cloudigrade/cloudigrade#developer-environment) works you can make use of the local Openshift convenience scripting
   ```
   $ npm run start:oc
   ```
+  
+#### Review serve
+An alternative to running the development or OpenShift serve is the review serve. This allows you to view an environment without having to use OpenShift locally. You only need the base Frontigrade requirements to run this context.
+  ```
+  $ npm run start:review
+  ```
+ 
 
 #### Debugging Redux
 This project makes use of React & Redux. To enable Redux console logging, within the `[REPO]/client` directory, add a `.env.local` (dotenv) file with the follow line
