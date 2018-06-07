@@ -1,14 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Authentication Component should shallow render a basic component without login 1`] = `
-<span
-  id="test"
->
-  lorem
-</span>
-`;
-
-exports[`Authentication Component should shallow snapshot a basic component with login 1`] = `
+exports[`connected 1`] = `
 <Authentication
   checkUser={[Function]}
   loginUser={[Function]}
@@ -17,7 +9,7 @@ exports[`Authentication Component should shallow snapshot a basic component with
     Object {
       "error": false,
       "loginFailed": false,
-      "pending": true,
+      "pending": false,
     }
   }
   storeData={[Function]}
@@ -28,4 +20,24 @@ exports[`Authentication Component should shallow snapshot a basic component with
     lorem
   </span>
 </Authentication>
+`;
+
+exports[`expected state 1`] = `
+Object {
+  "email": "",
+  "emailError": "Email must be valid",
+  "formTouched": true,
+  "formValid": false,
+  "password": "123",
+  "passwordError": "",
+  "remember": true,
+}
+`;
+
+exports[`post-authorization 1`] = `
+<span
+  class="test"
+>
+  lorem
+</span>
 `;
