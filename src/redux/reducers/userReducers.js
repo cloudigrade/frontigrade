@@ -11,7 +11,8 @@ const initialState = {
     loginFailed: false,
     remember: false,
     storedEmail: null,
-    userInfo: {}
+    username: null,
+    email: null
   },
   user: {
     error: false,
@@ -29,22 +30,6 @@ const userReducers = (state = initialState, action) => {
     case helpers.REJECTED_ACTION(userTypes.USER_DELETE):
       return helpers.setStateProp(
         'user',
-        {
-          error: action.error,
-          errorMessage: action.payload.message
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case helpers.REJECTED_ACTION(userTypes.USER_INFO):
-    case helpers.REJECTED_ACTION(userTypes.USER_LOGOUT):
-    case helpers.REJECTED_ACTION(userTypes.USER_STORED_DATA):
-    case helpers.REJECTED_ACTION(userTypes.USER_STORED_DATA_REMOVE):
-      return helpers.setStateProp(
-        'session',
         {
           error: action.error,
           errorMessage: action.payload.message
@@ -83,11 +68,7 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
-    case helpers.PENDING_ACTION(userTypes.USER_INFO):
     case helpers.PENDING_ACTION(userTypes.USER_LOGIN):
-    case helpers.PENDING_ACTION(userTypes.USER_LOGOUT):
-    case helpers.PENDING_ACTION(userTypes.USER_STORED_DATA):
-    case helpers.PENDING_ACTION(userTypes.USER_STORED_DATA_REMOVE):
       return helpers.setStateProp(
         'session',
         {
@@ -130,13 +111,13 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
-          fulfilled: true,
           authorized: true,
-          userInfo: action.payload.data
+          username: (action.payload.data && action.payload.data.username) || null,
+          email: (action.payload.data && action.payload.data.email) || null
         },
         {
           state,
-          initialState
+          reset: false
         }
       );
 
@@ -145,7 +126,9 @@ const userReducers = (state = initialState, action) => {
         'session',
         {
           fulfilled: true,
-          authorized: true
+          authorized: true,
+          remember: state.session.remember,
+          storedEmail: state.session.storedEmail
         },
         {
           state,
@@ -157,8 +140,9 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
-          fulfilled: true,
-          authorized: false
+          authorized: false,
+          remember: state.session.remember,
+          storedEmail: state.session.storedEmail
         },
         {
           state,
@@ -170,7 +154,6 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
-          fulfilled: true,
           remember: true,
           storedEmail: action.payload.email
         },
@@ -184,7 +167,6 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
-          fulfilled: true,
           remember: false,
           storedEmail: null
         },

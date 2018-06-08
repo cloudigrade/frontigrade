@@ -28,7 +28,8 @@ class Authentication extends React.Component {
         password: state.password || process.env.REACT_APP_DEV_PASSWORD,
         emailError: '',
         passwordError: '',
-        formValid: true
+        formValid: true,
+        remember: props.session.remember
       };
     } else if (props.session.remember && props.session.storedEmail) {
       initialState = {
@@ -93,12 +94,16 @@ class Authentication extends React.Component {
     const { removeStoredData } = this.props;
 
     if (!checked) {
-      removeStoredData();
+      removeStoredData().then(() =>
+        this.setState({
+          remember: checked
+        })
+      );
+    } else {
+      this.setState({
+        remember: checked
+      });
     }
-
-    this.setState({
-      remember: checked
-    });
   };
 
   onLogin = event => {
@@ -255,7 +260,8 @@ Authentication.propTypes = {
     loginFailed: PropTypes.bool,
     authorized: PropTypes.bool,
     pending: PropTypes.bool,
-    storedEmail: PropTypes.string
+    storedEmail: PropTypes.string,
+    remember: PropTypes.bool
   }),
   storeData: PropTypes.func
 };

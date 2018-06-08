@@ -107,7 +107,9 @@ class Masthead extends React.Component {
 
 Masthead.propTypes = {
   logoutUser: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.shape({
+    username: PropTypes.string
+  })
 };
 
 Masthead.defaultProps = {
@@ -120,7 +122,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  user: state.user.session.userInfo
+  user: state.user.session
 });
 
 const ConnectedMasthead = connect(
