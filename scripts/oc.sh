@@ -4,23 +4,25 @@
 # Setup user for Cloudigrade
 setupUser()
 {
-  local CHECK_SUCCESS="{\"email\":\"\",\"username\":\"test\",\"id\":1}"
+  local CHECK_SUCCESS="{\"email\":\"\",\"username\":\"$1\",\"id\":1}"
   local CHECK_EXISTS="{\"username\":[\"A user with that username already exists.\"]}"
   local COLOR=$RED
   local STATUS="ERROR"
   local USER_NAME=$1
   local USER_PASSWORD=$2
   local USER_ENDPOINT=$3
+  local RESPONSE=""
 
-  checkOc 100
   echo "Test user logging in..."
 
-  local RESPONSE=$(curl -d "{\"username\":\"$USER_NAME\", \"password\":\"$USER_PASSWORD\"}" -H "Content-Type: application/json" -X POST $USER_ENDPOINT)
+  RESPONSE=$(curl -s -d "{\"username\":\"$USER_NAME\", \"password\":\"$USER_PASSWORD\"}" -H "Content-Type: application/json" -X POST $USER_ENDPOINT)
 
   if [ "$RESPONSE" = "$CHECK_SUCCESS" ] || [ "$RESPONSE" = "$CHECK_EXISTS" ]; then
     COLOR=$GREEN
     STATUS="SUCCESS"
   fi
+
+  echo "Response: "$RESPONSE | cut -c 1-100
 
   printf "\n${COLOR}Test user ${STATUS}.\n"
   printf "\n${COLOR}  username=${USER_NAME}"
@@ -35,34 +37,36 @@ checkOc()
   local DELAY=1
   local DURATION=$1
 
-  printf "Check pod running..."
+  printf "Is pod running..."
 
   while [ $COUNT -le $DURATION ]; do
     sleep $DELAY
     (( COUNT++ ))
-    if [ ! -z "$(oc get pods | grep -e 'cloudigrade-nginx-1-build' -e 'Completed')" ]; then
+    if [ ! -z "$(oc get pods | grep -e 'cloudigrade-api.*Completed' -e 'cloudigrade-nginx.*Completed' -e 'frontigrade.*Completed')" ] && [ -z "$(oc get pods | grep -e 'Error' -e 'Pending' -e 'ContainerCreating' -e '-hook-mid' -e '-deploy')" ]; then
       break
     fi
   done
 
-  if [ -z "$(oc get pods | grep -e 'cloudigrade-nginx-1-build' -e 'Completed')" ]; then
-    printf "  ${RED}POD ERROR... stopping oc local run\n"
+  if [ -z "$(oc get pods | grep -e 'cloudigrade-api.*Completed' -e 'cloudigrade-nginx.*Completed' -e 'frontigrade.*Completed')" ] || [ ! -z "$(oc get pods | grep -e 'Error' -e 'Pending' -e 'ContainerCreating')" ]; then
+    printf "  ${RED}POD ERROR... after ${COUNT} secs stopping oc local run\n"
     printf "${NOCOLOR}\n"
+    oc get pods
     oc cluster down
     exit 1
   fi
 
   printf "  ${GREEN}POD SUCCESS after ${COUNT} secs... continuing\n"
-  printf "${NOCOLOR}\n"
+  printf "${NOCOLOR}"
 }
 #
 #
 # Basic start for Cloudigrade
 startOc()
 {
+  local LOCAL_CONFIG=.env.local
   local REPO_PATH="${HOME}/.frontigrade"
-  local REPO_LOCAL="${HOME}/.frontigrade/cloudigrade"
-  local REPO="https://github.com/cloudigrade/cloudigrade.git"
+  local REPO_LOCAL="${HOME}/.frontigrade/shiftigrade"
+  local REPO="https://github.com/cloudigrade/shiftigrade.git"
   local UPDATE=$1
 
   if [ -z "$(git version)" ]; then
@@ -71,7 +75,7 @@ startOc()
   fi
 
   if [ -z "$(oc version)" ]; then
-    printf "\n${RED}Openshift CLI missing.${NOCOLOR}\n"
+    printf "\n${RED}OpenShift CLI missing.${NOCOLOR}\n"
     exit 0
   fi
 
@@ -80,33 +84,60 @@ startOc()
     exit 0
   fi
 
+  if [ -z "$(docker -v | grep -e ' 1.10' -e ' 1.12' -e ' 1.13')" ]; then
+    printf "\n${RED}Docker version currently running may cause cluster issues.${NOCOLOR}"
+    printf "\n  ${RED}See OpenShift documentation:${NOCOLOR} https://bit.ly/2JB7Kre\n"
+  fi
+
   if [ -z "$(checkOc 1 | grep SUCCESS)" ] || [ "$UPDATE" = true ]; then
     oc cluster down
 
-    export AWS_ACCESS_KEY_ID=123
-    export AWS_SECRET_ACCESS_KEY=456
+    if [ -f $LOCAL_CONFIG ]; then
+      set -a
+        . $LOCAL_CONFIG
+      set +a
+    fi
+
+    if [ -z "$AWS_ACCESS_KEY_ID" ]; then
+      echo "Missing local config for AWS_ACCESS_KEY_ID"
+      echo "Exiting API setup..."
+      exit 1
+    fi
+
+    if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
+      echo "Missing local config for AWS_SECRET_ACCESS_KEY"
+      echo "Exiting API setup..."
+      exit 1
+    fi
+
+    if [ -z "$AWS_SQS_ACCESS_KEY_ID" ]; then
+      echo "Missing local config for AWS_SQS_ACCESS_KEY_ID"
+      echo "Exiting API setup..."
+      exit 1
+    fi
+
+    if [ -z "$AWS_SQS_SECRET_ACCESS_KEY" ]; then
+      echo "Missing local config for AWS_SQS_SECRET_ACCESS_KEY"
+      echo "Exiting API setup..."
+      exit 1
+    fi
 
     if [ ! -d "$REPO_LOCAL/.git" ]; then
-      echo "Cloning Cloudigrade..."
+      echo "Cloning Shiftigrade..."
       mkdir -p $REPO_PATH
       cd $REPO_PATH
       git clone $REPO
       cd $REPO_LOCAL
-      make oc-clean
-      make oc-create-cloudigrade
-      make oc-up-all
-      echo "sleep 60"
-      sleep 60
     else
-      echo "Updating Cloudigrade..."
+      echo "Updating Shiftigrade..."
       cd $REPO_LOCAL
-      make oc-clean
       git fetch origin master
       git reset --hard origin/master
-      make oc-up-all
-      echo "sleep 30"
-      sleep 30
     fi
+
+    make oc-clean
+    oc cluster down
+    make oc-up-all
   fi
 }
 #
@@ -117,7 +148,7 @@ startOc()
   RED="\e[31m"
   GREEN="\e[32m"
   NOCOLOR="\e[39m"
-  ENDPOINT="http://cloudigrade-myproject.127.0.0.1.nip.io/auth/users/create/"
+  ENDPOINT="http://cloudigrade.127.0.0.1.nip.io/auth/users/create/"
   USERNAME="test@cloudigra.de"
   PASSWORD="developer"
   UPDATE=false
@@ -133,7 +164,9 @@ startOc()
   done
 
   startOc $UPDATE
+  checkOc 180
   setupUser $USERNAME $PASSWORD $ENDPOINT
 
-  printf "${GREEN}Cloudigrade ready to use!${NOCOLOR}\n"
+  oc get pods
+  printf "\n${GREEN}Cloudigrade ready to use!${NOCOLOR}\n"
 }

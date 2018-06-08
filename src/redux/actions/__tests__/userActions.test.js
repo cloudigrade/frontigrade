@@ -32,7 +32,9 @@ describe('UserActions', () => {
     store.dispatch(dispatchObj).then(() => {
       const response = store.getState().user.session;
 
-      expect(response.userInfo).toEqual('success');
+      expect(response.authorized).toEqual(true);
+      expect(response.username).toEqual(null);
+      expect(response.email).toEqual(null);
       done();
     });
   });

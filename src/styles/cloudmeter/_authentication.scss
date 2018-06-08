@@ -55,7 +55,7 @@
 .cloudmeter-login.fadein {
   opacity:0;
   animation:fadein ease-in forwards;
-  animation-delay:.15s;
+  animation-delay:.25s;
 }
 
 @-webkit-keyframes fadein           {   0%{opacity:0} 100%{opacity:1} }

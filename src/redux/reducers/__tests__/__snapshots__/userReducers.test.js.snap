@@ -5,6 +5,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -12,7 +13,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": true,
@@ -31,6 +32,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -38,7 +40,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": true,
@@ -57,14 +59,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
-      "error": true,
-      "errorMessage": "MESSAGE",
+      "email": null,
+      "error": false,
+      "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -83,6 +86,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": true,
       "errorMessage": "MESSAGE",
       "fulfilled": false,
@@ -90,7 +94,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -109,14 +113,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
-      "error": true,
-      "errorMessage": "MESSAGE",
+      "email": null,
+      "error": false,
+      "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -135,14 +140,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
-      "error": true,
-      "errorMessage": "MESSAGE",
+      "email": null,
+      "error": false,
+      "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -161,14 +167,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
-      "error": true,
-      "errorMessage": "MESSAGE",
+      "email": null,
+      "error": false,
+      "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -187,6 +194,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -194,7 +202,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -213,6 +221,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -220,7 +229,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -239,14 +248,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": true,
+      "email": null,
       "error": false,
       "errorMessage": "",
-      "fulfilled": true,
+      "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": undefined,
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -265,6 +275,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": true,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
@@ -272,7 +283,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -291,14 +302,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
-      "fulfilled": true,
+      "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -317,14 +329,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
-      "fulfilled": true,
+      "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": true,
       "storedEmail": undefined,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -343,14 +356,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
-      "fulfilled": true,
+      "fulfilled": false,
       "loginFailed": false,
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -369,6 +383,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -376,7 +391,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -395,6 +410,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -402,7 +418,7 @@ Object {
       "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -421,14 +437,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
-      "pending": true,
+      "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -447,6 +464,7 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
@@ -454,7 +472,7 @@ Object {
       "pending": true,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -473,14 +491,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
-      "pending": true,
+      "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -499,14 +518,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
-      "pending": true,
+      "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
@@ -525,14 +545,15 @@ Object {
   "result": Object {
     "session": Object {
       "authorized": false,
+      "email": null,
       "error": false,
       "errorMessage": "",
       "fulfilled": false,
       "loginFailed": false,
-      "pending": true,
+      "pending": false,
       "remember": false,
       "storedEmail": null,
-      "userInfo": Object {},
+      "username": null,
     },
     "user": Object {
       "error": false,
