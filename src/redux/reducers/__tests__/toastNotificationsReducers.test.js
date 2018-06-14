@@ -1,7 +1,7 @@
-import toastNotificationsReducer from '../toastNotificationsReducer';
+import { toastNotificationsReducers } from '../';
 import { toastNotificationTypes } from '../../constants';
 
-describe('toastNotificationsReducer', () => {
+describe('ToastNotificationsReducers', () => {
   it('should return the initial state', () => {
     const initialState = {
       toasts: [],
@@ -9,7 +9,7 @@ describe('toastNotificationsReducer', () => {
       displayedToasts: 0
     };
 
-    expect(toastNotificationsReducer(undefined, {})).toEqual(initialState);
+    expect(toastNotificationsReducers(undefined, {})).toEqual(initialState);
   });
 
   it('should handle adding and removing toast notifications', () => {
@@ -20,19 +20,20 @@ describe('toastNotificationsReducer', () => {
       alertType: 'success'
     };
 
-    let resultState = toastNotificationsReducer(undefined, dispatched);
+    let resultState = toastNotificationsReducers(undefined, dispatched);
+    resultState = toastNotificationsReducers(resultState, dispatched);
 
-    expect(resultState.toasts.length).toEqual(1);
+    expect(resultState.toasts.length).toEqual(2);
     expect(Object.keys(resultState.toasts[0]).length).toEqual(4);
+    expect(Object.keys(resultState.toasts[1]).length).toEqual(4);
 
     dispatched = {
       type: toastNotificationTypes.TOAST_REMOVE,
       toast: resultState.toasts[0]
     };
 
-    resultState = toastNotificationsReducer(undefined, dispatched);
-
-    expect(resultState.toasts.length).toEqual(0);
+    resultState = toastNotificationsReducers(resultState, dispatched);
+    expect(resultState.toasts.filter(value => !value.removed).length).toEqual(1);
   });
 
   it('should handle pausing and resuming a toast notification', () => {
@@ -40,7 +41,7 @@ describe('toastNotificationsReducer', () => {
       type: toastNotificationTypes.TOAST_PAUSE
     };
 
-    let resultState = toastNotificationsReducer(undefined, dispatched);
+    let resultState = toastNotificationsReducers(undefined, dispatched);
 
     expect(resultState.paused).toBeTruthy();
 
@@ -48,7 +49,7 @@ describe('toastNotificationsReducer', () => {
       type: toastNotificationTypes.TOAST_RESUME
     };
 
-    resultState = toastNotificationsReducer(undefined, dispatched);
+    resultState = toastNotificationsReducers(undefined, dispatched);
 
     expect(resultState.paused).toBeFalsy();
   });

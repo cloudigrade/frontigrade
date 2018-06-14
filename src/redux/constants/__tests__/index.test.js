@@ -1,9 +1,8 @@
-import reduxTypes from '..';
-import * as toastNotificationTypes from '../toastNotificationConstants';
+import { reduxTypes, toastNotificationTypes, userTypes } from '..';
 
-describe('reduxTypes', () => {
+describe('ReduxTypes', () => {
   it('should export the same number of name-spaced types as imported', () => {
-    expect(Object.keys(reduxTypes)).toHaveLength(1);
+    expect(Object.keys(reduxTypes)).toHaveLength(2);
   });
 
   it('should return types that are defined', () => {
@@ -12,5 +11,6 @@ describe('reduxTypes', () => {
 
   it('should return types that match', () => {
     expect(reduxTypes.toastNotifications).toEqual(toastNotificationTypes);
+    expect(reduxTypes.user).toEqual(userTypes);
   });
 });

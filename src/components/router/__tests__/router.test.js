@@ -3,9 +3,9 @@ import { shallow } from 'enzyme';
 import Router from '../router';
 
 describe('Router Component', () => {
-  it('should shallow render a basic component', () => {
-    const wrapper = shallow(<Router />);
+  it('should render a basic component', () => {
+    const component = shallow(<Router />);
 
-    expect(wrapper).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 });

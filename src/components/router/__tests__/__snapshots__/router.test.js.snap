@@ -1,29 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Router Component should shallow render a basic component 1`] = `
+exports[`Router Component should render a basic component 1`] = `
 <div
   className="cloudmeter-content"
 >
   <Switch>
     <Route
       component={[Function]}
-      key="/usage"
-      path="/usage"
-    />
-    <Route
-      component={[Function]}
       key="/accounts"
       path="/accounts"
-    />
-    <Route
-      component={[Function]}
-      key="/users"
-      path="/users"
     />
     <Redirect
       from="/"
       push={false}
-      to="/usage"
+      to="/accounts"
     />
   </Switch>
 </div>

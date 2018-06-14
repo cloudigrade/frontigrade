@@ -37,9 +37,14 @@ Setting Docker up on a Linux machine can include an additional convenience step.
      ```
 
 ### Development Serve
-This is the default context for running the UI
+This is the default context for running the UI with a local mock API
   ```
   $ npm start
+  ```
+  
+Once you've gone through the [Cloudigrade install process](https://github.com/cloudigrade/cloudigrade#developer-environment), and confirmed [tooling for Cloudigrade](https://github.com/cloudigrade/cloudigrade#developer-environment) works you can make use of the local Openshift convenience scripting
+  ```
+  $ npm run start:oc
   ```
 
 #### Debugging Redux
@@ -57,6 +62,11 @@ Once you've made the change, restart the project and console browser logging sho
 To run the unit tests, use this command
   ```
   $ npm test
+  ```
+  
+To run the unit tests with a watch during development
+  ```
+  $ npm run test:dev
   ```
 
 ### Development with a Cloudigrade API toolset

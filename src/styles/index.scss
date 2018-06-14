@@ -19,7 +19,8 @@ $icon-font-path: '~patternfly/dist/fonts/';
 @import 'patternfly/dist/sass/patternfly/mixins';
 
 @import 'cloudmeter/app';
+@import 'cloudmeter/authentication';
 @import 'cloudmeter/forms';
-@import 'cloudmeter/mastheadOptions';
+@import 'cloudmeter/masthead';
 @import 'cloudmeter/wizard';
 

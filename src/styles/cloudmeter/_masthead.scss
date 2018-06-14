@@ -1,0 +1,66 @@
+.cloudmeter-nav {
+  .navbar-brand .navbar-brand-icon {
+    display: none;
+  }
+
+  .navbar-brand .navbar-brand-name {
+    height: auto;
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  .navbar-toggle, .show-mobile-nav {
+    @media (min-width: $screen-sm-min) {
+      visibility: hidden;
+      width: 0;
+      margin: 0;
+    }
+  }
+
+  .list-group-item.collapsed-nav-item {
+    @media (min-width: $screen-sm-min) {
+      display: none;
+    }
+  }
+
+  .nav .nav-item-iconic {
+    line-height: inherit;
+
+    .btn-group {
+      max-height: 58px;
+      position: relative;
+      top: -22px;
+    }
+
+    .btn {
+      background: transparent;
+      border-color: transparent;
+      padding: 21px 0;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .open .btn:focus {
+      background: transparent;
+      border-color: transparent;
+      outline: none;
+    }
+
+    .navbar-pf-vertical .nav .nav-item-iconic {
+      .fa {
+        font-size: 13px;
+        font-family: sans-serif;
+        font-weight: bold;
+      }
+      .fa:before {
+        font-size: 16px;
+        font-family: FontAwesome;
+      }
+      [class*=" pficon-"]:before {
+        font-size: 16px;
+        font-family: PatternFlyIcons-webfont;
+      }
+    }
+  }
+}
