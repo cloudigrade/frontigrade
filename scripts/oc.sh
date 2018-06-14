@@ -63,7 +63,7 @@ checkOc()
 # Basic start for Cloudigrade
 startOc()
 {
-  local LOCAL_CONFIG=.env.local
+  local LOCAL_CONFIG="./.env.local"
   local REPO_PATH="${HOME}/.frontigrade"
   local REPO_LOCAL="${HOME}/.frontigrade/shiftigrade"
   local REPO="https://github.com/cloudigrade/shiftigrade.git"
