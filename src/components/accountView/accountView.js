@@ -1,45 +1,40 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Button, EmptyState, Grid, Row } from 'patternfly-react';
-import { reduxTypes, store } from '../../redux';
+import { connect, reduxTypes, store } from '../../redux';
 
-const AccountView = ({ primaryClick }) => {
-  const handleClick = () => {
+class AccountView extends React.Component {
+  showAccountWizard = () => {
     store.dispatch({
-      type: reduxTypes.toastNotifications.TOAST_ADD,
-      alertType: 'success',
-      message: <span>Success dolor sit amet.</span>
+      type: reduxTypes.account.ADD_ACCOUNT_SHOW
     });
   };
 
-  return (
-    <Grid fluid>
-      <Row>
-        <EmptyState className="full-page-blank-slate">
-          <EmptyState.Icon />
-          <EmptyState.Title>Lorem Ipsum</EmptyState.Title>
-          <EmptyState.Info>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo purus a sem ornare ullamcorper. Duis
-            sed mi mi. Aenean risus ante, hendrerit sed cursus nec, pharetra eu nisi. Nulla in dui id leo dapibus
-            malesuada eu placerat lacus. Phasellus pulvinar magna vel mattis commodo.
-          </EmptyState.Info>
-          <EmptyState.Action>
-            <Button bsStyle="primary" bsSize="large" onClick={primaryClick || handleClick}>
-              Dolor sit amet
-            </Button>
-          </EmptyState.Action>
-        </EmptyState>
-      </Row>
-    </Grid>
-  );
-};
+  render() {
+    return (
+      <Grid fluid>
+        <Row>
+          <EmptyState className="full-page-blank-slate">
+            <EmptyState.Icon />
+            <EmptyState.Title>Welcome to Cloud Meter</EmptyState.Title>
+            <EmptyState.Info>Add an AWS account to monitor usage.</EmptyState.Info>
+            <EmptyState.Action>
+              <Button bsStyle="primary" bsSize="large" onClick={this.showAccountWizard}>
+                Add Account
+              </Button>
+            </EmptyState.Action>
+          </EmptyState>
+        </Row>
+      </Grid>
+    );
+  }
+}
 
-AccountView.propTypes = {
-  primaryClick: PropTypes.func
-};
+AccountView.propTypes = {};
 
-AccountView.defaultProps = {
-  primaryClick: null
-};
+AccountView.defaultProps = {};
 
-export default AccountView;
+const mapStateToProps = state => ({ account: state.account });
+
+const ConnectedAccountView = connect(mapStateToProps)(AccountView);
+
+export { ConnectedAccountView as default, ConnectedAccountView, AccountView };

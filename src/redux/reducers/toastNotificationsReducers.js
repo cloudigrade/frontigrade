@@ -16,10 +16,13 @@ const toastNotificationsReducers = (state = initialState, action) => {
         persistent: action.persistent
       };
 
-      return Object.assign({}, state, {
-        toasts: [...state.toasts, newToast],
-        displayedToasts: state.displayedToasts + 1
-      });
+      return {
+        ...state,
+        ...{
+          toasts: [...state.toasts, newToast],
+          displayedToasts: state.displayedToasts + 1
+        }
+      };
 
     case toastNotificationTypes.TOAST_REMOVE:
       const displayedToast = state.toasts.find(toast => !toast.removed);
@@ -30,15 +33,28 @@ const toastNotificationsReducers = (state = initialState, action) => {
         updatedToasts[state.toasts.indexOf(action.toast)].removed = true;
       }
 
-      return Object.assign({}, state, {
-        toasts: updatedToasts
-      });
+      return {
+        ...state,
+        ...{
+          toasts: updatedToasts
+        }
+      };
 
     case toastNotificationTypes.TOAST_PAUSE:
-      return Object.assign({}, state, { paused: true });
+      return {
+        ...state,
+        ...{
+          paused: true
+        }
+      };
 
     case toastNotificationTypes.TOAST_RESUME:
-      return Object.assign({}, state, { paused: false });
+      return {
+        ...state,
+        ...{
+          paused: false
+        }
+      };
 
     default:
       return state;

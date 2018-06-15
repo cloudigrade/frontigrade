@@ -12,21 +12,33 @@ setupUser()
   local USER_PASSWORD=$2
   local USER_ENDPOINT=$3
   local RESPONSE=""
+  local COUNT=1
+  local DELAY=1
+  local DURATION=60
 
   echo "Test user logging in..."
 
-  RESPONSE=$(curl -s -d "{\"username\":\"$USER_NAME\", \"password\":\"$USER_PASSWORD\"}" -H "Content-Type: application/json" -X POST $USER_ENDPOINT)
+  while [ $COUNT -le $DURATION ]; do
+    sleep $DELAY
+    (( COUNT++ ))
+    RESPONSE=$(curl -s -d "{\"username\":\"$USER_NAME\", \"password\":\"$USER_PASSWORD\"}" -H "Content-Type: application/json" -X POST $USER_ENDPOINT)
 
-  if [ "$RESPONSE" = "$CHECK_SUCCESS" ] || [ "$RESPONSE" = "$CHECK_EXISTS" ]; then
-    COLOR=$GREEN
-    STATUS="SUCCESS"
-  fi
+    if [ "$RESPONSE" = "$CHECK_SUCCESS" ] || [ "$RESPONSE" = "$CHECK_EXISTS" ]; then
+      COLOR=$GREEN
+      STATUS="SUCCESS"
+      break
+    fi
+  done
 
   echo "Response: "$RESPONSE | cut -c 1-100
 
-  printf "\n${COLOR}Test user ${STATUS}.\n"
+  printf "\n${COLOR}Test user ${STATUS} after ${COUNT} secs... continuing\n"
   printf "\n${COLOR}  username=${USER_NAME}"
   printf "\n${COLOR}  password=${USER_PASSWORD}${NOCOLOR}\n\n"
+
+  if [ "$STATUS" = "ERROR" ]; then
+    printf "\n${COLOR}  To access the API you'll need to create a user.${NOCOLOR}\n\n"
+  fi
 }
 #
 #
@@ -76,6 +88,12 @@ startOc()
 
   if [ -z "$(oc version)" ]; then
     printf "\n${RED}OpenShift CLI missing.${NOCOLOR}\n"
+    exit 0
+  fi
+
+  if [ -z "$(kontemplate version)" ]; then
+    printf "\n{RED}Kontemplate is missing.${NOCOLOR}\n"
+    printf "\n  ${RED}See Shiftigrade documentation:${NOCOLOR} https://bit.ly/2LFGgxV"
     exit 0
   fi
 
@@ -136,7 +154,6 @@ startOc()
     fi
 
     make oc-clean
-    oc cluster down
     make oc-up-all
   fi
 }

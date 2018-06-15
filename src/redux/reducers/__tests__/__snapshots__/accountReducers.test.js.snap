@@ -1,0 +1,377 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountReducers should handle all defined error types 1`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 2`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 3`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNTS_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 4`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": true,
+      "errorMessage": Object {
+        "message": "MESSAGE",
+        "response": Object {
+          "data": Object {
+            "detail": "ERROR",
+          },
+        },
+      },
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 5`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": true,
+      "errorMessage": Object {
+        "message": "MESSAGE",
+        "response": Object {
+          "data": Object {
+            "detail": "ERROR",
+          },
+        },
+      },
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNTS_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 6`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 7`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types 8`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 1`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 2`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNT_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 3`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNTS_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 4`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": undefined,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 5`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": undefined,
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": true,
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNTS_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 6`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 7`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types 8`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 1`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 2`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNT_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 3`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNTS_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 4`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": true,
+      "sources": Array [],
+    },
+  },
+  "type": "GET_ACCOUNT_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 5`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": true,
+      "sources": Array [],
+    },
+  },
+  "type": "GET_ACCOUNTS_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 6`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 7`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types 8`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": "",
+      "fulfilled": false,
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+}
+`;
