@@ -46,7 +46,7 @@
     "build:js": "react-scripts build",
     "build": "run-s -l build:*",
     "start:js": "react-scripts start",
-    "start:oc": "sh -ac '. .env.oc; run-p -l watch:css start:js api:oc'",
+    "start:oc": "sh -ac '. ./.env.oc; run-p -l watch:css start:js api:oc'",
     "start": "run-p -l watch:css start:js api:dev",
     "test:dev": "run-s test:lint-js test:local",
     "test:lint-js": "eslint --ext=js --ext=jsx src",
