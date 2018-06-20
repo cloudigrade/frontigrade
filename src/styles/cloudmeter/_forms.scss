@@ -66,3 +66,22 @@
 .cloudmeter-checkbox {
   padding-top: 3px;
 }
+
+.cloudmeter-copy {
+  .cloudmeter-copy-display-button {
+    min-width: 26px;
+  }
+
+  .cloudmeter-copy-input {
+    text-overflow: ellipsis;
+  }
+
+  .cloudmeter-copy-display {
+    border: 1px solid $color-pf-black-400;
+    border-top-width: 0;
+    max-height: 200px;
+    padding: 15px;
+    width: 100%;
+    word-wrap: break-word;
+  }
+}

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Wizard } from 'patternfly-react';
+import { Button, Icon, Wizard } from 'patternfly-react';
 import { connect, reduxTypes, store } from '../../redux/';
 import { addAccountWizardSteps, editAccountWizardSteps } from './accountWizardConstants';
 
 class AccountWizard extends React.Component {
   state = {
-    activeStepIndex: 0
+    activeStepIndex: 0,
+    stepOneValid: true
   };
 
   onCancel = () => {
@@ -43,7 +44,9 @@ class AccountWizard extends React.Component {
 
   onSubmit = () => {};
 
-  onStep = () => {};
+  onStep = () => {
+    // ToDo: wizard step map/breadcrumb/trail click, or leave disabled
+  };
 
   renderWizardSteps() {
     const { edit } = this.props;
@@ -65,7 +68,7 @@ class AccountWizard extends React.Component {
 
   render() {
     const { show, edit } = this.props;
-    const { activeStepIndex } = this.state;
+    const { activeStepIndex, stepOneValid, stepTwoValid } = this.state;
     const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
 
     return (
@@ -74,7 +77,13 @@ class AccountWizard extends React.Component {
         <Wizard.Body>
           <Wizard.Steps steps={this.renderWizardSteps()} />
           <Wizard.Row>
-            <Wizard.Main>Lorem ipsum</Wizard.Main>
+            <Wizard.Main>
+              {wizardSteps.map((step, stepIndex) => (
+                <Wizard.Contents key={step.title} stepIndex={stepIndex} activeStepIndex={activeStepIndex}>
+                  {wizardSteps[stepIndex].page}
+                </Wizard.Contents>
+              ))}
+            </Wizard.Main>
           </Wizard.Row>
         </Wizard.Body>
         <Wizard.Footer>
@@ -86,6 +95,23 @@ class AccountWizard extends React.Component {
           >
             Cancel
           </Button>
+          <Button
+            bsStyle="default"
+            disabled={activeStepIndex === 0 || activeStepIndex === wizardSteps.length - 1}
+            onClick={this.onBack}
+          >
+            <Icon type="fa" name="angle-left" />Back
+          </Button>
+          {activeStepIndex < wizardSteps.length - 2 && (
+            <Button bsStyle="primary" disabled={!stepOneValid} onClick={this.onNext}>
+              Next<Icon type="fa" name="angle-right" />
+            </Button>
+          )}
+          {activeStepIndex === wizardSteps.length - 2 && (
+            <Button bsStyle="primary" disabled={!stepTwoValid} onClick={this.onSubmit}>
+              Add
+            </Button>
+          )}
         </Wizard.Footer>
       </Wizard>
     );
