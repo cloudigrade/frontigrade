@@ -1,26 +1,16 @@
 import React from 'react';
+import { awsPolicySetup } from '../../common/configuration.json';
+import helpers from '../../common/helpers';
 import AccountWizardStepOne from './accountWizardStepOne';
 import AccountWizardStepTwo from './accountWizardStepTwo';
 import AccountWizardStepThree from './accountWizardStepThree';
-
-const awsIdentity = `{
-  "Version": "2012-10-07",
-  "Statement": [
-    {
-      "lorem": "ipsum"
-    },
-    {
-      "dolar": "dolar"
-    }
-  ]
-}`;
 
 const addAccountWizardSteps = [
   {
     step: 1,
     label: '1',
     title: 'Policy',
-    page: <AccountWizardStepOne identity={awsIdentity} />,
+    page: <AccountWizardStepOne policySetupConfig={helpers.prettyPrintJson(awsPolicySetup)} />,
     subSteps: []
   },
   {

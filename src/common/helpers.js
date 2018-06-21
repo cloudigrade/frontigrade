@@ -51,6 +51,8 @@ const setStateProp = (prop, data, options) => {
   return obj;
 };
 
+const prettyPrintJson = json => JSON.stringify(json, null, 2);
+
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const OC_MODE = process.env.REACT_APP_ENV === 'oc';
@@ -66,6 +68,7 @@ const helpers = {
   getLocale,
   noop,
   setStateProp,
+  prettyPrintJson,
   DEV_MODE,
   OC_MODE,
   FULFILLED_ACTION,

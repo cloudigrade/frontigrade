@@ -6,8 +6,7 @@ import { addAccountWizardSteps, editAccountWizardSteps } from './accountWizardCo
 
 class AccountWizard extends React.Component {
   state = {
-    activeStepIndex: 0,
-    stepOneValid: true
+    activeStepIndex: 0
   };
 
   onCancel = () => {
@@ -67,8 +66,8 @@ class AccountWizard extends React.Component {
   }
 
   render() {
-    const { show, edit } = this.props;
-    const { activeStepIndex, stepOneValid, stepTwoValid } = this.state;
+    const { show, edit, stepOneValid, stepTwoValid } = this.props;
+    const { activeStepIndex } = this.state;
     const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
 
     return (
@@ -122,13 +121,19 @@ AccountWizard.propTypes = {
   show: PropTypes.bool.isRequired,
   edit: PropTypes.bool,
   error: PropTypes.bool,
-  fulfilled: PropTypes.bool
+  fulfilled: PropTypes.bool,
+  stepOneValid: PropTypes.bool,
+  stepTwoValid: PropTypes.bool,
+  stepThreeValid: PropTypes.bool
 };
 
 AccountWizard.defaultProps = {
   edit: false,
   error: false,
-  fulfilled: false
+  fulfilled: false,
+  stepOneValid: false,
+  stepTwoValid: false,
+  stepThreeValid: false
 };
 
 const mapStateToProps = state => ({ ...state.accountWizard });

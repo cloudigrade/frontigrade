@@ -72,15 +72,27 @@
     min-width: 26px;
   }
 
+  .cloudmeter-copy-input, .cloudmeter-copy-display {
+    &:disabled {
+      background-color: transparent;
+      -webkit-text-fill-color: $color-pf-black-700;
+      color: $color-pf-black-700;
+    }
+  }
+
   .cloudmeter-copy-input {
     text-overflow: ellipsis;
+
+    &.expanded {
+      background-color: $color-pf-black-200;
+    }
   }
 
   .cloudmeter-copy-display {
     border: 1px solid $color-pf-black-400;
     border-top-width: 0;
-    max-height: 200px;
     padding: 15px;
+    resize: none;
     width: 100%;
     word-wrap: break-word;
   }

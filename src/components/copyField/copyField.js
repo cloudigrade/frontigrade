@@ -5,19 +5,11 @@ import helpers from '../../common/helpers';
 
 class CopyField extends React.Component {
   static copyClipboard(text) {
-    const clearSelection = () => {
-      if (window.getSelection) {
-        window.getSelection().removeAllRanges();
-      } else if (window.document.selection) {
-        window.document.selection.empty();
-      }
-    };
-
     let successful;
 
-    clearSelection();
-
     try {
+      window.getSelection().removeAllRanges();
+
       const newTextarea = document.createElement('textarea');
       newTextarea.innerHTML = text;
       newTextarea.style.position = 'absolute';
@@ -28,16 +20,15 @@ class CopyField extends React.Component {
       newTextarea.style.height = '1px';
 
       const range = document.createRange();
-      document.body.appendChild(newTextarea);
+      window.document.body.appendChild(newTextarea);
 
       range.selectNode(newTextarea);
+      window.getSelection().addRange(range);
 
-      document.getSelection().addRange(range);
+      successful = window.document.execCommand('copy');
 
-      successful = document.execCommand('copy');
-
-      document.body.removeChild(newTextarea);
-      clearSelection();
+      window.document.body.removeChild(newTextarea);
+      window.getSelection().removeAllRanges();
     } catch (e) {
       successful = false;
       console.warn('Copy to clipboard failed.', e.message);
@@ -75,13 +66,19 @@ class CopyField extends React.Component {
     });
   };
 
+  onSelect = event => {
+    event.target.select();
+  };
+
   resetStateTimer() {
+    const { resetTimer } = this.props;
+
     const timer = setTimeout(
       () =>
         this.setState({
           copied: false
         }),
-      1500
+      resetTimer
     );
 
     this.setState({ timer });
@@ -89,30 +86,28 @@ class CopyField extends React.Component {
 
   render() {
     const { copied, expanded } = this.state;
-    const {
-      id,
-      label,
-      labelDescription,
-      multiline,
-      toggleDescription,
-      expandDescription,
-      value,
-      ...props
-    } = this.props;
+    const { id, label, labelDescription, multiline, expandDescription, value } = this.props;
     const setId = id || helpers.generateId();
 
     return (
-      <Form.FormGroup className="cloudmeter-copy" controlId={setId} aria-live="polite" {...props}>
+      <Form.FormGroup className="cloudmeter-copy" controlId={setId} aria-live="polite">
         <Form.InputGroup>
           {multiline && (
             <Form.InputGroup.Button>
-              <Button onClick={this.onExpand} className="cloudmeter-copy-display-button" aria-label={toggleDescription}>
+              <Button onClick={this.onExpand} className="cloudmeter-copy-display-button" aria-hidden tabIndex={-1}>
                 {!expanded && <Icon type="fa" name="angle-right" />}
                 {expanded && <Icon type="fa" name="angle-down" />}
               </Button>
             </Form.InputGroup.Button>
           )}
-          <Form.FormControl type="text" value={value} className="cloudmeter-copy-input" disabled />
+          <Form.FormControl
+            type="text"
+            value={value}
+            className={`cloudmeter-copy-input ${expanded && 'expanded'}`}
+            readOnly
+            aria-label={expandDescription}
+            onClick={this.onSelect}
+          />
           <Form.InputGroup.Button>
             <Button onClick={this.onCopy} aria-label={labelDescription}>
               {(!copied && label) ||
@@ -125,9 +120,14 @@ class CopyField extends React.Component {
           </Form.InputGroup.Button>
         </Form.InputGroup>
         {expanded && (
-          <textarea className="cloudmeter-copy-display" rows={5} aria-label={expandDescription} disabled>
-            {value}
-          </textarea>
+          <textarea
+            className="cloudmeter-copy-display"
+            rows={5}
+            aria-label={expandDescription}
+            disabled
+            value={value}
+            aria-hidden
+          />
         )}
       </Form.FormGroup>
     );
@@ -140,7 +140,7 @@ CopyField.propTypes = {
   label: PropTypes.string,
   labelDescription: PropTypes.string,
   multiline: PropTypes.bool,
-  toggleDescription: PropTypes.string,
+  resetTimer: PropTypes.number,
   value: PropTypes.string.isRequired
 };
 
@@ -150,7 +150,7 @@ CopyField.defaultProps = {
   label: 'Copy',
   labelDescription: null,
   multiline: false,
-  toggleDescription: null
+  resetTimer: 8000
 };
 
 export { CopyField as default, CopyField };

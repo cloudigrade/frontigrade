@@ -19,9 +19,11 @@ const FormField = ({ children, colLabel, colField, error, errorMessage, id, labe
   );
 };
 
+const doesntHaveMinimumCharacters = (value, characters = 5) => typeof value === 'string' && value.length < characters;
 const isEmpty = value => !value || value === '';
 
 const fieldValidation = {
+  doesntHaveMinimumCharacters,
   isEmpty
 };
 

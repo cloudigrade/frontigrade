@@ -7,6 +7,7 @@ const initialState = {
   edit: false,
   error: false,
   errorMessage: null,
+  account: {},
   stepOneValid: false,
   stepTwoValid: false,
   stepThreeValid: false,
@@ -38,6 +39,31 @@ const accountWizardReducers = (state = initialState, action) => {
         {
           state,
           initialState
+        }
+      );
+
+    case accountTypes.ADD_ACCOUNT_WIZARD_STEPONE:
+      return helpers.setStateProp(
+        null,
+        {
+          account: action.account,
+          stepOneValid: true
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case accountTypes.INVALID_ACCOUNT_WIZARD_STEPONE:
+      return helpers.setStateProp(
+        null,
+        {
+          stepOneValid: false
+        },
+        {
+          state,
+          reset: false
         }
       );
 
