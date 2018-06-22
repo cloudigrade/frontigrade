@@ -20,6 +20,14 @@
     @extend .input-group-btn;
   }
 
+  .no-padding-left {
+    padding-left: 0;
+  }
+
+  .no-padding-right {
+    padding-right: 0;
+  }
+
   @media (min-width: $screen-sm-min) {
     margin: 30px auto;
     padding: inherit;

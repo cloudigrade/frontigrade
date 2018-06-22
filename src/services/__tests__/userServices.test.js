@@ -22,6 +22,8 @@ describe('UserServices', () => {
   it('should return promises for most methods and resolve successfully', done => {
     const promises = Object.keys(userServices).map(value => userServices[value]());
 
+    expect(Object.keys(userServices).includes('default')).toEqual(false);
+
     moxios.stubRequest(/\/auth.*?/, {
       status: 200,
       responseText: { auth_token: 'test' },

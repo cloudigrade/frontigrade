@@ -183,7 +183,9 @@ exports[`AccountReducers should handle all defined fulfilled types 4`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": undefined,
+      "accounts": Object {
+        "test": "success",
+      },
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
@@ -198,7 +200,9 @@ exports[`AccountReducers should handle all defined fulfilled types 5`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": undefined,
+      "accounts": Object {
+        "test": "success",
+      },
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
@@ -308,7 +312,6 @@ Object {
       "errorMessage": "",
       "fulfilled": false,
       "pending": true,
-      "sources": Array [],
     },
   },
   "type": "GET_ACCOUNT_PENDING",
@@ -324,7 +327,6 @@ Object {
       "errorMessage": "",
       "fulfilled": false,
       "pending": true,
-      "sources": Array [],
     },
   },
   "type": "GET_ACCOUNTS_PENDING",

@@ -1,6 +1,7 @@
 import cookies from 'js-cookie';
 import * as accountServices from './accountServices';
 import * as reportServices from './reportServices';
+import * as systemConfigServices from './systemConfigServices';
 import * as userServices from './userServices';
 
 const authHeader = () => {
@@ -24,4 +25,4 @@ const serviceConfig = (passedConfig = {}, auth = true) =>
     passedConfig
   );
 
-export { serviceConfig as default, serviceConfig, accountServices, reportServices, userServices };
+export { serviceConfig as default, serviceConfig, accountServices, reportServices, systemConfigServices, userServices };

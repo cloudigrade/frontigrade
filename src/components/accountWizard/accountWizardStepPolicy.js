@@ -48,8 +48,14 @@ class AccountWizardStepPolicy extends React.Component {
     const { policySetupConfig } = this.props;
 
     return (
-      <React.Fragment>
-        <FormField label="Account Name" error={accountNameError} errorMessage={accountNameError}>
+      <Form>
+        <FormField
+          label="Account Name"
+          colLabelClassName="no-padding-right"
+          colFieldClassName="no-padding-left"
+          error={accountNameError}
+          errorMessage={accountNameError}
+        >
           <Form.FormControl
             type="text"
             name="accountName"
@@ -90,7 +96,7 @@ class AccountWizardStepPolicy extends React.Component {
               </li>
               <li>
                 <p>In the JSON editor replace the contents with:</p>
-                <CopyField multiline value={policySetupConfig} />
+                <CopyField multiline isHtml value={policySetupConfig} />
               </li>
               <li>
                 Click <strong>Review policy</strong>.
@@ -101,7 +107,7 @@ class AccountWizardStepPolicy extends React.Component {
             </ul>
           </Grid.Col>
         </Form.FormGroup>
-      </React.Fragment>
+      </Form>
     );
   }
 }

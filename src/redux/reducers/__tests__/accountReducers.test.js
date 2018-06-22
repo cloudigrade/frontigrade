@@ -57,10 +57,8 @@ describe('AccountReducers', () => {
       const dispatched = {
         type: helpers.FULFILLED_ACTION(value),
         payload: {
-          response: {
-            data: {
-              test: 'success'
-            }
+          data: {
+            test: 'success'
           }
         }
       };

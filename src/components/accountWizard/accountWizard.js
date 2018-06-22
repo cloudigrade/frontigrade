@@ -12,15 +12,16 @@ class AccountWizard extends React.Component {
   onCancel = () => {
     const { fulfilled, error } = this.props;
 
-    const closeWizard = () => {
-      store.dispatch({
-        type: reduxTypes.confirmationModal.CONFIRMATION_MODAL_HIDE
-      });
+    const closeWizard = () =>
+      this.setState({ activeStepIndex: 0 }, () => {
+        store.dispatch({
+          type: reduxTypes.confirmationModal.CONFIRMATION_MODAL_HIDE
+        });
 
-      store.dispatch({
-        type: reduxTypes.account.UPDATE_ACCOUNT_HIDE
+        store.dispatch({
+          type: reduxTypes.account.UPDATE_ACCOUNT_HIDE
+        });
       });
-    };
 
     if (fulfilled || error) {
       closeWizard();
@@ -80,7 +81,7 @@ class AccountWizard extends React.Component {
   }
 
   render() {
-    const { show, edit, addSteps, editSteps, stepPolicyValid, stepTwoValid, stepThreeValid } = this.props;
+    const { show, edit, addSteps, editSteps, stepPolicyValid, stepRoleValid, stepThreeValid } = this.props;
     const { activeStepIndex } = this.state;
     const wizardSteps = edit ? editSteps : addSteps;
 
@@ -100,25 +101,16 @@ class AccountWizard extends React.Component {
           </Wizard.Row>
         </Wizard.Body>
         <Wizard.Footer>
-          <Button
-            bsStyle="default"
-            className="btn-cancel"
-            disabled={activeStepIndex === wizardSteps.length - 1}
-            onClick={this.onCancel}
-          >
+          <Button bsStyle="default" className="btn-cancel" onClick={this.onCancel}>
             Cancel
           </Button>
-          <Button
-            bsStyle="default"
-            disabled={activeStepIndex === 0 || activeStepIndex === wizardSteps.length - 1}
-            onClick={this.onBack}
-          >
+          <Button bsStyle="default" disabled={activeStepIndex === 0} onClick={this.onBack}>
             <Icon type="fa" name="angle-left" />Back
           </Button>
           {activeStepIndex < wizardSteps.length - 1 && (
             <Button
               bsStyle="primary"
-              disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepTwoValid)}
+              disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepRoleValid)}
               onClick={this.onNext}
             >
               Next<Icon type="fa" name="angle-right" />
@@ -141,7 +133,7 @@ AccountWizard.propTypes = {
   error: PropTypes.bool,
   fulfilled: PropTypes.bool,
   stepPolicyValid: PropTypes.bool,
-  stepTwoValid: PropTypes.bool,
+  stepRoleValid: PropTypes.bool,
   stepThreeValid: PropTypes.bool,
   addSteps: PropTypes.array,
   editSteps: PropTypes.array
@@ -152,7 +144,7 @@ AccountWizard.defaultProps = {
   error: false,
   fulfilled: false,
   stepPolicyValid: false,
-  stepTwoValid: false,
+  stepRoleValid: false,
   stepThreeValid: false,
   addSteps: addAccountWizardSteps,
   editSteps: editAccountWizardSteps

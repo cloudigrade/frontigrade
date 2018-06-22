@@ -23,6 +23,8 @@ describe('ReportServices', () => {
   it('should return promises for every method', done => {
     const promises = Object.keys(reportServices).map(value => reportServices[value]());
 
+    expect(Object.keys(reportServices).includes('default')).toEqual(true);
+
     Promise.all(promises).then(success => {
       expect(success.length).toEqual(Object.keys(reportServices).length);
       done();

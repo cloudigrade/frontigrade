@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unconnected 1`] = `
+<form
+  class=""
+>
+  <div
+    class="form-group"
+  >
+    <div
+      class="col-sm-12"
+    >
+      <ul>
+        <li>
+          Create a new role in the AWS 
+          <a
+            href="https://console.aws.amazon.com/iam"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Identity and Access Management
+          </a>
+           
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-info"
+            />
+            <span
+              class="sr-only"
+            >
+              Steps when logging into AWS Identity and Access Management
+            </span>
+          </span>
+        </li>
+        <li>
+          <p>
+            Paste this value into the Account ID field:
+          </p>
+          <div
+            aria-live="polite"
+            class="cloudmeter-copy form-group"
+          >
+            <span
+              class="input-group"
+            >
+              <input
+                class="cloudmeter-copy-input false form-control"
+                id="account-id"
+                readonly=""
+                type="text"
+                value="123"
+              />
+              <span
+                class="input-group-btn"
+              >
+                <button
+                  class="btn btn-default"
+                  type="button"
+                >
+                  Copy
+                </button>
+              </span>
+            </span>
+          </div>
+        </li>
+        <li>
+          In the next step, select 
+          <strong>
+            Cloud-Meter-policy
+          </strong>
+        </li>
+        <li>
+          Continue, name the role 
+          <strong>
+            Cloud-Meter-role
+          </strong>
+          , and click 
+          <strong>
+            Create role
+          </strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
+`;

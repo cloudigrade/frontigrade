@@ -209,7 +209,9 @@ Object {
       "errorMessage": "",
       "fulfilled": true,
       "pending": false,
-      "userInfo": undefined,
+      "userInfo": Object {
+        "test": "success",
+      },
     },
   },
   "type": "USER_CREATE_FULFILLED",
@@ -236,7 +238,9 @@ Object {
       "errorMessage": "",
       "fulfilled": true,
       "pending": false,
-      "userInfo": undefined,
+      "userInfo": Object {
+        "test": "success",
+      },
     },
   },
   "type": "USER_DELETE_FULFILLED",
