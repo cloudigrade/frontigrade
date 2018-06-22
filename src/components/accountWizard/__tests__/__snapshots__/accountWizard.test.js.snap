@@ -65,25 +65,7 @@ exports[`connected 1`] = `
           stepIndex={0}
           subStepIndex={null}
         >
-          <Connect(AccountWizardStepPolicy)
-            policySetupConfig="{
-  \\"Version\\": \\"2012-10-17\\",
-  \\"Statement\\": [
-    {
-      \\"Sid\\": \\"VisualEditor0\\",
-      \\"Effect\\": \\"Allow\\",
-      \\"Action\\": [
-        \\"ec2:DescribeInstances\\",
-        \\"ec2:DescribeImages\\",
-        \\"ec2:DescribeSnapshots\\",
-        \\"ec2:ModifySnapshotAttribute\\",
-        \\"ec2:DescribeSnapshotAttribute\\"
-      ],
-      \\"Resource\\": \\"*\\"
-    }
-  ]
-}"
-          />
+          <Connect(AccountWizardStepPolicy) />
         </WizardContents>
         <WizardContents
           activeStepIndex={0}

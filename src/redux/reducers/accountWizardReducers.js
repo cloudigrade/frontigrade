@@ -59,6 +59,7 @@ const accountWizardReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         null,
         {
+          account: action.account,
           stepPolicyValid: false
         },
         {

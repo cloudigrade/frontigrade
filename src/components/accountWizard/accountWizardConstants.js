@@ -1,6 +1,4 @@
 import React from 'react';
-import { awsPolicySetup } from '../../common/configuration.json';
-import helpers from '../../common/helpers';
 import AccountWizardStepPolicy from './accountWizardStepPolicy';
 import AccountWizardStepTwo from './accountWizardStepTwo';
 import AccountWizardStepThree from './accountWizardStepThree';
@@ -10,7 +8,7 @@ const addAccountWizardSteps = [
     step: 1,
     label: '1',
     title: 'Policy',
-    page: <AccountWizardStepPolicy policySetupConfig={helpers.prettyPrintJson(awsPolicySetup)} />,
+    page: <AccountWizardStepPolicy />,
     subSteps: []
   },
   {

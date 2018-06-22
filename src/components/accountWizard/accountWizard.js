@@ -37,9 +37,23 @@ class AccountWizard extends React.Component {
     }
   };
 
-  onNext = () => {};
+  onNext = () => {
+    const { activeStepIndex } = this.state;
+    const { edit, editSteps, addSteps } = this.props;
+    const wizardStepsLength = edit ? editSteps.length : addSteps.length;
 
-  onBack = () => {};
+    if (activeStepIndex < wizardStepsLength - 1) {
+      this.setState({ activeStepIndex: activeStepIndex + 1 });
+    }
+  };
+
+  onBack = () => {
+    const { activeStepIndex } = this.state;
+
+    if (activeStepIndex >= 1) {
+      this.setState({ activeStepIndex: activeStepIndex - 1 });
+    }
+  };
 
   onSubmit = () => {};
 
@@ -48,9 +62,9 @@ class AccountWizard extends React.Component {
   };
 
   renderWizardSteps() {
-    const { edit } = this.props;
+    const { edit, addSteps, editSteps } = this.props;
     const { activeStepIndex } = this.state;
-    const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
+    const wizardSteps = edit ? editSteps : addSteps;
     const activeStep = wizardSteps[activeStepIndex];
 
     return wizardSteps.map((step, stepIndex) => (
@@ -66,9 +80,9 @@ class AccountWizard extends React.Component {
   }
 
   render() {
-    const { show, edit, stepPolicyValid, stepTwoValid } = this.props;
+    const { show, edit, addSteps, editSteps, stepPolicyValid, stepTwoValid, stepThreeValid } = this.props;
     const { activeStepIndex } = this.state;
-    const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
+    const wizardSteps = edit ? editSteps : addSteps;
 
     return (
       <Wizard show={show}>
@@ -101,13 +115,17 @@ class AccountWizard extends React.Component {
           >
             <Icon type="fa" name="angle-left" />Back
           </Button>
-          {activeStepIndex < wizardSteps.length - 2 && (
-            <Button bsStyle="primary" disabled={!stepPolicyValid} onClick={this.onNext}>
+          {activeStepIndex < wizardSteps.length - 1 && (
+            <Button
+              bsStyle="primary"
+              disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepTwoValid)}
+              onClick={this.onNext}
+            >
               Next<Icon type="fa" name="angle-right" />
             </Button>
           )}
-          {activeStepIndex === wizardSteps.length - 2 && (
-            <Button bsStyle="primary" disabled={!stepTwoValid} onClick={this.onSubmit}>
+          {activeStepIndex === wizardSteps.length - 1 && (
+            <Button bsStyle="primary" disabled={!stepThreeValid} onClick={this.onSubmit}>
               Add
             </Button>
           )}
@@ -124,7 +142,9 @@ AccountWizard.propTypes = {
   fulfilled: PropTypes.bool,
   stepPolicyValid: PropTypes.bool,
   stepTwoValid: PropTypes.bool,
-  stepThreeValid: PropTypes.bool
+  stepThreeValid: PropTypes.bool,
+  addSteps: PropTypes.array,
+  editSteps: PropTypes.array
 };
 
 AccountWizard.defaultProps = {
@@ -133,7 +153,9 @@ AccountWizard.defaultProps = {
   fulfilled: false,
   stepPolicyValid: false,
   stepTwoValid: false,
-  stepThreeValid: false
+  stepThreeValid: false,
+  addSteps: addAccountWizardSteps,
+  editSteps: editAccountWizardSteps
 };
 
 const mapStateToProps = state => ({ ...state.accountWizard });

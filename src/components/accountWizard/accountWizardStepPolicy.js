@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Grid } from 'patternfly-react';
+import { awsPolicySetup } from '../../common/configuration.json';
+import helpers from '../../common/helpers';
 import { connect, reduxTypes, store } from '../../redux/';
 import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
@@ -28,19 +30,16 @@ class AccountWizardStepPolicy extends React.Component {
   isStepValid() {
     const { accountName, accountNameError } = this.state;
     const stepValid = accountNameError === '';
+    const dispatchType = stepValid
+      ? reduxTypes.account.ADD_ACCOUNT_WIZARD_STEP_POLICY
+      : reduxTypes.account.INVALID_ACCOUNT_WIZARD_STEP_POLICY;
 
-    if (stepValid) {
-      store.dispatch({
-        type: reduxTypes.account.ADD_ACCOUNT_WIZARD_STEP_POLICY,
-        account: {
-          accountName
-        }
-      });
-    } else {
-      store.dispatch({
-        type: reduxTypes.account.INVALID_ACCOUNT_WIZARD_STEP_POLICY
-      });
-    }
+    store.dispatch({
+      type: dispatchType,
+      account: {
+        accountName
+      }
+    });
   }
 
   render() {
@@ -88,10 +87,11 @@ class AccountWizardStepPolicy extends React.Component {
 }
 
 AccountWizardStepPolicy.propTypes = {
-  account: PropTypes.shape({
-    name: PropTypes.string
-  }).isRequired,
-  policySetupConfig: PropTypes.string.isRequired
+  policySetupConfig: PropTypes.string
+};
+
+AccountWizardStepPolicy.defaultProps = {
+  policySetupConfig: helpers.prettyPrintJson(awsPolicySetup)
 };
 
 const mapStateToProps = state => ({ ...state.accountWizard });

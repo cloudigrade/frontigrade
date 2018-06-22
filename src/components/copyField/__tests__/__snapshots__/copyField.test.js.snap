@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expanded 1`] = `
+<textarea
+  aria-hidden="true"
+  class="cloudmeter-copy-display"
+  disabled=""
+  rows="5"
+>
+  {"hello":"world"}
+</textarea>
+`;
+
+exports[`multi-line 1`] = `
+<div
+  aria-live="polite"
+  class="cloudmeter-copy form-group"
+>
+  <span
+    class="input-group"
+  >
+    <span
+      class="input-group-btn"
+    >
+      <button
+        aria-hidden="true"
+        class="cloudmeter-copy-display-button btn btn-default"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          aria-hidden="true"
+          class="fa fa-angle-right"
+        />
+      </button>
+    </span>
+    <input
+      class="cloudmeter-copy-input false form-control"
+      id="test"
+      readonly=""
+      type="text"
+      value="{\\"hello\\":\\"world\\"}"
+    />
+    <span
+      class="input-group-btn"
+    >
+      <button
+        class="btn btn-default"
+        type="button"
+      >
+        Copy
+      </button>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`single-line 1`] = `
+<div
+  aria-live="polite"
+  class="cloudmeter-copy form-group"
+>
+  <span
+    class="input-group"
+  >
+    <input
+      class="cloudmeter-copy-input false form-control"
+      id="test"
+      readonly=""
+      type="text"
+      value="{\\"hello\\":\\"world\\"}"
+    />
+    <span
+      class="input-group-btn"
+    >
+      <button
+        class="btn btn-default"
+        type="button"
+      >
+        Copy
+      </button>
+    </span>
+  </span>
+</div>
+`;
