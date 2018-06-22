@@ -1,15 +1,5 @@
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
 
-const getLocale = (messages = {}) => {
-  const locale =
-    process.env.REACT_APP_LOCALE ||
-    (window.navigator.languages && window.navigator.languages[0]) ||
-    window.navigator.language ||
-    window.navigator.userLanguage;
-
-  return locale.match(/^[A-Za-z]+-[A-Za-z]+$/) && !messages[locale] ? locale.split('-')[0] : locale;
-};
-
 const noop = Function.prototype;
 
 const setStateProp = (prop, data, options) => {
@@ -65,7 +55,6 @@ const REJECTED_ACTION = base => `${base}_REJECTED`;
 
 const helpers = {
   generateId,
-  getLocale,
   noop,
   setStateProp,
   prettyPrintJson,
