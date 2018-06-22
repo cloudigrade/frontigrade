@@ -41,6 +41,57 @@ exports[`connected 1`] = `
           >
             Identity and Access Management
           </a>
+           
+          <Tooltip
+            delayShow={100}
+            id={null}
+            placement="top"
+            popover={
+              <ul
+                className="cloudmeter-popover-list"
+              >
+                <li>
+                  Log in to AWS console
+                </li>
+                <li>
+                  Search Services to go to IAM
+                </li>
+                <li>
+                  Click Roles in the left nav
+                </li>
+                <li>
+                  Click the 
+                  <strong>
+                    Create role
+                  </strong>
+                   button
+                </li>
+                <li>
+                  Click 
+                  <strong>
+                    Another AWS account
+                  </strong>
+                </li>
+              </ul>
+            }
+            tooltip={null}
+            trigger={
+              Array [
+                "hover",
+              ]
+            }
+          >
+            <Icon
+              name="info"
+              size="large"
+              type="pf"
+            />
+            <span
+              className="sr-only"
+            >
+              Steps when logging into AWS Identity and Access Management
+            </span>
+          </Tooltip>
         </li>
         <li>
           <p>
@@ -82,7 +133,7 @@ exports[`connected 1`] = `
         <li>
           Name the policy 
           <strong>
-            Red-Hat-Cloud-Meter-policy
+            Cloud-Meter-policy
           </strong>
            and click 
           <strong>

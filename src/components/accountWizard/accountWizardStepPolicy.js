@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Grid } from 'patternfly-react';
+import { Form, Grid, Icon } from 'patternfly-react';
 import { awsPolicySetup } from '../../common/configuration.json';
 import helpers from '../../common/helpers';
 import { connect, reduxTypes, store } from '../../redux/';
 import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
+import Tooltip from '../tooltip/tooltip';
 
 class AccountWizardStepPolicy extends React.Component {
   state = {
@@ -66,7 +67,26 @@ class AccountWizardStepPolicy extends React.Component {
                 Create a new policy in the AWS{' '}
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>
+                </a>{' '}
+                <Tooltip
+                  delayShow={100}
+                  popover={
+                    <ul className="cloudmeter-popover-list">
+                      <li>Log in to AWS console</li>
+                      <li>Search Services to go to IAM</li>
+                      <li>Click Roles in the left nav</li>
+                      <li>
+                        Click the <strong>Create role</strong> button
+                      </li>
+                      <li>
+                        Click <strong>Another AWS account</strong>
+                      </li>
+                    </ul>
+                  }
+                >
+                  <Icon type="pf" name="info" size="large" />
+                  <span className="sr-only">Steps when logging into AWS Identity and Access Management</span>
+                </Tooltip>
               </li>
               <li>
                 <p>In the JSON editor replace the contents with:</p>
@@ -76,7 +96,7 @@ class AccountWizardStepPolicy extends React.Component {
                 Click <strong>Review policy</strong>.
               </li>
               <li>
-                Name the policy <strong>Red-Hat-Cloud-Meter-policy</strong> and click <strong>Create policy</strong>.
+                Name the policy <strong>Cloud-Meter-policy</strong> and click <strong>Create policy</strong>.
               </li>
             </ul>
           </Grid.Col>
