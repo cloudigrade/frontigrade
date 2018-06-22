@@ -7,16 +7,15 @@ import helpers from '../../common/helpers';
 import titleImg from '../../styles/images/title.svg';
 
 class Authentication extends React.Component {
-  static renderLoading(message = 'Loading...') {
-    return (
-      <Card className="cloudmeter-login-loading-card">
-        <Card.Body>
-          <div className="spinner spinner-xl" />
-          <div className="text-center">{message}</div>
-        </Card.Body>
-      </Card>
-    );
-  }
+  state = {
+    email: '',
+    emailError: null,
+    password: '',
+    passwordError: null,
+    remember: false,
+    formTouched: false,
+    formValid: false
+  };
 
   static getDerivedStateFromProps(props, state) {
     let initialState = null;
@@ -39,16 +38,6 @@ class Authentication extends React.Component {
 
     return initialState;
   }
-
-  state = {
-    email: '',
-    emailError: null,
-    password: '',
-    passwordError: null,
-    remember: false,
-    formTouched: false,
-    formValid: false
-  };
 
   componentDidMount() {
     const { session, checkUser, storeData } = this.props;
@@ -147,6 +136,17 @@ class Authentication extends React.Component {
     this.setState({
       formValid
     });
+  }
+
+  static renderLoading(message = 'Loading...') {
+    return (
+      <Card className="cloudmeter-login-loading-card">
+        <Card.Body>
+          <div className="spinner spinner-xl" />
+          <div className="text-center">{message}</div>
+        </Card.Body>
+      </Card>
+    );
   }
 
   renderLogin() {

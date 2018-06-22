@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Wizard } from 'patternfly-react';
+import { Button, Icon, Wizard } from 'patternfly-react';
 import { connect, reduxTypes, store } from '../../redux/';
 import { addAccountWizardSteps, editAccountWizardSteps } from './accountWizardConstants';
 
@@ -37,18 +37,34 @@ class AccountWizard extends React.Component {
     }
   };
 
-  onNext = () => {};
+  onNext = () => {
+    const { activeStepIndex } = this.state;
+    const { edit, editSteps, addSteps } = this.props;
+    const wizardStepsLength = edit ? editSteps.length : addSteps.length;
 
-  onBack = () => {};
+    if (activeStepIndex < wizardStepsLength - 1) {
+      this.setState({ activeStepIndex: activeStepIndex + 1 });
+    }
+  };
+
+  onBack = () => {
+    const { activeStepIndex } = this.state;
+
+    if (activeStepIndex >= 1) {
+      this.setState({ activeStepIndex: activeStepIndex - 1 });
+    }
+  };
 
   onSubmit = () => {};
 
-  onStep = () => {};
+  onStep = () => {
+    // ToDo: wizard step map/breadcrumb/trail click, or leave disabled
+  };
 
   renderWizardSteps() {
-    const { edit } = this.props;
+    const { edit, addSteps, editSteps } = this.props;
     const { activeStepIndex } = this.state;
-    const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
+    const wizardSteps = edit ? editSteps : addSteps;
     const activeStep = wizardSteps[activeStepIndex];
 
     return wizardSteps.map((step, stepIndex) => (
@@ -64,9 +80,9 @@ class AccountWizard extends React.Component {
   }
 
   render() {
-    const { show, edit } = this.props;
+    const { show, edit, addSteps, editSteps, stepPolicyValid, stepTwoValid, stepThreeValid } = this.props;
     const { activeStepIndex } = this.state;
-    const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
+    const wizardSteps = edit ? editSteps : addSteps;
 
     return (
       <Wizard show={show}>
@@ -74,7 +90,13 @@ class AccountWizard extends React.Component {
         <Wizard.Body>
           <Wizard.Steps steps={this.renderWizardSteps()} />
           <Wizard.Row>
-            <Wizard.Main>Lorem ipsum</Wizard.Main>
+            <Wizard.Main>
+              {wizardSteps.map((step, stepIndex) => (
+                <Wizard.Contents key={step.title} stepIndex={stepIndex} activeStepIndex={activeStepIndex}>
+                  {wizardSteps[stepIndex].page}
+                </Wizard.Contents>
+              ))}
+            </Wizard.Main>
           </Wizard.Row>
         </Wizard.Body>
         <Wizard.Footer>
@@ -86,6 +108,27 @@ class AccountWizard extends React.Component {
           >
             Cancel
           </Button>
+          <Button
+            bsStyle="default"
+            disabled={activeStepIndex === 0 || activeStepIndex === wizardSteps.length - 1}
+            onClick={this.onBack}
+          >
+            <Icon type="fa" name="angle-left" />Back
+          </Button>
+          {activeStepIndex < wizardSteps.length - 1 && (
+            <Button
+              bsStyle="primary"
+              disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepTwoValid)}
+              onClick={this.onNext}
+            >
+              Next<Icon type="fa" name="angle-right" />
+            </Button>
+          )}
+          {activeStepIndex === wizardSteps.length - 1 && (
+            <Button bsStyle="primary" disabled={!stepThreeValid} onClick={this.onSubmit}>
+              Add
+            </Button>
+          )}
         </Wizard.Footer>
       </Wizard>
     );
@@ -96,13 +139,23 @@ AccountWizard.propTypes = {
   show: PropTypes.bool.isRequired,
   edit: PropTypes.bool,
   error: PropTypes.bool,
-  fulfilled: PropTypes.bool
+  fulfilled: PropTypes.bool,
+  stepPolicyValid: PropTypes.bool,
+  stepTwoValid: PropTypes.bool,
+  stepThreeValid: PropTypes.bool,
+  addSteps: PropTypes.array,
+  editSteps: PropTypes.array
 };
 
 AccountWizard.defaultProps = {
   edit: false,
   error: false,
-  fulfilled: false
+  fulfilled: false,
+  stepPolicyValid: false,
+  stepTwoValid: false,
+  stepThreeValid: false,
+  addSteps: addAccountWizardSteps,
+  editSteps: editAccountWizardSteps
 };
 
 const mapStateToProps = state => ({ ...state.accountWizard });

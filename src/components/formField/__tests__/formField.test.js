@@ -25,4 +25,9 @@ describe('FormField Component', () => {
     expect(fieldValidation.isEmpty('')).toEqual(true);
     expect(fieldValidation.isEmpty('test')).toEqual(false);
   });
+
+  it('should have doesntHaveMinimumCharacters validation', () => {
+    expect(fieldValidation.doesntHaveMinimumCharacters('', 5)).toEqual(true);
+    expect(fieldValidation.doesntHaveMinimumCharacters('test test', 5)).toEqual(false);
+  });
 });

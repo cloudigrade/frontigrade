@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connected 1`] = `
+<React.Fragment>
+  <FormField
+    colField={9}
+    colLabel={3}
+    error={null}
+    errorMessage={null}
+    id={null}
+    label="Account Name"
+  >
+    <FormControl
+      bsClass="form-control"
+      componentClass="input"
+      name="accountName"
+      onChange={[Function]}
+      placeholder="Enter a name for this account"
+      type="text"
+      value=""
+    />
+  </FormField>
+  <br />
+  <br />
+  <FormGroup
+    bsClass="form-group"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={12}
+    >
+      <ul>
+        <li>
+          Create a new policy in the AWS
+           
+          <a
+            href="https://console.aws.amazon.com/iam"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Identity and Access Management
+          </a>
+           
+          <Tooltip
+            delayShow={100}
+            id={null}
+            placement="top"
+            popover={
+              <ul
+                className="cloudmeter-popover-list"
+              >
+                <li>
+                  Log in to AWS console
+                </li>
+                <li>
+                  Search Services to go to IAM
+                </li>
+                <li>
+                  Click Roles in the left nav
+                </li>
+                <li>
+                  Click the 
+                  <strong>
+                    Create role
+                  </strong>
+                   button
+                </li>
+                <li>
+                  Click 
+                  <strong>
+                    Another AWS account
+                  </strong>
+                </li>
+              </ul>
+            }
+            tooltip={null}
+            trigger={
+              Array [
+                "hover",
+              ]
+            }
+          >
+            <Icon
+              name="info"
+              size="large"
+              type="pf"
+            />
+            <span
+              className="sr-only"
+            >
+              Steps when logging into AWS Identity and Access Management
+            </span>
+          </Tooltip>
+        </li>
+        <li>
+          <p>
+            In the JSON editor replace the contents with:
+          </p>
+          <CopyField
+            expandDescription={null}
+            id={null}
+            label="Copy"
+            labelDescription={null}
+            multiline={true}
+            resetTimer={8000}
+            value="{
+  \\"Version\\": \\"2012-10-17\\",
+  \\"Statement\\": [
+    {
+      \\"Sid\\": \\"VisualEditor0\\",
+      \\"Effect\\": \\"Allow\\",
+      \\"Action\\": [
+        \\"ec2:DescribeInstances\\",
+        \\"ec2:DescribeImages\\",
+        \\"ec2:DescribeSnapshots\\",
+        \\"ec2:ModifySnapshotAttribute\\",
+        \\"ec2:DescribeSnapshotAttribute\\"
+      ],
+      \\"Resource\\": \\"*\\"
+    }
+  ]
+}"
+          />
+        </li>
+        <li>
+          Click 
+          <strong>
+            Review policy
+          </strong>
+          .
+        </li>
+        <li>
+          Name the policy 
+          <strong>
+            Cloud-Meter-policy
+          </strong>
+           and click 
+          <strong>
+            Create policy
+          </strong>
+          .
+        </li>
+      </ul>
+    </Col>
+  </FormGroup>
+</React.Fragment>
+`;
