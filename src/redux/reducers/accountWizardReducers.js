@@ -8,7 +8,7 @@ const initialState = {
   error: false,
   errorMessage: null,
   account: {},
-  stepOneValid: false,
+  stepPolicyValid: false,
   stepTwoValid: false,
   stepThreeValid: false,
   fulfilled: false
@@ -42,12 +42,12 @@ const accountWizardReducers = (state = initialState, action) => {
         }
       );
 
-    case accountTypes.ADD_ACCOUNT_WIZARD_STEPONE:
+    case accountTypes.ADD_ACCOUNT_WIZARD_STEP_POLICY:
       return helpers.setStateProp(
         null,
         {
           account: action.account,
-          stepOneValid: true
+          stepPolicyValid: true
         },
         {
           state,
@@ -55,11 +55,11 @@ const accountWizardReducers = (state = initialState, action) => {
         }
       );
 
-    case accountTypes.INVALID_ACCOUNT_WIZARD_STEPONE:
+    case accountTypes.INVALID_ACCOUNT_WIZARD_STEP_POLICY:
       return helpers.setStateProp(
         null,
         {
-          stepOneValid: false
+          stepPolicyValid: false
         },
         {
           state,

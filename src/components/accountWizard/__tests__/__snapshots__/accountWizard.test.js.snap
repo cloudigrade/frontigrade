@@ -65,7 +65,7 @@ exports[`connected 1`] = `
           stepIndex={0}
           subStepIndex={null}
         >
-          <Connect(AccountWizardStepOne)
+          <Connect(AccountWizardStepPolicy)
             policySetupConfig="{
   \\"Version\\": \\"2012-10-17\\",
   \\"Statement\\": [

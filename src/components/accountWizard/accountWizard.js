@@ -66,7 +66,7 @@ class AccountWizard extends React.Component {
   }
 
   render() {
-    const { show, edit, stepOneValid, stepTwoValid } = this.props;
+    const { show, edit, stepPolicyValid, stepTwoValid } = this.props;
     const { activeStepIndex } = this.state;
     const wizardSteps = edit ? editAccountWizardSteps : addAccountWizardSteps;
 
@@ -102,7 +102,7 @@ class AccountWizard extends React.Component {
             <Icon type="fa" name="angle-left" />Back
           </Button>
           {activeStepIndex < wizardSteps.length - 2 && (
-            <Button bsStyle="primary" disabled={!stepOneValid} onClick={this.onNext}>
+            <Button bsStyle="primary" disabled={!stepPolicyValid} onClick={this.onNext}>
               Next<Icon type="fa" name="angle-right" />
             </Button>
           )}
@@ -122,7 +122,7 @@ AccountWizard.propTypes = {
   edit: PropTypes.bool,
   error: PropTypes.bool,
   fulfilled: PropTypes.bool,
-  stepOneValid: PropTypes.bool,
+  stepPolicyValid: PropTypes.bool,
   stepTwoValid: PropTypes.bool,
   stepThreeValid: PropTypes.bool
 };
@@ -131,7 +131,7 @@ AccountWizard.defaultProps = {
   edit: false,
   error: false,
   fulfilled: false,
-  stepOneValid: false,
+  stepPolicyValid: false,
   stepTwoValid: false,
   stepThreeValid: false
 };

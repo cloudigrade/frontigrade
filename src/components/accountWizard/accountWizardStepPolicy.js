@@ -5,7 +5,7 @@ import { connect, reduxTypes, store } from '../../redux/';
 import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
 
-class AccountWizardStepOne extends React.Component {
+class AccountWizardStepPolicy extends React.Component {
   state = {
     accountName: '',
     accountNameError: null
@@ -31,14 +31,14 @@ class AccountWizardStepOne extends React.Component {
 
     if (stepValid) {
       store.dispatch({
-        type: reduxTypes.account.ADD_ACCOUNT_WIZARD_STEPONE,
+        type: reduxTypes.account.ADD_ACCOUNT_WIZARD_STEP_POLICY,
         account: {
           accountName
         }
       });
     } else {
       store.dispatch({
-        type: reduxTypes.account.INVALID_ACCOUNT_WIZARD_STEPONE
+        type: reduxTypes.account.INVALID_ACCOUNT_WIZARD_STEP_POLICY
       });
     }
   }
@@ -87,7 +87,7 @@ class AccountWizardStepOne extends React.Component {
   }
 }
 
-AccountWizardStepOne.propTypes = {
+AccountWizardStepPolicy.propTypes = {
   account: PropTypes.shape({
     name: PropTypes.string
   }).isRequired,
@@ -96,6 +96,6 @@ AccountWizardStepOne.propTypes = {
 
 const mapStateToProps = state => ({ ...state.accountWizard });
 
-const ConnectedAccountWizardStepOne = connect(mapStateToProps)(AccountWizardStepOne);
+const ConnectedAccountWizardStepPolicy = connect(mapStateToProps)(AccountWizardStepPolicy);
 
-export { ConnectedAccountWizardStepOne as default, ConnectedAccountWizardStepOne, AccountWizardStepOne };
+export { ConnectedAccountWizardStepPolicy as default, ConnectedAccountWizardStepPolicy, AccountWizardStepPolicy };
