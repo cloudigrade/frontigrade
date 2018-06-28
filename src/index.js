@@ -6,8 +6,8 @@ import App from './components/app';
 import { baseName } from './components/router/routerConstants';
 import store from './redux/store';
 
-import 'rcue/dist/css/rcue.css';
-import 'rcue/dist/css/rcue-additions.css';
+import 'patternfly/dist/css/rcue.css';
+import 'patternfly/dist/css/rcue-additions.css';
 import './styles/.css/index.css'; // eslint-disable-line import/no-unresolved
 
 ReactDOM.render(

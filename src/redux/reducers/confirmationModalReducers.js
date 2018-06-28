@@ -2,15 +2,7 @@ import { confirmationModalTypes } from '../constants';
 import helpers from '../../common/helpers';
 
 const initialState = {
-  show: false,
-  title: 'Confirm',
-  heading: null,
-  icon: null,
-  body: null,
-  confirmButtonText: 'Confirm',
-  cancelButtonText: 'Cancel',
-  onConfirm: null,
-  onCancel: null
+  show: false
 };
 
 const confirmationModalReducers = (state = initialState, action) => {
@@ -20,14 +12,7 @@ const confirmationModalReducers = (state = initialState, action) => {
         null,
         {
           show: true,
-          title: action.title,
-          heading: action.heading,
-          icon: action.icon,
-          body: action.body,
-          confirmButtonText: action.confirmButtonText,
-          cancelButtonText: action.cancelButtonText,
-          onConfirm: action.onConfirm,
-          onCancel: action.onCancel
+          ...action
         },
         {
           state,
