@@ -1,6 +1,6 @@
 import React from 'react';
 import AccountWizardStepPolicy from './accountWizardStepPolicy';
-import AccountWizardStepTwo from './accountWizardStepTwo';
+import AccountWizardStepRole from './accountWizardStepRole';
 import AccountWizardStepThree from './accountWizardStepThree';
 
 const addAccountWizardSteps = [
@@ -15,7 +15,7 @@ const addAccountWizardSteps = [
     step: 2,
     label: '2',
     title: 'Role',
-    page: <AccountWizardStepTwo />,
+    page: <AccountWizardStepRole />,
     subSteps: []
   },
   {

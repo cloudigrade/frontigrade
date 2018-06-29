@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import accountReducers from './accountReducers';
 import accountWizardReducers from './accountWizardReducers';
 import confirmationModalReducers from './confirmationModalReducers';
+import systemConfigReducers from './systemConfigReducers';
 import toastNotificationsReducers from './toastNotificationsReducers';
 import userReducers from './userReducers';
 
@@ -9,6 +10,7 @@ const reducers = {
   account: accountReducers,
   accountWizard: accountWizardReducers,
   confirmationModal: confirmationModalReducers,
+  systemConfig: systemConfigReducers,
   toastNotifications: toastNotificationsReducers,
   user: userReducers
 };
@@ -21,6 +23,7 @@ export {
   accountReducers,
   accountWizardReducers,
   confirmationModalReducers,
+  systemConfigReducers,
   toastNotificationsReducers,
   userReducers
 };

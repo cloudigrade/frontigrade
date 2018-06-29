@@ -1,4 +1,4 @@
-import { accountTypes } from '../constants';
+import { accountTypes, systemConfigTypes } from '../constants';
 import helpers from '../../common/helpers';
 
 const initialState = {
@@ -8,8 +8,9 @@ const initialState = {
   error: false,
   errorMessage: null,
   account: {},
+  configuration: {},
   stepPolicyValid: false,
-  stepTwoValid: false,
+  stepRoleValid: true,
   stepThreeValid: false,
   fulfilled: false
 };
@@ -61,6 +62,18 @@ const accountWizardReducers = (state = initialState, action) => {
         {
           account: action.account,
           stepPolicyValid: false
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(systemConfigTypes.GET_SYSTEM_CONFIG):
+      return helpers.setStateProp(
+        null,
+        {
+          configuration: action.payload.data
         },
         {
           state,

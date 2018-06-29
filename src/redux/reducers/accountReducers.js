@@ -35,7 +35,7 @@ const accountReducers = (state = initialState, action) => {
         'view',
         {
           pending: true,
-          sources: state.view.accounts
+          accounts: state.view.accounts
         },
         {
           state,

@@ -1,10 +1,10 @@
-import { userReducers } from '../';
-import { userTypes as types } from '../../constants';
+import { systemConfigReducers } from '../';
+import { systemConfigTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 
-describe('UserReducers', () => {
+describe('SystemConfigReducers', () => {
   it('should return the initial state', () => {
-    expect(userReducers.initialState).toBeDefined();
+    expect(systemConfigReducers.initialState).toBeDefined();
   });
 
   it('should handle all defined error types', () => {
@@ -22,7 +22,7 @@ describe('UserReducers', () => {
         }
       };
 
-      const resultState = userReducers(undefined, dispatched);
+      const resultState = systemConfigReducers(undefined, dispatched);
 
       expect({ type: helpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot();
     });
@@ -34,7 +34,7 @@ describe('UserReducers', () => {
         type: helpers.PENDING_ACTION(value)
       };
 
-      const resultState = userReducers(undefined, dispatched);
+      const resultState = systemConfigReducers(undefined, dispatched);
 
       expect({ type: helpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot();
     });
@@ -51,7 +51,7 @@ describe('UserReducers', () => {
         }
       };
 
-      const resultState = userReducers(undefined, dispatched);
+      const resultState = systemConfigReducers(undefined, dispatched);
 
       expect({ type: helpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot();
     });

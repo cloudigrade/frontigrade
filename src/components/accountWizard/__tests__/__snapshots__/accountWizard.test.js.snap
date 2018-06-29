@@ -75,7 +75,7 @@ exports[`connected 1`] = `
           stepIndex={1}
           subStepIndex={null}
         >
-          <AccountWizardStepTwo />
+          <Connect(AccountWizardStepRole) />
         </WizardContents>
         <WizardContents
           activeStepIndex={0}

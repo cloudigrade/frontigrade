@@ -1,6 +1,6 @@
 import { confirmationModalReducers } from '../';
 
-describe('ToastNotificationsReducers', () => {
+describe('ConfirmationModalReducers', () => {
   it('should return the initial state', () => {
     expect(confirmationModalReducers.initialState).toBeDefined();
   });
