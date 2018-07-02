@@ -40,7 +40,7 @@ exports[`connected 1`] = `
       <ul>
         <li>
           Create a new policy in the AWS
-
+           
           <a
             href="https://console.aws.amazon.com/iam"
             rel="noopener noreferrer"
@@ -48,7 +48,7 @@ exports[`connected 1`] = `
           >
             Identity and Access Management
           </a>
-
+           
           <Tooltip
             delayShow={100}
             id={null}
@@ -67,14 +67,14 @@ exports[`connected 1`] = `
                   Click Roles in the left nav
                 </li>
                 <li>
-                  Click the
+                  Click the 
                   <strong>
                     Create role
                   </strong>
                    button
                 </li>
                 <li>
-                  Click
+                  Click 
                   <strong>
                     Another AWS account
                   </strong>
@@ -122,10 +122,15 @@ exports[`connected 1`] = `
         \\"ec2:DescribeInstances\\",
         \\"ec2:DescribeImages\\",
         \\"ec2:DescribeSnapshots\\",
+        \\"ec2:ModifySnapshotAttribute\\",
+        \\"ec2:DescribeSnapshotAttribute\\",
         \\"ec2:CopyImage\\",
         \\"ec2:CreateTags\\",
-        \\"ec2:ModifySnapshotAttribute\\",
-        \\"ec2:DescribeSnapshotAttribute\\"
+        \\"cloudtrail:StartLogging\\",
+        \\"cloudtrail:DescribeTrails\\",
+        \\"cloudtrail:CreateTrail\\",
+        \\"cloudtrail:UpdateTrail\\",
+        \\"cloudtrail:PutEventSelectors\\"
       ],
       \\"Resource\\": \\"*\\"
     }
@@ -134,18 +139,18 @@ exports[`connected 1`] = `
           />
         </li>
         <li>
-          Click
+          Click 
           <strong>
             Review policy
           </strong>
           .
         </li>
         <li>
-          Name the policy
+          Name the policy 
           <strong>
             Cloud-Meter-policy
           </strong>
-           and click
+           and click 
           <strong>
             Create policy
           </strong>
