@@ -35,7 +35,11 @@ exports[`unconnected 1`] = `
         </li>
         <li>
           <p>
-            Paste this value into the Account ID field:
+            Paste this value into the Account ID field under 
+            <strong>
+              Another AWS account
+            </strong>
+            :
           </p>
           <div
             aria-live="polite"
