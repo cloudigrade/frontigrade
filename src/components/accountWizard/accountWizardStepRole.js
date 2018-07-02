@@ -45,7 +45,9 @@ class AccountWizardStepRole extends React.Component {
                 </Tooltip>
               </li>
               <li>
-                <p>Paste this value into the Account ID field:</p>
+                <p>
+                  Paste this value into the Account ID field under <strong>Another AWS account</strong>:
+                </p>
                 <CopyField id="account-id" value={configuration.aws_account_id || ''} />
               </li>
               <li>
