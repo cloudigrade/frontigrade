@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Icon, Wizard } from 'patternfly-react';
-import { connect, reduxTypes, store } from '../../redux/';
+import { Button, Icon, Spinner, Wizard } from 'patternfly-react';
+import helpers from '../../common/helpers';
+import { connect, reduxActions, reduxTypes, store } from '../../redux/';
 import { addAccountWizardSteps, editAccountWizardSteps } from './accountWizardConstants';
 
 class AccountWizard extends React.Component {
@@ -9,6 +10,7 @@ class AccountWizard extends React.Component {
     activeStepIndex: 0
   };
 
+  // ToDo: if onCancel allowed to fire in "pending" state for "adding an account" need to add in a new action.
   onCancel = () => {
     const { fulfilled, error } = this.props;
 
@@ -56,11 +58,71 @@ class AccountWizard extends React.Component {
     }
   };
 
-  onSubmit = () => {};
+  onSubmit = () => {
+    const { account, addAccount, stepPolicyValid, stepRoleValid, stepArnValid } = this.props;
+
+    if (stepPolicyValid && stepRoleValid && stepArnValid) {
+      addAccount(account)
+        .then(
+          () => {
+            // ToDo: submit account: add API response success
+          },
+          () => {
+            // ToDo: submit account: add API response error handling
+          }
+        )
+        .finally(() => {
+          // ToDo: submit account: add final wizard resets
+        });
+    }
+  };
 
   onStep = () => {
     // ToDo: wizard step map/breadcrumb/trail click, or leave disabled
   };
+
+  renderError() {
+    const { edit, errorMessage } = this.props;
+
+    return (
+      <div className="wizard-pf-complete blank-slate-pf">
+        <div className="wizard-pf-success-icon">
+          <span className="pficon pficon-error-circle-o" />
+        </div>
+        <h3 className="blank-slate-pf-main-action">Error {edit ? 'Updating' : 'Creating'} Account</h3>
+        <p className="blank-slate-pf-secondary-action">{errorMessage}</p>
+      </div>
+    );
+  }
+
+  renderFulfilled() {
+    const { account, edit } = this.props;
+
+    return (
+      <div className="wizard-pf-complete blank-slate-pf">
+        <div className="wizard-pf-success-icon">
+          <span className="glyphicon glyphicon-ok-circle" />
+        </div>
+        <h3 className="blank-slate-pf-main-action">
+          <strong>{account.accountName}</strong> was {edit ? 'updated' : 'created'}.
+        </h3>
+      </div>
+    );
+  }
+
+  renderPending() {
+    const { edit } = this.props;
+
+    return (
+      <div className="wizard-pf-process blank-slate-pf">
+        <Spinner loading size="lg" className="blank-slate-pf-icon" />
+        <h3 className="blank-slate-pf-main-action">{edit ? 'Updating' : 'Creating'} Account...</h3>
+        <p className="blank-slate-pf-secondary-action">
+          Please wait while account is being {edit ? 'updated' : 'created'}.
+        </p>
+      </div>
+    );
+  }
 
   renderWizardSteps() {
     const { edit, addSteps, editSteps } = this.props;
@@ -81,10 +143,22 @@ class AccountWizard extends React.Component {
   }
 
   render() {
-    const { show, edit, addSteps, editSteps, stepPolicyValid, stepRoleValid, stepThreeValid } = this.props;
+    const {
+      error,
+      pending,
+      fulfilled,
+      show,
+      edit,
+      addSteps,
+      editSteps,
+      stepPolicyValid,
+      stepRoleValid,
+      stepArnValid
+    } = this.props;
     const { activeStepIndex } = this.state;
     const wizardSteps = edit ? editSteps : addSteps;
 
+    // ToDo: Open PF-React PR for passing a namespaced className onto the Wizard parent element for sizing, currently using "wizard-pf" the default
     return (
       <Wizard show={show}>
         <Wizard.Header onClose={this.onCancel} title={edit ? 'Edit Account' : 'Add Account'} />
@@ -92,33 +166,49 @@ class AccountWizard extends React.Component {
           <Wizard.Steps steps={this.renderWizardSteps()} />
           <Wizard.Row>
             <Wizard.Main>
-              {wizardSteps.map((step, stepIndex) => (
-                <Wizard.Contents key={step.title} stepIndex={stepIndex} activeStepIndex={activeStepIndex}>
-                  {wizardSteps[stepIndex].page}
-                </Wizard.Contents>
-              ))}
+              {!error &&
+                !pending &&
+                !fulfilled &&
+                wizardSteps.map((step, stepIndex) => (
+                  <Wizard.Contents key={step.title} stepIndex={stepIndex} activeStepIndex={activeStepIndex}>
+                    {wizardSteps[stepIndex].page}
+                  </Wizard.Contents>
+                ))}
+              {error && this.renderError()}
+              {fulfilled && this.renderFulfilled()}
+              {pending && this.renderPending()}
             </Wizard.Main>
           </Wizard.Row>
         </Wizard.Body>
         <Wizard.Footer>
-          <Button bsStyle="default" className="btn-cancel" onClick={this.onCancel}>
+          <Button bsStyle="default" disabled={fulfilled} className="btn-cancel" onClick={this.onCancel}>
             Cancel
           </Button>
-          <Button bsStyle="default" disabled={activeStepIndex === 0} onClick={this.onBack}>
+          <Button bsStyle="default" disabled={activeStepIndex === 0 || pending || fulfilled} onClick={this.onBack}>
             <Icon type="fa" name="angle-left" />Back
           </Button>
-          {activeStepIndex < wizardSteps.length - 1 && (
-            <Button
-              bsStyle="primary"
-              disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepRoleValid)}
-              onClick={this.onNext}
-            >
-              Next<Icon type="fa" name="angle-right" />
-            </Button>
-          )}
-          {activeStepIndex === wizardSteps.length - 1 && (
-            <Button bsStyle="primary" disabled={!stepThreeValid} onClick={this.onSubmit}>
-              Add
+          {!error &&
+            !pending &&
+            !fulfilled &&
+            activeStepIndex < wizardSteps.length - 1 && (
+              <Button
+                bsStyle="primary"
+                disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepRoleValid)}
+                onClick={this.onNext}
+              >
+                Next<Icon type="fa" name="angle-right" />
+              </Button>
+            )}
+          {!error &&
+            !fulfilled &&
+            activeStepIndex === wizardSteps.length - 1 && (
+              <Button bsStyle="primary" disabled={!stepArnValid || pending} onClick={this.onSubmit}>
+                {edit ? 'Update' : 'Add'}
+              </Button>
+            )}
+          {(error || fulfilled) && (
+            <Button bsStyle="primary" disabled={pending} onClick={this.onCancel}>
+              Close
             </Button>
           )}
         </Wizard.Footer>
@@ -128,30 +218,48 @@ class AccountWizard extends React.Component {
 }
 
 AccountWizard.propTypes = {
-  show: PropTypes.bool.isRequired,
+  account: PropTypes.shape({
+    accountName: PropTypes.string,
+    arn: PropTypes.string
+  }),
+  addAccount: PropTypes.func,
+  addSteps: PropTypes.array,
   edit: PropTypes.bool,
   error: PropTypes.bool,
+  errorMessage: PropTypes.string,
   fulfilled: PropTypes.bool,
+  pending: PropTypes.bool,
+  show: PropTypes.bool.isRequired,
   stepPolicyValid: PropTypes.bool,
   stepRoleValid: PropTypes.bool,
-  stepThreeValid: PropTypes.bool,
-  addSteps: PropTypes.array,
+  stepArnValid: PropTypes.bool,
   editSteps: PropTypes.array
 };
 
 AccountWizard.defaultProps = {
+  account: {},
+  addAccount: helpers.noop,
+  addSteps: addAccountWizardSteps,
   edit: false,
   error: false,
+  errorMessage: null,
   fulfilled: false,
+  pending: false,
   stepPolicyValid: false,
   stepRoleValid: false,
-  stepThreeValid: false,
-  addSteps: addAccountWizardSteps,
+  stepArnValid: false,
   editSteps: editAccountWizardSteps
 };
 
+const mapDispatchToProps = dispatch => ({
+  addAccount: data => dispatch(reduxActions.account.addAccount(data))
+});
+
 const mapStateToProps = state => ({ ...state.accountWizard });
 
-const ConnectedAccountWizard = connect(mapStateToProps)(AccountWizard);
+const ConnectedAccountWizard = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AccountWizard);
 
 export { ConnectedAccountWizard as default, ConnectedAccountWizard, AccountWizard };

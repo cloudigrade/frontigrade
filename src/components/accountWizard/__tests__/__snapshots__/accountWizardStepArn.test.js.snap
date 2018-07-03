@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connected 1`] = `
+<Form
+  bsClass="form"
+  componentClass="form"
+  horizontal={true}
+  inline={false}
+>
+  <FormGroup
+    bsClass="form-group"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={12}
+    >
+      <ul
+        className="no-margin-bottom"
+      >
+        <li>
+          Click 
+          <strong>
+            Cloud-Meter-role
+          </strong>
+          .
+           
+          <Tooltip
+            delayShow={100}
+            id={null}
+            placement="top"
+            popover={
+              <ul
+                className="cloudmeter-popover-list"
+              >
+                <li>
+                  In 
+                  <strong>
+                    IAM
+                  </strong>
+                   go to the 
+                  <strong>
+                    Roles
+                  </strong>
+                   tab
+                </li>
+                <li>
+                  Click 
+                  <strong>
+                    Cloud-Meter-role
+                  </strong>
+                </li>
+              </ul>
+            }
+            tooltip={null}
+            trigger={
+              Array [
+                "hover",
+              ]
+            }
+          >
+            <Icon
+              name="info"
+              size="large"
+              type="pf"
+            />
+            <span
+              className="sr-only"
+            >
+              Steps when selecting a role
+            </span>
+          </Tooltip>
+        </li>
+        <li>
+          Copy the 
+          <strong>
+            Role ARN
+          </strong>
+           and paste it in the ARN field.
+        </li>
+      </ul>
+    </Col>
+  </FormGroup>
+  <FormField
+    colField={10}
+    colFieldClassName={null}
+    colLabel={2}
+    colLabelClassName={null}
+    error={null}
+    errorMessage={null}
+    id={null}
+    label="ARN"
+  >
+    <FormControl
+      bsClass="form-control"
+      componentClass="input"
+      name="arn"
+      onChange={[Function]}
+      placeholder="Enter an ARN"
+      type="text"
+      value=""
+    />
+    <HelpBlock
+      bsClass="help-block"
+    >
+      ex: arn:aws:iam::123456789012:role/Cloud-Meter-role
+    </HelpBlock>
+  </FormField>
+</Form>
+`;

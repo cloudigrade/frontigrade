@@ -1,6 +1,12 @@
 import { accountTypes } from '../constants';
 import { accountServices } from '../../services/';
 
+const addAccount = data => dispatch =>
+  dispatch({
+    type: accountTypes.ADD_ACCOUNT,
+    payload: accountServices.addAccount(data)
+  });
+
 const getAccount = id => dispatch =>
   dispatch({
     type: accountTypes.GET_ACCOUNT,
@@ -13,4 +19,4 @@ const getAccounts = () => dispatch =>
     payload: accountServices.getAccounts()
   });
 
-export { getAccount, getAccounts };
+export { addAccount, getAccount, getAccounts };

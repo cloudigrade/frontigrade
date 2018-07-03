@@ -48,15 +48,10 @@ class AccountWizardStepPolicy extends React.Component {
     const { policySetupConfig } = this.props;
 
     return (
-      <Form>
-        <FormField
-          label="Account Name"
-          colLabelClassName="no-padding-right"
-          colFieldClassName="no-padding-left"
-          error={accountNameError}
-          errorMessage={accountNameError}
-        >
+      <Form horizontal>
+        <FormField label="Account Name" error={accountNameError} errorMessage={accountNameError}>
           <Form.FormControl
+            autoFocus
             type="text"
             name="accountName"
             value={accountName}
@@ -64,16 +59,14 @@ class AccountWizardStepPolicy extends React.Component {
             onChange={this.onChangeAccountName}
           />
         </FormField>
-        <br />
-        <br />
         <Form.FormGroup>
-          <Grid.Col sm={12}>
+          <Grid.Col sm={12} className="padding-left">
             <ul>
               <li>
                 Create a new policy in the AWS{' '}
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>{' '}
+                </a>.{' '}
                 <Tooltip
                   delayShow={100}
                   popover={

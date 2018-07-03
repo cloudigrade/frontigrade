@@ -23,7 +23,7 @@ class AccountWizardStepRole extends React.Component {
                 Create a new role in the AWS{' '}
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>{' '}
+                </a>.{' '}
                 <Tooltip
                   delayShow={100}
                   popover={
@@ -51,10 +51,10 @@ class AccountWizardStepRole extends React.Component {
                 <CopyField id="account-id" value={configuration.aws_account_id || ''} />
               </li>
               <li>
-                In the next step, select <strong>Cloud-Meter-policy</strong>
+                In the next step, select <strong>Cloud-Meter-policy</strong>.
               </li>
               <li>
-                Continue, name the role <strong>Cloud-Meter-role</strong>, and click <strong>Create role</strong>
+                Continue, name the role <strong>Cloud-Meter-role</strong>, and click <strong>Create role</strong>.
               </li>
             </ul>
           </Grid.Col>

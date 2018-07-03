@@ -20,12 +20,20 @@
     @extend .input-group-btn;
   }
 
+  .no-margin-bottom {
+    margin-bottom: 0;
+  }
+
   .no-padding-left {
     padding-left: 0;
   }
 
   .no-padding-right {
     padding-right: 0;
+  }
+
+  .padding-left {
+    padding-left: 40px;
   }
 
   @media (min-width: $screen-sm-min) {

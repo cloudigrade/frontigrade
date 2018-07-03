@@ -2,17 +2,20 @@ import { accountTypes, systemConfigTypes } from '../constants';
 import helpers from '../../common/helpers';
 
 const initialState = {
-  show: false,
   add: false,
+  account: {},
+  configuration: {},
   edit: false,
   error: false,
   errorMessage: null,
-  account: {},
-  configuration: {},
+  fulfilled: false,
+  pending: false,
+  show: false,
   stepPolicyValid: false,
+  stepPolicyErrorMessage: null,
   stepRoleValid: true,
-  stepThreeValid: false,
-  fulfilled: false
+  stepArnValid: false,
+  stepArnErrorMessage: null
 };
 
 const accountWizardReducers = (state = initialState, action) => {
@@ -47,7 +50,7 @@ const accountWizardReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         null,
         {
-          account: action.account,
+          account: Object.assign({}, state.account, action.account),
           stepPolicyValid: true
         },
         {
@@ -60,8 +63,34 @@ const accountWizardReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         null,
         {
-          account: action.account,
+          account: Object.assign({}, state.account, action.account),
           stepPolicyValid: false
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case accountTypes.ADD_ACCOUNT_WIZARD_STEP_ARN:
+      return helpers.setStateProp(
+        null,
+        {
+          account: Object.assign({}, state.account, action.account),
+          stepArnValid: true
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case accountTypes.INVALID_ACCOUNT_WIZARD_STEP_ARN:
+      return helpers.setStateProp(
+        null,
+        {
+          account: Object.assign({}, state.account, action.account),
+          stepArnValid: false
         },
         {
           state,
@@ -74,6 +103,53 @@ const accountWizardReducers = (state = initialState, action) => {
         null,
         {
           configuration: action.payload.data
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    // ToDo: Dependent on errors "stepPolicyErrorMessage" and "stepArnErrorMessage" may need to be set instead-of/in-addition-to the "errorMessage", or simply update the step validity
+    case helpers.REJECTED_ACTION(accountTypes.ADD_ACCOUNT):
+      return helpers.setStateProp(
+        null,
+        {
+          error: action.error,
+          errorMessage: action.payload.message,
+          fulfilled: false,
+          pending: false
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.PENDING_ACTION(accountTypes.ADD_ACCOUNT):
+      return helpers.setStateProp(
+        null,
+        {
+          error: false,
+          errorMessage: null,
+          fulfilled: false,
+          pending: true
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(accountTypes.ADD_ACCOUNT):
+      return helpers.setStateProp(
+        null,
+        {
+          account: action.payload.data,
+          error: false,
+          errorMessage: null,
+          fulfilled: true,
+          pending: false
         },
         {
           state,

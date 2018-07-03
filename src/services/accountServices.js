@@ -2,6 +2,35 @@ import axios from 'axios';
 import serviceConfig from './index';
 
 /**
+ * @api {post} /api/v1/account/ Post account
+ * @apiDescription Add an account.
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {String} accountName
+ * @apiSuccess {String} arn
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "accountName": "Lorem-Ipsum",
+ *       "arn": "arn:aws:iam::123456789012:role/Cloud-Meter-role"
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+const addAccount = (data = {}) =>
+  axios(
+    serviceConfig({
+      method: 'post',
+      url: process.env.REACT_APP_ACCOUNTS_SERVICE,
+      data
+    })
+  );
+
+/**
  * @api {get} /api/v1/account/ Get accounts
  * @apiDescription List all accounts.
  *
@@ -74,4 +103,4 @@ const getAccounts = (id = '') =>
  */
 const getAccount = id => getAccounts(id);
 
-export { getAccounts, getAccount };
+export { addAccount, getAccounts, getAccount };
