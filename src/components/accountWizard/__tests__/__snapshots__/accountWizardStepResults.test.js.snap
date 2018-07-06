@@ -1,0 +1,239 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connected 1`] = `
+<AccountWizardStepResults
+  account={Object {}}
+  accountName={null}
+  dispatch={[Function]}
+  edit={false}
+  error={true}
+  errorMessage="Lorem ipsum"
+  fulfilled={false}
+  pending={false}
+  show={true}
+/>
+`;
+
+exports[`error 1`] = `
+<AccountWizardStepResults
+  accountName={null}
+  edit={false}
+  error={true}
+  errorMessage="lorem ipsum"
+  fulfilled={false}
+  pending={false}
+>
+  <div
+    className="wizard-pf-complete blank-slate-pf"
+  >
+    <div
+      className="wizard-pf-success-icon"
+    >
+      <span
+        className="pficon pficon-error-circle-o"
+      />
+    </div>
+    <h3
+      className="blank-slate-pf-main-action"
+    >
+      Error 
+      Creating
+       Account
+    </h3>
+    <p
+      className="blank-slate-pf-secondary-action"
+    >
+      lorem ipsum
+    </p>
+  </div>
+</AccountWizardStepResults>
+`;
+
+exports[`error edit 1`] = `
+<AccountWizardStepResults
+  accountName={null}
+  edit={true}
+  error={true}
+  errorMessage="lorem ipsum"
+  fulfilled={false}
+  pending={false}
+>
+  <div
+    className="wizard-pf-complete blank-slate-pf"
+  >
+    <div
+      className="wizard-pf-success-icon"
+    >
+      <span
+        className="pficon pficon-error-circle-o"
+      />
+    </div>
+    <h3
+      className="blank-slate-pf-main-action"
+    >
+      Error 
+      Updating
+       Account
+    </h3>
+    <p
+      className="blank-slate-pf-secondary-action"
+    >
+      lorem ipsum
+    </p>
+  </div>
+</AccountWizardStepResults>
+`;
+
+exports[`fulfilled 1`] = `
+<AccountWizardStepResults
+  accountName="test"
+  edit={false}
+  error={false}
+  errorMessage={null}
+  fulfilled={true}
+  pending={false}
+>
+  <div
+    className="wizard-pf-complete blank-slate-pf"
+  >
+    <div
+      className="wizard-pf-success-icon"
+    >
+      <span
+        className="glyphicon glyphicon-ok-circle"
+      />
+    </div>
+    <h3
+      className="blank-slate-pf-main-action"
+    >
+      <strong>
+        test
+      </strong>
+       was 
+      created
+      .
+    </h3>
+  </div>
+</AccountWizardStepResults>
+`;
+
+exports[`fulfilled edit 1`] = `
+<AccountWizardStepResults
+  accountName="test"
+  edit={true}
+  error={false}
+  errorMessage={null}
+  fulfilled={true}
+  pending={false}
+>
+  <div
+    className="wizard-pf-complete blank-slate-pf"
+  >
+    <div
+      className="wizard-pf-success-icon"
+    >
+      <span
+        className="glyphicon glyphicon-ok-circle"
+      />
+    </div>
+    <h3
+      className="blank-slate-pf-main-action"
+    >
+      <strong>
+        test
+      </strong>
+       was 
+      updated
+      .
+    </h3>
+  </div>
+</AccountWizardStepResults>
+`;
+
+exports[`pending 1`] = `
+<AccountWizardStepResults
+  accountName="test"
+  edit={false}
+  error={false}
+  errorMessage={null}
+  fulfilled={false}
+  pending={true}
+>
+  <div
+    className="wizard-pf-process blank-slate-pf"
+  >
+    <Spinner
+      className="blank-slate-pf-icon"
+      inline={false}
+      inverse={false}
+      loading={true}
+      size="lg"
+    >
+      <div
+        className="blank-slate-pf-icon spinner spinner-lg"
+      />
+    </Spinner>
+    <h3
+      className="blank-slate-pf-main-action"
+    >
+      Creating
+       Account...
+    </h3>
+    <p
+      className="blank-slate-pf-secondary-action"
+    >
+      Please wait while account 
+      <strong>
+        test
+      </strong>
+       is being 
+      created
+      .
+    </p>
+  </div>
+</AccountWizardStepResults>
+`;
+
+exports[`pending edit 1`] = `
+<AccountWizardStepResults
+  accountName="test"
+  edit={true}
+  error={false}
+  errorMessage={null}
+  fulfilled={false}
+  pending={true}
+>
+  <div
+    className="wizard-pf-process blank-slate-pf"
+  >
+    <Spinner
+      className="blank-slate-pf-icon"
+      inline={false}
+      inverse={false}
+      loading={true}
+      size="lg"
+    >
+      <div
+        className="blank-slate-pf-icon spinner spinner-lg"
+      />
+    </Spinner>
+    <h3
+      className="blank-slate-pf-main-action"
+    >
+      Updating
+       Account...
+    </h3>
+    <p
+      className="blank-slate-pf-secondary-action"
+    >
+      Please wait while account 
+      <strong>
+        test
+      </strong>
+       is being 
+      updated
+      .
+    </p>
+  </div>
+</AccountWizardStepResults>
+`;

@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Icon, Spinner, Wizard } from 'patternfly-react';
+import { Button, Icon, Wizard } from 'patternfly-react';
 import helpers from '../../common/helpers';
 import { connect, reduxActions, reduxTypes, store } from '../../redux/';
 import { addAccountWizardSteps, editAccountWizardSteps } from './accountWizardConstants';
+import apiTypes from '../../constants/apiConstants';
 
 class AccountWizard extends React.Component {
   state = {
     activeStepIndex: 0
   };
 
-  // ToDo: if onCancel allowed to fire in "pending" state for "adding an account" need to add in a new action.
+  // ToDo: if onCancel allowed to fire in "pending" state, need to query if its supposed to cancel the request or continue. Currently it continues
   onCancel = () => {
-    const { fulfilled, error } = this.props;
+    const { edit, fulfilled, pending } = this.props;
 
     const closeWizard = () =>
       this.setState({ activeStepIndex: 0 }, () => {
@@ -25,14 +26,24 @@ class AccountWizard extends React.Component {
         });
       });
 
-    if (fulfilled || error) {
+    if (fulfilled) {
       closeWizard();
+    } else if (pending) {
+      store.dispatch({
+        type: reduxTypes.confirmationModal.CONFIRMATION_MODAL_SHOW,
+        title: `Exit Wizard`,
+        heading: 'Are you sure you want to exit this wizard?',
+        body: `The wizard is in a pending state and will continue ${edit ? 'updating' : 'adding'} an account.`,
+        cancelButtonText: 'No',
+        confirmButtonText: 'Yes',
+        onConfirm: closeWizard
+      });
     } else {
       store.dispatch({
         type: reduxTypes.confirmationModal.CONFIRMATION_MODAL_SHOW,
-        title: 'Cancel Add Account',
+        title: `Cancel ${edit ? 'Update' : 'Add'} Account`,
         heading: 'Are you sure you want to exit this wizard?',
-        body: 'Exiting this wizard will cancel adding an account.',
+        body: `Exiting this wizard will cancel ${edit ? 'updating' : 'adding'} an account.`,
         cancelButtonText: 'No',
         confirmButtonText: 'Yes',
         onConfirm: closeWizard
@@ -60,69 +71,43 @@ class AccountWizard extends React.Component {
 
   onSubmit = () => {
     const { account, addAccount, stepPolicyValid, stepRoleValid, stepArnValid } = this.props;
+    const { activeStepIndex } = this.state;
 
     if (stepPolicyValid && stepRoleValid && stepArnValid) {
-      addAccount(account)
-        .then(
+      this.setState({ activeStepIndex: activeStepIndex + 1 }, () =>
+        addAccount({ ...account }).then(
           () => {
-            // ToDo: submit account: add API response success
+            if (!this.props.show) {
+              store.dispatch({
+                type: reduxTypes.toastNotifications.TOAST_ADD,
+                alertType: 'success',
+                message: (
+                  <span>
+                    Account <strong>{account[apiTypes.API_ACCOUNT_NAME]}</strong> was{' '}
+                    {this.props.edit ? 'updated' : 'created'}
+                  </span>
+                )
+              });
+            }
           },
           () => {
-            // ToDo: submit account: add API response error handling
+            if (!this.props.show) {
+              store.dispatch({
+                type: reduxTypes.toastNotifications.TOAST_ADD,
+                alertType: 'error',
+                header: `Error ${this.props.edit ? 'Updating' : 'Creating'} Account`,
+                message: `${this.props.errorMessage}`
+              });
+            }
           }
         )
-        .finally(() => {
-          // ToDo: submit account: add final wizard resets
-        });
+      );
     }
   };
 
   onStep = () => {
     // ToDo: wizard step map/breadcrumb/trail click, or leave disabled
   };
-
-  renderError() {
-    const { edit, errorMessage } = this.props;
-
-    return (
-      <div className="wizard-pf-complete blank-slate-pf">
-        <div className="wizard-pf-success-icon">
-          <span className="pficon pficon-error-circle-o" />
-        </div>
-        <h3 className="blank-slate-pf-main-action">Error {edit ? 'Updating' : 'Creating'} Account</h3>
-        <p className="blank-slate-pf-secondary-action">{errorMessage}</p>
-      </div>
-    );
-  }
-
-  renderFulfilled() {
-    const { account, edit } = this.props;
-
-    return (
-      <div className="wizard-pf-complete blank-slate-pf">
-        <div className="wizard-pf-success-icon">
-          <span className="glyphicon glyphicon-ok-circle" />
-        </div>
-        <h3 className="blank-slate-pf-main-action">
-          <strong>{account.accountName}</strong> was {edit ? 'updated' : 'created'}.
-        </h3>
-      </div>
-    );
-  }
-
-  renderPending() {
-    const { edit } = this.props;
-
-    return (
-      <div className="wizard-pf-process blank-slate-pf">
-        <Spinner loading size="lg" className="blank-slate-pf-icon" />
-        <h3 className="blank-slate-pf-main-action">{edit ? 'Updating' : 'Creating'} Account...</h3>
-        <p className="blank-slate-pf-secondary-action">
-          Please wait while account is being {edit ? 'updated' : 'created'}.
-        </p>
-      </div>
-    );
-  }
 
   renderWizardSteps() {
     const { edit, addSteps, editSteps } = this.props;
@@ -158,6 +143,10 @@ class AccountWizard extends React.Component {
     const { activeStepIndex } = this.state;
     const wizardSteps = edit ? editSteps : addSteps;
 
+    if (!show) {
+      return null;
+    }
+
     // ToDo: Open PF-React PR for passing a namespaced className onto the Wizard parent element for sizing, currently using "wizard-pf" the default
     return (
       <Wizard show={show}>
@@ -166,17 +155,11 @@ class AccountWizard extends React.Component {
           <Wizard.Steps steps={this.renderWizardSteps()} />
           <Wizard.Row>
             <Wizard.Main>
-              {!error &&
-                !pending &&
-                !fulfilled &&
-                wizardSteps.map((step, stepIndex) => (
-                  <Wizard.Contents key={step.title} stepIndex={stepIndex} activeStepIndex={activeStepIndex}>
-                    {wizardSteps[stepIndex].page}
-                  </Wizard.Contents>
-                ))}
-              {error && this.renderError()}
-              {fulfilled && this.renderFulfilled()}
-              {pending && this.renderPending()}
+              {wizardSteps.map((step, stepIndex) => (
+                <Wizard.Contents key={step.title} stepIndex={stepIndex} activeStepIndex={activeStepIndex}>
+                  {wizardSteps[stepIndex].page}
+                </Wizard.Contents>
+              ))}
             </Wizard.Main>
           </Wizard.Row>
         </Wizard.Body>
@@ -187,27 +170,22 @@ class AccountWizard extends React.Component {
           <Button bsStyle="default" disabled={activeStepIndex === 0 || pending || fulfilled} onClick={this.onBack}>
             <Icon type="fa" name="angle-left" />Back
           </Button>
-          {!error &&
-            !pending &&
-            !fulfilled &&
-            activeStepIndex < wizardSteps.length - 1 && (
-              <Button
-                bsStyle="primary"
-                disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepRoleValid)}
-                onClick={this.onNext}
-              >
-                Next<Icon type="fa" name="angle-right" />
-              </Button>
-            )}
-          {!error &&
-            !fulfilled &&
-            activeStepIndex === wizardSteps.length - 1 && (
-              <Button bsStyle="primary" disabled={!stepArnValid || pending} onClick={this.onSubmit}>
-                {edit ? 'Update' : 'Add'}
-              </Button>
-            )}
-          {(error || fulfilled) && (
-            <Button bsStyle="primary" disabled={pending} onClick={this.onCancel}>
+          {activeStepIndex < wizardSteps.length - 2 && (
+            <Button
+              bsStyle="primary"
+              disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepRoleValid)}
+              onClick={this.onNext}
+            >
+              Next<Icon type="fa" name="angle-right" />
+            </Button>
+          )}
+          {activeStepIndex === wizardSteps.length - 2 && (
+            <Button bsStyle="primary" disabled={!stepArnValid || pending} onClick={this.onSubmit}>
+              {edit ? 'Update' : 'Add'}
+            </Button>
+          )}
+          {activeStepIndex === wizardSteps.length - 1 && (
+            <Button bsStyle="primary" disabled={error || pending} onClick={this.onCancel}>
               Close
             </Button>
           )}
@@ -218,10 +196,7 @@ class AccountWizard extends React.Component {
 }
 
 AccountWizard.propTypes = {
-  account: PropTypes.shape({
-    accountName: PropTypes.string,
-    arn: PropTypes.string
-  }),
+  account: PropTypes.object,
   addAccount: PropTypes.func,
   addSteps: PropTypes.array,
   edit: PropTypes.bool,

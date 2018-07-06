@@ -2,6 +2,7 @@ import React from 'react';
 import AccountWizardStepPolicy from './accountWizardStepPolicy';
 import AccountWizardStepRole from './accountWizardStepRole';
 import AccountWizardStepArn from './accountWizardStepArn';
+import AccountWizardStepResults from './accountWizardStepResults';
 
 const addAccountWizardSteps = [
   {
@@ -23,6 +24,13 @@ const addAccountWizardSteps = [
     label: '3',
     title: 'ARN',
     page: <AccountWizardStepArn />,
+    subSteps: []
+  },
+  {
+    step: 4,
+    label: '4',
+    title: 'Results',
+    page: <AccountWizardStepResults />,
     subSteps: []
   }
 ];

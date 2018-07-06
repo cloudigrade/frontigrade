@@ -48,6 +48,15 @@ exports[`connected 1`] = `
             stepIndex={2}
             title="ARN"
           />,
+          <WizardStep
+            activeStep={1}
+            className=""
+            label="4"
+            onClick={[Function]}
+            step={4}
+            stepIndex={3}
+            title="Results"
+          />,
         ]
       }
     />
@@ -86,6 +95,16 @@ exports[`connected 1`] = `
           subStepIndex={null}
         >
           <Connect(AccountWizardStepArn) />
+        </WizardContents>
+        <WizardContents
+          activeStepIndex={0}
+          activeSubStepIndex={null}
+          className=""
+          key="Results"
+          stepIndex={3}
+          subStepIndex={null}
+        >
+          <Connect(AccountWizardStepResults) />
         </WizardContents>
       </WizardMain>
     </WizardRow>

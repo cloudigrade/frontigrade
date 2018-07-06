@@ -1,5 +1,6 @@
 import { accountTypes, systemConfigTypes } from '../constants';
 import helpers from '../../common/helpers';
+import apiTypes from '../../constants/apiConstants';
 
 const initialState = {
   add: false,
@@ -20,7 +21,6 @@ const initialState = {
 
 const accountWizardReducers = (state = initialState, action) => {
   switch (action.type) {
-    // Show/Hide
     case accountTypes.ADD_ACCOUNT_SHOW:
       return helpers.setStateProp(
         null,
@@ -110,13 +110,19 @@ const accountWizardReducers = (state = initialState, action) => {
         }
       );
 
-    // ToDo: Dependent on errors "stepPolicyErrorMessage" and "stepArnErrorMessage" may need to be set instead-of/in-addition-to the "errorMessage", or simply update the step validity
     case helpers.REJECTED_ACTION(accountTypes.ADD_ACCOUNT):
+      const policyRejectedErrors = helpers.getErrorMessageFromResults(action.payload, apiTypes.API_ACCOUNT_NAME);
+      const arnRejectedErrors = helpers.getErrorMessageFromResults(action.payload, apiTypes.API_ACCOUNT_ARN);
+
       return helpers.setStateProp(
         null,
         {
           error: action.error,
-          errorMessage: action.payload.message,
+          errorMessage: helpers.getErrorMessageFromResults(action.payload),
+          stepArnValid: arnRejectedErrors === '',
+          stepArnErrorMessage: arnRejectedErrors,
+          stepPolicyValid: policyRejectedErrors === '',
+          stepPolicyErrorMessage: policyRejectedErrors,
           fulfilled: false,
           pending: false
         },

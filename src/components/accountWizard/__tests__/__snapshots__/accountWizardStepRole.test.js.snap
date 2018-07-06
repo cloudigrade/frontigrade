@@ -53,7 +53,7 @@ exports[`unconnected 1`] = `
                 id="account-id"
                 readonly=""
                 type="text"
-                value="123"
+                value=""
               />
               <span
                 class="input-group-btn"

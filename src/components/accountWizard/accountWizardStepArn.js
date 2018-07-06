@@ -1,32 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Grid, Icon } from 'patternfly-react';
 import { connect, reduxTypes, store } from '../../redux';
-import { FormField, fieldValidation } from '../formField/formField';
+import apiTypes from '../../constants/apiConstants';
+import { FormField } from '../formField/formField';
 import Tooltip from '../tooltip/tooltip';
 
 class AccountWizardStepArn extends React.Component {
   state = {
-    arn: '',
-    arnError: null
+    accountArn: '',
+    accountArnError: null
   };
 
-  // ToDo: validation for ARN needs to be updated from empty to regex.
-  onChangeArn = event => {
+  onChangeAccountArn = event => {
     const { value } = event.target;
-    const errorMessage = fieldValidation.isEmpty(value) ? 'You must enter a valid ARN' : '';
+    const errorMessage = !new RegExp('^arn:aws:').test(value) ? 'You must enter a valid ARN' : '';
 
     this.setState(
       {
-        arn: value,
-        arnError: errorMessage
+        accountArn: value,
+        accountArnError: errorMessage
       },
       () => this.isStepValid()
     );
   };
 
   isStepValid() {
-    const { arn, arnError } = this.state;
-    const stepValid = arnError === '';
+    const { accountArn, accountArnError } = this.state;
+    const stepValid = accountArnError === '';
     const dispatchType = stepValid
       ? reduxTypes.account.ADD_ACCOUNT_WIZARD_STEP_ARN
       : reduxTypes.account.INVALID_ACCOUNT_WIZARD_STEP_ARN;
@@ -34,13 +35,20 @@ class AccountWizardStepArn extends React.Component {
     store.dispatch({
       type: dispatchType,
       account: {
-        arn
+        [apiTypes.API_ACCOUNT_ARN]: accountArn
       }
     });
   }
 
   render() {
-    const { arn, arnError } = this.state;
+    const { stepArnValid, stepArnErrorMessage } = this.props;
+    const { accountArn, accountArnError } = this.state;
+
+    let stepError = null;
+
+    if (!stepArnValid) {
+      stepError = stepArnErrorMessage;
+    }
 
     return (
       <Form horizontal>
@@ -72,8 +80,20 @@ class AccountWizardStepArn extends React.Component {
             </ul>
           </Grid.Col>
         </Form.FormGroup>
-        <FormField label="ARN" error={arnError} errorMessage={arnError} colLabel={2} colField={10}>
-          <Form.FormControl type="text" name="arn" value={arn} placeholder="Enter an ARN" onChange={this.onChangeArn} />
+        <FormField
+          label="ARN"
+          error={stepError || accountArnError}
+          errorMessage={stepError || accountArnError}
+          colLabel={2}
+          colField={10}
+        >
+          <Form.FormControl
+            type="text"
+            name="arn"
+            value={accountArn}
+            placeholder="Enter an ARN"
+            onChange={this.onChangeAccountArn}
+          />
           <Form.HelpBlock>ex: arn:aws:iam::123456789012:role/Cloud-Meter-role</Form.HelpBlock>
         </FormField>
       </Form>
@@ -81,9 +101,15 @@ class AccountWizardStepArn extends React.Component {
   }
 }
 
-AccountWizardStepArn.propTypes = {};
+AccountWizardStepArn.propTypes = {
+  stepArnValid: PropTypes.bool,
+  stepArnErrorMessage: PropTypes.string
+};
 
-AccountWizardStepArn.defaultProps = {};
+AccountWizardStepArn.defaultProps = {
+  stepArnValid: false,
+  stepArnErrorMessage: null
+};
 
 const mapStateToProps = state => ({ ...state.accountWizard });
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fulfilled types 1`] = `
+exports[`defined types 1`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -22,7 +22,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 2`] = `
+exports[`defined types 2`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -44,7 +44,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 3`] = `
+exports[`defined types 3`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -66,7 +66,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 4`] = `
+exports[`defined types 4`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -88,7 +88,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 5`] = `
+exports[`defined types 5`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -110,7 +110,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 6`] = `
+exports[`defined types 6`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -132,7 +132,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 7`] = `
+exports[`defined types 7`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -156,7 +156,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 8`] = `
+exports[`defined types 8`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -180,7 +180,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 9`] = `
+exports[`defined types 9`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -202,7 +202,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 10`] = `
+exports[`defined types 10`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -224,7 +224,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 11`] = `
+exports[`defined types 11`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -248,7 +248,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 12`] = `
+exports[`defined types 12`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -272,7 +272,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 13`] = `
+exports[`defined types 13`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -294,7 +294,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 14`] = `
+exports[`defined types 14`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -316,7 +316,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 15`] = `
+exports[`defined types 15`] = `
 Object {
   "result": Object {
     "account": Object {},

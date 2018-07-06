@@ -19,4 +19,10 @@ const getAccounts = () => dispatch =>
     payload: accountServices.getAccounts()
   });
 
-export { addAccount, getAccount, getAccounts };
+const updateAccount = (id, data) => dispatch =>
+  dispatch({
+    type: accountTypes.ADD_ACCOUNT,
+    payload: accountServices.updateAccount(id, data)
+  });
+
+export { addAccount, getAccount, getAccounts, updateAccount };

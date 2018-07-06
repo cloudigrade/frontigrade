@@ -1,4 +1,37 @@
+import _ from 'lodash';
+
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
+
+const getErrorMessageFromResults = (results, filterField = null) => {
+  const messageResponse = _.get(results, 'response.data', results.message);
+  const detailResponse = _.get(results, 'response.data', results.detail);
+
+  if (typeof messageResponse === 'string') {
+    return messageResponse;
+  }
+
+  if (typeof detailResponse === 'string') {
+    return detailResponse;
+  }
+
+  const getMessages = (messageObject, filterKey) => {
+    const obj = filterKey ? messageObject[filterKey] : messageObject;
+
+    return _.map(
+      obj,
+      next => {
+        if (_.isArray(next)) {
+          return getMessages(next);
+        }
+
+        return next;
+      },
+      null
+    );
+  };
+
+  return _.join(getMessages(messageResponse || detailResponse, filterField), '\n');
+};
 
 const noop = Function.prototype;
 
@@ -55,6 +88,7 @@ const REJECTED_ACTION = base => `${base}_REJECTED`;
 
 const helpers = {
   generateId,
+  getErrorMessageFromResults,
   noop,
   setStateProp,
   prettyPrintJson,

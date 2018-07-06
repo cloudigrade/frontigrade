@@ -17,8 +17,10 @@ describe('AccountServices', () => {
   });
 
   it('should have specific methods', () => {
+    expect(accountServices.addAccount).toBeDefined();
     expect(accountServices.getAccounts).toBeDefined();
     expect(accountServices.getAccount).toBeDefined();
+    expect(accountServices.updateAccount).toBeDefined();
   });
 
   it('should return promises for every method', done => {

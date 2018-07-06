@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Grid, Icon } from 'patternfly-react';
 import { connect, reduxActions } from '../../redux/';
+import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import CopyField from '../copyField/copyField';
 import Tooltip from '../tooltip/tooltip';
@@ -12,7 +13,7 @@ class AccountWizardStepRole extends React.Component {
   }
 
   render() {
-    const { configuration } = this.props;
+    const { awsAccountId } = this.props;
 
     return (
       <Form>
@@ -48,7 +49,7 @@ class AccountWizardStepRole extends React.Component {
                 <p>
                   Paste this value into the Account ID field under <strong>Another AWS account</strong>:
                 </p>
-                <CopyField id="account-id" value={configuration.aws_account_id || ''} />
+                <CopyField id="account-id" value={awsAccountId || ''} />
               </li>
               <li>
                 In the next step, select <strong>Cloud-Meter-policy</strong>.
@@ -66,21 +67,19 @@ class AccountWizardStepRole extends React.Component {
 
 AccountWizardStepRole.propTypes = {
   getSystemConfig: PropTypes.func,
-  configuration: PropTypes.shape({
-    aws_account_id: PropTypes.string
-  })
+  awsAccountId: PropTypes.string
 };
 
 AccountWizardStepRole.defaultProps = {
   getSystemConfig: helpers.noop,
-  configuration: {}
+  awsAccountId: null
 };
 
 const mapDispatchToProps = dispatch => ({
   getSystemConfig: () => dispatch(reduxActions.systemConfig.getSystemConfig())
 });
 
-const mapStateToProps = state => ({ ...state.accountWizard });
+const mapStateToProps = state => ({ awsAccountId: state.accountWizard.configuration[apiTypes.API_AWS_ACCOUNT_ID] });
 
 const ConnectedAccountWizardStepRole = connect(
   mapStateToProps,

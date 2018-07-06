@@ -21,6 +21,7 @@ exports[`connected 1`] = `
       autoFocus={true}
       bsClass="form-control"
       componentClass="input"
+      maxLength={256}
       name="accountName"
       onChange={[Function]}
       placeholder="Enter a name for this account"
@@ -28,6 +29,13 @@ exports[`connected 1`] = `
       value=""
     />
   </FormField>
+  <FormControl
+    bsClass="form-control"
+    componentClass="input"
+    name="resourceType"
+    type="hidden"
+    value="AwsAccount"
+  />
   <FormGroup
     bsClass="form-group"
   >

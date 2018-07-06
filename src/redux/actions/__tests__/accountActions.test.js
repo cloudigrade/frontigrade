@@ -2,12 +2,15 @@ import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { accountActions } from '../';
-import { accountReducers } from '../../reducers';
+import { accountReducers, accountWizardReducers } from '../../reducers';
 
 describe('UserActions', () => {
   const middleware = [promiseMiddleware()];
   const generateStore = () =>
-    createStore(combineReducers({ account: accountReducers }), applyMiddleware(...middleware));
+    createStore(
+      combineReducers({ account: accountReducers, accountWizard: accountWizardReducers }),
+      applyMiddleware(...middleware)
+    );
 
   beforeEach(() => {
     moxios.install();
@@ -23,6 +26,18 @@ describe('UserActions', () => {
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('Should return response content for addAccount method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.addAccount();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountWizard;
+
+      expect(response.account).toEqual('success');
+      done();
+    });
   });
 
   it('Should return response content for getAccount method', done => {
@@ -45,6 +60,18 @@ describe('UserActions', () => {
       const response = store.getState().account.view;
 
       expect(response.accounts).toEqual('success');
+      done();
+    });
+  });
+
+  it('Should return response content for updateAccount method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.updateAccount();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountWizard;
+
+      expect(response.account).toEqual('success');
       done();
     });
   });
