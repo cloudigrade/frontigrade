@@ -20,7 +20,7 @@ exports[`unconnected 1`] = `
           >
             Identity and Access Management
           </a>
-           
+          . 
           <span>
             <span
               aria-hidden="true"
@@ -53,7 +53,7 @@ exports[`unconnected 1`] = `
                 id="account-id"
                 readonly=""
                 type="text"
-                value="123"
+                value=""
               />
               <span
                 class="input-group-btn"
@@ -73,6 +73,7 @@ exports[`unconnected 1`] = `
           <strong>
             Cloud-Meter-policy
           </strong>
+          .
         </li>
         <li>
           Continue, name the role 
@@ -83,6 +84,7 @@ exports[`unconnected 1`] = `
           <strong>
             Create role
           </strong>
+          .
         </li>
       </ul>
     </div>

@@ -17,7 +17,7 @@ describe('AccountWizardReducers', () => {
 
       const resultState = accountWizardReducers(undefined, dispatched);
 
-      expect({ type: value, result: resultState }).toMatchSnapshot('fulfilled types');
+      expect({ type: value, result: resultState }).toMatchSnapshot('defined types');
     });
   });
 });

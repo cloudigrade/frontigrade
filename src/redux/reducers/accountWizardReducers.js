@@ -1,23 +1,26 @@
 import { accountTypes, systemConfigTypes } from '../constants';
 import helpers from '../../common/helpers';
+import apiTypes from '../../constants/apiConstants';
 
 const initialState = {
-  show: false,
   add: false,
+  account: {},
+  configuration: {},
   edit: false,
   error: false,
   errorMessage: null,
-  account: {},
-  configuration: {},
+  fulfilled: false,
+  pending: false,
+  show: false,
   stepPolicyValid: false,
+  stepPolicyErrorMessage: null,
   stepRoleValid: true,
-  stepThreeValid: false,
-  fulfilled: false
+  stepArnValid: false,
+  stepArnErrorMessage: null
 };
 
 const accountWizardReducers = (state = initialState, action) => {
   switch (action.type) {
-    // Show/Hide
     case accountTypes.ADD_ACCOUNT_SHOW:
       return helpers.setStateProp(
         null,
@@ -47,7 +50,7 @@ const accountWizardReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         null,
         {
-          account: action.account,
+          account: Object.assign({}, state.account, action.account),
           stepPolicyValid: true
         },
         {
@@ -60,8 +63,34 @@ const accountWizardReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         null,
         {
-          account: action.account,
+          account: Object.assign({}, state.account, action.account),
           stepPolicyValid: false
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case accountTypes.ADD_ACCOUNT_WIZARD_STEP_ARN:
+      return helpers.setStateProp(
+        null,
+        {
+          account: Object.assign({}, state.account, action.account),
+          stepArnValid: true
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case accountTypes.INVALID_ACCOUNT_WIZARD_STEP_ARN:
+      return helpers.setStateProp(
+        null,
+        {
+          account: Object.assign({}, state.account, action.account),
+          stepArnValid: false
         },
         {
           state,
@@ -74,6 +103,59 @@ const accountWizardReducers = (state = initialState, action) => {
         null,
         {
           configuration: action.payload.data
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.REJECTED_ACTION(accountTypes.ADD_ACCOUNT):
+      const policyRejectedErrors = helpers.getErrorMessageFromResults(action.payload, apiTypes.API_ACCOUNT_NAME);
+      const arnRejectedErrors = helpers.getErrorMessageFromResults(action.payload, apiTypes.API_ACCOUNT_ARN);
+
+      return helpers.setStateProp(
+        null,
+        {
+          error: action.error,
+          errorMessage: helpers.getErrorMessageFromResults(action.payload),
+          stepArnValid: arnRejectedErrors === '',
+          stepArnErrorMessage: arnRejectedErrors,
+          stepPolicyValid: policyRejectedErrors === '',
+          stepPolicyErrorMessage: policyRejectedErrors,
+          fulfilled: false,
+          pending: false
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.PENDING_ACTION(accountTypes.ADD_ACCOUNT):
+      return helpers.setStateProp(
+        null,
+        {
+          error: false,
+          errorMessage: null,
+          fulfilled: false,
+          pending: true
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(accountTypes.ADD_ACCOUNT):
+      return helpers.setStateProp(
+        null,
+        {
+          account: action.payload.data,
+          error: false,
+          errorMessage: null,
+          fulfilled: true,
+          pending: false
         },
         {
           state,

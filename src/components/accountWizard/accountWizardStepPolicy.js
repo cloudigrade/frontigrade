@@ -4,6 +4,7 @@ import { Form, Grid, Icon } from 'patternfly-react';
 import { awsPolicySetup } from '../../common/configuration.json';
 import helpers from '../../common/helpers';
 import { connect, reduxTypes, store } from '../../redux/';
+import apiTypes from '../../constants/apiConstants';
 import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
 import Tooltip from '../tooltip/tooltip';
@@ -11,13 +12,16 @@ import Tooltip from '../tooltip/tooltip';
 class AccountWizardStepPolicy extends React.Component {
   state = {
     accountName: '',
-    accountNameError: null
+    accountNameError: null,
+    resourceType: 'AwsAccount'
   };
 
   onChangeAccountName = event => {
-    // ToDo: validation for accountName may need to be completed through the API in order to avoid duplicate entries. Consider an onBlur check, along with a randomly generated name.
     const { value } = event.target;
-    const errorMessage = fieldValidation.isEmpty(value) ? 'You must enter an account name' : '';
+    const errorMessage =
+      value && fieldValidation.doesntHaveMinimumCharacters(value, 3)
+        ? 'Enter minimum of 3 characters for account name'
+        : '';
 
     this.setState(
       {
@@ -29,7 +33,7 @@ class AccountWizardStepPolicy extends React.Component {
   };
 
   isStepValid() {
-    const { accountName, accountNameError } = this.state;
+    const { accountName, accountNameError, resourceType } = this.state;
     const stepValid = accountNameError === '';
     const dispatchType = stepValid
       ? reduxTypes.account.ADD_ACCOUNT_WIZARD_STEP_POLICY
@@ -38,42 +42,48 @@ class AccountWizardStepPolicy extends React.Component {
     store.dispatch({
       type: dispatchType,
       account: {
-        accountName
+        [apiTypes.API_ACCOUNT_NAME]: accountName,
+        [apiTypes.API_RESOURCE_TYPE]: resourceType
       }
     });
   }
 
   render() {
-    const { accountName, accountNameError } = this.state;
-    const { policySetupConfig } = this.props;
+    const { accountName, accountNameError, resourceType } = this.state;
+    const { policySetupConfig, stepPolicyValid, stepPolicyErrorMessage } = this.props;
+
+    let stepError = null;
+
+    if (!stepPolicyValid) {
+      stepError = stepPolicyErrorMessage;
+    }
 
     return (
-      <Form>
+      <Form horizontal>
         <FormField
           label="Account Name"
-          colLabelClassName="no-padding-right"
-          colFieldClassName="no-padding-left"
-          error={accountNameError}
-          errorMessage={accountNameError}
+          error={stepError || accountNameError}
+          errorMessage={stepError || accountNameError}
         >
           <Form.FormControl
+            autoFocus
             type="text"
             name="accountName"
             value={accountName}
             placeholder="Enter a name for this account"
+            maxLength={256}
             onChange={this.onChangeAccountName}
           />
         </FormField>
-        <br />
-        <br />
+        <Form.FormControl type="hidden" name="resourceType" value={resourceType} />
         <Form.FormGroup>
-          <Grid.Col sm={12}>
+          <Grid.Col sm={12} className="padding-left">
             <ul>
               <li>
                 Create a new policy in the AWS{' '}
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>{' '}
+                </a>.{' '}
                 <Tooltip
                   delayShow={100}
                   popover={
@@ -113,11 +123,15 @@ class AccountWizardStepPolicy extends React.Component {
 }
 
 AccountWizardStepPolicy.propTypes = {
-  policySetupConfig: PropTypes.string
+  policySetupConfig: PropTypes.string,
+  stepPolicyValid: PropTypes.bool,
+  stepPolicyErrorMessage: PropTypes.string
 };
 
 AccountWizardStepPolicy.defaultProps = {
-  policySetupConfig: helpers.prettyPrintJson(awsPolicySetup)
+  policySetupConfig: helpers.prettyPrintJson(awsPolicySetup),
+  stepPolicyValid: false,
+  stepPolicyErrorMessage: null
 };
 
 const mapStateToProps = state => ({ ...state.accountWizard });

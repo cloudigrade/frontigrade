@@ -4,22 +4,24 @@ exports[`connected 1`] = `
 <Form
   bsClass="form"
   componentClass="form"
-  horizontal={false}
+  horizontal={true}
   inline={false}
 >
   <FormField
     colField={9}
-    colFieldClassName="no-padding-left"
+    colFieldClassName={null}
     colLabel={3}
-    colLabelClassName="no-padding-right"
+    colLabelClassName={null}
     error={null}
     errorMessage={null}
     id={null}
     label="Account Name"
   >
     <FormControl
+      autoFocus={true}
       bsClass="form-control"
       componentClass="input"
+      maxLength={256}
       name="accountName"
       onChange={[Function]}
       placeholder="Enter a name for this account"
@@ -27,13 +29,19 @@ exports[`connected 1`] = `
       value=""
     />
   </FormField>
-  <br />
-  <br />
+  <FormControl
+    bsClass="form-control"
+    componentClass="input"
+    name="resourceType"
+    type="hidden"
+    value="AwsAccount"
+  />
   <FormGroup
     bsClass="form-group"
   >
     <Col
       bsClass="col"
+      className="padding-left"
       componentClass="div"
       sm={12}
     >
@@ -48,6 +56,7 @@ exports[`connected 1`] = `
           >
             Identity and Access Management
           </a>
+          .
            
           <Tooltip
             delayShow={100}

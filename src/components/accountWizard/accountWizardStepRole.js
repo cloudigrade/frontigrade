@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Grid, Icon } from 'patternfly-react';
 import { connect, reduxActions } from '../../redux/';
+import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import CopyField from '../copyField/copyField';
 import Tooltip from '../tooltip/tooltip';
@@ -12,7 +13,7 @@ class AccountWizardStepRole extends React.Component {
   }
 
   render() {
-    const { configuration } = this.props;
+    const { awsAccountId } = this.props;
 
     return (
       <Form>
@@ -23,7 +24,7 @@ class AccountWizardStepRole extends React.Component {
                 Create a new role in the AWS{' '}
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>{' '}
+                </a>.{' '}
                 <Tooltip
                   delayShow={100}
                   popover={
@@ -48,13 +49,13 @@ class AccountWizardStepRole extends React.Component {
                 <p>
                   Paste this value into the Account ID field under <strong>Another AWS account</strong>:
                 </p>
-                <CopyField id="account-id" value={configuration.aws_account_id || ''} />
+                <CopyField id="account-id" value={awsAccountId || ''} />
               </li>
               <li>
-                In the next step, select <strong>Cloud-Meter-policy</strong>
+                In the next step, select <strong>Cloud-Meter-policy</strong>.
               </li>
               <li>
-                Continue, name the role <strong>Cloud-Meter-role</strong>, and click <strong>Create role</strong>
+                Continue, name the role <strong>Cloud-Meter-role</strong>, and click <strong>Create role</strong>.
               </li>
             </ul>
           </Grid.Col>
@@ -66,21 +67,19 @@ class AccountWizardStepRole extends React.Component {
 
 AccountWizardStepRole.propTypes = {
   getSystemConfig: PropTypes.func,
-  configuration: PropTypes.shape({
-    aws_account_id: PropTypes.string
-  })
+  awsAccountId: PropTypes.string
 };
 
 AccountWizardStepRole.defaultProps = {
   getSystemConfig: helpers.noop,
-  configuration: {}
+  awsAccountId: null
 };
 
 const mapDispatchToProps = dispatch => ({
   getSystemConfig: () => dispatch(reduxActions.systemConfig.getSystemConfig())
 });
 
-const mapStateToProps = state => ({ ...state.accountWizard });
+const mapStateToProps = state => ({ awsAccountId: state.accountWizard.configuration[apiTypes.API_AWS_ACCOUNT_ID] });
 
 const ConnectedAccountWizardStepRole = connect(
   mapStateToProps,
