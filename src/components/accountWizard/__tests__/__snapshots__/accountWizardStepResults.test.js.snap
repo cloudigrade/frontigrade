@@ -29,9 +29,20 @@ exports[`error 1`] = `
     <div
       className="wizard-pf-success-icon"
     >
-      <span
-        className="pficon pficon-error-circle-o"
-      />
+      <Icon
+        name="error-circle-o"
+        type="pf"
+      >
+        <PatternflyIcon
+          className=""
+          name="error-circle-o"
+        >
+          <span
+            aria-hidden="true"
+            className="pficon pficon-error-circle-o"
+          />
+        </PatternflyIcon>
+      </Icon>
     </div>
     <h3
       className="blank-slate-pf-main-action"
@@ -64,9 +75,20 @@ exports[`error edit 1`] = `
     <div
       className="wizard-pf-success-icon"
     >
-      <span
-        className="pficon pficon-error-circle-o"
-      />
+      <Icon
+        name="error-circle-o"
+        type="pf"
+      >
+        <PatternflyIcon
+          className=""
+          name="error-circle-o"
+        >
+          <span
+            aria-hidden="true"
+            className="pficon pficon-error-circle-o"
+          />
+        </PatternflyIcon>
+      </Icon>
     </div>
     <h3
       className="blank-slate-pf-main-action"

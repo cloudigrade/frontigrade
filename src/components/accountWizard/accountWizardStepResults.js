@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spinner } from 'patternfly-react';
+import { Icon, Spinner } from 'patternfly-react';
 import { connect } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 
@@ -9,7 +9,7 @@ const AccountWizardStepResults = ({ accountName, edit, error, errorMessage, fulf
     {error && (
       <div className="wizard-pf-complete blank-slate-pf">
         <div className="wizard-pf-success-icon">
-          <span className="pficon pficon-error-circle-o" />
+          <Icon type="pf" name="error-circle-o" />
         </div>
         <h3 className="blank-slate-pf-main-action">Error {edit ? 'Updating' : 'Creating'} Account</h3>
         <p className="blank-slate-pf-secondary-action">{errorMessage}</p>
