@@ -8,6 +8,7 @@ const initialState = {
   configuration: {},
   edit: false,
   error: false,
+  errorStatus: null,
   errorMessage: null,
   fulfilled: false,
   pending: false,
@@ -119,6 +120,7 @@ const accountWizardReducers = (state = initialState, action) => {
         {
           error: action.error,
           errorMessage: helpers.getErrorMessageFromResults(action.payload),
+          errorStatus: helpers.getStatusFromResults(action.payload),
           stepArnValid: arnRejectedErrors === '',
           stepArnErrorMessage: arnRejectedErrors,
           stepPolicyValid: policyRejectedErrors === '',

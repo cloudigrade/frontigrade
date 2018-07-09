@@ -3,8 +3,15 @@ import _ from 'lodash';
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
 
 const getErrorMessageFromResults = (results, filterField = null) => {
+  const status = _.get(results, 'response.status', results.status);
   const messageResponse = _.get(results, 'response.data', results.message);
   const detailResponse = _.get(results, 'response.data', results.detail);
+
+  if (status >= 500 || status === undefined) {
+    return `${status || ''} Server is currently unable to handle this request. ${messageResponse ||
+      detailResponse ||
+      ''}`;
+  }
 
   if (typeof messageResponse === 'string') {
     return messageResponse;
@@ -31,6 +38,16 @@ const getErrorMessageFromResults = (results, filterField = null) => {
   };
 
   return _.join(getMessages(messageResponse || detailResponse, filterField), '\n');
+};
+
+const getStatusFromResults = results => {
+  let status = _.get(results, 'response.status', results.status);
+
+  if (status === undefined) {
+    status = 0;
+  }
+
+  return status;
 };
 
 const noop = Function.prototype;
@@ -89,6 +106,7 @@ const REJECTED_ACTION = base => `${base}_REJECTED`;
 const helpers = {
   generateId,
   getErrorMessageFromResults,
+  getStatusFromResults,
   noop,
   setStateProp,
   prettyPrintJson,

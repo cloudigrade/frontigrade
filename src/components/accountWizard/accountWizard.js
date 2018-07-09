@@ -130,6 +130,7 @@ class AccountWizard extends React.Component {
   render() {
     const {
       error,
+      errorStatus,
       pending,
       fulfilled,
       show,
@@ -167,7 +168,11 @@ class AccountWizard extends React.Component {
           <Button bsStyle="default" disabled={fulfilled} className="btn-cancel" onClick={this.onCancel}>
             Cancel
           </Button>
-          <Button bsStyle="default" disabled={activeStepIndex === 0 || pending || fulfilled} onClick={this.onBack}>
+          <Button
+            bsStyle="default"
+            disabled={activeStepIndex === 0 || errorStatus >= 500 || errorStatus === 0 || pending || fulfilled}
+            onClick={this.onBack}
+          >
             <Icon type="fa" name="angle-left" />Back
           </Button>
           {activeStepIndex < wizardSteps.length - 2 && (
@@ -201,6 +206,7 @@ AccountWizard.propTypes = {
   addSteps: PropTypes.array,
   edit: PropTypes.bool,
   error: PropTypes.bool,
+  errorStatus: PropTypes.number,
   errorMessage: PropTypes.string,
   fulfilled: PropTypes.bool,
   pending: PropTypes.bool,
@@ -218,6 +224,7 @@ AccountWizard.defaultProps = {
   edit: false,
   error: false,
   errorMessage: null,
+  errorStatus: null,
   fulfilled: false,
   pending: false,
   stepPolicyValid: false,
