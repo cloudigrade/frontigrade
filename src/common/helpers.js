@@ -2,12 +2,17 @@ import _ from 'lodash';
 
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
 
-const getErrorMessageFromResults = (results, filterField = null) => {
+const getMessageFromResults = (results, filterField = null) => {
   const status = _.get(results, 'response.status', results.status);
+  const statusResponse = _.get(results, 'response.statusText', results.statusText);
   const messageResponse = _.get(results, 'response.data', results.message);
   const detailResponse = _.get(results, 'response.data', results.detail);
 
-  if (status >= 500 || status === undefined) {
+  if (status < 400 && !messageResponse && !detailResponse) {
+    return statusResponse;
+  }
+
+  if (status >= 500 || (status === undefined && (messageResponse || detailResponse))) {
     return `${status || ''} Server is currently unable to handle this request. ${messageResponse ||
       detailResponse ||
       ''}`;
@@ -97,15 +102,17 @@ const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const OC_MODE = process.env.REACT_APP_ENV === 'oc';
 
-const FULFILLED_ACTION = base => `${base}_FULFILLED`;
+const FULFILLED_ACTION = (base = '') => `${base}_FULFILLED`;
 
-const PENDING_ACTION = base => `${base}_PENDING`;
+const PENDING_ACTION = (base = '') => `${base}_PENDING`;
 
-const REJECTED_ACTION = base => `${base}_REJECTED`;
+const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
+
+const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
 const helpers = {
   generateId,
-  getErrorMessageFromResults,
+  getMessageFromResults,
   getStatusFromResults,
   noop,
   setStateProp,
@@ -114,7 +121,8 @@ const helpers = {
   OC_MODE,
   FULFILLED_ACTION,
   PENDING_ACTION,
-  REJECTED_ACTION
+  REJECTED_ACTION,
+  HTTP_STATUS_RANGE
 };
 
 export { helpers as default, helpers };

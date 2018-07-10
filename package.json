@@ -31,7 +31,8 @@
       "!src/setupTests.js",
       "!src/components/app.js",
       "!src/redux/index.js",
-      "!src/redux/store.js"
+      "!src/redux/store.js",
+      "!src/redux/middleware/**"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

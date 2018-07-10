@@ -1,6 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SystemConfigReducers should handle all defined error types 1`] = `
+exports[`fulfilled types 1`] = `
+Object {
+  "result": Object {
+    "configuration": Object {},
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": false,
+    "pending": false,
+  },
+  "type": "default_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 2`] = `
+Object {
+  "result": Object {
+    "configuration": Object {
+      "test": "success",
+    },
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": true,
+    "pending": false,
+  },
+  "type": "GET_SYSTEM_CONFIG_FULFILLED",
+}
+`;
+
+exports[`pending types 1`] = `
+Object {
+  "result": Object {
+    "configuration": Object {},
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": false,
+    "pending": false,
+  },
+  "type": "default_PENDING",
+}
+`;
+
+exports[`pending types 2`] = `
+Object {
+  "result": Object {
+    "configuration": Object {},
+    "error": false,
+    "errorMessage": "",
+    "fulfilled": false,
+    "pending": true,
+  },
+  "type": "GET_SYSTEM_CONFIG_PENDING",
+}
+`;
+
+exports[`rejected types 1`] = `
 Object {
   "result": Object {
     "configuration": Object {},
@@ -13,7 +67,7 @@ Object {
 }
 `;
 
-exports[`SystemConfigReducers should handle all defined error types 2`] = `
+exports[`rejected types 2`] = `
 Object {
   "result": Object {
     "configuration": Object {},
@@ -30,59 +84,5 @@ Object {
     "pending": false,
   },
   "type": "GET_SYSTEM_CONFIG_REJECTED",
-}
-`;
-
-exports[`SystemConfigReducers should handle all defined fulfilled types 1`] = `
-Object {
-  "result": Object {
-    "configuration": Object {},
-    "error": false,
-    "errorMessage": "",
-    "fulfilled": false,
-    "pending": false,
-  },
-  "type": "default_FULFILLED",
-}
-`;
-
-exports[`SystemConfigReducers should handle all defined fulfilled types 2`] = `
-Object {
-  "result": Object {
-    "configuration": Object {
-      "test": "success",
-    },
-    "error": false,
-    "errorMessage": "",
-    "fulfilled": true,
-    "pending": false,
-  },
-  "type": "GET_SYSTEM_CONFIG_FULFILLED",
-}
-`;
-
-exports[`SystemConfigReducers should handle all defined pending types 1`] = `
-Object {
-  "result": Object {
-    "configuration": Object {},
-    "error": false,
-    "errorMessage": "",
-    "fulfilled": false,
-    "pending": false,
-  },
-  "type": "default_PENDING",
-}
-`;
-
-exports[`SystemConfigReducers should handle all defined pending types 2`] = `
-Object {
-  "result": Object {
-    "configuration": Object {},
-    "error": false,
-    "errorMessage": "",
-    "fulfilled": false,
-    "pending": true,
-  },
-  "type": "GET_SYSTEM_CONFIG_PENDING",
 }
 `;

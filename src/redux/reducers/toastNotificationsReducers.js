@@ -1,4 +1,5 @@
-import { toastNotificationTypes } from '../constants';
+import { applicationStatusTypes, toastNotificationTypes } from '../constants';
+import helpers from '../../common/helpers';
 
 const initialState = {
   toasts: [],
@@ -53,6 +54,22 @@ const toastNotificationsReducers = (state = initialState, action) => {
         ...state,
         ...{
           paused: false
+        }
+      };
+
+    case helpers.HTTP_STATUS_RANGE(applicationStatusTypes.STATUS_5XX):
+      const applicationToast = {
+        header: 'Error',
+        message: action.message,
+        alertType: 'error',
+        persistent: true
+      };
+
+      return {
+        ...state,
+        ...{
+          toasts: [...state.toasts, applicationToast],
+          displayedToasts: state.displayedToasts + 1
         }
       };
 

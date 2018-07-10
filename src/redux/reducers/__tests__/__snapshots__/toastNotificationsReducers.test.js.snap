@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`503 rejected type 1`] = `
+Object {
+  "result": Object {
+    "displayedToasts": 1,
+    "paused": false,
+    "toasts": Array [
+      Object {
+        "alertType": "error",
+        "header": "Error",
+        "message": "Network Error",
+        "persistent": true,
+      },
+    ],
+  },
+  "type": "TEST_TYPE_REJECTED",
+}
+`;
+
+exports[`rejected type 1`] = `
+Object {
+  "result": Object {
+    "displayedToasts": 1,
+    "paused": false,
+    "toasts": Array [
+      Object {
+        "alertType": "error",
+        "header": "Error",
+        "message": "Network Error",
+        "persistent": true,
+      },
+    ],
+  },
+  "type": "TEST_TYPE_REJECTED",
+}
+`;

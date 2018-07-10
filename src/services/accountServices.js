@@ -43,8 +43,8 @@ import serviceConfig from './index';
  * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 400 Bad Request
  *     {
- *       "resourcetype": [
- *          "resourcetype is required"
+ *       "account_arn": [
+ *          "account_arn is required"
  *       ]
  *     }
  */

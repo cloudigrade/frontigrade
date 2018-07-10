@@ -28,7 +28,7 @@ describe('AccountReducers', () => {
 
       const resultState = accountReducers(undefined, dispatched);
 
-      expect({ type: helpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot();
+      expect({ type: helpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot('rejected types');
     });
   });
 
@@ -44,7 +44,7 @@ describe('AccountReducers', () => {
 
       const resultState = accountReducers(undefined, dispatched);
 
-      expect({ type: helpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot();
+      expect({ type: helpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot('pending types');
     });
   });
 
@@ -65,7 +65,7 @@ describe('AccountReducers', () => {
 
       const resultState = accountReducers(undefined, dispatched);
 
-      expect({ type: helpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot();
+      expect({ type: helpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot('fulfilled types');
     });
   });
 });

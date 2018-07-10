@@ -13,7 +13,7 @@ class AccountWizard extends React.Component {
 
   // ToDo: if onCancel allowed to fire in "pending" state, need to query if its supposed to cancel the request or continue. Currently it continues
   onCancel = () => {
-    const { edit, fulfilled, pending } = this.props;
+    const { edit, fulfilled, pending, errorStatus } = this.props;
 
     const closeWizard = () =>
       this.setState({ activeStepIndex: 0 }, () => {
@@ -26,7 +26,7 @@ class AccountWizard extends React.Component {
         });
       });
 
-    if (fulfilled) {
+    if (fulfilled || errorStatus >= 500 || errorStatus === 0) {
       closeWizard();
     } else if (pending) {
       store.dispatch({

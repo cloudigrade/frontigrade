@@ -35,7 +35,7 @@ checkContainerRunning()
 #
 devApi()
 {
-  local CONTAINER="cdcabrera/apidoc-mock"
+  local CONTAINER="cdcabrera/apidoc-mock:1.0.0"
   local NAME="frontigrade-dev"
   local PORT=$1
   local DIR=$2

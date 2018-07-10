@@ -25,3 +25,4 @@ ignore:
   - "src/**/*store.js"
   - "src/redux/index.js"
   - "src/components/app.js"
+  - "src/redux/middleware/*"

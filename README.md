@@ -56,6 +56,31 @@ An alternative to running the development or OpenShift serve is the review serve
   $ npm run start:review
   ```
  
+### Debugging
+
+#### Force a specific http status for development responses
+If you've run the development command `$ npm start` you can spoof and force a specific http status for an endpoint.
+
+To force a specific http status you'll need to add an annotation to the ApiDoc service file annotations located here:
+- `src/services/*.js` 
+
+Add a line similar to `* @apiMock {ForceStatus} 503` where `503` is the status you want to emulate. A "hot" reload means you can manipulate the status in real time. Full example:
+  ```js
+  /**
+   * @apiMock {ForceStatus} 503
+   * 
+   * @api {post} /api/v1/account/ Post account
+   * @apiDescription Add an account.
+   * @apiDescription Use this endpoint to add an account.
+   *
+   * @apiParam (Request message body) {String} 
+
+   ...
+
+   */
+  ```
+##### False positives warning
+*Forcing an http status moves outside normal server behavior and can lead to unexpected results and combinations. Correlation does not always equate to an issue.* 
 
 #### Debugging Redux
 This project makes use of React & Redux. To enable Redux console logging, within the `[REPO]/client` directory, add a `.env.local` (dotenv) file with the follow line
