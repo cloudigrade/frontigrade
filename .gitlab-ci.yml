@@ -1,0 +1,16 @@
+Yarn:
+  stage: test
+  image: node:8
+  before_script:
+    - yarn
+    - yarn global add codecov
+  script: yarn test
+  after_script:
+    - codecov
+
+Docker:
+  image: docker
+  services:
+    - docker:dind
+  stage: test
+  script: docker build .
