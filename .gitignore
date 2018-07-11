@@ -15,6 +15,7 @@ coverage
 
 # build & production
 build
+translations
 .css
 styles/*.css
 public/locales
