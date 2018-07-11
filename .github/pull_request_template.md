@@ -19,7 +19,7 @@ API_HOST=http://your_url_here
 EOL
 ```
 
-Then run `npm run start:review`. 
+Then run `npm run start:review`.
 
 **NOTE:** Any time you want to change `API_HOST`, you must `ctl-c` out of `npm run start:review` and then restart it.
 
