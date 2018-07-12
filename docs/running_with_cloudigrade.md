@@ -1,10 +1,7 @@
-# Description of changes
+### Instructions to run locally against a cloudigrade instance for review
 
+To run a particular branch of the front end against `test.cloudigra.de`, check out the branch locally and run:
 
-
---------------------------------------------
-### Instructions to run PR locally against a cloudigrade instance for review
-To run this version of the front end against `test.cloudigra.de`, check out this branch locally and run:
 ```
 npm install
 npm run start:review
