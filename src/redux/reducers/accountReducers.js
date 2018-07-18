@@ -3,11 +3,11 @@ import helpers from '../../common/helpers';
 
 const initialState = {
   view: {
+    accounts: [],
     error: false,
     errorMessage: '',
     pending: false,
-    fulfilled: false,
-    accounts: []
+    fulfilled: false
   }
 };
 
@@ -49,7 +49,7 @@ const accountReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'view',
         {
-          accounts: action.payload.data,
+          accounts: action.payload.data.results || [],
           fulfilled: true
         },
         {

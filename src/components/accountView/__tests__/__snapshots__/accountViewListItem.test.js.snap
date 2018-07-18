@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountViewListItem Component should render 1`] = `
+<div
+  class="list-group-item"
+>
+  <div
+    class="list-view-pf-actions"
+  >
+    <div />
+  </div>
+  <div
+    class="list-view-pf-main-info"
+  >
+    <div
+      class="list-view-pf-body"
+    >
+      <div
+        class="list-view-pf-description"
+      >
+        <div
+          class="list-group-item-heading"
+        >
+          <div
+            class="list-group-item-heading"
+          >
+            Lorem test
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-view-pf-additional-info"
+      >
+        <div
+          class="list-view-pf-additional-info-item"
+        >
+          <span
+            aria-hidden="true"
+            class="pficon pficon-cluster"
+          />
+          <strong>
+            0
+          </strong>
+           Images
+        </div>
+        <div
+          class="list-view-pf-additional-info-item"
+        >
+          <span
+            aria-hidden="true"
+            class="pficon pficon-screen"
+          />
+          <strong>
+            0
+          </strong>
+           Instances
+        </div>
+        <div
+          class="list-view-pf-additional-info-item"
+        >
+          <strong>
+            0
+          </strong>
+          <span
+            class="label label-primary"
+          >
+            <abbr
+              title="Red Hat Enterprise Linux"
+            >
+              RHEL
+            </abbr>
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item"
+        >
+          <strong>
+            0
+          </strong>
+          <span
+            class="label label-primary"
+          >
+            <abbr
+              title="Red Hat Open Stack"
+            >
+              RHOS
+            </abbr>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

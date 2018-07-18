@@ -23,9 +23,9 @@ exports[`ToastNotificationsList Component should render a basic component 1`] = 
     />
     <span>
       <strong>
-        ipsum
+        ipsum  
       </strong>
-        ipsum
+      ipsum
     </span>
   </div>
 </div>

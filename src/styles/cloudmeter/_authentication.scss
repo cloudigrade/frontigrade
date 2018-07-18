@@ -52,17 +52,6 @@
   justify-content: center;
 }
 
-.cloudmeter-login.fadein {
-  opacity:0;
-  animation:fadein ease-in forwards;
-  animation-delay:.25s;
-}
-
-@-webkit-keyframes fadein           {   0%{opacity:0} 100%{opacity:1} }
-@-moz-keyframes fadein              {   0%{opacity:0} 100%{opacity:1} }
-@-o-keyframes fadein                {   0%{opacity:0} 100%{opacity:1} }
-@keyframes fadein                   {   0%{opacity:0} 100%{opacity:1} }
-
 .cloudmeter-login-settings {
   > * {
     margin-top: 0;

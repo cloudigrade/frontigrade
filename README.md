@@ -83,7 +83,7 @@ Add a line similar to `* @apiMock {ForceStatus} 503` where `503` is the status y
 *Forcing an http status moves outside normal server behavior and can lead to unexpected results and combinations. Correlation does not always equate to an issue.* 
 
 #### Debugging Redux
-This project makes use of React & Redux. To enable Redux console logging, within the `[REPO]/client` directory, add a `.env.local` (dotenv) file with the follow line
+This project makes use of React & Redux. To enable Redux console logging, within the repository root directory, add a `.env.local` (dotenv) file with the follow line
   ```
   REACT_APP_DEBUG_MIDDLEWARE=true
   ```

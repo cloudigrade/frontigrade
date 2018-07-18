@@ -49,9 +49,9 @@ exports[`fulfilled types 4`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Object {
-        "test": "success",
-      },
+      "accounts": Array [
+        "success",
+      ],
       "error": false,
       "errorMessage": "",
       "fulfilled": true,
@@ -66,9 +66,9 @@ exports[`fulfilled types 5`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Object {
-        "test": "success",
-      },
+      "accounts": Array [
+        "success",
+      ],
       "error": false,
       "errorMessage": "",
       "fulfilled": true,

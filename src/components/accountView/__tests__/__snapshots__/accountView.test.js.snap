@@ -1,6 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountView Component should render a non-connected component 1`] = `
+exports[`connected 1`] = `
+<AccountView
+  accounts={Array []}
+  error={false}
+  errorMessage={null}
+  getAccounts={[Function]}
+  pending={false}
+/>
+`;
+
+exports[`empty state 1`] = `
 <div
   class="container-fluid"
 >
@@ -8,7 +18,7 @@ exports[`AccountView Component should render a non-connected component 1`] = `
     class="row"
   >
     <div
-      class="blank-slate-pf full-page-blank-slate"
+      class="blank-slate-pf full-page-blank-slate fadein"
     >
       <div
         class="blank-slate-pf-icon"
@@ -43,51 +53,139 @@ exports[`AccountView Component should render a non-connected component 1`] = `
 </div>
 `;
 
-exports[`connected 1`] = `
-<Grid
-  bsClass="container"
-  componentClass="div"
-  fluid={true}
+exports[`list 1`] = `
+<div
+  class="cloudmeter-list-container"
 >
-  <Row
-    bsClass="row"
-    componentClass="div"
+  <div
+    class="list-group list-view-pf list-view-pf-view quipicords-list-view"
   >
-    <EmptyState
-      className="full-page-blank-slate"
+    <div
+      class="list-group-item"
     >
-      <EmptyStateIcon
-        className=""
-        name="add-circle-o"
-        type="pf"
-      />
-      <EmptyStateTitle
-        className=""
+      <div
+        class="list-view-pf-actions"
       >
-        Welcome to Cloud Meter
-      </EmptyStateTitle>
-      <EmptyStateInfo
-        className=""
+        <div>
+          <div
+            class="dropdown-kebab-pf dropdown btn-group"
+          >
+            <button
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="dropdown-toggle btn btn-link"
+              id="account-item-menu-1"
+              role="button"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+                class="fa fa-ellipsis-v"
+              />
+            </button>
+            <ul
+              aria-labelledby="account-item-menu-1"
+              class="dropdown-menu dropdown-menu-right"
+              role="menu"
+            >
+              <li
+                class=""
+                role="presentation"
+              >
+                <a
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Edit Name
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-view-pf-main-info"
       >
-        Add an AWS account to monitor usage.
-      </EmptyStateInfo>
-      <EmptyStateAction
-        className=""
-        secondary={false}
-      >
-        <Button
-          active={false}
-          block={false}
-          bsClass="btn"
-          bsSize="large"
-          bsStyle="primary"
-          disabled={false}
-          onClick={[Function]}
+        <div
+          class="list-view-pf-body"
         >
-          Add Account
-        </Button>
-      </EmptyStateAction>
-    </EmptyState>
-  </Row>
-</Grid>
+          <div
+            class="list-view-pf-description"
+          >
+            <div
+              class="list-group-item-heading"
+            >
+              <div
+                class="list-group-item-heading"
+              >
+                Lorem ipsum
+              </div>
+            </div>
+          </div>
+          <div
+            class="list-view-pf-additional-info"
+          >
+            <div
+              class="list-view-pf-additional-info-item"
+            >
+              <span
+                aria-hidden="true"
+                class="pficon pficon-cluster"
+              />
+              <strong>
+                0
+              </strong>
+               Images
+            </div>
+            <div
+              class="list-view-pf-additional-info-item"
+            >
+              <span
+                aria-hidden="true"
+                class="pficon pficon-screen"
+              />
+              <strong>
+                0
+              </strong>
+               Instances
+            </div>
+            <div
+              class="list-view-pf-additional-info-item"
+            >
+              <strong>
+                0
+              </strong>
+              <span
+                class="label label-primary"
+              >
+                <abbr
+                  title="Red Hat Enterprise Linux"
+                >
+                  RHEL
+                </abbr>
+              </span>
+            </div>
+            <div
+              class="list-view-pf-additional-info-item"
+            >
+              <strong>
+                0
+              </strong>
+              <span
+                class="label label-primary"
+              >
+                <abbr
+                  title="Red Hat Open Stack"
+                >
+                  RHOS
+                </abbr>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

@@ -40,7 +40,7 @@ class ToastNotificationsList extends React.Component {
                   onMouseLeave={this.onLeave}
                 >
                   <span>
-                    <strong>{toast.header}</strong> &nbsp;
+                    {toast.header && <strong>{toast.header} &nbsp;</strong>}
                     {toast.message}
                   </span>
                 </TimedToastNotification>

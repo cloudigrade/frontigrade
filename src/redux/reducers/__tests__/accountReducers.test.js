@@ -58,7 +58,7 @@ describe('AccountReducers', () => {
         type: helpers.FULFILLED_ACTION(value),
         payload: {
           data: {
-            test: 'success'
+            results: ['success']
           }
         }
       };

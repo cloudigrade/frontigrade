@@ -19,7 +19,7 @@ describe('UserActions', () => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
-        response: 'success'
+        response: { test: 'success', results: ['success'] }
       });
     });
   });
@@ -35,7 +35,7 @@ describe('UserActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().accountWizard;
 
-      expect(response.account).toEqual('success');
+      expect(response.account.test).toEqual('success');
       done();
     });
   });
@@ -47,7 +47,7 @@ describe('UserActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().account.view;
 
-      expect(response.accounts).toEqual('success');
+      expect(response.accounts[0]).toEqual('success');
       done();
     });
   });
@@ -59,7 +59,7 @@ describe('UserActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().account.view;
 
-      expect(response.accounts).toEqual('success');
+      expect(response.accounts[0]).toEqual('success');
       done();
     });
   });
@@ -71,7 +71,7 @@ describe('UserActions', () => {
     dispatcher(store.dispatch).then(() => {
       const response = store.getState().accountWizard;
 
-      expect(response.account).toEqual('success');
+      expect(response.account.test).toEqual('success');
       done();
     });
   });

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar Component should render 1`] = `
+<div
+  class="container-fluid"
+>
+  <div
+    class="toolbar-pf row"
+  >
+    <div
+      class="col-sm-12"
+    >
+      <form
+        class="toolbar-pf-actions"
+      >
+        <div
+          class="toolbar-pf-action-right"
+        />
+      </form>
+      <div
+        class="toolbar-pf-results row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <h5
+            class="cloudmeter-view-count"
+          >
+             
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
