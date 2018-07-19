@@ -18,10 +18,9 @@ class AccountWizardStepPolicy extends React.Component {
 
   onChangeAccountName = event => {
     const { value } = event.target;
-    const errorMessage =
-      value && fieldValidation.doesntHaveMinimumCharacters(value, 3)
-        ? 'Enter minimum of 3 characters for account name'
-        : '';
+    const errorMessage = fieldValidation.doesntHaveMinimumCharacters(value, 3)
+      ? 'Enter minimum of 3 characters for account name'
+      : '';
 
     this.setState(
       {
