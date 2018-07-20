@@ -1,6 +1,29 @@
 import _ from 'lodash';
+import moment from 'moment/moment';
 
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
+
+const generatePriorYearMonthArray = () => {
+  const dateStart = moment().subtract(12, 'months');
+  const dateEnd = moment().startOf('month');
+  let timeValues = [];
+
+  while (dateEnd > dateStart || dateStart.format('M') === dateEnd.format('M')) {
+    timeValues.push({
+      title: dateStart.startOf('month').format('YYYY MMMM'),
+      value: dateStart.startOf('month').toISOString(),
+      start: dateStart.startOf('month').toISOString(),
+      end: dateStart.endOf('month').toISOString()
+    });
+
+    dateStart.add(1, 'month');
+  }
+
+  timeValues = timeValues.reverse();
+  timeValues[0].title = 'Last 30 Days';
+
+  return timeValues;
+};
 
 const getMessageFromResults = (results, filterField = null) => {
   const status = _.get(results, 'response.status', results.status);
@@ -112,6 +135,7 @@ const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
 const helpers = {
   generateId,
+  generatePriorYearMonthArray,
   getMessageFromResults,
   getStatusFromResults,
   noop,

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`active filters 1`] = `
+<div>
+  <p
+    class="filter-pf-active-label"
+  >
+    Active Filters:
+  </p>
+  <ul
+    class="list-inline"
+  >
+    <li
+      class=""
+    >
+      <span
+        class="label label-info"
+      >
+        ipsum
+        <a
+          class="pf-remove-button"
+          href="#"
+        >
+          <span
+            aria-hidden="true"
+            class="pficon pficon-close"
+          />
+          <span
+            class="sr-only"
+          >
+            Remove
+          </span>
+        </a>
+      </span>
+    </li>
+  </ul>
+  <button
+    class="btn btn-link"
+    type="button"
+  >
+    Clear All Filters
+  </button>
+  <h5>
+    0 Results
+  </h5>
+</div>
+`;
+
+exports[`basic 1`] = `
+<div>
+  <p
+    class="filter-pf-active-label"
+  >
+    No Filters
+  </p>
+  <h5>
+    0 Results
+  </h5>
+</div>
+`;

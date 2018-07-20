@@ -13,10 +13,10 @@ const getAccount = id => dispatch =>
     payload: accountServices.getAccount(id)
   });
 
-const getAccounts = () => dispatch =>
+const getAccounts = query => dispatch =>
   dispatch({
     type: accountTypes.GET_ACCOUNTS,
-    payload: accountServices.getAccounts()
+    payload: accountServices.getAccounts('', query)
   });
 
 const updateAccount = (id, data) => dispatch =>

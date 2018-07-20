@@ -1,0 +1,217 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defined types 1`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_ADD_FILTER",
+}
+`;
+
+exports[`defined types 2`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_CLEAR_FILTERS",
+}
+`;
+
+exports[`defined types 3`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_REMOVE_FILTER",
+}
+`;
+
+exports[`defined types 4`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_SET_DATE_TYPE",
+}
+`;
+
+exports[`defined types 5`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_SET_FILTER_TYPE",
+}
+`;
+
+exports[`defined types 6`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_SET_FILTER_VALUE",
+}
+`;
+
+exports[`defined types 7`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_SET_SORT_TYPE",
+}
+`;
+
+exports[`defined types 8`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 0,
+      "totalPages": 0,
+    },
+    "detail": Object {},
+  },
+  "type": "TOOLBAR_TOGGLE_SORT_ASCENDING",
+}
+`;
+
+exports[`fulfilled types 1`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "activeFilters": Array [],
+      "currentPage": 1,
+      "dateValue": null,
+      "expandedItems": Array [],
+      "filterField": null,
+      "filterValue": "",
+      "pageSize": 15,
+      "selectedCount": 0,
+      "selectedItems": Array [],
+      "sortAscending": true,
+      "sortValue": null,
+      "totalCount": 1,
+      "totalPages": 1,
+    },
+    "detail": Object {},
+  },
+  "type": "GET_ACCOUNTS_FULFILLED",
+}
+`;

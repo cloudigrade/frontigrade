@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Toolbar from '../toolbar';
+import ToolbarGroup from '../toolbarGroup';
 
-describe('Toolbar Component', () => {
+describe('ToolbarGroup Component', () => {
   it('should render a basic component', () => {
     const props = {};
 
-    const component = mount(<Toolbar {...props}>test</Toolbar>);
+    const component = mount(<ToolbarGroup {...props}>test</ToolbarGroup>);
 
     expect(component.render()).toMatchSnapshot();
   });

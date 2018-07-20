@@ -5,6 +5,7 @@ exports[`connected 1`] = `
   accounts={Array []}
   error={false}
   errorMessage={null}
+  filter={Object {}}
   getAccounts={[Function]}
   pending={false}
 />
@@ -98,6 +99,18 @@ exports[`list 1`] = `
                   tabindex="-1"
                 >
                   Edit Name
+                </a>
+              </li>
+              <li
+                class=""
+                role="presentation"
+              >
+                <a
+                  href="#"
+                  role="menuitem"
+                  tabindex="-1"
+                >
+                  Archive
                 </a>
               </li>
             </ul>

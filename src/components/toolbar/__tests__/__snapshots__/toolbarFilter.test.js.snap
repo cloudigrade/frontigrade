@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic, no fields 1`] = `
+<ToolbarFilter
+  filterField={null}
+  filterFields={Array []}
+  filterValue=""
+  onFilterSelected={[Function]}
+  onKeyPress={[Function]}
+  onSelectFilter={[Function]}
+  onUpdateValue={[Function]}
+/>
+`;
+
+exports[`basic, one field 1`] = `
+<ToolbarFilter
+  filterField={null}
+  filterFields={
+    Array [
+      Object {
+        "filterType": "text",
+        "id": "lorem",
+        "placeholder": "Filter by lorem type",
+        "title": "Lorem",
+      },
+    ]
+  }
+  filterValue=""
+  onFilterSelected={[Function]}
+  onKeyPress={[Function]}
+  onSelectFilter={[Function]}
+  onUpdateValue={[Function]}
+>
+  <getContext(Filter)>
+    <Filter
+      className=""
+    >
+      <div
+        className="filter-pf form-group"
+      >
+        <div
+          className="filter-pf-fields"
+        >
+          <div
+            className="input-group"
+          />
+        </div>
+      </div>
+    </Filter>
+  </getContext(Filter)>
+</ToolbarFilter>
+`;
+
+exports[`multiple filters, select 1`] = `
+<div
+  class="filter-pf form-group"
+>
+  <div
+    class="filter-pf-fields"
+  >
+    <div
+      class="input-group"
+    >
+      <div
+        class="input-group-btn"
+      >
+        <div
+          class="dropdown btn-group"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="dropdown-toggle btn btn-default"
+            id="filterFieldTypeMenu"
+            role="button"
+            type="button"
+          >
+            Ipsum 
+            <span
+              class="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="filterFieldTypeMenu"
+            class="dropdown-menu"
+            role="menu"
+          >
+            <li
+              class=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+              >
+                Lorem
+              </a>
+            </li>
+            <li
+              class="selected"
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+              >
+                Ipsum
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="filter-pf-select"
+      >
+        <div
+          class="dropdown btn-group"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="filter-pf-select-dropdown dropdown-toggle btn btn-default"
+            id="filterCategoryMenu"
+            role="button"
+            type="button"
+          >
+            Filter by ipsum type 
+            <span
+              class="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="filterCategoryMenu"
+            class="dropdown-menu"
+            role="menu"
+          >
+            <li
+              class=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+                title="Filter by ipsum type"
+              >
+                Filter by ipsum type
+              </a>
+            </li>
+            <li
+              class=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+              >
+                dolor
+              </a>
+            </li>
+            <li
+              class=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+              >
+                sit
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`multiple filters, text 1`] = `
+<div
+  class="filter-pf form-group"
+>
+  <div
+    class="filter-pf-fields"
+  >
+    <div
+      class="input-group"
+    >
+      <div
+        class="input-group-btn"
+      >
+        <div
+          class="dropdown btn-group"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="dropdown-toggle btn btn-default"
+            id="filterFieldTypeMenu"
+            role="button"
+            type="button"
+          >
+            Lorem 
+            <span
+              class="caret"
+            />
+          </button>
+          <ul
+            aria-labelledby="filterFieldTypeMenu"
+            class="dropdown-menu"
+            role="menu"
+          >
+            <li
+              class="selected"
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+              >
+                Lorem
+              </a>
+            </li>
+            <li
+              class=""
+              role="presentation"
+            >
+              <a
+                href="#"
+                role="menuitem"
+                tabindex="-1"
+              >
+                Ipsum
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <input
+        class="form-control"
+        maxlength="128"
+        placeholder="Filter by lorem type"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -93,10 +93,11 @@ const addAccount = (data = {}) =>
  *       "detail": "Authentication credentials were not provided."
  *     }
  */
-const getAccounts = (id = '') =>
+const getAccounts = (id = '', query = {}) =>
   axios(
     serviceConfig({
-      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}`
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}`,
+      params: query
     })
   );
 

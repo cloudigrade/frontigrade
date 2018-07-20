@@ -7,7 +7,7 @@ describe('AccountView Component', () => {
   const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
 
   it('should render a connected component with default props', () => {
-    const store = generateEmptyStore({ account: {} });
+    const store = generateEmptyStore({ account: {}, filter: { account: {} } });
     const component = shallow(<ConnectedAccountView />, { context: { store } });
 
     expect(component).toMatchSnapshot('connected');

@@ -9,7 +9,11 @@ class AccountViewListItem extends React.Component {
     this.kebab = React.createRef();
   }
 
-  // ToDo: look at adding prop to PF-React ListView for generic row event
+  /**
+   * FixMe: PF-React issue
+   * Need a prop added to PF-React ListView for generic whole row event, instead of
+   * having to use a "ref" and "contains" check
+   */
   onVerifyDetail = event => {
     const { onDetail } = this.props;
     const currentKebabRef = this.kebab.current;
@@ -48,7 +52,16 @@ class AccountViewListItem extends React.Component {
     return null;
   }
 
-  // ToDo: accessibility plugin tried to call out "Label" named component, converted to "PFLabel" instead, look at eslint settings
+  /**
+   * ToDo: Eslint
+   * Accessibility plugin tried to call out "Label" named component, converted to "PFLabel"
+   * instead, look at Eslint settings
+   */
+  /**
+   * FixMe: PF-React issue
+   * listview "additionalInfo" attribute "requires" an array propType, restrictive limit.
+   * Open it up to allow both, "node" OR "array"
+   */
   static renderAdditionalInfo() {
     return [
       <ListView.InfoItem key="1">

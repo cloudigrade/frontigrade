@@ -3,13 +3,28 @@ import PropTypes from 'prop-types';
 import { Alert, Button, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
-import Toolbar from '../toolbar/toolbar';
 import AccountViewListItem from './accountViewListItem';
+import AccountViewToolbar from './accountViewToolbar';
 
 class AccountView extends React.Component {
   componentDidMount() {
     this.props.getAccounts();
   }
+
+  onArchive = () => {
+    store.dispatch({
+      type: reduxTypes.toastNotifications.TOAST_ADD,
+      alertType: 'warning',
+      message: 'Archive not yet enabled for accounts'
+    });
+  };
+
+  onClearFilters = () => {
+    store.dispatch({
+      type: reduxTypes.filter.TOOLBAR_CLEAR_FILTERS,
+      view: 'account'
+    });
+  };
 
   onDetailView = () => {
     store.dispatch({
@@ -40,7 +55,13 @@ class AccountView extends React.Component {
       return (
         <ListView className="quipicords-list-view">
           {accounts.map(item => (
-            <AccountViewListItem item={item} key={item.id} onDetail={this.onDetailView} onEdit={this.onEditName} />
+            <AccountViewListItem
+              item={item}
+              key={item.id}
+              onDetail={this.onDetailView}
+              onEdit={this.onEditName}
+              onArchive={this.onArchive}
+            />
           ))}
         </ListView>
       );
@@ -51,7 +72,7 @@ class AccountView extends React.Component {
         <EmptyState.Title>No Results Match the Filter Criteria</EmptyState.Title>
         <EmptyState.Info>The active filters are hiding all items.</EmptyState.Info>
         <EmptyState.Action>
-          <Button bsStyle="link" onClick={this.clearFilters}>
+          <Button bsStyle="link" onClick={this.onClearFilters}>
             Clear Filters
           </Button>
         </EmptyState.Action>
@@ -77,7 +98,7 @@ class AccountView extends React.Component {
   }
 
   render() {
-    const { error, errorMessage, accounts } = this.props;
+    const { accounts, error, errorMessage, filter } = this.props;
 
     if (error) {
       return (
@@ -90,8 +111,7 @@ class AccountView extends React.Component {
       );
     }
 
-    // ToDo: add condition check for active filters and zero accounts/results array length
-    if (accounts.length) {
+    if (accounts.length || filter.activeFilters.length) {
       return (
         <div className="cloudmeter-view-container">
           <Grid fluid>
@@ -101,7 +121,7 @@ class AccountView extends React.Component {
               </Grid.Col>
             </Grid.Row>
           </Grid>
-          <Toolbar />
+          <AccountViewToolbar {...filter} />
           <div className="cloudmeter-list-container">{this.renderAccountsList()}</div>
           {this.renderPendingMessage()}
         </div>
@@ -131,6 +151,9 @@ AccountView.propTypes = {
   accounts: PropTypes.array,
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
+  filter: PropTypes.shape({
+    activeFilters: PropTypes.array
+  }),
   getAccounts: PropTypes.func,
   pending: PropTypes.bool
 };
@@ -139,15 +162,18 @@ AccountView.defaultProps = {
   accounts: [],
   error: false,
   errorMessage: null,
+  filter: {
+    activeFilters: []
+  },
   getAccounts: helpers.noop,
   pending: false
 };
 
 const mapDispatchToProps = dispatch => ({
-  getAccounts: () => dispatch(reduxActions.account.getAccounts())
+  getAccounts: query => dispatch(reduxActions.account.getAccounts(query))
 });
 
-const mapStateToProps = state => ({ ...state.account.view });
+const mapStateToProps = state => ({ ...state.account.view, filter: state.filter.account });
 
 const ConnectedAccountView = connect(
   mapStateToProps,

@@ -11,7 +11,11 @@ class AccountWizard extends React.Component {
     activeStepIndex: 0
   };
 
-  // ToDo: if onCancel allowed to fire in "pending" state, need to query if its supposed to cancel the request or continue. Currently it continues
+  /**
+   * ToDo:
+   * If onCancel allowed to fire in "pending" state, need to query if it's
+   * supposed to cancel the request or continue. Currently it continues
+   */
   onCancel = () => {
     const { edit, fulfilled, pending, errorStatus } = this.props;
 
@@ -148,7 +152,11 @@ class AccountWizard extends React.Component {
       return null;
     }
 
-    // ToDo: Open PF-React PR for passing a namespaced className onto the Wizard parent element for sizing, currently using "wizard-pf" the default
+    /**
+     * FixMe: PF-React issue
+     * Need the ability to pass a className onto the Wizard parent element (in this case
+     * for modal sizing), currently overriding the default "wizard-pf"
+     */
     return (
       <Wizard show={show}>
         <Wizard.Header onClose={this.onCancel} title={edit ? 'Edit Account' : 'Add Account'} />
