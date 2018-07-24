@@ -19,6 +19,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_ADD_FILTER",
 }
@@ -43,6 +44,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_CLEAR_FILTERS",
 }
@@ -67,6 +69,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_REMOVE_FILTER",
 }
@@ -91,6 +94,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_SET_DATE_TYPE",
 }
@@ -115,6 +119,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_SET_FILTER_TYPE",
 }
@@ -139,6 +144,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_SET_FILTER_VALUE",
 }
@@ -163,6 +169,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_SET_SORT_TYPE",
 }
@@ -187,6 +194,7 @@ Object {
       "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "TOOLBAR_TOGGLE_SORT_ASCENDING",
 }
@@ -207,10 +215,11 @@ Object {
       "selectedItems": Array [],
       "sortAscending": true,
       "sortValue": null,
-      "totalCount": 1,
-      "totalPages": 1,
+      "totalCount": 0,
+      "totalPages": 0,
     },
     "detail": Object {},
+    "images": Object {},
   },
   "type": "GET_ACCOUNTS_FULFILLED",
 }

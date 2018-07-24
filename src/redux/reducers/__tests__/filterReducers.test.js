@@ -15,6 +15,15 @@ describe('FilterReducers', () => {
 
       const resultState = filterReducers(undefined, dispatched);
 
+      /**
+       * ToDo: API-no-default-list
+       * API currently has no default values, we set these defaults in state as temp-fix.
+       * This condition should be removed.
+       */
+      if (resultState.account && resultState.account.query) {
+        delete resultState.account.query;
+      }
+
       expect({ type: value, result: resultState }).toMatchSnapshot('defined types');
     });
   });
@@ -38,6 +47,15 @@ describe('FilterReducers', () => {
       };
 
       const resultState = filterReducers(undefined, dispatched);
+
+      /**
+       * ToDo: API-no-default-list
+       * API currently has no default values, we set these defaults in state as temp-fix.
+       * This condition should be removed.
+       */
+      if (resultState.account && resultState.account.query) {
+        delete resultState.account.query;
+      }
 
       expect({ type: helpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot('fulfilled types');
     });

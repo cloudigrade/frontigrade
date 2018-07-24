@@ -1,6 +1,7 @@
 import { accountReducers } from '../';
 import { accountTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
+import apiTypes from '../../../constants/apiConstants';
 
 describe('AccountReducers', () => {
   it('should return the initial state', () => {
@@ -19,6 +20,8 @@ describe('AccountReducers', () => {
         payload: {
           message: 'MESSAGE',
           response: {
+            status: 0,
+            statusText: 'ERROR TEST',
             data: {
               detail: 'ERROR'
             }
@@ -58,7 +61,7 @@ describe('AccountReducers', () => {
         type: helpers.FULFILLED_ACTION(value),
         payload: {
           data: {
-            results: ['success']
+            [apiTypes.API_RESPONSE_ACCOUNTS]: ['success']
           }
         }
       };

@@ -10,15 +10,15 @@ class AccountViewToolbar extends React.Component {
   componentDidMount() {
     const { dateFields, dateValue, filterField, filterFields, sortFields, sortValue } = this.props;
 
-    if (!dateValue) {
+    if (!dateValue && dateFields) {
       this.onUpdateDateField(dateFields[0]);
     }
 
-    if (!filterField) {
+    if (!filterField && filterFields) {
       this.onSelectFilter(filterFields[0]);
     }
 
-    if (!sortValue) {
+    if (!sortValue && sortFields) {
       this.onUpdateSortField(sortFields[0]);
     }
   }
@@ -38,31 +38,31 @@ class AccountViewToolbar extends React.Component {
   };
 
   onUpdateDateField = dateValue => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_SET_DATE_TYPE, { dateValue });
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_SET_DATE_TYPE, { dateValue });
   };
 
   onClearFilters = () => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_CLEAR_FILTERS);
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_CLEAR_FILTERS);
   };
 
   onRemoveFilter = filter => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_REMOVE_FILTER, { filter });
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_REMOVE_FILTER, { filter });
   };
 
   onSelectFilter = filterField => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_SET_FILTER_TYPE, { filterField });
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_SET_FILTER_TYPE, { filterField });
   };
 
   onToggleSortDirection = () => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_TOGGLE_SORT_ASCENDING);
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_TOGGLE_SORT_ASCENDING);
   };
 
   onUpdateSortField = sortValue => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_SET_SORT_TYPE, { sortValue });
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_SET_SORT_TYPE, { sortValue });
   };
 
   onUpdateFilterValue = event => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_SET_FILTER_VALUE, { filterValue: event.target.value });
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_SET_FILTER_VALUE, { filterValue: event.target.value });
   };
 
   onKeyPress = (key, filterValue) => {
@@ -72,7 +72,7 @@ class AccountViewToolbar extends React.Component {
   };
 
   onSelectFilterValue = filterValue => {
-    this.onDispatch(reduxTypes.filter.TOOLBAR_SET_FILTER_VALUE, { filterValue });
+    this.dispatchFilter(reduxTypes.filter.TOOLBAR_SET_FILTER_VALUE, { filterValue });
     this.onAddFilterValue(filterValue);
   };
 
@@ -82,13 +82,13 @@ class AccountViewToolbar extends React.Component {
     if (!fieldValidation.isEmpty(filterValue)) {
       const filterText = `${filterField.title || filterField}: ${filterValue.title || filterValue}`;
 
-      this.onDispatch(reduxTypes.filter.TOOLBAR_ADD_FILTER, {
-        filter: { field: filterField, value: filterValue, label: filterText }
+      this.dispatchFilter(reduxTypes.filter.TOOLBAR_ADD_FILTER, {
+        filter: { field: filterField, query: filterField.id, value: filterValue, label: filterText }
       });
     }
   };
 
-  onDispatch = (type, data = {}) => {
+  dispatchFilter = (type, data = {}) => {
     const { view } = this.props;
 
     store.dispatch({
@@ -128,6 +128,7 @@ class AccountViewToolbar extends React.Component {
           onSelectFilter={this.onSelectFilter}
         />
         <Toolbar.Sort
+          disabled
           onUpdateField={this.onUpdateSortField}
           onToggleDirection={this.onToggleSortDirection}
           sortAscending={sortAscending}
@@ -194,7 +195,7 @@ AccountViewToolbar.propTypes = {
 
 AccountViewToolbar.defaultProps = {
   activeFilters: [],
-  dateFields: accountViewTypes.dateFields,
+  dateFields: accountViewTypes.dateFields.timeValues,
   dateValue: null,
   filterField: null,
   filterFields: accountViewTypes.filterFields,

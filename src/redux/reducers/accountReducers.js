@@ -1,11 +1,13 @@
 import { accountTypes } from '../constants';
+import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 const initialState = {
   view: {
     accounts: [],
     error: false,
-    errorMessage: '',
+    errorStatus: null,
+    errorMessage: null,
     pending: false,
     fulfilled: false
   }
@@ -15,12 +17,12 @@ const accountReducers = (state = initialState, action) => {
   switch (action.type) {
     // Error/Rejected
     case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNTS):
-    case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNT):
       return helpers.setStateProp(
         'view',
         {
           error: action.error,
-          errorMessage: action.payload
+          errorMessage: helpers.getMessageFromResults(action.payload),
+          errorStatus: helpers.getStatusFromResults(action.payload)
         },
         {
           state,
@@ -28,14 +30,12 @@ const accountReducers = (state = initialState, action) => {
         }
       );
 
-    // Loading/Pending
     case helpers.PENDING_ACTION(accountTypes.GET_ACCOUNTS):
-    case helpers.PENDING_ACTION(accountTypes.GET_ACCOUNT):
       return helpers.setStateProp(
         'view',
         {
-          pending: true,
-          accounts: state.view.accounts
+          accounts: state.view.accounts,
+          pending: true
         },
         {
           state,
@@ -43,13 +43,11 @@ const accountReducers = (state = initialState, action) => {
         }
       );
 
-    // Success/Fulfilled
     case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNTS):
-    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT):
       return helpers.setStateProp(
         'view',
         {
-          accounts: action.payload.data.results || [],
+          accounts: action.payload.data[apiTypes.API_RESPONSE_ACCOUNTS] || [],
           fulfilled: true
         },
         {

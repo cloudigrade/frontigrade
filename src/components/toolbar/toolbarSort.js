@@ -2,16 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Sort } from 'patternfly-react';
 
-const ToolbarSort = ({ children, onUpdateField, onToggleDirection, sortAscending, sortFields, sortValue }) => (
+const ToolbarSort = ({
+  children,
+  disabled,
+  onUpdateField,
+  onToggleDirection,
+  sortAscending,
+  sortFields,
+  sortValue
+}) => (
   <Sort>
     {children}
     {onUpdateField &&
       sortFields &&
       sortValue && (
-        <Sort.TypeSelector sortTypes={sortFields} currentSortType={sortValue} onSortTypeSelected={onUpdateField} />
+        <Sort.TypeSelector
+          disabled={disabled}
+          sortTypes={sortFields}
+          currentSortType={sortValue}
+          onSortTypeSelected={onUpdateField}
+        />
       )}
     {onToggleDirection && (
       <Sort.DirectionSelector
+        disabled={disabled}
         isNumeric={(sortValue && sortValue.isNumeric) || false}
         isAscending={sortAscending || false}
         onClick={onToggleDirection}
@@ -22,6 +36,7 @@ const ToolbarSort = ({ children, onUpdateField, onToggleDirection, sortAscending
 
 ToolbarSort.propTypes = {
   children: PropTypes.node,
+  disabled: PropTypes.bool,
   onUpdateField: PropTypes.func,
   onToggleDirection: PropTypes.func,
   sortAscending: PropTypes.bool,
@@ -35,6 +50,7 @@ ToolbarSort.propTypes = {
 
 ToolbarSort.defaultProps = {
   children: null,
+  disabled: false,
   onUpdateField: null,
   onToggleDirection: null,
   sortAscending: true,

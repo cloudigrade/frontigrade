@@ -1,10 +1,11 @@
 import helpers from '../../common/helpers';
+import apiTypes from '../../constants/apiConstants';
 
 const dateFieldTypes = helpers.generatePriorYearMonthArray();
 
 const filterFieldTypes = [
   {
-    id: 'search_by_name',
+    id: apiTypes.API_QUERY_NAME,
     title: 'Name',
     placeholder: 'Filter by Name',
     filterType: 'text'
@@ -44,6 +45,10 @@ const sortFieldTypes = [
   }
 ];
 
-const accountViewTypes = { dateFields: dateFieldTypes, filterFields: filterFieldTypes, sortFields: sortFieldTypes };
+const accountViewTypes = {
+  dateFields: dateFieldTypes,
+  filterFields: filterFieldTypes,
+  sortFields: sortFieldTypes
+};
 
 export { accountViewTypes as default, accountViewTypes, dateFieldTypes, filterFieldTypes, sortFieldTypes };

@@ -2,13 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
+import _isEqual from 'lodash/isEqual';
 import helpers from '../../common/helpers';
 import AccountViewListItem from './accountViewListItem';
 import AccountViewToolbar from './accountViewToolbar';
 
 class AccountView extends React.Component {
   componentDidMount() {
-    this.props.getAccounts();
+    const { filter, getAccounts } = this.props;
+
+    if (filter.query) {
+      getAccounts(filter.query);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { filter, getAccounts } = this.props;
+
+    if (!_isEqual(filter.query, prevProps.filter.query)) {
+      getAccounts(filter.query);
+    }
   }
 
   onArchive = () => {
@@ -98,7 +111,7 @@ class AccountView extends React.Component {
   }
 
   render() {
-    const { accounts, error, errorMessage, filter } = this.props;
+    const { accounts, error, errorMessage, filter, pending } = this.props;
 
     if (error) {
       return (
@@ -109,6 +122,10 @@ class AccountView extends React.Component {
           {this.renderPendingMessage()}
         </EmptyState>
       );
+    }
+
+    if (pending && !accounts.length) {
+      return <div className="cloudmeter-view-container">{this.renderPendingMessage()}</div>;
     }
 
     if (accounts.length || filter.activeFilters.length) {
@@ -152,7 +169,8 @@ AccountView.propTypes = {
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   filter: PropTypes.shape({
-    activeFilters: PropTypes.array
+    activeFilters: PropTypes.array,
+    query: PropTypes.object
   }),
   getAccounts: PropTypes.func,
   pending: PropTypes.bool
@@ -163,7 +181,8 @@ AccountView.defaultProps = {
   error: false,
   errorMessage: null,
   filter: {
-    activeFilters: []
+    activeFilters: [],
+    query: {}
   },
   getAccounts: helpers.noop,
   pending: false

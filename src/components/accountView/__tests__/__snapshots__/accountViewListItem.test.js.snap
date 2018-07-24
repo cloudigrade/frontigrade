@@ -21,11 +21,12 @@ exports[`AccountViewListItem Component should render 1`] = `
         <div
           class="list-group-item-heading"
         >
-          <div
-            class="list-group-item-heading"
-          >
-            Lorem test
-          </div>
+          Lorem test
+        </div>
+        <div
+          class="list-group-item-text"
+        >
+          July 6th 2018, 11:09:21 am
         </div>
       </div>
       <div
@@ -39,7 +40,7 @@ exports[`AccountViewListItem Component should render 1`] = `
             class="pficon pficon-cluster"
           />
           <strong>
-            0
+            1
           </strong>
            Images
         </div>
@@ -51,7 +52,7 @@ exports[`AccountViewListItem Component should render 1`] = `
             class="pficon pficon-screen"
           />
           <strong>
-            0
+            2
           </strong>
            Instances
         </div>
@@ -59,7 +60,7 @@ exports[`AccountViewListItem Component should render 1`] = `
           class="list-view-pf-additional-info-item"
         >
           <strong>
-            0
+            1
           </strong>
           <span
             class="label label-primary"
@@ -75,10 +76,10 @@ exports[`AccountViewListItem Component should render 1`] = `
           class="list-view-pf-additional-info-item"
         >
           <strong>
-            0
+            N/A
           </strong>
           <span
-            class="label label-primary"
+            class="label label-default"
           >
             <abbr
               title="Red Hat Open Stack"

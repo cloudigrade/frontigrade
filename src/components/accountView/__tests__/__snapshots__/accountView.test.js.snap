@@ -129,11 +129,12 @@ exports[`list 1`] = `
             <div
               class="list-group-item-heading"
             >
-              <div
-                class="list-group-item-heading"
-              >
-                Lorem ipsum
-              </div>
+              Lorem test
+            </div>
+            <div
+              class="list-group-item-text"
+            >
+              July 6th 2018, 11:09:21 am
             </div>
           </div>
           <div
@@ -147,7 +148,7 @@ exports[`list 1`] = `
                 class="pficon pficon-cluster"
               />
               <strong>
-                0
+                1
               </strong>
                Images
             </div>
@@ -159,7 +160,7 @@ exports[`list 1`] = `
                 class="pficon pficon-screen"
               />
               <strong>
-                0
+                2
               </strong>
                Instances
             </div>
@@ -167,7 +168,7 @@ exports[`list 1`] = `
               class="list-view-pf-additional-info-item"
             >
               <strong>
-                0
+                1
               </strong>
               <span
                 class="label label-primary"
@@ -183,10 +184,10 @@ exports[`list 1`] = `
               class="list-view-pf-additional-info-item"
             >
               <strong>
-                0
+                N/A
               </strong>
               <span
-                class="label label-primary"
+                class="label label-default"
               >
                 <abbr
                   title="Red Hat Open Stack"
@@ -200,5 +201,168 @@ exports[`list 1`] = `
       </div>
     </div>
   </div>
+</div>
+`;
+
+exports[`pending 1`] = `
+<div
+  class="cloudmeter-view-container"
+/>
+`;
+
+exports[`pending with list 1`] = `
+<div
+  className="cloudmeter-view-container"
+>
+  <Grid
+    bsClass="container"
+    componentClass="div"
+    fluid={true}
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}
+      >
+        <h1>
+          Accounts
+        </h1>
+      </Col>
+    </Row>
+  </Grid>
+  <AccountViewToolbar
+    activeFilters={Array []}
+    dateFields={null}
+    dateValue={null}
+    filterField={null}
+    filterFields={
+      Array [
+        Object {
+          "filterType": "text",
+          "id": "name_pattern",
+          "placeholder": "Filter by Name",
+          "title": "Name",
+        },
+      ]
+    }
+    filterValue=""
+    resultsType="Result"
+    resultsTypePlural="Results"
+    selectedCount={0}
+    sortAscending={true}
+    sortFields={
+      Array [
+        Object {
+          "id": "name",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Name",
+        },
+        Object {
+          "id": "images",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Images",
+        },
+        Object {
+          "id": "instances",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Instances",
+        },
+        Object {
+          "id": "rhel",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Rhel",
+        },
+        Object {
+          "id": "openshift",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "OpenShift",
+        },
+      ]
+    }
+    sortValue={null}
+    totalCount={0}
+    view="account"
+  />
+  <div
+    className="cloudmeter-list-container"
+  >
+    <ListView
+      className="quipicords-list-view"
+    >
+      <AccountViewListItem
+        item={
+          Object {
+            "arn": "arn:aws:iam::TEST",
+            "creation_date": "2018-07-06T15:09:21.442412Z",
+            "id": "1",
+            "images": 1,
+            "instances": 2,
+            "name": "Lorem test",
+            "openshift_instances": null,
+            "rhel_instances": 1,
+            "type": "aws",
+            "user_id": 1,
+          }
+        }
+        key="1"
+        onArchive={[Function]}
+        onDetail={[Function]}
+        onEdit={[Function]}
+      />
+    </ListView>
+  </div>
+  <Modal
+    animation={false}
+    autoFocus={true}
+    backdrop={false}
+    bsClass="modal"
+    bsSize="lg"
+    dialogComponentClass={[Function]}
+    enforceFocus={true}
+    keyboard={true}
+    manager={
+      ModalManager {
+        "add": [Function],
+        "containers": Array [],
+        "data": Array [],
+        "handleContainerOverflow": true,
+        "hideSiblingNodes": true,
+        "isTopModal": [Function],
+        "modals": Array [],
+        "remove": [Function],
+      }
+    }
+    onHide={[Function]}
+    renderBackdrop={[Function]}
+    restoreFocus={true}
+    show={true}
+  >
+    <ModalBody
+      bsClass="modal-body"
+      componentClass="div"
+    >
+      <Spinner
+        className="blank-slate-pf-icon"
+        inline={false}
+        inverse={false}
+        loading={true}
+        size="lg"
+      />
+      <div
+        className="text-center"
+      >
+        Loading...
+      </div>
+    </ModalBody>
+  </Modal>
 </div>
 `;

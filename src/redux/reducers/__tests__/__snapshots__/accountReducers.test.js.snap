@@ -6,7 +6,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -21,7 +22,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -36,7 +38,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -49,12 +52,11 @@ exports[`fulfilled types 4`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [
-        "success",
-      ],
+      "accounts": Array [],
       "error": false,
-      "errorMessage": "",
-      "fulfilled": true,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
       "pending": false,
     },
   },
@@ -70,7 +72,8 @@ Object {
         "success",
       ],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": true,
       "pending": false,
     },
@@ -85,7 +88,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -100,7 +104,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -115,7 +120,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -130,7 +136,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -145,7 +152,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -160,7 +168,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -175,9 +184,10 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
-      "pending": true,
+      "pending": false,
     },
   },
   "type": "GET_ACCOUNT_PENDING",
@@ -190,7 +200,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": true,
     },
@@ -205,7 +216,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -220,7 +232,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -235,7 +248,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -250,7 +264,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -265,7 +280,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -280,7 +296,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -294,15 +311,9 @@ Object {
   "result": Object {
     "view": Object {
       "accounts": Array [],
-      "error": true,
-      "errorMessage": Object {
-        "message": "MESSAGE",
-        "response": Object {
-          "data": Object {
-            "detail": "ERROR",
-          },
-        },
-      },
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -317,14 +328,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": true,
-      "errorMessage": Object {
-        "message": "MESSAGE",
-        "response": Object {
-          "data": Object {
-            "detail": "ERROR",
-          },
-        },
-      },
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
       "fulfilled": false,
       "pending": false,
     },
@@ -339,7 +344,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -354,7 +360,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },
@@ -369,7 +376,8 @@ Object {
     "view": Object {
       "accounts": Array [],
       "error": false,
-      "errorMessage": "",
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "pending": false,
     },

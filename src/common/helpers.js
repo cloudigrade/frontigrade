@@ -6,12 +6,12 @@ const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.
 const generatePriorYearMonthArray = () => {
   const dateStart = moment().subtract(12, 'months');
   const dateEnd = moment().startOf('month');
+
   let timeValues = [];
 
   while (dateEnd > dateStart || dateStart.format('M') === dateEnd.format('M')) {
     timeValues.push({
       title: dateStart.startOf('month').format('YYYY MMMM'),
-      value: dateStart.startOf('month').toISOString(),
       start: dateStart.startOf('month').toISOString(),
       end: dateStart.endOf('month').toISOString()
     });
@@ -20,9 +20,18 @@ const generatePriorYearMonthArray = () => {
   }
 
   timeValues = timeValues.reverse();
-  timeValues[0].title = 'Last 30 Days';
+  timeValues[0] = {
+    title: 'Last 30 Days',
+    start: moment()
+      .startOf('day')
+      .subtract(30, 'days')
+      .toISOString(),
+    end: moment()
+      .endOf('day')
+      .toISOString()
+  };
 
-  return timeValues;
+  return { defaultTime: timeValues[0], timeValues };
 };
 
 const getMessageFromResults = (results, filterField = null) => {

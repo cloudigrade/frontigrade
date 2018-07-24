@@ -58,50 +58,6 @@ const addAccount = (data = {}) =>
   );
 
 /**
- * @api {get} /api/v1/account/ Get accounts
- * @apiDescription List all accounts.
- *
- * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
- * @apiSuccess {Number} count
- * @apiSuccess {String} next
- * @apiSuccess {String} previous
- * @apiSuccess {Array} results
- * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *     {
- *       "count": 1,
- *       "next": null,
- *       "previous": null,
- *       "results": [
- *         {
- *           "account_arn": "arn:aws:iam::273470430754:role/role-for-cloudigrade",
- *           "aws_account_id": "273470430754",
- *           "created_at": "2018-07-05T16:01:30.046877Z",
- *           "id": 4,
- *           "name": "Lorem ipsum",
- *           "resourcetype": "AwsAccount",
- *           "updated_at": "2018-07-05T16:01:30.046910Z",
- *           "url": "http://localhost:8080/api/v1/account/4/",
- *           "user_id": 2
- *         }
- *       ]
- *     }
- * @apiError {String} detail
- * @apiErrorExample {json} Error-Response:
- *     HTTP/1.1 401 Unauthorized
- *     {
- *       "detail": "Authentication credentials were not provided."
- *     }
- */
-const getAccounts = (id = '', query = {}) =>
-  axios(
-    serviceConfig({
-      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}`,
-      params: query
-    })
-  );
-
-/**
  * @api {get} /api/v1/account/:id Get account
  * @apiDescription Retrieve a specific account.
  *
@@ -135,7 +91,63 @@ const getAccounts = (id = '', query = {}) =>
  *       "detail": "Authentication credentials were not provided."
  *     }
  */
-const getAccount = id => getAccounts(id);
+const getAccount = id =>
+  axios(
+    serviceConfig({
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}`
+    })
+  );
+
+/**
+ * @api {get} /api/v1/report/accounts/ Get accounts overview
+ * @apiDescription List all accounts, and their summaries.
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {Array} cloud_account_overviews
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "cloud_account_overviews": [
+ *         {
+ *           "arn": "arn:aws:iam::114204391493:role/role-for-cloudigrade",
+ *           "creation_date": "2018-07-06T15:09:21.442412Z",
+ *           "id": "1",
+ *           "images": 1,
+ *           "instances": 2,
+ *           "name": "Lorem ipsum",
+ *           "openshift_instances": null,
+ *           "rhel_instances": 1,
+ *           "type": "aws",
+ *           "user_id": 1
+ *         }
+ *       ]
+ *     }
+ * @apiError {String} end
+ * @apiError {String} start
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 400 Bad Request
+ *     {
+ *       "end": [
+ *         "This field is required."
+ *       ],
+ *       "start": [
+ *         "This field is required."
+ *       ]
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+const getAccounts = (query = {}) =>
+  axios(
+    serviceConfig({
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE_OVERVIEW}`,
+      params: query
+    })
+  );
 
 /**
  * @api {get} /api/v1/account/:id Update account

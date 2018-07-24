@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountViewToolbar Component should render 1`] = `
+<div
+  class="container-fluid"
+>
+  <div
+    class="toolbar-pf row"
+  >
+    <div
+      class="col-sm-12"
+    >
+      <form
+        class="toolbar-pf-actions"
+      >
+        <div
+          class="form-group"
+        />
+        <div
+          class="filter-pf form-group toolbar-pf-filter"
+        >
+          <div
+            class="filter-pf-fields"
+          >
+            <div
+              class="input-group"
+            />
+          </div>
+        </div>
+        <div
+          class="form-group"
+        >
+          <button
+            class="btn btn-link"
+            disabled=""
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="fa fa-sort-alpha-asc sort-direction"
+            />
+          </button>
+        </div>
+        <div
+          class="toolbar-pf-action-right"
+        >
+          <div
+            class="form-group"
+          >
+            <button
+              class="btn btn-primary"
+              type="button"
+            >
+              Add Account
+            </button>
+            <button
+              class="btn btn-default"
+              disabled=""
+              type="button"
+            >
+              Export
+            </button>
+          </div>
+        </div>
+      </form>
+      <div
+        class="toolbar-pf-results row"
+      >
+        <div
+          class="col-sm-12"
+        >
+          <p
+            class="filter-pf-active-label"
+          >
+            No Filters
+          </p>
+          <h5
+            class="cloudmeter-view-count"
+          >
+            0 Results
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

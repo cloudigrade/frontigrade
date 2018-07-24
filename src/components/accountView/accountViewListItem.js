@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import { DropdownKebab, Icon, ListView, Label as PFLabel, MenuItem } from 'patternfly-react';
+import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 class AccountViewListItem extends React.Component {
@@ -29,7 +31,7 @@ class AccountViewListItem extends React.Component {
     return (
       <div ref={this.kebab}>
         {(onEdit || onArchive) && (
-          <DropdownKebab id={`account-item-menu-${item.id}`} pullRight>
+          <DropdownKebab id={`account-item-menu-${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`} pullRight>
             {onEdit && <MenuItem onClick={onEdit}>Edit Name</MenuItem>}
             {onArchive && <MenuItem onClick={onArchive}>Archive</MenuItem>}
           </DropdownKebab>
@@ -41,46 +43,45 @@ class AccountViewListItem extends React.Component {
   renderHeading() {
     const { item } = this.props;
 
-    return <ListView.DescriptionHeading>{item.name}</ListView.DescriptionHeading>;
+    return item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] || `Account #${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`;
   }
 
   static renderLeftContent() {
     return null;
   }
 
-  static renderDescription() {
-    return null;
+  renderDescription() {
+    const { item } = this.props;
+
+    return `${moment(item[apiTypes.API_RESPONSE_ACCOUNTS_DATE]).format('MMMM Do YYYY, h:mm:ss a')}`;
   }
 
-  /**
-   * ToDo: Eslint
-   * Accessibility plugin tried to call out "Label" named component, converted to "PFLabel"
-   * instead, look at Eslint settings
-   */
   /**
    * FixMe: PF-React issue
    * listview "additionalInfo" attribute "requires" an array propType, restrictive limit.
    * Open it up to allow both, "node" OR "array"
    */
-  static renderAdditionalInfo() {
+  renderAdditionalInfo() {
+    const { item } = this.props;
+
     return [
       <ListView.InfoItem key="1">
         <Icon type="pf" name="cluster" />
-        <strong>0</strong> Images
+        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES] || 'N/A'}</strong> Images
       </ListView.InfoItem>,
       <ListView.InfoItem key="2">
         <Icon type="pf" name="screen" />
-        <strong>0</strong> Instances
+        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES] || 'N/A'}</strong> Instances
       </ListView.InfoItem>,
       <ListView.InfoItem key="3">
-        <strong>0</strong>
-        <PFLabel bsStyle="primary">
+        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] || 'N/A'}</strong>
+        <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] ? 'primary' : 'default'}>
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
         </PFLabel>
       </ListView.InfoItem>,
       <ListView.InfoItem key="4">
-        <strong>0</strong>
-        <PFLabel bsStyle="primary">
+        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] || 'N/A'}</strong>
+        <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] ? 'primary' : 'default'}>
           <abbr title="Red Hat Open Stack">RHOS</abbr>
         </PFLabel>
       </ListView.InfoItem>
@@ -93,11 +94,11 @@ class AccountViewListItem extends React.Component {
     return (
       <ListView.Item
         onClick={this.onVerifyDetail}
-        key={item.id}
+        key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
         leftContent={AccountViewListItem.renderLeftContent()}
         heading={this.renderHeading()}
-        description={AccountViewListItem.renderDescription()}
-        additionalInfo={AccountViewListItem.renderAdditionalInfo()}
+        description={this.renderDescription()}
+        additionalInfo={this.renderAdditionalInfo()}
         actions={this.renderActions()}
         stacked={false}
       />
@@ -106,10 +107,7 @@ class AccountViewListItem extends React.Component {
 }
 
 AccountViewListItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string
-  }).isRequired,
+  item: PropTypes.object.isRequired,
   onArchive: PropTypes.func,
   onDetail: PropTypes.func,
   onEdit: PropTypes.func
