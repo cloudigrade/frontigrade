@@ -31,6 +31,11 @@ class AccountWizardStepPolicy extends React.Component {
     );
   };
 
+  // ToDo: when form valid evaluate moving to next step onEnter key-press event
+  onSubmit = event => {
+    event.preventDefault();
+  };
+
   isStepValid() {
     const { accountName, accountNameError, resourceType } = this.state;
     const stepValid = accountNameError === '';
@@ -58,7 +63,7 @@ class AccountWizardStepPolicy extends React.Component {
     }
 
     return (
-      <Form horizontal>
+      <Form horizontal onSubmit={this.onSubmit}>
         <FormField
           label="Account Name"
           error={stepError || accountNameError}

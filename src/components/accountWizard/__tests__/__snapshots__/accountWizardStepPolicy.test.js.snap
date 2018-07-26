@@ -6,6 +6,7 @@ exports[`connected 1`] = `
   componentClass="form"
   horizontal={true}
   inline={false}
+  onSubmit={[Function]}
 >
   <FormField
     colField={9}

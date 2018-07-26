@@ -12,11 +12,16 @@ class AccountWizardStepRole extends React.Component {
     this.props.getSystemConfig();
   }
 
+  // ToDo: when form valid evaluate moving to next step onEnter key-press event
+  onSubmit = event => {
+    event.preventDefault();
+  };
+
   render() {
     const { awsAccountId } = this.props;
 
     return (
-      <Form>
+      <Form onSubmit={this.onSubmit}>
         <Form.FormGroup>
           <Grid.Col sm={12}>
             <ul>

@@ -25,6 +25,11 @@ class AccountWizardStepArn extends React.Component {
     );
   };
 
+  // ToDo: when form valid evaluate moving to next step onEnter key-press event
+  onSubmit = event => {
+    event.preventDefault();
+  };
+
   isStepValid() {
     const { accountArn, accountArnError } = this.state;
     const stepValid = accountArnError === '';
@@ -51,7 +56,7 @@ class AccountWizardStepArn extends React.Component {
     }
 
     return (
-      <Form horizontal>
+      <Form horizontal onSubmit={this.onSubmit}>
         <Form.FormGroup>
           <Grid.Col sm={12}>
             <ul className="no-margin-bottom">
