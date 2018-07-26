@@ -18,7 +18,8 @@ build
 translations
 .css
 styles/*.css
-public/locales
+public/locales/
+!public/icons/
 
 # misc
 .container
