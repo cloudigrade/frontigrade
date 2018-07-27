@@ -29,7 +29,7 @@ class Authentication extends React.Component {
         passwordError: '',
         formValid: true
       };
-    } else if (props.session.remember && props.session.storedEmail) {
+    } else if (!state.formTouched && props.session.remember && props.session.storedEmail) {
       initialState = {
         email: props.session.storedEmail,
         emailError: '',

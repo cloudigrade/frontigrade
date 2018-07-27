@@ -1,4 +1,5 @@
 import { userTypes } from '../constants';
+import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 const initialState = {
@@ -108,12 +109,20 @@ const userReducers = (state = initialState, action) => {
       );
 
     case helpers.FULFILLED_ACTION(userTypes.USER_INFO):
+      const checkName = (action.payload.data && action.payload.data[apiTypes.API_RESPONSE_AUTH_USERNAME]) || null;
+      const checkEmail = (action.payload.data && action.payload.data[apiTypes.API_RESPONSE_AUTH_EMAIL]) || null;
+      let checkAuth = false;
+
+      if (checkName && checkEmail) {
+        checkAuth = true;
+      }
+
       return helpers.setStateProp(
         'session',
         {
-          authorized: true,
-          username: (action.payload.data && action.payload.data.username) || null,
-          email: (action.payload.data && action.payload.data.email) || null
+          authorized: checkAuth,
+          username: checkName,
+          email: checkEmail
         },
         {
           state,
