@@ -13,8 +13,8 @@ WORKDIR /opt/frontigrade
 ADD . /opt/frontigrade
 ADD deployment/nginx.conf /etc/nginx/nginx.conf
 
-RUN yarn --production --non-interactive --silent \
-    && yarn build >/dev/null
+RUN yarn --production --non-interactive \
+    && yarn build
 
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
