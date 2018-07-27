@@ -46,8 +46,8 @@ class AccountWizardStepPolicy extends React.Component {
     store.dispatch({
       type: dispatchType,
       account: {
-        [apiTypes.API_ACCOUNT_NAME]: accountName,
-        [apiTypes.API_RESOURCE_TYPE]: resourceType
+        [apiTypes.API_SUBMIT_ACCOUNT_NAME]: accountName,
+        [apiTypes.API_SUBMIT_ACCOUNT_RESOURCE_TYPE]: resourceType
       }
     });
   }

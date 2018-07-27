@@ -56,7 +56,7 @@ AccountWizardStepResults.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  accountName: state.accountWizard.account[apiTypes.API_ACCOUNT_NAME],
+  accountName: state.accountWizard.account[apiTypes.API_SUBMIT_ACCOUNT_NAME],
   ...state.accountWizard
 });
 

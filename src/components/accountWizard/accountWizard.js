@@ -87,7 +87,7 @@ class AccountWizard extends React.Component {
                 alertType: 'success',
                 message: (
                   <span>
-                    Account <strong>{account[apiTypes.API_ACCOUNT_NAME]}</strong> was{' '}
+                    Account <strong>{account[apiTypes.API_SUBMIT_ACCOUNT_NAME]}</strong> was{' '}
                     {this.props.edit ? 'updated' : 'created'}
                   </span>
                 )

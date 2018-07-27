@@ -112,8 +112,8 @@ const accountWizardReducers = (state = initialState, action) => {
       );
 
     case helpers.REJECTED_ACTION(accountTypes.ADD_ACCOUNT):
-      const policyRejectedErrors = helpers.getMessageFromResults(action.payload, apiTypes.API_ACCOUNT_NAME);
-      const arnRejectedErrors = helpers.getMessageFromResults(action.payload, apiTypes.API_ACCOUNT_ARN);
+      const policyRejectedErrors = helpers.getMessageFromResults(action.payload, apiTypes.API_SUBMIT_ACCOUNT_NAME);
+      const arnRejectedErrors = helpers.getMessageFromResults(action.payload, apiTypes.API_SUBMIT_ACCOUNT_ARN);
 
       return helpers.setStateProp(
         null,

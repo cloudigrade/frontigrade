@@ -40,7 +40,7 @@ class AccountWizardStepArn extends React.Component {
     store.dispatch({
       type: dispatchType,
       account: {
-        [apiTypes.API_ACCOUNT_ARN]: accountArn
+        [apiTypes.API_SUBMIT_ACCOUNT_ARN]: accountArn
       }
     });
   }

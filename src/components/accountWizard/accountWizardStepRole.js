@@ -84,7 +84,9 @@ const mapDispatchToProps = dispatch => ({
   getSystemConfig: () => dispatch(reduxActions.systemConfig.getSystemConfig())
 });
 
-const mapStateToProps = state => ({ awsAccountId: state.accountWizard.configuration[apiTypes.API_AWS_ACCOUNT_ID] });
+const mapStateToProps = state => ({
+  awsAccountId: state.accountWizard.configuration[apiTypes.API_SUBMIT_ACCOUNT_AWS_ID]
+});
 
 const ConnectedAccountWizardStepRole = connect(
   mapStateToProps,

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Form, Grid } from 'patternfly-react';
 import { connect, reduxActions } from '../../redux';
+import apiTypes from '../../constants/apiConstants';
 import { fieldValidation } from '../formField/formField';
 import helpers from '../../common/helpers';
 import titleImg from '../../styles/images/title.svg';
@@ -108,8 +109,8 @@ class Authentication extends React.Component {
         },
         () =>
           loginUser({
-            username: email,
-            password
+            [apiTypes.API_SUBMIT_AUTH_USERNAME]: email,
+            [apiTypes.API_SUBMIT_AUTH_PASSWORD]: password
           }).then(() => {
             if (remember) {
               storeData({ email });
