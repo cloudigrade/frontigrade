@@ -1,4 +1,5 @@
 import AccountView from '../accountView/accountView';
+import AccountDetailView from '../accountDetailView/accountDetailView';
 
 /**
  * Return the application base directory.
@@ -16,7 +17,15 @@ const routes = () => [
     title: 'Accounts',
     to: '/accounts',
     redirect: true,
-    component: AccountView
+    component: AccountView,
+    exact: true
+  },
+  {
+    iconClass: 'pficon pficon-cluster',
+    title: 'Images Detail',
+    to: '/accounts/:detail',
+    component: AccountDetailView,
+    displayHidden: true
   }
 ];
 

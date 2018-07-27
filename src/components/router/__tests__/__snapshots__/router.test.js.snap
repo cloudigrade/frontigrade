@@ -7,8 +7,14 @@ exports[`Router Component should render a basic component 1`] = `
   <Switch>
     <Route
       component={[Function]}
+      exact={true}
       key="/accounts"
       path="/accounts"
+    />
+    <Route
+      component={[Function]}
+      key="/accounts/:detail"
+      path="/accounts/:detail"
     />
     <Redirect
       from="/"

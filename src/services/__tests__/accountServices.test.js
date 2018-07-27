@@ -21,6 +21,7 @@ describe('AccountServices', () => {
     expect(accountServices.getAccounts).toBeDefined();
     expect(accountServices.getAccount).toBeDefined();
     expect(accountServices.updateAccount).toBeDefined();
+    expect(accountServices.updateAccountField).toBeDefined();
   });
 
   it('should return promises for every method', done => {

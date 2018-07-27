@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountView Component should render a non-connected component 1`] = `
+<div
+  class="container-fluid"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="blank-slate-pf full-page-blank-slate"
+    >
+      <div
+        class="blank-slate-pf-icon"
+      >
+        <span
+          aria-hidden="true"
+          class="pficon pficon-add-circle-o"
+        />
+      </div>
+      <h4
+        class="h1 blank-slate-pf-title"
+      >
+        No Images Available
+      </h4>
+      <p
+        class="blank-slate-pf-info"
+      >
+        Add an AWS account to monitor usage.
+      </p>
+      <div
+        class="blank-slate-pf-main-action"
+      >
+        <button
+          class="btn btn-lg btn-primary"
+          type="button"
+        >
+          Add Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`connected 1`] = `
+<Grid
+  bsClass="container"
+  componentClass="div"
+  fluid={true}
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <EmptyState
+      className="full-page-blank-slate"
+    >
+      <EmptyStateIcon
+        className=""
+        name="add-circle-o"
+        type="pf"
+      />
+      <EmptyStateTitle
+        className=""
+      >
+        No Images Available
+      </EmptyStateTitle>
+      <EmptyStateInfo
+        className=""
+      >
+        Add an AWS account to monitor usage.
+      </EmptyStateInfo>
+      <EmptyStateAction
+        className=""
+        secondary={false}
+      >
+        <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsSize="large"
+          bsStyle="primary"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Add Account
+        </Button>
+      </EmptyStateAction>
+    </EmptyState>
+  </Row>
+</Grid>
+`;

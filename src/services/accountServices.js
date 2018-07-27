@@ -58,7 +58,7 @@ const addAccount = (data = {}) =>
   );
 
 /**
- * @api {get} /api/v1/account/:id Get account
+ * @api {get} /api/v1/account/:id/ Get account
  * @apiDescription Retrieve a specific account.
  *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
@@ -94,7 +94,7 @@ const addAccount = (data = {}) =>
 const getAccount = id =>
   axios(
     serviceConfig({
-      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}`
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}/`
     })
   );
 
@@ -150,8 +150,8 @@ const getAccounts = (query = {}) =>
   );
 
 /**
- * @api {get} /api/v1/account/:id Update account
- * @apiDescription Retrieve a specific account.
+ * @api {put} /api/v1/account/:id/ Put account
+ * @apiDescription Update a specific account.
  *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {String} account_arn
@@ -187,9 +187,52 @@ const updateAccount = (id, data = {}) =>
   axios(
     serviceConfig({
       method: 'put',
-      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}`,
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}/`,
       data
     })
   );
 
-export { addAccount, getAccounts, getAccount, updateAccount };
+/**
+ * @api {patch} /api/v1/account/:id/ Patch account field
+ * @apiDescription Update a specific field for account.
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {String} account_arn
+ * @apiSuccess {String} aws_account_id
+ * @apiSuccess {Date} created_at
+ * @apiSuccess {Number} id
+ * @apiSuccess {String} name
+ * @apiSuccess {String} resourcetype
+ * @apiSuccess {Date} updated_at
+ * @apiSuccess {String} url
+ * @apiSuccess {Number} user_id
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "account_arn": "arn:aws:iam::273470430754:role/role-for-cloudigrade",
+ *       "aws_account_id": "273470430754",
+ *       "created_at": "2018-07-05T16:01:30.046877Z",
+ *       "id": 4,
+ *       "name": "Lorem ipsum",
+ *       "resourcetype": "AwsAccount",
+ *       "updated_at": "2018-07-05T16:07:47.078088Z",
+ *       "url": "http://localhost:8080/api/v1/account/4/",
+ *       "user_id": 2
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+const updateAccountField = (id, data = {}) =>
+  axios(
+    serviceConfig({
+      method: 'patch',
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}/`,
+      data
+    })
+  );
+
+export { addAccount, getAccounts, getAccount, updateAccount, updateAccountField };

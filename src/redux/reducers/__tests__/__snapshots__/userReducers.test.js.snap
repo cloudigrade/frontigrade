@@ -62,7 +62,7 @@ exports[`fulfilled types 3`] = `
 Object {
   "result": Object {
     "session": Object {
-      "authorized": true,
+      "authorized": false,
       "email": null,
       "error": false,
       "errorMessage": "",

@@ -113,7 +113,7 @@ const userReducers = (state = initialState, action) => {
       const checkEmail = (action.payload.data && action.payload.data[apiTypes.API_RESPONSE_AUTH_EMAIL]) || null;
       let checkAuth = false;
 
-      if (checkName && checkEmail) {
+      if (checkName) {
         checkAuth = true;
       }
 

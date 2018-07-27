@@ -9,13 +9,25 @@ const initialState = {
     errorStatus: null,
     errorMessage: null,
     pending: false,
-    fulfilled: false
+    fulfilled: false,
+    updateAccounts: false
   }
 };
 
 const accountReducers = (state = initialState, action) => {
   switch (action.type) {
-    // Error/Rejected
+    case accountTypes.UPDATE_ACCOUNTS:
+      return helpers.setStateProp(
+        'view',
+        {
+          updateAccounts: true
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
     case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNTS):
       return helpers.setStateProp(
         'view',
@@ -48,7 +60,8 @@ const accountReducers = (state = initialState, action) => {
         'view',
         {
           accounts: action.payload.data[apiTypes.API_RESPONSE_ACCOUNTS] || [],
-          fulfilled: true
+          fulfilled: true,
+          updateAccounts: false
         },
         {
           state,

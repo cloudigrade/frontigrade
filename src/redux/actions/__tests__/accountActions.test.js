@@ -2,14 +2,18 @@ import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { accountActions } from '../';
-import { accountReducers, accountWizardReducers } from '../../reducers';
+import { accountReducers, accountEditModalReducers, accountWizardReducers } from '../../reducers';
 import apiTypes from '../../../constants/apiConstants';
 
 describe('UserActions', () => {
   const middleware = [promiseMiddleware()];
   const generateStore = () =>
     createStore(
-      combineReducers({ account: accountReducers, accountWizard: accountWizardReducers }),
+      combineReducers({
+        account: accountReducers,
+        accountEditModal: accountEditModalReducers,
+        accountWizard: accountWizardReducers
+      }),
       applyMiddleware(...middleware)
     );
 
@@ -65,12 +69,16 @@ describe('UserActions', () => {
     });
   });
 
-  it('Should return response content for updateAccount method', done => {
+  it('Should return response content for updateAccount method', () => {
+    expect(accountActions.updateAccount).toBeDefined();
+  });
+
+  it('Should return response content for updateAccountField method', done => {
     const store = generateStore();
-    const dispatcher = accountActions.updateAccount();
+    const dispatcher = accountActions.updateAccountField();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().accountWizard;
+      const response = store.getState().accountEditModal;
 
       expect(response.account.test).toEqual('success');
       done();

@@ -8,11 +8,17 @@ class Router extends React.Component {
 
     return {
       renderRoutes: routes().map(item => {
+        if (item.disabled) {
+          return null;
+        }
+
         if (item.redirect === true) {
           redirectRoot = <Redirect from="/" to={item.to} />;
         }
 
-        return <Route key={item.to} path={item.to} component={item.component} />;
+        return (
+          <Route exact={item.hasParameters || item.exact} key={item.to} path={item.to} component={item.component} />
+        );
       }),
       redirectRoot
     };

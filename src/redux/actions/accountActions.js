@@ -21,8 +21,14 @@ const getAccounts = query => dispatch =>
 
 const updateAccount = (id, data) => dispatch =>
   dispatch({
-    type: accountTypes.ADD_ACCOUNT,
+    type: accountTypes.UPDATE_ACCOUNT,
     payload: accountServices.updateAccount(id, data)
   });
 
-export { addAccount, getAccount, getAccounts, updateAccount };
+const updateAccountField = (id, data) => dispatch =>
+  dispatch({
+    type: accountTypes.UPDATE_ACCOUNT_FIELD,
+    payload: accountServices.updateAccountField(id, data)
+  });
+
+export { addAccount, getAccount, getAccounts, updateAccount, updateAccountField };

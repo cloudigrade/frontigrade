@@ -8,6 +8,7 @@ exports[`connected 1`] = `
   filter={Object {}}
   getAccounts={[Function]}
   pending={false}
+  updateAccounts={false}
 />
 `;
 

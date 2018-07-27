@@ -17,11 +17,11 @@ class AccountViewListItem extends React.Component {
    * having to use a "ref" and "contains" check
    */
   onVerifyDetail = event => {
-    const { onDetail } = this.props;
+    const { item, onDetail } = this.props;
     const currentKebabRef = this.kebab.current;
 
     if ((currentKebabRef && !currentKebabRef.contains(event.target)) || !currentKebabRef) {
-      onDetail(event);
+      onDetail(item);
     }
   };
 
@@ -32,8 +32,8 @@ class AccountViewListItem extends React.Component {
       <div ref={this.kebab}>
         {(onEdit || onArchive) && (
           <DropdownKebab id={`account-item-menu-${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`} pullRight>
-            {onEdit && <MenuItem onClick={onEdit}>Edit Name</MenuItem>}
-            {onArchive && <MenuItem onClick={onArchive}>Archive</MenuItem>}
+            {onEdit && <MenuItem onClick={() => onEdit(item)}>Edit Name</MenuItem>}
+            {onArchive && <MenuItem onClick={() => onArchive(item)}>Archive</MenuItem>}
           </DropdownKebab>
         )}
       </div>
@@ -64,23 +64,34 @@ class AccountViewListItem extends React.Component {
   renderAdditionalInfo() {
     const { item } = this.props;
 
+    const images =
+      item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES];
+
+    const instances =
+      item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES];
+
+    const rhel = item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL];
+
+    const rhos =
+      item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT];
+
     return [
       <ListView.InfoItem key="1">
         <Icon type="pf" name="cluster" />
-        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES] || 'N/A'}</strong> Images
+        <strong>{images}</strong> Images
       </ListView.InfoItem>,
       <ListView.InfoItem key="2">
         <Icon type="pf" name="screen" />
-        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES] || 'N/A'}</strong> Instances
+        <strong>{instances}</strong> Instances
       </ListView.InfoItem>,
       <ListView.InfoItem key="3">
-        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] || 'N/A'}</strong>
+        <strong>{rhel}</strong>
         <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] ? 'primary' : 'default'}>
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
         </PFLabel>
       </ListView.InfoItem>,
       <ListView.InfoItem key="4">
-        <strong>{item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] || 'N/A'}</strong>
+        <strong>{rhos}</strong>
         <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] ? 'primary' : 'default'}>
           <abbr title="Red Hat Open Stack">RHOS</abbr>
         </PFLabel>

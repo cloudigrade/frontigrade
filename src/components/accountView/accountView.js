@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
-import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import _isEqual from 'lodash/isEqual';
+import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import AccountViewListItem from './accountViewListItem';
 import AccountViewToolbar from './accountViewToolbar';
@@ -17,9 +17,9 @@ class AccountView extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { filter, getAccounts } = this.props;
+    const { filter, getAccounts, updateAccounts } = this.props;
 
-    if (!_isEqual(filter.query, prevProps.filter.query)) {
+    if (updateAccounts || !_isEqual(filter.query, prevProps.filter.query)) {
       getAccounts(filter.query);
     }
   }
@@ -47,11 +47,10 @@ class AccountView extends React.Component {
     });
   };
 
-  onEditName = () => {
+  onEditName = account => {
     store.dispatch({
-      type: reduxTypes.toastNotifications.TOAST_ADD,
-      alertType: 'warning',
-      message: 'Editing name not yet enabled for accounts'
+      type: reduxTypes.account.EDIT_ACCOUNT_SHOW,
+      account
     });
   };
 
@@ -173,7 +172,8 @@ AccountView.propTypes = {
     query: PropTypes.object
   }),
   getAccounts: PropTypes.func,
-  pending: PropTypes.bool
+  pending: PropTypes.bool,
+  updateAccounts: PropTypes.bool
 };
 
 AccountView.defaultProps = {
@@ -185,7 +185,8 @@ AccountView.defaultProps = {
     query: {}
   },
   getAccounts: helpers.noop,
-  pending: false
+  pending: false,
+  updateAccounts: false
 };
 
 const mapDispatchToProps = dispatch => ({

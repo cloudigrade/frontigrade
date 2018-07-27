@@ -9,6 +9,7 @@ import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
 import Tooltip from '../tooltip/tooltip';
 
+// FixMe: API - Hard Coded Values - "AwsAccount"
 class AccountWizardStepPolicy extends React.Component {
   state = {
     accountName: '',

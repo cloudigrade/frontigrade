@@ -10,6 +10,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_FULFILLED",
@@ -26,6 +27,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNT_FULFILLED",
@@ -42,6 +44,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNTS_FULFILLED",
@@ -58,6 +61,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_FULFILLED",
@@ -76,6 +80,7 @@ Object {
       "errorStatus": null,
       "fulfilled": true,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNTS_FULFILLED",
@@ -92,9 +97,10 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
+  "type": "UPDATE_ACCOUNTS_FULFILLED",
 }
 `;
 
@@ -108,9 +114,10 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
-  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+  "type": "UPDATE_ACCOUNT_FULFILLED",
 }
 `;
 
@@ -124,9 +131,78 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_FIELD_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 9`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 10`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 11`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 12`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_FULFILLED",
 }
 `;
 
@@ -140,6 +216,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_PENDING",
@@ -156,6 +233,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNT_PENDING",
@@ -172,6 +250,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNTS_PENDING",
@@ -188,6 +267,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_PENDING",
@@ -204,6 +284,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": true,
+      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNTS_PENDING",
@@ -220,9 +301,10 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_PENDING",
+  "type": "UPDATE_ACCOUNTS_PENDING",
 }
 `;
 
@@ -236,9 +318,10 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
-  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+  "type": "UPDATE_ACCOUNT_PENDING",
 }
 `;
 
@@ -252,9 +335,78 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_FIELD_PENDING",
+}
+`;
+
+exports[`pending types 9`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`pending types 10`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+}
+`;
+
+exports[`pending types 11`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`pending types 12`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_PENDING",
 }
 `;
 
@@ -268,6 +420,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_REJECTED",
@@ -284,6 +437,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNT_REJECTED",
@@ -300,6 +454,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNTS_REJECTED",
@@ -316,6 +471,7 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_REJECTED",
@@ -332,6 +488,7 @@ Object {
       "errorStatus": 0,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNTS_REJECTED",
@@ -348,9 +505,10 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+  "type": "UPDATE_ACCOUNTS_REJECTED",
 }
 `;
 
@@ -364,9 +522,10 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
     },
   },
-  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+  "type": "UPDATE_ACCOUNT_REJECTED",
 }
 `;
 
@@ -380,8 +539,77 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_FIELD_REJECTED",
+}
+`;
+
+exports[`rejected types 9`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`rejected types 10`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`rejected types 11`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`rejected types 12`] = `
+Object {
+  "result": Object {
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_REJECTED",
 }
 `;
