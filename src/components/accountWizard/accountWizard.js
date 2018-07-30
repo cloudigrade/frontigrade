@@ -28,6 +28,12 @@ class AccountWizard extends React.Component {
         store.dispatch({
           type: reduxTypes.account.UPDATE_ACCOUNT_HIDE
         });
+
+        if (fulfilled) {
+          store.dispatch({
+            type: reduxTypes.account.UPDATE_ACCOUNTS
+          });
+        }
       });
 
     if (fulfilled || errorStatus >= 500 || errorStatus === 0) {
