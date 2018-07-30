@@ -16,14 +16,17 @@ class AccountEditModal extends React.Component {
     formValid: false
   };
 
-  // FixMe: API - inconsistent enum for "resourcetype", account summary response uses "type":"aws" not "AwsAccount"
+  // FixMe: API - inconsistent property naming, no underscore in "resourcetype"
+  // FixMe: API - inconsistent enum for "resourcetype", account summary response uses "type":"aws" vs "AwsAccount"
+  // FixMe: API - inconsistent property naming for ARN, /api/v1/report/accounts/ labels it "arn" vs /api/v1/account/:id/ "account_arn"
   // FixMe: API - patch requires additional property of "resourcetype", an id is also being used...
+  // FixMe: API - patch not allowed by preflight, temporarily using put instead
   static getDerivedStateFromProps(props, state) {
     let initialState = null;
 
-    if (!state.formTouched && props.account && props.account[apiTypes.API_SUBMIT_ACCOUNT_NAME]) {
+    if (!state.formTouched && props.account && props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME]) {
       initialState = {
-        accountName: props.account[apiTypes.API_SUBMIT_ACCOUNT_NAME],
+        accountName: props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME],
         accountNameError: ''
       };
     }
@@ -66,14 +69,15 @@ class AccountEditModal extends React.Component {
 
   onSubmit = event => {
     const { accountName, resourceType, formValid } = this.state;
-    const { account, updateAccountField } = this.props;
+    const { account, updateAccount } = this.props;
 
     event.preventDefault();
 
     if (formValid) {
-      updateAccountField(account[apiTypes.API_SUBMIT_ACCOUNT_ID], {
+      updateAccount(account[apiTypes.API_RESPONSE_ACCOUNTS_ID], {
         [apiTypes.API_SUBMIT_ACCOUNT_NAME]: accountName,
-        [apiTypes.API_SUBMIT_ACCOUNT_RESOURCE_TYPE]: resourceType
+        [apiTypes.API_SUBMIT_ACCOUNT_RESOURCE_TYPE]: resourceType,
+        [apiTypes.API_SUBMIT_ACCOUNT_ARN]: account[apiTypes.API_RESPONSE_ACCOUNTS_ARN]
       }).then(
         () => {
           this.onCancel();
@@ -117,7 +121,7 @@ class AccountEditModal extends React.Component {
     const { accountName, accountNameError } = this.state;
     const { account } = this.props;
     const formValid =
-      fieldValidation.isEmpty(accountNameError) && accountName !== account[apiTypes.API_SUBMIT_ACCOUNT_NAME];
+      fieldValidation.isEmpty(accountNameError) && accountName !== account[apiTypes.API_RESPONSE_ACCOUNTS_NAME];
 
     this.setState({
       formValid
@@ -156,9 +160,9 @@ class AccountEditModal extends React.Component {
   render() {
     const { account, pending, show } = this.props;
     const { accountName, accountNameError, formTouched, formValid } = this.state;
-    const displayName = fieldValidation.isEmpty(account[apiTypes.API_SUBMIT_ACCOUNT_NAME])
-      ? account[apiTypes.API_SUBMIT_ACCOUNT_ID]
-      : account[apiTypes.API_SUBMIT_ACCOUNT_NAME];
+    const displayName = fieldValidation.isEmpty(account[apiTypes.API_RESPONSE_ACCOUNTS_NAME])
+      ? account[apiTypes.API_RESPONSE_ACCOUNTS_ID]
+      : account[apiTypes.API_RESPONSE_ACCOUNTS_NAME];
 
     return (
       <Modal show={show} onHide={this.cancel}>
@@ -217,18 +221,18 @@ AccountEditModal.propTypes = {
   errorMessage: PropTypes.string,
   pending: PropTypes.bool,
   show: PropTypes.bool.isRequired,
-  updateAccountField: PropTypes.func
+  updateAccount: PropTypes.func
 };
 
 AccountEditModal.defaultProps = {
   error: false,
   errorMessage: null,
   pending: false,
-  updateAccountField: helpers.noop
+  updateAccount: helpers.noop
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateAccountField: (id, data) => dispatch(reduxActions.account.updateAccountField(id, data))
+  updateAccount: (id, data) => dispatch(reduxActions.account.updateAccount(id, data))
 });
 
 const mapStateToProps = state => ({ ...state.accountEditModal });

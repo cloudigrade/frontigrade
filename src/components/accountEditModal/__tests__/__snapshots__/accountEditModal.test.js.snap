@@ -106,7 +106,7 @@ exports[`connected 1`] = `
   errorMessage={null}
   pending={false}
   show={true}
-  updateAccountField={[Function]}
+  updateAccount={[Function]}
 />
 `;
 
