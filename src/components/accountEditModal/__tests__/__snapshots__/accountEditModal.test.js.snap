@@ -166,7 +166,7 @@ exports[`display error state 1`] = `
             <strong>
               Error
             </strong>
-             
+            : Lorem ipsum test
           </div>
           <form
             autocomplete="off"

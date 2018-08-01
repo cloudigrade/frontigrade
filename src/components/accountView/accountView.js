@@ -19,7 +19,10 @@ class AccountView extends React.Component {
   componentDidUpdate(prevProps) {
     const { filter, getAccounts, updateAccounts } = this.props;
 
-    if (updateAccounts || !_isEqual(filter.query, prevProps.filter.query)) {
+    if (
+      (updateAccounts === true && updateAccounts !== prevProps.updateAccounts) ||
+      !_isEqual(filter.query, prevProps.filter.query)
+    ) {
       getAccounts(filter.query);
     }
   }

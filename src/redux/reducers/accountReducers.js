@@ -2,6 +2,14 @@ import { accountTypes } from '../constants';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
+/**
+ * Notes:
+ * The updateAccounts prop is only used to trigger a refresh of the account summary API call.
+ * This prop anticipates being reset through "helpers.setStateProp" when the API call is
+ * rejected, pending, or fulfilled. If "updateAccounts" is not reset to false, and/or checks
+ * within the accountView component are relaxed an infinite refresh loop could, potentially,
+ * happen.
+ */
 const initialState = {
   view: {
     accounts: [],
@@ -60,8 +68,7 @@ const accountReducers = (state = initialState, action) => {
         'view',
         {
           accounts: action.payload.data[apiTypes.API_RESPONSE_ACCOUNTS] || [],
-          fulfilled: true,
-          updateAccounts: false
+          fulfilled: true
         },
         {
           state,

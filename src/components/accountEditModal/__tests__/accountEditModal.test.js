@@ -38,7 +38,8 @@ describe('AccountEditModal Component', () => {
 
     component.setProps({
       pending: false,
-      error: true
+      error: true,
+      errorMessage: 'Lorem ipsum test'
     });
     expect(component.render()).toMatchSnapshot('display error state');
   });

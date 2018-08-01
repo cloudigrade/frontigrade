@@ -6,14 +6,18 @@ import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import { FormField, fieldValidation } from '../formField/formField';
 
+const initialState = {
+  accountName: '',
+  accountNameError: null,
+  resourceType: 'AwsAccount',
+  formTouched: false,
+  formValid: false
+};
+
 // FixMe: API - Hard Coded Values - "AwsAccount"
 class AccountEditModal extends React.Component {
   state = {
-    accountName: '',
-    accountNameError: null,
-    resourceType: 'AwsAccount',
-    formTouched: false,
-    formValid: false
+    ...initialState
   };
 
   // FixMe: API - inconsistent property naming, no underscore in "resourcetype"
@@ -22,26 +26,22 @@ class AccountEditModal extends React.Component {
   // FixMe: API - patch requires additional property of "resourcetype", an id is also being used...
   // FixMe: API - patch not allowed by preflight, temporarily using put instead
   static getDerivedStateFromProps(props, state) {
-    let initialState = null;
+    let updateInitialState = null;
 
     if (!state.formTouched && props.account && props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME]) {
-      initialState = {
+      updateInitialState = {
         accountName: props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME],
         accountNameError: ''
       };
     }
 
-    return initialState;
+    return updateInitialState;
   }
 
   onCancel = () => {
     this.setState(
       {
-        accountName: '',
-        accountNameError: null,
-        resourceType: 'AwsAccount',
-        formTouched: false,
-        formValid: false
+        ...initialState
       },
       () => {
         store.dispatch({
@@ -134,7 +134,7 @@ class AccountEditModal extends React.Component {
     if (error && !pending) {
       return (
         <Alert type="error" onDismiss={this.errorDismissed}>
-          <strong>Error</strong> {errorMessage}
+          <strong>Error</strong>: {errorMessage}
         </Alert>
       );
     }

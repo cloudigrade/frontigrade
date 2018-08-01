@@ -37,6 +37,8 @@ const accountEditModalReducers = (state = initialState, action) => {
         }
       );
 
+    // FixMe: API - patch not allowed by preflight, temporarily using put instead which uses "UPDATE_ACCOUNT"
+    case helpers.REJECTED_ACTION(accountTypes.UPDATE_ACCOUNT):
     case helpers.REJECTED_ACTION(accountTypes.UPDATE_ACCOUNT_FIELD):
       return helpers.setStateProp(
         null,
@@ -52,6 +54,8 @@ const accountEditModalReducers = (state = initialState, action) => {
         }
       );
 
+    // FixMe: API - patch not allowed by preflight, temporarily using put instead which uses "UPDATE_ACCOUNT"
+    case helpers.PENDING_ACTION(accountTypes.UPDATE_ACCOUNT):
     case helpers.PENDING_ACTION(accountTypes.UPDATE_ACCOUNT_FIELD):
       return helpers.setStateProp(
         null,
@@ -67,19 +71,17 @@ const accountEditModalReducers = (state = initialState, action) => {
         }
       );
 
+    // FixMe: API - patch not allowed by preflight, temporarily using put instead which uses "UPDATE_ACCOUNT"
+    case helpers.FULFILLED_ACTION(accountTypes.UPDATE_ACCOUNT):
     case helpers.FULFILLED_ACTION(accountTypes.UPDATE_ACCOUNT_FIELD):
       return helpers.setStateProp(
         null,
         {
-          account: action.payload.data || {},
-          error: false,
-          errorMessage: null,
-          fulfilled: true,
-          pending: false
+          fulfilled: true
         },
         {
           state,
-          reset: false
+          initialState
         }
       );
 
