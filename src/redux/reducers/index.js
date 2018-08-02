@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import accountReducers from './accountReducers';
+import accountImagesReducers from './accountImagesReducers';
 import accountEditModalReducers from './accountEditModalReducers';
 import accountWizardReducers from './accountWizardReducers';
 import confirmationModalReducers from './confirmationModalReducers';
@@ -10,6 +11,7 @@ import userReducers from './userReducers';
 
 const reducers = {
   account: accountReducers,
+  accountImages: accountImagesReducers,
   accountEditModal: accountEditModalReducers,
   accountWizard: accountWizardReducers,
   confirmationModal: confirmationModalReducers,
@@ -25,6 +27,7 @@ export {
   reduxReducers as default,
   reduxReducers,
   accountReducers,
+  accountImagesReducers,
   accountEditModalReducers,
   accountWizardReducers,
   confirmationModalReducers,

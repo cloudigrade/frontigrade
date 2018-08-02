@@ -13,6 +13,12 @@ const getAccount = id => dispatch =>
     payload: accountServices.getAccount(id)
   });
 
+const getAccountImages = (id, query) => dispatch =>
+  dispatch({
+    type: accountTypes.GET_ACCOUNT_IMAGES,
+    payload: accountServices.getAccountImages(id, query)
+  });
+
 const getAccounts = query => dispatch =>
   dispatch({
     type: accountTypes.GET_ACCOUNTS,
@@ -31,4 +37,4 @@ const updateAccountField = (id, data) => dispatch =>
     payload: accountServices.updateAccountField(id, data)
   });
 
-export { addAccount, getAccount, getAccounts, updateAccount, updateAccountField };
+export { addAccount, getAccount, getAccountImages, getAccounts, updateAccount, updateAccountField };

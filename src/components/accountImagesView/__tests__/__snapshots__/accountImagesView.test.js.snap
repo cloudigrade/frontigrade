@@ -10,7 +10,7 @@ exports[`empty state 1`] = `
     class="row"
   >
     <div
-      class="blank-slate-pf full-page-blank-slate fadein"
+      class="blank-slate-pf full-page-blank-slate"
     >
       <div
         class="blank-slate-pf-icon"
@@ -23,7 +23,7 @@ exports[`empty state 1`] = `
       <h4
         class="h1 blank-slate-pf-title"
       >
-        Welcome to Cloud Meter
+        No Images Available
       </h4>
       <p
         class="blank-slate-pf-info"
@@ -53,61 +53,8 @@ exports[`list 1`] = `
     class="list-group list-view-pf list-view-pf-view cloudmeter-list-view"
   >
     <div
-      class="list-group-item"
+      class="list-group-item list-view-pf-stacked"
     >
-      <div
-        class="list-view-pf-actions"
-      >
-        <div>
-          <div
-            class="dropdown-kebab-pf dropdown btn-group"
-          >
-            <button
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="dropdown-toggle btn btn-link"
-              id="account-item-menu-1"
-              role="button"
-              type="button"
-            >
-              <span
-                aria-hidden="true"
-                class="fa fa-ellipsis-v"
-              />
-            </button>
-            <ul
-              aria-labelledby="account-item-menu-1"
-              class="dropdown-menu dropdown-menu-right"
-              role="menu"
-            >
-              <li
-                class=""
-                role="presentation"
-              >
-                <a
-                  href="#"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Edit Name
-                </a>
-              </li>
-              <li
-                class=""
-                role="presentation"
-              >
-                <a
-                  href="#"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Archive
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
       <div
         class="list-view-pf-main-info"
       >
@@ -129,14 +76,12 @@ exports[`list 1`] = `
                   <div
                     class="list-group-item-heading"
                   >
-                    Lorem test
+                    Image #2
                   </div>
                 </span>
                 <span
                   class="cloudmeter-description-right"
-                >
-                  Created 11:09AM, July 6th 2018
-                </span>
+                />
               </div>
             </div>
           </div>
@@ -144,23 +89,11 @@ exports[`list 1`] = `
             class="list-view-pf-additional-info"
           >
             <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+              class="list-view-pf-additional-info-item"
             >
               <span
                 aria-hidden="true"
-                class="pficon pficon-cluster"
-              />
-              <strong>
-                1
-              </strong>
-               Images
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
-            >
-              <span
-                aria-hidden="true"
-                class="pficon pficon-screen"
+                class="pficon pficon-screen cloudmeter-listview-infoitem"
               />
               <strong>
                 2
@@ -168,11 +101,22 @@ exports[`list 1`] = `
                Instances
             </div>
             <div
+              class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+            >
+              <span>
+                <span
+                  aria-hidden="true"
+                  class="fa fa-clock-o"
+                />
+                <strong>
+                  25
+                </strong>
+                 Hours
+              </span>
+            </div>
+            <div
               class="list-view-pf-additional-info-item cloudmeter-listview-label"
             >
-              <strong>
-                1
-              </strong>
               <span
                 class="label label-primary"
               >
@@ -186,9 +130,6 @@ exports[`list 1`] = `
             <div
               class="list-view-pf-additional-info-item cloudmeter-listview-label hidden"
             >
-              <strong>
-                N/A
-              </strong>
               <span
                 class="label label-default"
               >
@@ -231,9 +172,25 @@ exports[`pending with list 1`] = `
         componentClass="div"
         xs={12}
       >
-        <h1>
-          Accounts
-        </h1>
+        <Breadcrumb
+          className="cloudmeter-breadcrumb"
+          title={true}
+        >
+          <BreadcrumbItem
+            active={false}
+            onClick={[Function]}
+          >
+            Accounts
+          </BreadcrumbItem>
+          <BreadcrumbItem
+            active={true}
+            aria-current="page"
+          >
+            <strong>
+              Account 
+            </strong>
+          </BreadcrumbItem>
+        </Breadcrumb>
       </Col>
     </Row>
   </Grid>
@@ -242,16 +199,7 @@ exports[`pending with list 1`] = `
     dateFields={null}
     dateValue={null}
     filterField={null}
-    filterFields={
-      Array [
-        Object {
-          "filterType": "text",
-          "id": "name_pattern",
-          "placeholder": "Filter by Name",
-          "title": "Name",
-        },
-      ]
-    }
+    filterFields={Array []}
     filterValue=""
     onAddAccount={[Function]}
     onExport={null}
@@ -295,7 +243,7 @@ exports[`pending with list 1`] = `
     }
     sortValue={null}
     totalCount={0}
-    view="account"
+    view="accountImages"
     viewGlobal="accountGlobal"
   />
   <div
@@ -304,25 +252,26 @@ exports[`pending with list 1`] = `
     <ListView
       className="cloudmeter-list-view"
     >
-      <AccountViewListItem
+      <AccountImagesViewListItem
         item={
           Object {
-            "arn": "arn:aws:iam::TEST",
-            "creation_date": "2018-07-06T15:09:21.442412Z",
-            "id": "1",
-            "images": 1,
-            "instances": 2,
-            "name": "Lorem test",
-            "openshift_instances": null,
-            "rhel_instances": 1,
-            "type": "aws",
-            "user_id": 1,
+            "cloud_image_id": "ami-rhel7",
+            "id": 2,
+            "instances_seen": 2,
+            "is_encrypted": false,
+            "name": null,
+            "openshift": false,
+            "openshift_challenged": false,
+            "openshift_detected": false,
+            "rhel": true,
+            "rhel_challenged": false,
+            "rhel_detected": true,
+            "runtime_seconds": 90362.5,
+            "status": "inspected",
           }
         }
-        key="1"
-        onArchive={[Function]}
+        key="2"
         onDetail={[Function]}
-        onEdit={[Function]}
       />
     </ListView>
   </div>

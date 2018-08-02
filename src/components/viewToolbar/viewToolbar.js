@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { Button } from 'patternfly-react';
 import { reduxTypes, store } from '../../redux';
 import { fieldValidation } from '../formField/formField';
-import accountViewTypes from './accountViewConstants';
 import Toolbar from '../toolbar/toolbar';
 
-class AccountViewToolbar extends React.Component {
+class ViewToolbar extends React.Component {
   componentDidMount() {
     const { dateFields, dateValue, filterField, filterFields, sortFields, sortValue } = this.props;
 
@@ -22,20 +21,6 @@ class AccountViewToolbar extends React.Component {
       this.onUpdateSortField(sortFields[0]);
     }
   }
-
-  onAddAccount = () => {
-    store.dispatch({
-      type: reduxTypes.account.ADD_ACCOUNT_SHOW
-    });
-  };
-
-  onExport = () => {
-    store.dispatch({
-      type: reduxTypes.toastNotifications.TOAST_ADD,
-      alertType: 'warning',
-      message: 'Export not yet enabled'
-    });
-  };
 
   onUpdateDateField = dateValue => {
     this.dispatchFilter(reduxTypes.filter.TOOLBAR_SET_DATE_TYPE, { dateValue });
@@ -89,13 +74,16 @@ class AccountViewToolbar extends React.Component {
   };
 
   dispatchFilter = (type, data = {}) => {
-    const { view } = this.props;
+    const { view, viewGlobal } = this.props;
 
-    store.dispatch({
-      type,
-      view,
-      ...data
-    });
+    if (view && type) {
+      store.dispatch({
+        type,
+        view,
+        viewGlobal,
+        ...data
+      });
+    }
   };
 
   render() {
@@ -106,6 +94,8 @@ class AccountViewToolbar extends React.Component {
       filterField,
       filterFields,
       filterValue,
+      onAddAccount,
+      onExport,
       resultsType,
       resultsTypePlural,
       sortAscending,
@@ -137,10 +127,10 @@ class AccountViewToolbar extends React.Component {
         />
         <Toolbar.Right>
           <Toolbar.Group>
-            <Button bsStyle="primary" disabled={false} onClick={this.onAddAccount}>
+            <Button bsStyle="primary" disabled={!onAddAccount} onClick={onAddAccount}>
               Add Account
             </Button>
-            <Button disabled onClick={this.onExport}>
+            <Button disabled={!onExport} onClick={onExport}>
               Export
             </Button>
           </Toolbar.Group>
@@ -160,7 +150,7 @@ class AccountViewToolbar extends React.Component {
   }
 }
 
-AccountViewToolbar.propTypes = {
+ViewToolbar.propTypes = {
   activeFilters: PropTypes.array,
   dateValue: PropTypes.shape({
     end: PropTypes.string,
@@ -178,6 +168,8 @@ AccountViewToolbar.propTypes = {
   }),
   filterFields: PropTypes.array,
   filterValue: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  onAddAccount: PropTypes.func,
+  onExport: PropTypes.func,
   resultsType: PropTypes.string,
   resultsTypePlural: PropTypes.string,
   selectedCount: PropTypes.number,
@@ -190,24 +182,28 @@ AccountViewToolbar.propTypes = {
     sortAscending: PropTypes.bool
   }),
   totalCount: PropTypes.number,
-  view: PropTypes.string
+  view: PropTypes.string,
+  viewGlobal: PropTypes.string
 };
 
-AccountViewToolbar.defaultProps = {
+ViewToolbar.defaultProps = {
   activeFilters: [],
-  dateFields: accountViewTypes.dateFields.timeValues,
+  dateFields: [],
   dateValue: null,
   filterField: null,
-  filterFields: accountViewTypes.filterFields,
+  filterFields: [],
   filterValue: '',
+  onAddAccount: null,
+  onExport: null,
   resultsType: 'Result',
   resultsTypePlural: 'Results',
   selectedCount: 0,
   sortAscending: true,
-  sortFields: accountViewTypes.sortFields,
+  sortFields: [],
   sortValue: null,
   totalCount: 0,
-  view: 'account'
+  view: null,
+  viewGlobal: null
 };
 
-export { AccountViewToolbar as default, AccountViewToolbar };
+export { ViewToolbar as default, ViewToolbar };

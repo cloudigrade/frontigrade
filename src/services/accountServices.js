@@ -1,5 +1,6 @@
 import axios from 'axios';
 import serviceConfig from './index';
+import apiTypes from '../constants/apiConstants';
 
 /**
  * @api {post} /api/v1/account/ Post account
@@ -78,7 +79,7 @@ const addAccount = (data = {}) =>
  *       "aws_account_id": "273470430754",
  *       "created_at": "2018-07-05T16:01:30.046877Z",
  *       "id": 4,
- *       "name": null,
+ *       "name": "Lorem Ipsum",
  *       "resourcetype": "AwsAccount",
  *       "updated_at": "2018-07-05T16:01:30.046910Z",
  *       "url": "http://localhost:8080/api/v1/account/4/",
@@ -116,7 +117,7 @@ const getAccount = id =>
  *           "instances": 2,
  *           "name": "Lorem ipsum",
  *           "openshift_instances": null,
- *           "rhel_instances": 1,
+ *           "rhel_instances": 2,
  *           "type": "aws",
  *           "user_id": 1
  *         }
@@ -144,8 +145,87 @@ const getAccount = id =>
 const getAccounts = (query = {}) =>
   axios(
     serviceConfig({
-      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE_OVERVIEW}`,
+      url: process.env.REACT_APP_ACCOUNTS_SERVICE_OVERVIEW,
       params: query
+    })
+  );
+
+/**
+ * @api {get} /api/v1/report/images/ Get images
+ * @apiDescription Get images for an account (or account detail).
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "images": [
+ *         {
+ *           "cloud_image_id": "ami-rhel7",
+ *           "id": 2,
+ *           "instances_seen": 2,
+ *           "is_encrypted": false,
+ *           "name": null,
+ *           "openshift": false,
+ *           "openshift_challenged": false,
+ *           "openshift_detected": false,
+ *           "rhel": true,
+ *           "rhel_challenged": false,
+ *           "rhel_detected": true,
+ *           "runtime_seconds": 90362.5,
+ *           "status": "inspected"
+ *         },
+ *         {
+ *           "cloud_image_id": "ami-rhel8",
+ *           "id": 7,
+ *           "instances_seen": 1,
+ *           "is_encrypted": false,
+ *           "name": null,
+ *           "openshift": false,
+ *           "openshift_challenged": false,
+ *           "openshift_detected": false,
+ *           "rhel": true,
+ *           "rhel_challenged": false,
+ *           "rhel_detected": true,
+ *           "runtime_seconds": 3600.0,
+ *           "status": "inspected"
+ *         },
+ *         {
+ *           "cloud_image_id": "ami-plain",
+ *           "id": 9,
+ *           "instances_seen": 1,
+ *           "is_encrypted": false,
+ *           "name": null,
+ *           "openshift": false,
+ *           "openshift_challenged": false,
+ *           "openshift_detected": false,
+ *           "rhel": false,
+ *           "rhel_challenged": false,
+ *           "rhel_detected": false,
+ *           "runtime_seconds": 0.0,
+ *           "status": "inspected"
+ *         }
+ *       ]
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+/**
+ * FixMe: API - issue
+ * The API requires the account id be passed as a query param. In order to emulate consistent
+ * routing behavior we handle that query bundle at the service level instead.
+ */
+const getAccountImages = (id, query = {}) =>
+  axios(
+    serviceConfig({
+      url: process.env.REACT_APP_ACCOUNTS_SERVICE_IMAGES,
+      params: {
+        ...{ [apiTypes.API_QUERY_ACCOUNT_ID]: id },
+        ...query
+      }
     })
   );
 
@@ -235,4 +315,4 @@ const updateAccountField = (id, data = {}) =>
     })
   );
 
-export { addAccount, getAccounts, getAccount, updateAccount, updateAccountField };
+export { addAccount, getAccount, getAccounts, getAccountImages, updateAccount, updateAccountField };

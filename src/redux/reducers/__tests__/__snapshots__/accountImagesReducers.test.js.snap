@@ -4,13 +4,13 @@ exports[`fulfilled types 1`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_FULFILLED",
@@ -21,13 +21,13 @@ exports[`fulfilled types 2`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNT_FULFILLED",
@@ -38,13 +38,13 @@ exports[`fulfilled types 3`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNTS_FULFILLED",
@@ -55,13 +55,17 @@ exports[`fulfilled types 4`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {
+        "images": Array [
+          "success",
+        ],
+      },
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_FULFILLED",
@@ -72,15 +76,13 @@ exports[`fulfilled types 5`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [
-        "success",
-      ],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": true,
+      "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNTS_FULFILLED",
@@ -91,13 +93,13 @@ exports[`fulfilled types 6`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNTS_FULFILLED",
@@ -108,13 +110,13 @@ exports[`fulfilled types 7`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FULFILLED",
@@ -125,13 +127,13 @@ exports[`fulfilled types 8`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FIELD_FULFILLED",
@@ -142,13 +144,15 @@ exports[`fulfilled types 9`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": false,
+      "fulfilled": true,
+      "images": Array [
+        "success",
+      ],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_FULFILLED",
@@ -159,13 +163,13 @@ exports[`fulfilled types 10`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_SHOW_FULFILLED",
@@ -176,13 +180,13 @@ exports[`fulfilled types 11`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
@@ -193,13 +197,13 @@ exports[`fulfilled types 12`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
@@ -210,13 +214,13 @@ exports[`fulfilled types 13`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_FULFILLED",
@@ -227,13 +231,13 @@ exports[`pending types 1`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_PENDING",
@@ -244,13 +248,13 @@ exports[`pending types 2`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNT_PENDING",
@@ -261,13 +265,13 @@ exports[`pending types 3`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNTS_PENDING",
@@ -278,13 +282,13 @@ exports[`pending types 4`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_PENDING",
@@ -295,13 +299,13 @@ exports[`pending types 5`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "pending": true,
-      "updateAccounts": false,
+      "images": Array [],
+      "pending": false,
     },
   },
   "type": "GET_ACCOUNTS_PENDING",
@@ -312,13 +316,13 @@ exports[`pending types 6`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNTS_PENDING",
@@ -329,13 +333,13 @@ exports[`pending types 7`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_PENDING",
@@ -346,13 +350,13 @@ exports[`pending types 8`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FIELD_PENDING",
@@ -363,13 +367,13 @@ exports[`pending types 9`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "pending": false,
-      "updateAccounts": false,
+      "images": Array [],
+      "pending": true,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_PENDING",
@@ -380,13 +384,13 @@ exports[`pending types 10`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_SHOW_PENDING",
@@ -397,13 +401,13 @@ exports[`pending types 11`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_PENDING",
@@ -414,13 +418,13 @@ exports[`pending types 12`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_PENDING",
@@ -431,13 +435,13 @@ exports[`pending types 13`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_PENDING",
@@ -448,13 +452,13 @@ exports[`rejected types 1`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_REJECTED",
@@ -465,13 +469,13 @@ exports[`rejected types 2`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNT_REJECTED",
@@ -482,13 +486,13 @@ exports[`rejected types 3`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "DELETE_ACCOUNTS_REJECTED",
@@ -499,13 +503,13 @@ exports[`rejected types 4`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_REJECTED",
@@ -516,13 +520,13 @@ exports[`rejected types 5`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNTS_REJECTED",
@@ -533,13 +537,13 @@ exports[`rejected types 6`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNTS_REJECTED",
@@ -550,13 +554,13 @@ exports[`rejected types 7`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_REJECTED",
@@ -567,13 +571,13 @@ exports[`rejected types 8`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FIELD_REJECTED",
@@ -584,13 +588,13 @@ exports[`rejected types 9`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
+      "account": Object {},
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_REJECTED",
@@ -601,13 +605,13 @@ exports[`rejected types 10`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "ADD_ACCOUNT_SHOW_REJECTED",
@@ -618,13 +622,13 @@ exports[`rejected types 11`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
@@ -635,13 +639,13 @@ exports[`rejected types 12`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_REJECTED",
@@ -652,13 +656,13 @@ exports[`rejected types 13`] = `
 Object {
   "result": Object {
     "view": Object {
-      "accounts": Array [],
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
+      "images": Array [],
       "pending": false,
-      "updateAccounts": false,
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_REJECTED",

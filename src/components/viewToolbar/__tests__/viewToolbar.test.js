@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import AccountViewToolbar from '../accountViewToolbar';
+import ViewToolbar from '../viewToolbar';
 
-describe('AccountViewToolbar Component', () => {
+describe('ViewToolbar Component', () => {
   it('should render', () => {
     const props = {};
 
-    const component = mount(<AccountViewToolbar {...props} />);
+    const component = mount(<ViewToolbar {...props} />);
 
     expect(component.render()).toMatchSnapshot();
   });

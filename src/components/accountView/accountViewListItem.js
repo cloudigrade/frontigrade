@@ -40,10 +40,8 @@ class AccountViewListItem extends React.Component {
     );
   }
 
-  renderHeading() {
-    const { item } = this.props;
-
-    return item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] || `Account #${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`;
+  static renderHeading() {
+    return null;
   }
 
   static renderLeftContent() {
@@ -53,7 +51,18 @@ class AccountViewListItem extends React.Component {
   renderDescription() {
     const { item } = this.props;
 
-    return `${moment(item[apiTypes.API_RESPONSE_ACCOUNTS_DATE]).format('MMMM Do YYYY, h:mm:ss a')}`;
+    return (
+      <div className="cloudmeter-split-description">
+        <span className="cloudmeter-description-left">
+          <ListView.DescriptionHeading>
+            {item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] || `Account #${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`}
+          </ListView.DescriptionHeading>
+        </span>
+        <span className="cloudmeter-description-right">
+          Created {moment(item[apiTypes.API_RESPONSE_ACCOUNTS_DATE]).format('h:mmA, MMMM Do YYYY')}
+        </span>
+      </div>
+    );
   }
 
   /**
@@ -76,24 +85,24 @@ class AccountViewListItem extends React.Component {
       item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT];
 
     return [
-      <ListView.InfoItem key="1">
+      <ListView.InfoItem key="1" className="cloudmeter-listview-infoitem">
         <Icon type="pf" name="cluster" />
         <strong>{images}</strong> Images
       </ListView.InfoItem>,
-      <ListView.InfoItem key="2">
+      <ListView.InfoItem key="2" className="cloudmeter-listview-infoitem">
         <Icon type="pf" name="screen" />
         <strong>{instances}</strong> Instances
       </ListView.InfoItem>,
-      <ListView.InfoItem key="3">
+      <ListView.InfoItem key="3" className="cloudmeter-listview-label">
         <strong>{rhel}</strong>
         <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] ? 'primary' : 'default'}>
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
         </PFLabel>
       </ListView.InfoItem>,
-      <ListView.InfoItem key="4">
+      <ListView.InfoItem key="4" className="cloudmeter-listview-label hidden">
         <strong>{rhos}</strong>
         <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] ? 'primary' : 'default'}>
-          <abbr title="Red Hat Open Stack">RHOS</abbr>
+          <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
         </PFLabel>
       </ListView.InfoItem>
     ];
@@ -107,7 +116,7 @@ class AccountViewListItem extends React.Component {
         onClick={this.onVerifyDetail}
         key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
         leftContent={AccountViewListItem.renderLeftContent()}
-        heading={this.renderHeading()}
+        heading={AccountViewListItem.renderHeading()}
         description={this.renderDescription()}
         additionalInfo={this.renderAdditionalInfo()}
         actions={this.renderActions()}

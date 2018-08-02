@@ -15,31 +15,46 @@ import helpers from '../../common/helpers';
 const dateFieldTypes = helpers.generatePriorYearMonthArray();
 
 const initialState = {
-  account: {
-    activeFilters: [],
-    currentPage: 1,
-    dateValue: null,
-    expandedItems: [],
-    filterField: null,
-    filterValue: '',
-    pageSize: 15,
-    selectedCount: 0,
-    selectedItems: [],
-    sortAscending: true,
-    sortValue: null,
-    totalCount: 0,
-    totalPages: 0,
-    query: {
-      [apiTypes.API_QUERY_NAME]: null,
-      [apiTypes.API_QUERY_END]: dateFieldTypes.defaultTime.end,
-      [apiTypes.API_QUERY_START]: dateFieldTypes.defaultTime.start
-    }
+  activeFilters: [],
+  currentPage: 1,
+  expandedItems: [],
+  filterField: null,
+  filterValue: '',
+  pageSize: 15,
+  selectedCount: 0,
+  selectedItems: [],
+  totalCount: 0,
+  totalPages: 0,
+  query: {
+    [apiTypes.API_QUERY_NAME]: null
   },
-  images: {},
-  detail: {}
+  syncView: null
 };
 
-const filterReducers = (state = initialState, action) => {
+const initialGlobalState = {
+  dateValue: null,
+  sortAscending: true,
+  sortValue: null,
+  query: {
+    [apiTypes.API_QUERY_END]: dateFieldTypes.defaultTime.end,
+    [apiTypes.API_QUERY_START]: dateFieldTypes.defaultTime.start,
+    [apiTypes.API_QUERY_USER_ID]: null
+  }
+};
+
+const initialFilterState = {
+  account: {
+    ...initialState
+  },
+  accountGlobal: {
+    ...initialGlobalState
+  },
+  accountImages: {
+    ...initialState
+  }
+};
+
+const filterReducers = (state = initialFilterState, action) => {
   const checkActionType =
     (action.view && action.type) || (Object.keys(filterTypes).indexOf(action.type) < 0 && action.type) || null;
 
@@ -48,12 +63,12 @@ const filterReducers = (state = initialState, action) => {
 
   switch (checkActionType) {
     case filterTypes.TOOLBAR_SET_DATE_TYPE:
-      query = { ...state[action.view].query };
+      query = { ...state[action.viewGlobal || action.view].query };
       query[apiTypes.API_QUERY_END] = action.dateValue[apiTypes.API_QUERY_END];
       query[apiTypes.API_QUERY_START] = action.dateValue[apiTypes.API_QUERY_START];
 
       return helpers.setStateProp(
-        action.view,
+        action.viewGlobal || action.view,
         {
           dateValue: action.dateValue,
           currentPage: 1,
@@ -67,7 +82,7 @@ const filterReducers = (state = initialState, action) => {
 
     case filterTypes.TOOLBAR_SET_SORT_TYPE:
       return helpers.setStateProp(
-        action.view,
+        action.viewGlobal || action.view,
         {
           sortValue: action.sortValue,
           sortAscending: (action.sortValue && action.sortValue.sortAscending) || true,
@@ -195,16 +210,35 @@ const filterReducers = (state = initialState, action) => {
 
     case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNTS):
       const accountView = 'account';
-      const totalCount = (action.payload.data[apiTypes.API_RESPONSE_ACCOUNTS] || []).length;
-      const totalPages = Math.ceil(totalCount / state[accountView].pageSize);
-      const currentPage = Math.min(state[accountView].currentPage, totalPages || 1);
+      const accountTotalCount = (action.payload.data[apiTypes.API_RESPONSE_ACCOUNTS] || []).length;
+      const accountTotalPages = Math.ceil(accountTotalCount / state[accountView].pageSize);
+      const accountCurrentPage = Math.min(state[accountView].currentPage, accountTotalPages || 1);
 
       return helpers.setStateProp(
         accountView,
         {
-          currentPage,
-          totalCount,
-          totalPages
+          currentPage: accountCurrentPage,
+          totalCount: accountTotalCount,
+          totalPages: accountTotalPages
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT_IMAGES):
+      const imagesView = 'accountImages';
+      const imagesTotalCount = (action.payload.data[apiTypes.API_RESPONSE_IMAGES] || []).length;
+      const imagesTotalPages = Math.ceil(imagesTotalCount / state[imagesView].pageSize);
+      const imagesCurrentPage = Math.min(state[imagesView].currentPage, imagesTotalPages || 1);
+
+      return helpers.setStateProp(
+        imagesView,
+        {
+          currentPage: imagesCurrentPage,
+          totalCount: imagesTotalCount,
+          totalPages: imagesTotalPages
         },
         {
           state,

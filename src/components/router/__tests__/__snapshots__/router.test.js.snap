@@ -13,8 +13,8 @@ exports[`Router Component should render a basic component 1`] = `
     />
     <Route
       component={[Function]}
-      key="/accounts/:detail"
-      path="/accounts/:detail"
+      key="/accounts/:accountId"
+      path="/accounts/:accountId"
     />
     <Redirect
       from="/"

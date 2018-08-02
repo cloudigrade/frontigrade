@@ -1,93 +1,80 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Button, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Alert, Button, Breadcrumb, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
 import { withRouter } from 'react-router-dom';
 import _isEqual from 'lodash/isEqual';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
-import accountViewTypes from './accountViewConstants';
+import accountImagesViewTypes from './accountImagesViewConstants';
 import ViewToolbar from '../viewToolbar/viewToolbar';
-import AccountViewListItem from './accountViewListItem';
+import AccountImagesViewListItem from './accountImagesViewListItem';
 
-class AccountView extends React.Component {
+class AccountImagesView extends React.Component {
   componentDidMount() {
-    const { filter, getAccounts } = this.props;
-
-    if (filter.query) {
-      getAccounts(filter.query);
-    }
+    this.loadApi();
   }
 
   componentDidUpdate(prevProps) {
-    const { filter, getAccounts, updateAccounts } = this.props;
+    const { filter, match } = this.props;
 
     if (
-      (updateAccounts === true && updateAccounts !== prevProps.updateAccounts) ||
+      match.params.accountId !== prevProps.match.params.accountId ||
       !_isEqual(filter.query, prevProps.filter.query)
     ) {
-      getAccounts(filter.query);
+      this.loadApi();
     }
   }
 
   onAddAccount = () => {
+    this.backToAccounts();
+
     store.dispatch({
       type: reduxTypes.account.ADD_ACCOUNT_SHOW
     });
   };
 
-  onArchive = () => {
-    store.dispatch({
-      type: reduxTypes.toastNotifications.TOAST_ADD,
-      alertType: 'warning',
-      message: 'Archive not yet enabled for accounts'
-    });
-  };
+  /**
+   * FixMe: API - issue
+   * The API requires the account id be passed as a query param, counter to other account API calls.
+   * In order to emulate consistent behavior we handle that query bundle at the service level instead,
+   * see services/accountServices.js "getAccountImages"
+   */
+  loadApi() {
+    const { filter, getAccount, getAccountImages, match } = this.props;
+    const accountId = match && Number.parseInt(match.params && match.params.accountId, 10);
 
-  onClearFilters = () => {
-    store.dispatch({
-      type: reduxTypes.filter.TOOLBAR_CLEAR_FILTERS,
-      view: 'account'
-    });
-  };
+    if (!Number.isNaN(accountId)) {
+      getAccount(accountId);
 
-  onDetailView = item => {
+      if (filter.query) {
+        getAccountImages(accountId, filter.query);
+      }
+    } else {
+      this.backToAccounts();
+    }
+  }
+
+  backToAccounts(event = {}) {
     const { history } = this.props;
 
-    if (Number.parseInt(item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES], 10) > 0) {
-      history.push(`/accounts/${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`);
-    } else {
-      const displayName = item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] || item[apiTypes.API_RESPONSE_ACCOUNTS_ID];
-
-      store.dispatch({
-        type: reduxTypes.toastNotifications.TOAST_ADD,
-        alertType: 'info',
-        message: (
-          <span>
-            No instances available for <strong>{displayName}</strong>
-          </span>
-        )
-      });
+    if (event.preventDefault) {
+      event.preventDefault();
     }
-  };
 
-  onEditName = account => {
-    store.dispatch({
-      type: reduxTypes.account.EDIT_ACCOUNT_SHOW,
-      account
-    });
-  };
+    history.push('/accounts/');
+  }
 
-  renderAccountsList() {
-    const { accounts } = this.props;
+  renderList() {
+    const { images } = this.props;
 
-    if (accounts.length) {
+    if (images.length) {
       return (
         <ListView className="cloudmeter-list-view">
-          {accounts.map(item => (
-            <AccountViewListItem
+          {images.map(item => (
+            <AccountImagesViewListItem
               item={item}
-              key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
+              key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
               onDetail={this.onDetailView}
               onEdit={this.onEditName}
               onArchive={this.onArchive}
@@ -128,44 +115,53 @@ class AccountView extends React.Component {
   }
 
   render() {
-    const { accounts, error, errorMessage, filter, pending, view, viewGlobal } = this.props;
+    const { account, images, error, errorMessage, filter, pending, view, viewGlobal } = this.props;
 
     if (error) {
       return (
         <EmptyState>
           <Alert type="error">
-            <span>Error retrieving accounts: {errorMessage}</span>
+            <span>Error retrieving images: {errorMessage}</span>
           </Alert>
           {this.renderPendingMessage()}
         </EmptyState>
       );
     }
 
-    if (pending && !accounts.length) {
+    if (pending && !images.length) {
       return <div className="cloudmeter-view-container">{this.renderPendingMessage()}</div>;
     }
 
-    if (accounts.length || filter.activeFilters.length) {
+    // ToDo: Replace filterFields={[]} with filterFields={accountImagesViewTypes.filterFields} when the name filter is active.
+    if (images.length || filter.activeFilters.length) {
       return (
         <div className="cloudmeter-view-container">
           <Grid fluid>
             <Grid.Row>
               <Grid.Col xs={12}>
-                <h1>Accounts</h1>
+                <Breadcrumb title className="cloudmeter-breadcrumb">
+                  <Breadcrumb.Item onClick={e => this.backToAccounts(e)}>Accounts</Breadcrumb.Item>
+                  <Breadcrumb.Item active aria-current="page">
+                    <strong>
+                      {account[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
+                        `Account ${account[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`}
+                    </strong>
+                  </Breadcrumb.Item>
+                </Breadcrumb>
               </Grid.Col>
             </Grid.Row>
           </Grid>
           <ViewToolbar
-            dateFields={accountViewTypes.dateFields.timeValues}
-            filterFields={accountViewTypes.filterFields}
+            dateFields={accountImagesViewTypes.dateFields.timeValues}
+            filterFields={[]}
             onAddAccount={this.onAddAccount}
             onExport={null}
-            sortFields={accountViewTypes.sortFields}
+            sortFields={accountImagesViewTypes.sortFields}
             view={view}
             viewGlobal={viewGlobal}
             {...filter}
           />
-          <div className="cloudmeter-list-container">{this.renderAccountsList()}</div>
+          <div className="cloudmeter-list-container">{this.renderList()}</div>
           {this.renderPendingMessage()}
         </div>
       );
@@ -174,9 +170,9 @@ class AccountView extends React.Component {
     return (
       <Grid fluid>
         <Row>
-          <EmptyState className="full-page-blank-slate fadein">
+          <EmptyState className="full-page-blank-slate">
             <EmptyState.Icon />
-            <EmptyState.Title>Welcome to Cloud Meter</EmptyState.Title>
+            <EmptyState.Title>No Images Available</EmptyState.Title>
             <EmptyState.Info>Add an AWS account to monitor usage.</EmptyState.Info>
             <EmptyState.Action>
               <Button bsStyle="primary" bsSize="large" onClick={this.onAddAccount}>
@@ -190,62 +186,71 @@ class AccountView extends React.Component {
   }
 }
 
-AccountView.propTypes = {
-  accounts: PropTypes.array,
+AccountImagesView.propTypes = {
+  account: PropTypes.object,
+  images: PropTypes.array,
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   filter: PropTypes.shape({
     activeFilters: PropTypes.array,
     query: PropTypes.object
   }),
-  getAccounts: PropTypes.func,
+  getAccount: PropTypes.func,
+  getAccountImages: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.object
+  }),
   pending: PropTypes.bool,
-  updateAccounts: PropTypes.bool,
   view: PropTypes.string,
   viewGlobal: PropTypes.string
 };
 
-AccountView.defaultProps = {
-  accounts: [],
+AccountImagesView.defaultProps = {
+  account: {},
+  images: [],
   error: false,
   errorMessage: null,
   filter: {
     activeFilters: [],
     query: {}
   },
-  getAccounts: helpers.noop,
+  getAccount: helpers.noop,
+  getAccountImages: helpers.noop,
+  match: {
+    params: {}
+  },
   pending: false,
-  updateAccounts: false,
-  view: 'account',
+  view: 'accountImages',
   viewGlobal: 'accountGlobal'
 };
 
 const mapDispatchToProps = dispatch => ({
-  getAccounts: query => dispatch(reduxActions.account.getAccounts(query))
+  getAccount: id => dispatch(reduxActions.account.getAccount(id)),
+  getAccountImages: (id, query) => dispatch(reduxActions.account.getAccountImages(id, query))
 });
 
 const mapStateToProps = state => ({
-  ...state.account.view,
+  ...state.accountImages.view,
   filter: {
-    ...state.filter.account,
+    ...state.filter.accountImages,
     ...state.filter.accountGlobal,
     ...{
       query: {
-        ...state.filter.account.query,
+        ...state.filter.accountImages.query,
         ...state.filter.accountGlobal.query
       }
     }
   }
 });
 
-const ConnectedAccountView = withRouter(
+const ConnectedAccountImagesView = withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(AccountView)
+  )(AccountImagesView)
 );
 
-export { ConnectedAccountView as default, ConnectedAccountView, AccountView };
+export { ConnectedAccountImagesView as default, ConnectedAccountImagesView, AccountImagesView };

@@ -5,7 +5,7 @@ describe('AccountServices', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/account.*?/, {
+    moxios.stubRequest(/\/(account|images).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
@@ -18,8 +18,9 @@ describe('AccountServices', () => {
 
   it('should have specific methods', () => {
     expect(accountServices.addAccount).toBeDefined();
-    expect(accountServices.getAccounts).toBeDefined();
     expect(accountServices.getAccount).toBeDefined();
+    expect(accountServices.getAccounts).toBeDefined();
+    expect(accountServices.getAccountImages).toBeDefined();
     expect(accountServices.updateAccount).toBeDefined();
     expect(accountServices.updateAccountField).toBeDefined();
   });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountViewToolbar Component should render 1`] = `
+exports[`ViewToolbar Component should render 1`] = `
 <div
   class="container-fluid"
 >
@@ -16,17 +16,6 @@ exports[`AccountViewToolbar Component should render 1`] = `
         <div
           class="form-group"
         />
-        <div
-          class="filter-pf form-group toolbar-pf-filter"
-        >
-          <div
-            class="filter-pf-fields"
-          >
-            <div
-              class="input-group"
-            />
-          </div>
-        </div>
         <div
           class="form-group"
         >
@@ -49,6 +38,7 @@ exports[`AccountViewToolbar Component should render 1`] = `
           >
             <button
               class="btn btn-primary"
+              disabled=""
               type="button"
             >
               Add Account

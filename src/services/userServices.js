@@ -152,7 +152,7 @@ const logoutUser = () =>
 const storeData = (data, remove = false, config = { extend: true }) =>
   new Promise(resolve => {
     const cookieName = process.env.REACT_APP_AUTH_STORED;
-    const cookieExpire = parseInt(process.env.REACT_APP_AUTH_STORED_EXPIRE, 10);
+    const cookieExpire = Number.parseInt(process.env.REACT_APP_AUTH_STORED_EXPIRE, 10);
     let cookieValue = cookies.get(cookieName);
 
     try {

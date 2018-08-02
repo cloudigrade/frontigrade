@@ -1,14 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountViewListItem Component should render 1`] = `
+exports[`AccountImagesViewListItem Component should render 1`] = `
 <div
-  class="list-group-item"
+  class="list-group-item list-view-pf-stacked"
 >
-  <div
-    class="list-view-pf-actions"
-  >
-    <div />
-  </div>
   <div
     class="list-view-pf-main-info"
   >
@@ -35,9 +30,7 @@ exports[`AccountViewListItem Component should render 1`] = `
             </span>
             <span
               class="cloudmeter-description-right"
-            >
-              Created 11:09AM, July 6th 2018
-            </span>
+            />
           </div>
         </div>
       </div>
@@ -45,37 +38,36 @@ exports[`AccountViewListItem Component should render 1`] = `
         class="list-view-pf-additional-info"
       >
         <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+          class="list-view-pf-additional-info-item"
         >
           <span
             aria-hidden="true"
-            class="pficon pficon-cluster"
+            class="pficon pficon-screen cloudmeter-listview-infoitem"
           />
           <strong>
-            1
-          </strong>
-           Images
-        </div>
-        <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
-        >
-          <span
-            aria-hidden="true"
-            class="pficon pficon-screen"
-          />
-          <strong>
-            2
+            -
           </strong>
            Instances
         </div>
         <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
+            <strong>
+              -
+            </strong>
+             Hours
+          </span>
+        </div>
+        <div
           class="list-view-pf-additional-info-item cloudmeter-listview-label"
         >
-          <strong>
-            1
-          </strong>
           <span
-            class="label label-primary"
+            class="label label-default"
           >
             <abbr
               title="Red Hat Enterprise Linux"
@@ -87,9 +79,6 @@ exports[`AccountViewListItem Component should render 1`] = `
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-label hidden"
         >
-          <strong>
-            N/A
-          </strong>
           <span
             class="label label-default"
           >
