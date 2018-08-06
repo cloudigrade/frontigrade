@@ -52,16 +52,14 @@ exports[`AccountImagesViewListItem Component should render 1`] = `
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
         >
-          <span>
-            <span
-              aria-hidden="true"
-              class="fa fa-clock-o"
-            />
-            <strong>
-              -
-            </strong>
-             Hours
-          </span>
+          <span
+            aria-hidden="true"
+            class="fa fa-clock-o"
+          />
+          <strong>
+            -
+          </strong>
+           Hours
         </div>
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-label"

@@ -56,23 +56,42 @@ class AccountImagesViewListItem extends React.Component {
    * listview "additionalInfo" attribute "requires" an array propType, restrictive limit.
    * Open it up to allow both, "node" OR "array"
    */
+  /**
+   * FixMe: API - issue
+   * added additional checks around seconds and instances since we're having to calculate seconds
+   * into hours. went ahead and added instances into the mix since unsure. ideally we'd prefer a
+   * simple display check, like null, then dump it out to the UI. the tooltip was added to
+   * provide the original seconds value in the event the calculation is off
+   */
   renderAdditionalInfo() {
     const { item } = this.props;
 
-    const instances = item[apiTypes.API_RESPONSE_IMAGES_INSTANCES];
-    const seconds = Number.parseFloat(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
-    const hours = Math.floor(moment.duration(seconds, 'seconds').asHours());
+    let seconds = Number.parseFloat(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
+    seconds = Number.isNaN(seconds) ? null : seconds;
+
+    const hours = seconds === null ? '-' : Math.floor(moment.duration(seconds, 'seconds').asHours());
+
+    let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
+    instances = Number.isNaN(instances) ? '-' : instances;
 
     return [
       <ListView.InfoItem key="1">
         <Icon type="pf" name="screen" className="cloudmeter-listview-infoitem" />
-        <strong>{!Number.isNaN(instances) && instances > -1 ? instances : '-'}</strong> Instances
+        <strong>{instances}</strong> Instances
       </ListView.InfoItem>,
       <ListView.InfoItem key="2" className="cloudmeter-listview-infoitem">
-        <Tooltip delayShow={100} popover={<React.Fragment>{seconds} seconds</React.Fragment>}>
-          <Icon type="fa" name="clock-o" />
-          <strong>{!Number.isNaN(hours) && hours > -1 ? hours : '-'}</strong> Hours
-        </Tooltip>
+        {seconds !== null && (
+          <Tooltip delayShow={100} popover={<React.Fragment>{seconds} seconds</React.Fragment>}>
+            <Icon type="fa" name="clock-o" />
+            <strong>{hours}</strong> Hours
+          </Tooltip>
+        )}
+        {seconds === null && (
+          <React.Fragment>
+            <Icon type="fa" name="clock-o" />
+            <strong>{hours}</strong> Hours
+          </React.Fragment>
+        )}
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label">
         <PFLabel bsStyle={item[apiTypes.API_RESPONSE_IMAGES_RHEL] ? 'primary' : 'default'}>
