@@ -45,168 +45,6 @@ exports[`empty state 1`] = `
 </div>
 `;
 
-exports[`list 1`] = `
-<div
-  class="cloudmeter-list-container"
->
-  <div
-    class="list-group list-view-pf list-view-pf-view cloudmeter-list-view"
-  >
-    <div
-      class="list-group-item"
-    >
-      <div
-        class="list-view-pf-actions"
-      >
-        <div>
-          <div
-            class="dropdown-kebab-pf dropdown btn-group"
-          >
-            <button
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="dropdown-toggle btn btn-link"
-              id="account-item-menu-1"
-              role="button"
-              type="button"
-            >
-              <span
-                aria-hidden="true"
-                class="fa fa-ellipsis-v"
-              />
-            </button>
-            <ul
-              aria-labelledby="account-item-menu-1"
-              class="dropdown-menu dropdown-menu-right"
-              role="menu"
-            >
-              <li
-                class=""
-                role="presentation"
-              >
-                <a
-                  href="#"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Edit Name
-                </a>
-              </li>
-              <li
-                class=""
-                role="presentation"
-              >
-                <a
-                  href="#"
-                  role="menuitem"
-                  tabindex="-1"
-                >
-                  Archive
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div
-        class="list-view-pf-main-info"
-      >
-        <div
-          class="list-view-pf-body"
-        >
-          <div
-            class="list-view-pf-description"
-          >
-            <div
-              class="list-group-item-text"
-            >
-              <div
-                class="cloudmeter-split-description"
-              >
-                <span
-                  class="cloudmeter-description-left"
-                >
-                  <div
-                    class="list-group-item-heading"
-                  >
-                    Lorem test
-                  </div>
-                </span>
-                <span
-                  class="cloudmeter-description-right"
-                >
-                  Created 11:09AM, July 6th 2018
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="list-view-pf-additional-info"
-          >
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
-            >
-              <span
-                aria-hidden="true"
-                class="pficon pficon-cluster"
-              />
-              <strong>
-                1
-              </strong>
-               Images
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
-            >
-              <span
-                aria-hidden="true"
-                class="pficon pficon-screen"
-              />
-              <strong>
-                2
-              </strong>
-               Instances
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-label"
-            >
-              <strong>
-                1
-              </strong>
-              <span
-                class="label label-primary"
-              >
-                <abbr
-                  title="Red Hat Enterprise Linux"
-                >
-                  RHEL
-                </abbr>
-              </span>
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-label hidden"
-            >
-              <strong>
-                N/A
-              </strong>
-              <span
-                class="label label-default"
-              >
-                <abbr
-                  title="Red Hat OpenShift Container Platform"
-                >
-                  RHOCP
-                </abbr>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`pending 1`] = `
 <div
   class="cloudmeter-view-container"
@@ -215,7 +53,7 @@ exports[`pending 1`] = `
 
 exports[`pending with list 1`] = `
 <div
-  className="cloudmeter-view-container"
+  className="cloudmeter-view-container fadein"
 >
   <Grid
     bsClass="container"
@@ -255,6 +93,7 @@ exports[`pending with list 1`] = `
     filterValue=""
     onAddAccount={[Function]}
     onExport={null}
+    query={Object {}}
     resultsType="Result"
     resultsTypePlural="Results"
     selectedCount={0}
@@ -301,6 +140,15 @@ exports[`pending with list 1`] = `
   <div
     className="cloudmeter-list-container"
   >
+    <Connect(AccountViewInstanceGraphs)
+      filter={
+        Object {
+          "dateFields": null,
+          "query": Object {},
+        }
+      }
+      updateInstances={false}
+    />
     <ListView
       className="cloudmeter-list-view"
     >

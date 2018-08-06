@@ -226,11 +226,57 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "ADD_ACCOUNT_WIZARD",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES",
 }
 `;
 
 exports[`defined types 11`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "configuration": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "GET_ACCOUNT_INSTANCES",
+}
+`;
+
+exports[`defined types 12`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "configuration": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "ADD_ACCOUNT_WIZARD",
+}
+`;
+
+exports[`defined types 13`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -255,7 +301,7 @@ Object {
 }
 `;
 
-exports[`defined types 12`] = `
+exports[`defined types 14`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -280,7 +326,7 @@ Object {
 }
 `;
 
-exports[`defined types 13`] = `
+exports[`defined types 15`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -303,7 +349,7 @@ Object {
 }
 `;
 
-exports[`defined types 14`] = `
+exports[`defined types 16`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -326,7 +372,7 @@ Object {
 }
 `;
 
-exports[`defined types 15`] = `
+exports[`defined types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -351,7 +397,7 @@ Object {
 }
 `;
 
-exports[`defined types 16`] = `
+exports[`defined types 18`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -376,7 +422,7 @@ Object {
 }
 `;
 
-exports[`defined types 17`] = `
+exports[`defined types 19`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -399,7 +445,7 @@ Object {
 }
 `;
 
-exports[`defined types 18`] = `
+exports[`defined types 20`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -422,7 +468,7 @@ Object {
 }
 `;
 
-exports[`defined types 19`] = `
+exports[`defined types 21`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -445,7 +491,7 @@ Object {
 }
 `;
 
-exports[`defined types 20`] = `
+exports[`defined types 22`] = `
 Object {
   "result": Object {
     "account": Object {},

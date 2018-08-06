@@ -1,7 +1,52 @@
 import _ from 'lodash';
 import moment from 'moment/moment';
 
+const copyClipboard = text => {
+  let successful;
+
+  try {
+    window.getSelection().removeAllRanges();
+
+    const newTextarea = document.createElement('pre');
+    newTextarea.appendChild(document.createTextNode(text));
+
+    newTextarea.style.position = 'absolute';
+    newTextarea.style.top = '-1000px';
+    newTextarea.style.left = '-1000px';
+    newTextarea.style.overflow = 'hidden';
+    newTextarea.style.width = '1px';
+    newTextarea.style.height = '1px';
+
+    const range = document.createRange();
+    window.document.body.appendChild(newTextarea);
+
+    range.selectNode(newTextarea);
+
+    window.getSelection().addRange(range);
+
+    successful = window.document.execCommand('copy');
+
+    window.document.body.removeChild(newTextarea);
+    window.getSelection().removeAllRanges();
+  } catch (e) {
+    successful = false;
+    console.warn('Copy to clipboard failed.', e.message);
+  }
+
+  return successful;
+};
+
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
+
+const generateHoursFromSeconds = seconds => {
+  let parsedSeconds = Number.parseFloat(seconds);
+  parsedSeconds = Number.isNaN(parsedSeconds) ? null : parsedSeconds;
+
+  parsedSeconds =
+    parsedSeconds === null ? parsedSeconds : Math.floor(moment.duration(parsedSeconds, 'seconds').asHours());
+
+  return parsedSeconds;
+};
 
 const generatePriorYearMonthArray = () => {
   const dateStart = moment().subtract(12, 'months');
@@ -134,6 +179,10 @@ const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const OC_MODE = process.env.REACT_APP_ENV === 'oc';
 
+const RH_BRAND = process.env.REACT_APP_RH_BRAND === 'true';
+
+const UI_COMMIT_HASH = process.env.REACT_APP_UI_COMMIT_HASH;
+
 const FULFILLED_ACTION = (base = '') => `${base}_FULFILLED`;
 
 const PENDING_ACTION = (base = '') => `${base}_PENDING`;
@@ -143,7 +192,9 @@ const REJECTED_ACTION = (base = '') => `${base}_REJECTED`;
 const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
 const helpers = {
+  copyClipboard,
   generateId,
+  generateHoursFromSeconds,
   generatePriorYearMonthArray,
   getMessageFromResults,
   getStatusFromResults,
@@ -152,6 +203,8 @@ const helpers = {
   prettyPrintJson,
   DEV_MODE,
   OC_MODE,
+  RH_BRAND,
+  UI_COMMIT_HASH,
   FULFILLED_ACTION,
   PENDING_ACTION,
   REJECTED_ACTION,

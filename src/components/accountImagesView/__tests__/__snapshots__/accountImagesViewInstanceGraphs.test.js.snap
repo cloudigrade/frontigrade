@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`connected 1`] = `
+<AccountImagesViewInstanceGraphs
+  dailyUsage={Array []}
+  error={false}
+  filter={
+    Object {
+      "query": Object {},
+    }
+  }
+  filterId={1}
+  fulfilled={false}
+  getAccountImagesInstances={[Function]}
+  instancesOpenshift={0}
+  instancesRhel={0}
+  pending={false}
+  updateInstances={false}
+/>
+`;

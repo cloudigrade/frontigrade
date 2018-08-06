@@ -45,109 +45,6 @@ exports[`empty state 1`] = `
 </div>
 `;
 
-exports[`list 1`] = `
-<div
-  class="cloudmeter-list-container"
->
-  <div
-    class="list-group list-view-pf list-view-pf-view cloudmeter-list-view"
-  >
-    <div
-      class="list-group-item list-view-pf-stacked"
-    >
-      <div
-        class="list-view-pf-main-info"
-      >
-        <div
-          class="list-view-pf-body"
-        >
-          <div
-            class="list-view-pf-description"
-          >
-            <div
-              class="list-group-item-text"
-            >
-              <div
-                class="cloudmeter-split-description"
-              >
-                <span
-                  class="cloudmeter-description-left"
-                >
-                  <div
-                    class="list-group-item-heading"
-                  >
-                    Image #2
-                  </div>
-                </span>
-                <span
-                  class="cloudmeter-description-right"
-                />
-              </div>
-            </div>
-          </div>
-          <div
-            class="list-view-pf-additional-info"
-          >
-            <div
-              class="list-view-pf-additional-info-item"
-            >
-              <span
-                aria-hidden="true"
-                class="pficon pficon-screen cloudmeter-listview-infoitem"
-              />
-              <strong>
-                2
-              </strong>
-               Instances
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
-            >
-              <span>
-                <span
-                  aria-hidden="true"
-                  class="fa fa-clock-o"
-                />
-                <strong>
-                  25
-                </strong>
-                 Hours
-              </span>
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-label"
-            >
-              <span
-                class="label label-primary"
-              >
-                <abbr
-                  title="Red Hat Enterprise Linux"
-                >
-                  RHEL
-                </abbr>
-              </span>
-            </div>
-            <div
-              class="list-view-pf-additional-info-item cloudmeter-listview-label hidden"
-            >
-              <span
-                class="label label-default"
-              >
-                <abbr
-                  title="Red Hat OpenShift Container Platform"
-                >
-                  RHOCP
-                </abbr>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`pending 1`] = `
 <div
   class="cloudmeter-view-container"
@@ -156,7 +53,7 @@ exports[`pending 1`] = `
 
 exports[`pending with list 1`] = `
 <div
-  className="cloudmeter-view-container"
+  className="cloudmeter-view-container fadein"
 >
   <Grid
     bsClass="container"
@@ -203,6 +100,7 @@ exports[`pending with list 1`] = `
     filterValue=""
     onAddAccount={[Function]}
     onExport={null}
+    query={Object {}}
     resultsType="Result"
     resultsTypePlural="Results"
     selectedCount={0}

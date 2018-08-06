@@ -1,3 +1,4 @@
+import * as aboutModalTypes from './aboutModalConstants';
 import * as accountTypes from './accountConstants';
 import * as applicationStatusTypes from './applicationStatusConstants';
 import * as confirmationModalTypes from './confirmationModalConstants';
@@ -8,6 +9,7 @@ import * as filterTypes from './filterConstants';
 import * as userTypes from './userConstants';
 
 const reduxTypes = {
+  aboutModal: aboutModalTypes,
   account: accountTypes,
   applicationStatus: applicationStatusTypes,
   confirmationModal: confirmationModalTypes,
@@ -21,6 +23,7 @@ const reduxTypes = {
 export {
   reduxTypes as default,
   reduxTypes,
+  aboutModalTypes,
   accountTypes,
   applicationStatusTypes,
   confirmationModalTypes,

@@ -19,6 +19,16 @@ const initialState = {
     pending: false,
     fulfilled: false,
     updateAccounts: false
+  },
+  instances: {
+    dailyUsage: [],
+    instancesOpenshift: 0,
+    instancesRhel: 0,
+    error: false,
+    errorStatus: null,
+    errorMessage: null,
+    pending: false,
+    fulfilled: false
   }
 };
 
@@ -54,7 +64,6 @@ const accountReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'view',
         {
-          accounts: state.view.accounts,
           pending: true
         },
         {
@@ -68,6 +77,48 @@ const accountReducers = (state = initialState, action) => {
         'view',
         {
           accounts: action.payload.data[apiTypes.API_RESPONSE_ACCOUNTS] || [],
+          fulfilled: true
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNT_INSTANCES):
+      return helpers.setStateProp(
+        'instances',
+        {
+          error: action.error,
+          errorMessage: helpers.getMessageFromResults(action.payload),
+          errorStatus: helpers.getStatusFromResults(action.payload)
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.PENDING_ACTION(accountTypes.GET_ACCOUNT_INSTANCES):
+      return helpers.setStateProp(
+        'instances',
+        {
+          dailyUsage: state.instances.dailyUsage,
+          pending: true
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT_INSTANCES):
+      return helpers.setStateProp(
+        'instances',
+        {
+          dailyUsage: action.payload.data[apiTypes.API_RESPONSE_INSTANCES_USAGE] || [],
+          instancesOpenshift: action.payload.data[apiTypes.API_RESPONSE_INSTANCES_OPENSHIFT] || 0,
+          instancesRhel: action.payload.data[apiTypes.API_RESPONSE_INSTANCES_RHEL] || 0,
           fulfilled: true
         },
         {

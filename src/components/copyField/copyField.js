@@ -4,48 +4,6 @@ import { Form, Icon, Button } from 'patternfly-react';
 import helpers from '../../common/helpers';
 
 class CopyField extends React.Component {
-  static copyClipboard(text, html = false) {
-    let successful;
-
-    try {
-      window.getSelection().removeAllRanges();
-
-      let newTextarea;
-
-      if (html) {
-        newTextarea = document.createElement('textarea');
-        newTextarea.innerHTML = text;
-      } else {
-        newTextarea = document.createElement('span');
-        newTextarea.appendChild(document.createTextNode(text));
-      }
-
-      newTextarea.style.position = 'absolute';
-      newTextarea.style.top = '-1000px';
-      newTextarea.style.left = '-1000px';
-      newTextarea.style.overflow = 'hidden';
-      newTextarea.style.width = '1px';
-      newTextarea.style.height = '1px';
-
-      const range = document.createRange();
-      window.document.body.appendChild(newTextarea);
-
-      range.selectNode(newTextarea);
-
-      window.getSelection().addRange(range);
-
-      successful = window.document.execCommand('copy');
-
-      window.document.body.removeChild(newTextarea);
-      window.getSelection().removeAllRanges();
-    } catch (e) {
-      successful = false;
-      console.warn('Copy to clipboard failed.', e.message);
-    }
-
-    return successful;
-  }
-
   state = {
     copied: false,
     expanded: false,
@@ -53,8 +11,8 @@ class CopyField extends React.Component {
   };
 
   onCopy = event => {
-    const { value, isHtml } = this.props;
-    const success = CopyField.copyClipboard(value, isHtml);
+    const { value } = this.props;
+    const success = helpers.copyClipboard(value);
 
     event.target.blur();
     clearTimeout(this.state.timer);
@@ -146,7 +104,6 @@ class CopyField extends React.Component {
 CopyField.propTypes = {
   id: PropTypes.string,
   expandDescription: PropTypes.string,
-  isHtml: PropTypes.bool,
   label: PropTypes.string,
   labelDescription: PropTypes.string,
   multiline: PropTypes.bool,
@@ -157,7 +114,6 @@ CopyField.propTypes = {
 CopyField.defaultProps = {
   id: null,
   expandDescription: null,
-  isHtml: false,
   label: 'Copy',
   labelDescription: null,
   multiline: false,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { Router } from './router/router';
+import AboutModal from './aboutModal/aboutModal';
 import Authentication from './authentication/authentication';
 import Masthead from './masthead/masthead';
 import AccountWizard from './accountWizard/accountWizard';
@@ -15,6 +16,7 @@ const App = () => (
         <Masthead />
         <div>
           <ToastNotificationsList />
+          <AboutModal />
           <AccountWizard />
           <AccountEditModal />
           <ConfirmationModal />

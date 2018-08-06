@@ -6,6 +6,7 @@ import apiTypes from '../../constants/apiConstants';
 import { fieldValidation } from '../formField/formField';
 import helpers from '../../common/helpers';
 import titleImg from '../../styles/images/title.svg';
+import titleImgBrand from '../../styles/images/title-brand.svg';
 
 class Authentication extends React.Component {
   state = {
@@ -232,7 +233,11 @@ class Authentication extends React.Component {
             <Grid.Row>
               <Grid.Col sm={8} smOffset={2} md={6} mdOffset={3} lg={6} lgOffset={3}>
                 <header className="login-pf-page-header">
-                  <img className="login-pf-brand cloudmeter-login-brand" src={titleImg} alt="Cloud Meter" />
+                  <img
+                    className="login-pf-brand cloudmeter-login-brand"
+                    src={helpers.RH_BRAND ? titleImgBrand : titleImg}
+                    alt="Cloud Meter"
+                  />
                 </header>
                 <Grid.Row>
                   <Grid.Col sm={10} smOffset={1} md={8} mdOffset={2} lg={8} lgOffset={2}>

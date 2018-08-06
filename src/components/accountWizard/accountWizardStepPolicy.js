@@ -111,7 +111,7 @@ class AccountWizardStepPolicy extends React.Component {
               </li>
               <li>
                 <p>In the JSON editor replace the contents with:</p>
-                <CopyField multiline isHtml value={policySetupConfig} />
+                <CopyField multiline value={policySetupConfig} />
               </li>
               <li>
                 Click <strong>Review policy</strong>.

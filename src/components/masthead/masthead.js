@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Masthead as PfMasthead, MenuItem } from 'patternfly-react';
-import { connect, reduxActions } from '../../redux';
+import { connect, reduxActions, store } from '../../redux';
 import helpers from '../../common/helpers';
 import titleImg from '../../styles/images/title.svg';
+import titleImgBrand from '../../styles/images/title-brand.svg';
+import reduxTypes from '../../redux/constants';
 
 class Masthead extends React.Component {
   state = {
@@ -12,6 +14,9 @@ class Masthead extends React.Component {
 
   onAbout = e => {
     e.preventDefault();
+    store.dispatch({
+      type: reduxTypes.aboutModal.ABOUT_MODAL_SHOW
+    });
   };
 
   onHelp = e => {
@@ -47,7 +52,7 @@ class Masthead extends React.Component {
             </a>
           </li>
           <li className="list-group-item">
-            <a role="menuitem" href="#help" onClick={this.onHelp}>
+            <a role="menuitem" href="#help" onClick={this.onHelp} className="hidden">
               <span className="list-group-item-value">Help</span>
             </a>
           </li>
@@ -61,10 +66,10 @@ class Masthead extends React.Component {
     );
   }
 
-  static renderActions() {
+  renderActions() {
     return (
       <PfMasthead.Dropdown id="app-help-dropdown" title={<span aria-hidden className="pficon pficon-help" />}>
-        <MenuItem eventKey="1" onClick={this.onHelp}>
+        <MenuItem eventKey="1" onClick={this.onHelp} className="hidden">
           Help
         </MenuItem>
         <MenuItem eventKey="2" onClick={this.onAbout}>
@@ -93,9 +98,14 @@ class Masthead extends React.Component {
 
   render() {
     return (
-      <PfMasthead titleImg={titleImg} title="Cloud Meter" className="cloudmeter-nav" onNavToggleClick={this.navToggle}>
+      <PfMasthead
+        titleImg={helpers.RH_BRAND ? titleImgBrand : titleImg}
+        title="Cloud Meter"
+        className="cloudmeter-nav"
+        onNavToggleClick={this.navToggle}
+      >
         <PfMasthead.Collapse>
-          {Masthead.renderActions()}
+          {this.renderActions()}
           {this.renderUserDropdown()}
         </PfMasthead.Collapse>
         {this.renderMobileNav()}

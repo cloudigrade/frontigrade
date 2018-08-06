@@ -7,11 +7,6 @@ import helpers from '../../common/helpers';
 import Tooltip from '../tooltip/tooltip';
 
 class AccountImagesViewListItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.kebab = React.createRef();
-  }
-
   /**
    * FixMe: PF-React issue
    * Need a prop added to PF-React ListView for generic whole row event, instead of
@@ -26,14 +21,17 @@ class AccountImagesViewListItem extends React.Component {
     }
   };
 
-  renderHeading() {
-    const { item } = this.props;
-
-    return item[apiTypes.API_RESPONSE_IMAGES_NAME] || `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID]}`;
-  }
+  kebab = React.createRef();
 
   static renderLeftContent() {
     return null;
+  }
+
+  renderHeading() {
+    const { item } = this.props;
+
+    // ToDo:
+    return item[apiTypes.API_RESPONSE_IMAGES_NAME] || `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID]}`;
   }
 
   renderDescription() {
@@ -43,7 +41,9 @@ class AccountImagesViewListItem extends React.Component {
       <div className="cloudmeter-split-description">
         <span className="cloudmeter-description-left">
           <ListView.DescriptionHeading>
-            {item[apiTypes.API_RESPONSE_IMAGES_NAME] || `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID]}`}
+            {item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
+              item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
+              `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID] || ''}`}
           </ListView.DescriptionHeading>
         </span>
         <span className="cloudmeter-description-right" />
@@ -93,13 +93,27 @@ class AccountImagesViewListItem extends React.Component {
           </React.Fragment>
         )}
       </ListView.InfoItem>,
-      <ListView.InfoItem key="3" className="cloudmeter-listview-label">
-        <PFLabel bsStyle={item[apiTypes.API_RESPONSE_IMAGES_RHEL] ? 'primary' : 'default'}>
+      <ListView.InfoItem
+        key="3"
+        className={
+          item[apiTypes.API_RESPONSE_IMAGES_RHEL]
+            ? 'cloudmeter-listview-label'
+            : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
+        }
+      >
+        <PFLabel bsStyle="warning">
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
         </PFLabel>
       </ListView.InfoItem>,
-      <ListView.InfoItem key="4" className="cloudmeter-listview-label hidden">
-        <PFLabel bsStyle={item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT] ? 'primary' : 'default'}>
+      <ListView.InfoItem
+        key="4"
+        className={
+          item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT]
+            ? 'cloudmeter-listview-label'
+            : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
+        }
+      >
+        <PFLabel bsStyle="primary">
           <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
         </PFLabel>
       </ListView.InfoItem>

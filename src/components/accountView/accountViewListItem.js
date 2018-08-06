@@ -6,11 +6,6 @@ import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 class AccountViewListItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.kebab = React.createRef();
-  }
-
   /**
    * FixMe: PF-React issue
    * Need a prop added to PF-React ListView for generic whole row event, instead of
@@ -25,6 +20,8 @@ class AccountViewListItem extends React.Component {
     }
   };
 
+  kebab = React.createRef();
+
   renderActions() {
     const { item, onEdit, onArchive } = this.props;
 
@@ -33,7 +30,11 @@ class AccountViewListItem extends React.Component {
         {(onEdit || onArchive) && (
           <DropdownKebab id={`account-item-menu-${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`} pullRight>
             {onEdit && <MenuItem onClick={() => onEdit(item)}>Edit Name</MenuItem>}
-            {onArchive && <MenuItem onClick={() => onArchive(item)}>Archive</MenuItem>}
+            {onArchive && (
+              <MenuItem className="hidden" onClick={() => onArchive(item)}>
+                Archive
+              </MenuItem>
+            )}
           </DropdownKebab>
         )}
       </div>
@@ -55,7 +56,9 @@ class AccountViewListItem extends React.Component {
       <div className="cloudmeter-split-description">
         <span className="cloudmeter-description-left">
           <ListView.DescriptionHeading>
-            {item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] || `Account #${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`}
+            {item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] ||
+              item[apiTypes[apiTypes.API_RESPONSE_ACCOUNTS_ACCOUNT_ID]] ||
+              `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`}
           </ListView.DescriptionHeading>
         </span>
         <span className="cloudmeter-description-right">
@@ -95,13 +98,13 @@ class AccountViewListItem extends React.Component {
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label">
         <strong>{rhel}</strong>
-        <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] ? 'primary' : 'default'}>
+        <PFLabel bsStyle="warning">
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
         </PFLabel>
       </ListView.InfoItem>,
-      <ListView.InfoItem key="4" className="cloudmeter-listview-label hidden">
+      <ListView.InfoItem key="4" className="cloudmeter-listview-label">
         <strong>{rhos}</strong>
-        <PFLabel bsStyle={item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] ? 'primary' : 'default'}>
+        <PFLabel bsStyle="primary">
           <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
         </PFLabel>
       </ListView.InfoItem>

@@ -46,7 +46,6 @@
   }
 }
 
-
 .cloudmeter-breadcrumb {
   &.breadcrumb {
     margin-bottom: 10px;
@@ -60,8 +59,38 @@
   }
 }
 
+.cloudmeter-utilization-graph {
+  .card-pf-title {
+    font-size: 14px;
+  }
+
+  .card-pf-utilization-details {
+    border-bottom-width: 0;
+  }
+
+  .card-pf-utilization-details .card-pf-utilization-card-details-count,
+  .card-pf-utilization-details .card-pf-utilization-card-details-description {
+    float: none;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .card-pf-utilization-details .card-pf-utilization-card-details-description {
+    width: 70%;
+  }
+}
+
+.cloudmeter-utilization-graph-loading {
+  @extend .cloudmeter-utilization-graph;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // List container should scroll
 .cloudmeter-list-container {
+  background-color: $color-pf-black-150;
   flex: 1;
   padding: 0 20px 40px;
   overflow-y: auto;
@@ -219,6 +248,10 @@
   .cloudmeter-listview-infoitem,
   .cloudmeter-listview-label {
     flex: 1;
+  }
+
+  .cloudmeter-listview-label-hidden {
+    visibility: hidden;
   }
 
 .cloudmeter-sources-network-button {

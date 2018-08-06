@@ -8,9 +8,14 @@ import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
 import accountImagesViewTypes from './accountImagesViewConstants';
 import ViewToolbar from '../viewToolbar/viewToolbar';
+import AccountImagesViewInstanceGraphs from './accountImagesViewInstanceGraphs';
 import AccountImagesViewListItem from './accountImagesViewListItem';
 
 class AccountImagesView extends React.Component {
+  state = {
+    accountId: null
+  };
+
   componentDidMount() {
     this.loadApi();
   }
@@ -45,11 +50,13 @@ class AccountImagesView extends React.Component {
     const accountId = match && Number.parseInt(match.params && match.params.accountId, 10);
 
     if (!Number.isNaN(accountId)) {
-      getAccount(accountId);
+      this.setState({ accountId }, () => {
+        getAccount(accountId);
 
-      if (filter.query) {
-        getAccountImages(accountId, filter.query);
-      }
+        if (filter.query) {
+          getAccountImages(accountId, filter.query);
+        }
+      });
     } else {
       this.backToAccounts();
     }
@@ -116,6 +123,7 @@ class AccountImagesView extends React.Component {
 
   render() {
     const { account, images, error, errorMessage, filter, pending, view, viewGlobal } = this.props;
+    const { accountId } = this.state;
 
     if (error) {
       return (
@@ -135,7 +143,7 @@ class AccountImagesView extends React.Component {
     // ToDo: Replace filterFields={[]} with filterFields={accountImagesViewTypes.filterFields} when the name filter is active.
     if (images.length || filter.activeFilters.length) {
       return (
-        <div className="cloudmeter-view-container">
+        <div className="cloudmeter-view-container fadein">
           <Grid fluid>
             <Grid.Row>
               <Grid.Col xs={12}>
@@ -144,6 +152,7 @@ class AccountImagesView extends React.Component {
                   <Breadcrumb.Item active aria-current="page">
                     <strong>
                       {account[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
+                        account[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
                         `Account ${account[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`}
                     </strong>
                   </Breadcrumb.Item>
@@ -161,7 +170,10 @@ class AccountImagesView extends React.Component {
             viewGlobal={viewGlobal}
             {...filter}
           />
-          <div className="cloudmeter-list-container">{this.renderList()}</div>
+          <div className="cloudmeter-list-container">
+            {/\d/.test(accountId) && <AccountImagesViewInstanceGraphs filterId={accountId} filter={filter} />}
+            {this.renderList()}
+          </div>
           {this.renderPendingMessage()}
         </div>
       );

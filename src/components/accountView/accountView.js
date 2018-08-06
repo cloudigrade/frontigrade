@@ -7,6 +7,7 @@ import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
 import accountViewTypes from './accountViewConstants';
+import AccountViewInstanceGraphs from './accountViewInstanceGraphs';
 import ViewToolbar from '../viewToolbar/viewToolbar';
 import AccountViewListItem from './accountViewListItem';
 
@@ -128,7 +129,7 @@ class AccountView extends React.Component {
   }
 
   render() {
-    const { accounts, error, errorMessage, filter, pending, view, viewGlobal } = this.props;
+    const { accounts, error, errorMessage, filter, pending, updateAccounts, view, viewGlobal } = this.props;
 
     if (error) {
       return (
@@ -147,7 +148,7 @@ class AccountView extends React.Component {
 
     if (accounts.length || filter.activeFilters.length) {
       return (
-        <div className="cloudmeter-view-container">
+        <div className="cloudmeter-view-container fadein">
           <Grid fluid>
             <Grid.Row>
               <Grid.Col xs={12}>
@@ -165,7 +166,10 @@ class AccountView extends React.Component {
             viewGlobal={viewGlobal}
             {...filter}
           />
-          <div className="cloudmeter-list-container">{this.renderAccountsList()}</div>
+          <div className="cloudmeter-list-container">
+            <AccountViewInstanceGraphs filter={filter} updateInstances={updateAccounts} />
+            {this.renderAccountsList()}
+          </div>
           {this.renderPendingMessage()}
         </div>
       );

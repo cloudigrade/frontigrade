@@ -62,10 +62,10 @@ exports[`AccountImagesViewListItem Component should render 1`] = `
            Hours
         </div>
         <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-label"
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
         >
           <span
-            class="label label-default"
+            class="label label-warning"
           >
             <abbr
               title="Red Hat Enterprise Linux"
@@ -75,10 +75,10 @@ exports[`AccountImagesViewListItem Component should render 1`] = `
           </span>
         </div>
         <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-label hidden"
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
         >
           <span
-            class="label label-default"
+            class="label label-primary"
           >
             <abbr
               title="Red Hat OpenShift Container Platform"

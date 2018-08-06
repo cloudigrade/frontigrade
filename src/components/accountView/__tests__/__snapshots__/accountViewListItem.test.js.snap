@@ -75,7 +75,7 @@ exports[`AccountViewListItem Component should render 1`] = `
             1
           </strong>
           <span
-            class="label label-primary"
+            class="label label-warning"
           >
             <abbr
               title="Red Hat Enterprise Linux"
@@ -85,13 +85,13 @@ exports[`AccountViewListItem Component should render 1`] = `
           </span>
         </div>
         <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-label hidden"
+          class="list-view-pf-additional-info-item cloudmeter-listview-label"
         >
           <strong>
             N/A
           </strong>
           <span
-            class="label label-default"
+            class="label label-primary"
           >
             <abbr
               title="Red Hat OpenShift Container Platform"

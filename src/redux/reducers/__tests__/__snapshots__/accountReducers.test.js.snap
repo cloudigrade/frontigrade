@@ -3,6 +3,16 @@
 exports[`fulfilled types 1`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -20,6 +30,16 @@ Object {
 exports[`fulfilled types 2`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -37,6 +57,16 @@ Object {
 exports[`fulfilled types 3`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -54,6 +84,16 @@ Object {
 exports[`fulfilled types 4`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -71,6 +111,16 @@ Object {
 exports[`fulfilled types 5`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [
         "success",
@@ -90,6 +140,16 @@ Object {
 exports[`fulfilled types 6`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -107,6 +167,16 @@ Object {
 exports[`fulfilled types 7`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -124,6 +194,16 @@ Object {
 exports[`fulfilled types 8`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -141,6 +221,16 @@ Object {
 exports[`fulfilled types 9`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -158,6 +248,70 @@ Object {
 exports[`fulfilled types 10`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 11`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": true,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`fulfilled types 12`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -172,9 +326,19 @@ Object {
 }
 `;
 
-exports[`fulfilled types 11`] = `
+exports[`fulfilled types 13`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -189,9 +353,19 @@ Object {
 }
 `;
 
-exports[`fulfilled types 12`] = `
+exports[`fulfilled types 14`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -206,9 +380,19 @@ Object {
 }
 `;
 
-exports[`fulfilled types 13`] = `
+exports[`fulfilled types 15`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -226,6 +410,16 @@ Object {
 exports[`pending types 1`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -243,6 +437,16 @@ Object {
 exports[`pending types 2`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -260,6 +464,16 @@ Object {
 exports[`pending types 3`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -277,6 +491,16 @@ Object {
 exports[`pending types 4`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -294,6 +518,16 @@ Object {
 exports[`pending types 5`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -311,6 +545,16 @@ Object {
 exports[`pending types 6`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -328,6 +572,16 @@ Object {
 exports[`pending types 7`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -345,6 +599,16 @@ Object {
 exports[`pending types 8`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -362,6 +626,16 @@ Object {
 exports[`pending types 9`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -379,6 +653,70 @@ Object {
 exports[`pending types 10`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+}
+`;
+
+exports[`pending types 11`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": true,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_INSTANCES_PENDING",
+}
+`;
+
+exports[`pending types 12`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -393,9 +731,19 @@ Object {
 }
 `;
 
-exports[`pending types 11`] = `
+exports[`pending types 13`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -410,9 +758,19 @@ Object {
 }
 `;
 
-exports[`pending types 12`] = `
+exports[`pending types 14`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -427,9 +785,19 @@ Object {
 }
 `;
 
-exports[`pending types 13`] = `
+exports[`pending types 15`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -447,6 +815,16 @@ Object {
 exports[`rejected types 1`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -464,6 +842,16 @@ Object {
 exports[`rejected types 2`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -481,6 +869,16 @@ Object {
 exports[`rejected types 3`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -498,6 +896,16 @@ Object {
 exports[`rejected types 4`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -515,6 +923,16 @@ Object {
 exports[`rejected types 5`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": true,
@@ -532,6 +950,16 @@ Object {
 exports[`rejected types 6`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -549,6 +977,16 @@ Object {
 exports[`rejected types 7`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -566,6 +1004,16 @@ Object {
 exports[`rejected types 8`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -583,6 +1031,16 @@ Object {
 exports[`rejected types 9`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -600,6 +1058,70 @@ Object {
 exports[`rejected types 10`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+}
+`;
+
+exports[`rejected types 11`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
+}
+`;
+
+exports[`rejected types 12`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -614,9 +1136,19 @@ Object {
 }
 `;
 
-exports[`rejected types 11`] = `
+exports[`rejected types 13`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -631,9 +1163,19 @@ Object {
 }
 `;
 
-exports[`rejected types 12`] = `
+exports[`rejected types 14`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -648,9 +1190,19 @@ Object {
 }
 `;
 
-exports[`rejected types 13`] = `
+exports[`rejected types 15`] = `
 Object {
   "result": Object {
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
     "view": Object {
       "accounts": Array [],
       "error": false,

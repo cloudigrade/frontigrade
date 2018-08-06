@@ -7,6 +7,8 @@ import apiTypes from '../constants/apiConstants';
  * @apiDescription Add an account.
  * @apiDescription Use this endpoint to add an account.
  *
+ * Reference [cloudigrade/test_views.py#L200](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L200)
+ *
  * @apiParam (Request message body) {String} [name] Account name
  * @apiParam (Request message body) {String} account_arn ARN in the form of "arn:aws:iam::123456789012:role/Cloud-Meter-role"
  * @apiParam (Request message body) {String} resourcetype Resource type, standard is currently "AwsAccount"
@@ -62,6 +64,12 @@ const addAccount = (data = {}) =>
  * @api {get} /api/v1/account/:id/ Get account
  * @apiDescription Retrieve a specific account.
  *
+ * Reference [cloudigrade/test_views.py#L320](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L320)
+ *
+ * Reference [cloudigrade/test_views.py#L499](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L499)
+ *
+ * @apiParam {Number} id Account identifier
+ *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {String} account_arn
  * @apiSuccess {String} aws_account_id
@@ -103,6 +111,13 @@ const getAccount = id =>
  * @api {get} /api/v1/report/accounts/ Get accounts overview
  * @apiDescription List all accounts, and their summaries.
  *
+ * Reference [cloudigrade/test_views.py#L1270](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L1270)
+ *
+ * @apiParam (Query string) {Mixed} [account_id] Identifier to filter result set by account
+ * @apiParam (Query string) {String} [name_pattern] Identifier associated with a specific user
+ * @apiParam (Query string) {Date} start Start date in ISO format
+ * @apiParam (Query string) {Date} end End date in ISO format
+ *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {Array} cloud_account_overviews
  * @apiSuccessExample {json} Success-Response:
@@ -111,13 +126,27 @@ const getAccount = id =>
  *       "cloud_account_overviews": [
  *         {
  *           "arn": "arn:aws:iam::114204391493:role/role-for-cloudigrade",
+ *           "cloud_account_id": "114204391493",
  *           "creation_date": "2018-07-06T15:09:21.442412Z",
- *           "id": "1",
+ *           "id": 1,
  *           "images": 1,
  *           "instances": 2,
  *           "name": "Lorem ipsum",
  *           "openshift_instances": null,
  *           "rhel_instances": 2,
+ *           "type": "aws",
+ *           "user_id": 1
+ *         },
+ *         {
+ *           "arn": "arn:aws:iam::114204391460:role/role-for-cloudigrade",
+ *           "cloud_account_id": "114204391460",
+ *           "creation_date": "2018-07-06T15:09:10.442412Z",
+ *           "id": 2,
+ *           "images": 1,
+ *           "instances": 1,
+ *           "name": "Dolor",
+ *           "openshift_instances": 1,
+ *           "rhel_instances": null,
  *           "type": "aws",
  *           "user_id": 1
  *         }
@@ -154,7 +183,15 @@ const getAccounts = (query = {}) =>
  * @api {get} /api/v1/report/images/ Get images
  * @apiDescription Get images for an account (or account detail).
  *
+ * Reference [cloudigrade/test_views.py#L1722](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L1722)
+ *
+ * @apiParam (Query string) {Mixed} [user_id] Identifier associated with a specific user
+ * @apiParam (Query string) {Mixed} account_id Identifier to filter result set by account
+ * @apiParam (Query string) {Date} start Start date in ISO format
+ * @apiParam (Query string) {Date} end End date in ISO format
+ *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {Array} images
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -171,7 +208,7 @@ const getAccounts = (query = {}) =>
  *           "rhel": true,
  *           "rhel_challenged": false,
  *           "rhel_detected": true,
- *           "runtime_seconds": 90362.5,
+ *           "runtime_seconds": 86400.5,
  *           "status": "inspected"
  *         },
  *         {
@@ -195,13 +232,13 @@ const getAccounts = (query = {}) =>
  *           "instances_seen": 1,
  *           "is_encrypted": false,
  *           "name": null,
- *           "openshift": false,
+ *           "openshift": true,
  *           "openshift_challenged": false,
  *           "openshift_detected": false,
  *           "rhel": false,
  *           "rhel_challenged": false,
  *           "rhel_detected": false,
- *           "runtime_seconds": 0.0,
+ *           "runtime_seconds": 8000.0,
  *           "status": "inspected"
  *         }
  *       ]
@@ -230,8 +267,105 @@ const getAccountImages = (id, query = {}) =>
   );
 
 /**
+ * @api {get} /api/v1/report/instances/ Get instances
+ * @apiDescription Get instances to graph, for an account (or account detail).
+ *
+ * Reference [cloudigrade/test_views.py#L1516](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L1516)
+ *
+ * @apiParam (Query string) {Mixed} [user_id] Identifier associated with a specific user
+ * @apiParam (Query string) {Mixed} [account_id] Identifier to filter result set by account
+ * @apiParam (Query string) {Mixed} [name_pattern] Filter the result set
+ * @apiParam (Query string) {Date} start Start date in ISO format
+ * @apiParam (Query string) {Date} end End date in ISO format
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {Array} daily_usage
+ * @apiSuccess {Number} instances_seen_with_openshift
+ * @apiSuccess {Number} instances_seen_with_rhel
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "daily_usage": [
+ *         {
+ *           "date": "2018-08-01T00:00:00Z",
+ *           "openshift_instances": 0,
+ *           "openshift_runtime_seconds": 0.0,
+ *           "rhel_instances": 1,
+ *           "rhel_runtime_seconds": 54000.0
+ *         },
+ *         {
+ *           "date": "2018-08-02T00:00:00Z",
+ *           "openshift_instances": 0,
+ *           "openshift_runtime_seconds": 0.0,
+ *           "rhel_instances": 1,
+ *           "rhel_runtime_seconds": 500.0
+ *         },
+ *         {
+ *           "date": "2018-08-03T00:00:00Z",
+ *           "openshift_instances": 0,
+ *           "openshift_runtime_seconds": 0.0,
+ *           "rhel_instances": 2,
+ *           "rhel_runtime_seconds": 9600.0
+ *         },
+ *         {
+ *           "date": "2018-08-04T00:00:00Z",
+ *           "openshift_instances": 1,
+ *           "openshift_runtime_seconds": 8000.0,
+ *           "rhel_instances": 2,
+ *           "rhel_runtime_seconds": 9500.0
+ *         },
+ *         {
+ *           "date": "2018-08-05T00:00:00Z",
+ *           "openshift_instances": 0,
+ *           "openshift_runtime_seconds": 0.0,
+ *           "rhel_instances": 2,
+ *           "rhel_runtime_seconds": 10000.0
+ *         },
+ *         {
+ *           "date": "2018-08-06T00:00:00Z",
+ *           "openshift_instances": 0,
+ *           "openshift_runtime_seconds": 0.0,
+ *           "rhel_instances": 2,
+ *           "rhel_runtime_seconds": 7600.0
+ *         }
+ *       ],
+ *       "instances_seen_with_openshift": 1,
+ *       "instances_seen_with_rhel": 3
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+/**
+ * FixMe: API - review
+ * The API requires the account id be passed as a query param. This scenario
+ * appears to mesh a little better since it's not part of the primary display
+ * list. See "getAccountImages" for similar behavior
+ */
+const getAccountInstances = (id = null, query = {}) =>
+  axios(
+    serviceConfig({
+      url: process.env.REACT_APP_ACCOUNTS_SERVICE_INSTANCES,
+      params: {
+        ...{ [apiTypes.API_QUERY_ACCOUNT_ID]: id },
+        ...query
+      }
+    })
+  );
+
+/**
  * @api {put} /api/v1/account/:id/ Put account
  * @apiDescription Update a specific account.
+ *
+ * Reference [cloudigrade/test_views.py#L200](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L200)
+ *
+ * @apiParam {Number} id Account identifier
+ * @apiParam (Request message body) {String} name Account name
+ * @apiParam (Request message body) {String} account_arn ARN in the form of "arn:aws:iam::123456789012:role/Cloud-Meter-role"
+ * @apiParam (Request message body) {String} resourcetype Resource type, standard is currently "AwsAccount".
  *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {String} account_arn
@@ -276,6 +410,12 @@ const updateAccount = (id, data = {}) =>
  * @api {patch} /api/v1/account/:id/ Patch account field
  * @apiDescription Update a specific field for account.
  *
+ * Reference [cloudigrade/test_views.py#L200](https://gitlab.com/cloudigrade/cloudigrade/blob/master/cloudigrade/account/tests/test_views.py#L200)
+ *
+ * @apiParam {Number} id Account identifier
+ * @apiParam (Request message body) {String} [name] Account name
+ * @apiParam (Request message body) {String} resourcetype Resource type, standard is currently "AwsAccount". API limitation this is a REQUIRED property when submitting patched data.
+ *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {String} account_arn
  * @apiSuccess {String} aws_account_id
@@ -315,4 +455,12 @@ const updateAccountField = (id, data = {}) =>
     })
   );
 
-export { addAccount, getAccount, getAccounts, getAccountImages, updateAccount, updateAccountField };
+export {
+  addAccount,
+  getAccount,
+  getAccounts,
+  getAccountImages,
+  getAccountInstances,
+  updateAccount,
+  updateAccountField
+};

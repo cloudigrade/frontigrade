@@ -55,40 +55,11 @@ describe('AccountView Component', () => {
         }
       ],
       filter: {
-        dateFields: null
+        dateFields: null,
+        query: {}
       }
     });
 
     expect(component).toMatchSnapshot('pending with list');
-  });
-
-  it('should render a non-connected component with a list', () => {
-    const props = {
-      accounts: [
-        {
-          arn: 'arn:aws:iam::TEST',
-          creation_date: '2018-07-06T15:09:21.442412Z',
-          id: '1',
-          images: 1,
-          instances: 2,
-          name: 'Lorem test',
-          openshift_instances: null,
-          rhel_instances: 1,
-          type: 'aws',
-          user_id: 1
-        }
-      ],
-      filter: {
-        dateFields: null
-      },
-      history: {
-        push: helpers.noop
-      }
-    };
-
-    const component = mount(<AccountView {...props} />);
-
-    expect(component.find('.cloudmeter-list-container').length).toEqual(1);
-    expect(component.find('.cloudmeter-list-container').render()).toMatchSnapshot('list');
   });
 });

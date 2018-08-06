@@ -33,7 +33,8 @@ describe('UserActions', () => {
         response: {
           test: 'success',
           [apiTypes.API_RESPONSE_ACCOUNTS]: ['success'],
-          [apiTypes.API_RESPONSE_IMAGES]: ['success']
+          [apiTypes.API_RESPONSE_IMAGES]: ['success'],
+          [apiTypes.API_RESPONSE_INSTANCES_USAGE]: ['success']
         }
       });
     });
@@ -75,6 +76,30 @@ describe('UserActions', () => {
       const response = store.getState().accountImages.view;
 
       expect(response.images[0]).toEqual('success');
+      done();
+    });
+  });
+
+  it('Should return response content for getAccountImagesInstances method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.getAccountImagesInstances();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountImages.instances;
+
+      expect(response.dailyUsage[0]).toEqual('success');
+      done();
+    });
+  });
+
+  it('Should return response content for getAccountInstances method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.getAccountInstances();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().account.instances;
+
+      expect(response.dailyUsage[0]).toEqual('success');
       done();
     });
   });

@@ -1,5 +1,6 @@
 import {
   reduxTypes,
+  aboutModalTypes,
   accountTypes,
   applicationStatusTypes,
   confirmationModalTypes,
@@ -12,7 +13,7 @@ import {
 
 describe('ReduxTypes', () => {
   it('should export the same number of name-spaced types as imported', () => {
-    expect(Object.keys(reduxTypes)).toHaveLength(8);
+    expect(Object.keys(reduxTypes)).toHaveLength(9);
   });
 
   it('should return types that are defined', () => {
@@ -20,6 +21,7 @@ describe('ReduxTypes', () => {
   });
 
   it('should return types that match', () => {
+    expect(reduxTypes.aboutModal).toEqual(aboutModalTypes);
     expect(reduxTypes.account).toEqual(accountTypes);
     expect(reduxTypes.applicationStatus).toEqual(applicationStatusTypes);
     expect(reduxTypes.confirmationModal).toEqual(confirmationModalTypes);

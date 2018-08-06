@@ -25,10 +25,12 @@ exports[`help dropdown 1`] = `
 >
   <MenuItem
     bsClass="dropdown"
+    className="hidden"
     disabled={false}
     divider={false}
     eventKey="1"
     header={false}
+    onClick={[Function]}
   >
     Help
   </MenuItem>
@@ -38,6 +40,7 @@ exports[`help dropdown 1`] = `
     divider={false}
     eventKey="2"
     header={false}
+    onClick={[Function]}
   >
     About
   </MenuItem>
@@ -72,6 +75,7 @@ exports[`mobile-nav 1`] = `
       className="list-group-item"
     >
       <a
+        className="hidden"
         href="#help"
         onClick={[Function]}
         role="menuitem"

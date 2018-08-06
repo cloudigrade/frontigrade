@@ -5,7 +5,7 @@ describe('AccountServices', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(account|images).*?/, {
+    moxios.stubRequest(/\/(account|images|instances).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
@@ -21,11 +21,12 @@ describe('AccountServices', () => {
     expect(accountServices.getAccount).toBeDefined();
     expect(accountServices.getAccounts).toBeDefined();
     expect(accountServices.getAccountImages).toBeDefined();
+    expect(accountServices.getAccountInstances).toBeDefined();
     expect(accountServices.updateAccount).toBeDefined();
     expect(accountServices.updateAccountField).toBeDefined();
   });
 
-  it('should return promises for every method', done => {
+  it('should return promises for every method against known endpoints', done => {
     const promises = Object.keys(accountServices).map(value => accountServices[value]());
 
     expect(Object.keys(accountServices).includes('default')).toEqual(false);

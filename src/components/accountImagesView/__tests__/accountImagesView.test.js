@@ -58,43 +58,11 @@ describe('AccountImagesView Component', () => {
         }
       ],
       filter: {
-        dateFields: null
+        dateFields: null,
+        query: {}
       }
     });
 
     expect(component).toMatchSnapshot('pending with list');
-  });
-
-  it('should render a non-connected component with a list', () => {
-    const props = {
-      images: [
-        {
-          cloud_image_id: 'ami-rhel7',
-          id: 2,
-          instances_seen: 2,
-          is_encrypted: false,
-          name: null,
-          openshift: false,
-          openshift_challenged: false,
-          openshift_detected: false,
-          rhel: true,
-          rhel_challenged: false,
-          rhel_detected: true,
-          runtime_seconds: 90362.5,
-          status: 'inspected'
-        }
-      ],
-      filter: {
-        dateFields: null
-      },
-      history: {
-        push: helpers.noop
-      }
-    };
-
-    const component = mount(<AccountImagesView {...props} />);
-
-    expect(component.find('.cloudmeter-list-container').length).toEqual(1);
-    expect(component.find('.cloudmeter-list-container').render()).toMatchSnapshot('list');
   });
 });
