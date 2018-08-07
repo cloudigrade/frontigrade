@@ -1,3 +1,17 @@
+### STAGES ###
+stages:
+  - test
+  - build
+  - deploy
+  - release
+
+### GLOBAL VARS ###
+variables:
+  IMAGE_NAME: registry.gitlab.com/${CI_PROJECT_PATH}
+  IMAGE_NAME_COMMIT: registry.gitlab.com/${CI_PROJECT_PATH}/commits/${CI_PROJECT_NAME}:${CI_BUILD_REF}
+  DOCKER_DRIVER: overlay2
+
+### TEST STAGE ###
 Yarn:
   stage: test
   image: node:8
@@ -9,8 +23,109 @@ Yarn:
     - codecov
 
 Docker:
-  image: docker
+  image: docker:stable
   services:
     - docker:dind
   stage: test
   script: docker build .
+
+### BUILD STAGE ###
+Push Frontigrade Image:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  only:
+    # - master@cloudigrade/frontigrade
+    - 22-release@cloudigrade/frontigrade
+  except:
+    - tags@cloudigrade/frontigrade
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  script:
+    - docker pull ${IMAGE_NAME}:latest || true
+    - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME_COMMIT} --tag ${IMAGE_NAME}:latest .
+    - docker push ${IMAGE_NAME_COMMIT}
+    - docker push ${IMAGE_NAME}:latest
+
+Push Frontigrade Tagged Image:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:dind
+  only:
+    # - master@cloudigrade/frontigrade
+    - tags@cloudigrade/frontigrade
+    - 22-release@cloudigrade/frontigrade
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
+  script:
+    - docker pull ${IMAGE_NAME}:latest || true
+    - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME}:${CI_COMMIT_TAG} .
+    - docker push ${IMAGE_NAME}:${CI_COMMIT_TAG}
+
+### DEPLOY STAGE ###
+### MASTER ONLY ###
+Deploy to Test:
+  stage: deploy
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+    FRONTIGRADE_IMAGE: registry.gitlab.com/${CI_PROJECT_PATH}/commits/${CI_PROJECT_NAME}:${CI_BUILD_REF}
+  only:
+    # - master@cloudigrade/frontigrade
+    - 22-release@cloudigrade/frontigrade
+  before_script:
+    - oc login --token ${KUBE_TOKEN}
+    - git clone --branch 22-release https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - kontemplate template ocp/test.yaml -i frontigrade | oc apply -f -
+    - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
+  environment:
+    name: test
+    url: https://test.cloudigra.de/
+
+Deploy to Stage:
+  stage: deploy
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+    FRONTIGRADE_IMAGE: registry.gitlab.com/${CI_PROJECT_PATH}:${CI_COMMIT_TAG}
+  only:
+    # - master@cloudigrade/frontigrade
+    - tags@cloudigrade/frontigrade
+    - 22-release@cloudigrade/frontigrade
+  before_script:
+    - oc login --token ${KUBE_TOKEN}
+    - git clone --branch 22-release https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - kontemplate template ocp/stage.yaml -i frontigrade | oc apply -f -
+    - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
+  environment:
+    name: stage
+    url: https://stage.cloudigra.de/
+
+### RELEASE STAGE ###
+Deploy to Production:
+  stage: release
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+    FRONTIGRADE_IMAGE: registry.gitlab.com/${CI_PROJECT_PATH}:${CI_COMMIT_TAG}
+  only:
+    # - master@cloudigrade/frontigrade
+    - tags@cloudigrade/frontigrade
+    - 22-release@cloudigrade/frontigrade
+  before_script:
+    - oc login --token ${KUBE_TOKEN}
+    - git clone --branch 22-release https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - kontemplate template ocp/prod.yaml -i frontigrade | oc apply -f -
+    - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
+  when: manual
+  environment:
+    name: production
+    url: https://www.cloudigra.de/
