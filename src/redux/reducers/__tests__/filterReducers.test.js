@@ -1,4 +1,4 @@
-import { filterReducers } from '../';
+import { filterReducers } from '..';
 import { filterTypes as types, accountTypes } from '../../constants';
 import apiTypes from '../../../constants/apiConstants';
 import helpers from '../../../common/helpers';

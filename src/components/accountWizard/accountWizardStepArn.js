@@ -55,6 +55,17 @@ class AccountWizardStepArn extends React.Component {
       stepError = stepArnErrorMessage;
     }
 
+    const popover = (
+      <ul className="cloudmeter-popover-list">
+        <li>
+          In <strong>IAM</strong> go to the <strong>Roles</strong> tab
+        </li>
+        <li>
+          Click <strong>Cloud-Meter-role</strong>
+        </li>
+      </ul>
+    );
+
     return (
       <Form horizontal onSubmit={this.onSubmit}>
         <Form.FormGroup>
@@ -62,19 +73,7 @@ class AccountWizardStepArn extends React.Component {
             <ul className="no-margin-bottom">
               <li>
                 Click <strong>Cloud-Meter-role</strong>.{' '}
-                <Tooltip
-                  delayShow={100}
-                  popover={
-                    <ul className="cloudmeter-popover-list">
-                      <li>
-                        In <strong>IAM</strong> go to the <strong>Roles</strong> tab
-                      </li>
-                      <li>
-                        Click <strong>Cloud-Meter-role</strong>
-                      </li>
-                    </ul>
-                  }
-                >
+                <Tooltip delayShow={100} popover={popover}>
                   <Icon type="pf" name="info" size="large" />
                   <span className="sr-only">Steps when selecting a role</span>
                 </Tooltip>

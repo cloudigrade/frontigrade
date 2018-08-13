@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic, no fields 1`] = `
+exports[`ToolbarFilter Component should render a basic component: basic, no fields 1`] = `
 <ToolbarFilter
   filterField={null}
   filterFields={Array []}
@@ -12,7 +12,7 @@ exports[`basic, no fields 1`] = `
 />
 `;
 
-exports[`basic, one field 1`] = `
+exports[`ToolbarFilter Component should render a basic component: basic, one field 1`] = `
 <ToolbarFilter
   filterField={null}
   filterFields={
@@ -51,7 +51,7 @@ exports[`basic, one field 1`] = `
 </ToolbarFilter>
 `;
 
-exports[`multiple filters, select 1`] = `
+exports[`ToolbarFilter Component should render multiple filter fields: multiple filters, select 1`] = `
 <div
   class="filter-pf form-group"
 >
@@ -181,7 +181,7 @@ exports[`multiple filters, select 1`] = `
 </div>
 `;
 
-exports[`multiple filters, text 1`] = `
+exports[`ToolbarFilter Component should render multiple filter fields: multiple filters, text 1`] = `
 <div
   class="filter-pf form-group"
 >

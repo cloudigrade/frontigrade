@@ -19,28 +19,6 @@ class Authentication extends React.Component {
     formValid: false
   };
 
-  static getDerivedStateFromProps(props, state) {
-    let updateInitialState = null;
-
-    if (helpers.OC_MODE) {
-      updateInitialState = {
-        email: (props.session.remember && props.session.storedEmail) || state.email || process.env.REACT_APP_DEV_USER,
-        password: state.password || process.env.REACT_APP_DEV_PASSWORD,
-        emailError: '',
-        passwordError: '',
-        formValid: true
-      };
-    } else if (!state.formTouched && props.session.remember && props.session.storedEmail) {
-      updateInitialState = {
-        email: props.session.storedEmail,
-        emailError: '',
-        remember: props.session.remember
-      };
-    }
-
-    return updateInitialState;
-  }
-
   componentDidMount() {
     const { session, checkUser, storeData } = this.props;
 
@@ -130,6 +108,28 @@ class Authentication extends React.Component {
       );
     }
   };
+
+  static getDerivedStateFromProps(props, state) {
+    let updateInitialState = null;
+
+    if (helpers.OC_MODE) {
+      updateInitialState = {
+        email: (props.session.remember && props.session.storedEmail) || state.email || process.env.REACT_APP_DEV_USER,
+        password: state.password || process.env.REACT_APP_DEV_PASSWORD,
+        emailError: '',
+        passwordError: '',
+        formValid: true
+      };
+    } else if (!state.formTouched && props.session.remember && props.session.storedEmail) {
+      updateInitialState = {
+        email: props.session.storedEmail,
+        emailError: '',
+        remember: props.session.remember
+      };
+    }
+
+    return updateInitialState;
+  }
 
   isFormValid() {
     const { emailError, passwordError } = this.state;

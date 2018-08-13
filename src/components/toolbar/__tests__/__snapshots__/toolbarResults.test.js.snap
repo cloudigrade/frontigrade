@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`active filters 1`] = `
+exports[`ToolbarResults Component should apply active filters: active filters 1`] = `
 <div>
   <p
     class="filter-pf-active-label"
@@ -46,7 +46,7 @@ exports[`active filters 1`] = `
 </div>
 `;
 
-exports[`basic 1`] = `
+exports[`ToolbarResults Component should render a basic component: basic 1`] = `
 <div>
   <p
     class="filter-pf-active-label"

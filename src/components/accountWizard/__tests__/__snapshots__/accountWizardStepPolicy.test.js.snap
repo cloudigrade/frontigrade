@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`connected 1`] = `
+exports[`AccountWizardStepPolicy Component should render a wizard policy step: connected 1`] = `
 <Form
   bsClass="form"
   componentClass="form"

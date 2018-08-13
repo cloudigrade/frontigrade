@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { accountActions } from '../';
+import { accountActions } from '..';
 import {
   accountReducers,
   accountEditModalReducers,

@@ -1,4 +1,4 @@
-import { accountWizardReducers } from '../';
+import { accountWizardReducers } from '..';
 import { accountTypes as types } from '../../constants';
 
 describe('AccountWizardReducers', () => {

@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import { systemConfigServices } from '../';
+import { systemConfigServices } from '..';
 
 describe('SystemConfigServices', () => {
   beforeEach(() => {

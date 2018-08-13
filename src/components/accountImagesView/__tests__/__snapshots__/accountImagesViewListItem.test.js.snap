@@ -47,7 +47,7 @@ exports[`AccountImagesViewListItem Component should render 1`] = `
           <strong>
             -
           </strong>
-           Instances
+          Instances
         </div>
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"

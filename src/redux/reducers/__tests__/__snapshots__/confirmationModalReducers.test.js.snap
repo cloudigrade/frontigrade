@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`defined types 1`] = `
+exports[`ConfirmationModalReducers should handle all defined types: defined types 1`] = `
 Object {
   "result": Object {
     "show": true,
@@ -10,7 +10,7 @@ Object {
 }
 `;
 
-exports[`defined types 2`] = `
+exports[`ConfirmationModalReducers should handle all defined types: defined types 2`] = `
 Object {
   "result": Object {
     "show": false,

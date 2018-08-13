@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import { accountServices } from '../';
+import { accountServices } from '..';
 
 describe('AccountServices', () => {
   beforeEach(() => {

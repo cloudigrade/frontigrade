@@ -24,8 +24,10 @@ class Masthead extends React.Component {
   };
 
   onLogoutUser = e => {
+    const { logoutUser } = this.props;
+
     e.preventDefault();
-    Promise.all([this.props.logoutUser()]).then(() => window.location.replace('/'));
+    Promise.all([logoutUser()]).then(() => window.location.replace('/'));
   };
 
   navToggle = () => {
@@ -35,7 +37,9 @@ class Masthead extends React.Component {
   };
 
   renderMobileNav() {
-    if (this.state.mobileToggle) {
+    const { mobileToggle } = this.state;
+
+    if (mobileToggle) {
       return null;
     }
 
@@ -82,15 +86,14 @@ class Masthead extends React.Component {
   renderUserDropdown() {
     const { user } = this.props;
 
+    const title = (
+      <React.Fragment>
+        <Icon type="pf" name="user" /> {user && user.username}
+      </React.Fragment>
+    );
+
     return (
-      <PfMasthead.Dropdown
-        id="app-user-dropdown"
-        title={
-          <React.Fragment>
-            <Icon type="pf" name="user" /> {user && user.username}
-          </React.Fragment>
-        }
-      >
+      <PfMasthead.Dropdown id="app-user-dropdown" title={title}>
         <MenuItem onClick={this.onLogoutUser}>Logout</MenuItem>
       </PfMasthead.Dropdown>
     );

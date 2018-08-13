@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Icon, Wizard } from 'patternfly-react';
 import helpers from '../../common/helpers';
-import { connect, reduxActions, reduxTypes, store } from '../../redux/';
+import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import { addAccountWizardSteps, editAccountWizardSteps } from './accountWizardConstants';
 import apiTypes from '../../constants/apiConstants';
 
@@ -87,6 +87,7 @@ class AccountWizard extends React.Component {
       this.setState({ activeStepIndex: activeStepIndex + 1 }, () =>
         addAccount({ ...account }).then(
           () => {
+            /* eslint-disable react/destructuring-assignment */
             if (!this.props.show) {
               store.dispatch({
                 type: reduxTypes.toastNotifications.TOAST_ADD,
@@ -99,8 +100,10 @@ class AccountWizard extends React.Component {
                 )
               });
             }
+            /* eslint-enable react/destructuring-assignment */
           },
           () => {
+            /* eslint-disable react/destructuring-assignment */
             if (!this.props.show) {
               store.dispatch({
                 type: reduxTypes.toastNotifications.TOAST_ADD,
@@ -109,6 +112,7 @@ class AccountWizard extends React.Component {
                 message: `${this.props.errorMessage}`
               });
             }
+            /* eslint-enable react/destructuring-assignment */
           }
         )
       );
@@ -187,7 +191,8 @@ class AccountWizard extends React.Component {
             disabled={activeStepIndex === 0 || errorStatus >= 500 || errorStatus === 0 || pending || fulfilled}
             onClick={this.onBack}
           >
-            <Icon type="fa" name="angle-left" />Back
+            <Icon type="fa" name="angle-left" />
+            Back
           </Button>
           {activeStepIndex < wizardSteps.length - 2 && (
             <Button
@@ -195,7 +200,8 @@ class AccountWizard extends React.Component {
               disabled={(activeStepIndex === 0 && !stepPolicyValid) || (activeStepIndex === 1 && !stepRoleValid)}
               onClick={this.onNext}
             >
-              Next<Icon type="fa" name="angle-right" />
+              Next
+              <Icon type="fa" name="angle-right" />
             </Button>
           )}
           {activeStepIndex === wizardSteps.length - 2 && (

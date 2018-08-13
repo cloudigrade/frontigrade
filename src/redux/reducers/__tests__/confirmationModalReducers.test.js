@@ -1,4 +1,4 @@
-import { confirmationModalReducers } from '../';
+import { confirmationModalReducers } from '..';
 import { confirmationModalTypes as types } from '../../constants';
 
 describe('ConfirmationModalReducers', () => {

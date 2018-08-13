@@ -1,57 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`connected 1`] = `<Route />`;
-
-exports[`empty state 1`] = `
-<div
-  class="container-fluid"
->
-  <div
-    class="row"
-  >
-    <div
-      class="blank-slate-pf full-page-blank-slate fadein"
-    >
-      <div
-        class="blank-slate-pf-icon"
-      >
-        <span
-          aria-hidden="true"
-          class="pficon pficon-add-circle-o"
-        />
-      </div>
-      <h4
-        class="h1 blank-slate-pf-title"
-      >
-        Welcome to Cloud Meter
-      </h4>
-      <p
-        class="blank-slate-pf-info"
-      >
-        Add an AWS account to monitor usage.
-      </p>
-      <div
-        class="blank-slate-pf-main-action"
-      >
-        <button
-          class="btn btn-lg btn-primary"
-          type="button"
-        >
-          Add Account
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+exports[`AccountView Component should render a connected component with default props: connected 1`] = `
+<Route>
+  <Component />
+</Route>
 `;
 
-exports[`pending 1`] = `
+exports[`AccountView Component should render a non-connected component in pending state: pending 1`] = `
 <div
   class="cloudmeter-view-container"
 />
 `;
 
-exports[`pending with list 1`] = `
+exports[`AccountView Component should render a non-connected component in pending state: pending with list 1`] = `
 <div
   className="cloudmeter-view-container fadein"
 >
@@ -218,5 +179,48 @@ exports[`pending with list 1`] = `
       </div>
     </ModalBody>
   </Modal>
+</div>
+`;
+
+exports[`AccountView Component should render a non-connected component with empty state: empty state 1`] = `
+<div
+  class="container-fluid"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="blank-slate-pf full-page-blank-slate fadein"
+    >
+      <div
+        class="blank-slate-pf-icon"
+      >
+        <span
+          aria-hidden="true"
+          class="pficon pficon-add-circle-o"
+        />
+      </div>
+      <h4
+        class="h1 blank-slate-pf-title"
+      >
+        Welcome to Cloud Meter
+      </h4>
+      <p
+        class="blank-slate-pf-info"
+      >
+        Add an AWS account to monitor usage.
+      </p>
+      <div
+        class="blank-slate-pf-main-action"
+      >
+        <button
+          class="btn btn-lg btn-primary"
+          type="button"
+        >
+          Add Account
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;

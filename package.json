@@ -54,8 +54,8 @@
     "start": "run-p -l watch:css start:js api:dev",
     "test:dev": "run-s test:lint-js test:local",
     "test:lint-js": "eslint --ext=js --ext=jsx src",
-    "test:ci": "sh -ac '. ./.env.production; react-scripts test --env=jsdom --coverage'",
-    "test:local": "sh -ac '. ./.env.production; react-scripts test --env=jsdom'",
+    "test:ci": "CI=true; react-scripts test --env=jsdom --coverage",
+    "test:local": "react-scripts test --env=jsdom",
     "test": "run-s test:lint-js test:ci",
     "watch:css": "npm run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/styles/index.scss -o src/styles/.css --watch --recursive"
   },
@@ -91,22 +91,25 @@
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jest": "^21.17.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.21.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.9.1",
+    "eslint-plugin-react": "^7.10.0",
     "gettext-extractor": "^3.3.2",
-    "jest": "^21.2.1",
-    "jest-cli": "^21.2.1",
+    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0",
     "moxios": "^0.4.0",
     "prettier": "^1.13.5",
     "redux-mock-store": "^1.5.3"
+  },
+  "resolutions": {
+    "**/jest": "23.5.0"
   }
 }

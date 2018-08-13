@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cookies from 'js-cookie';
 import _ from 'lodash';
-import serviceConfig from './index';
+import serviceConfig from './config';
 
 /**
  * @api {get} /auth/me/ User information

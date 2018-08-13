@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`defined types 1`] = `
+exports[`FilterReducers should handle all defined types: defined types 1`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -39,7 +39,7 @@ Object {
 }
 `;
 
-exports[`defined types 2`] = `
+exports[`FilterReducers should handle all defined types: defined types 2`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -78,7 +78,7 @@ Object {
 }
 `;
 
-exports[`defined types 3`] = `
+exports[`FilterReducers should handle all defined types: defined types 3`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -117,7 +117,7 @@ Object {
 }
 `;
 
-exports[`defined types 4`] = `
+exports[`FilterReducers should handle all defined types: defined types 4`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -156,7 +156,7 @@ Object {
 }
 `;
 
-exports[`defined types 5`] = `
+exports[`FilterReducers should handle all defined types: defined types 5`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -195,7 +195,7 @@ Object {
 }
 `;
 
-exports[`defined types 6`] = `
+exports[`FilterReducers should handle all defined types: defined types 6`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -234,7 +234,7 @@ Object {
 }
 `;
 
-exports[`defined types 7`] = `
+exports[`FilterReducers should handle all defined types: defined types 7`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -273,7 +273,7 @@ Object {
 }
 `;
 
-exports[`defined types 8`] = `
+exports[`FilterReducers should handle all defined types: defined types 8`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -312,7 +312,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 1`] = `
+exports[`FilterReducers should handle specific account fulfilled types: fulfilled types 1`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -351,7 +351,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 2`] = `
+exports[`FilterReducers should handle specific account fulfilled types: fulfilled types 2`] = `
 Object {
   "result": Object {
     "account": Object {

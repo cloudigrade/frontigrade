@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`503 rejected type 1`] = `
+exports[`ToastNotificationsReducers should handle any httpStatus within the 5XX range: 503 rejected type 1`] = `
 Object {
   "result": Object {
     "displayedToasts": 1,
@@ -18,7 +18,7 @@ Object {
 }
 `;
 
-exports[`rejected type 1`] = `
+exports[`ToastNotificationsReducers should handle any httpStatus within the 5XX range: rejected type 1`] = `
 Object {
   "result": Object {
     "displayedToasts": 1,

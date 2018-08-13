@@ -1,6 +1,6 @@
 import cookies from 'js-cookie';
 import moxios from 'moxios';
-import { userServices } from '../';
+import { userServices } from '..';
 
 describe('UserServices', () => {
   beforeEach(() => {

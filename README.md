@@ -9,7 +9,7 @@ Web user interface for [Cloudigrade](https://github.com/cloudigrade/cloudigrade)
 Before developing for Frontigrade, the basic requirements:
  * Your system needs to be running [NodeJS version 8+](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
- * And optionally [Yarn 1.5+](https://yarnpkg.com), otherwise NPM should be adequate.
+ * And **NOW REQUIRED** [Yarn 1.9+](https://yarnpkg.com) for the initial install. NPM can be used to run subsequent steps after Yarn has done the initial install.
 
 ### Docker & Mac
 Setting Docker up on a Mac? Install the appropriate package and you should be good to go. To check if everything installed correctly you can try these steps.
@@ -33,13 +33,13 @@ Setting Docker up on a Linux machine can include an additional convenience step.
 
   1. Within the Frontigrade repo, install project dependencies
      ```
-     $ npm install
+     $ yarn
      ```
 
 ### Development Serve
 This is the default context for running the UI with a local mock API. You need the base Frontigrade requirements to run this context.
   ```
-  $ npm start
+  $ yarn start
   ```
 There are limitations in running against the mock serve, accuracy in API responses is much more lenient. Meaning server responses may not throw the appropriate errors where needed.
 
@@ -47,19 +47,19 @@ There are limitations in running against the mock serve, accuracy in API respons
 
 Once you've gone through the [Cloudigrade install process](https://github.com/cloudigrade/cloudigrade#developer-environment), and confirmed [tooling for Cloudigrade](https://github.com/cloudigrade/cloudigrade#developer-environment) works you can make use of the local Openshift convenience scripting
   ```
-  $ npm run start:oc
+  $ yarn start:oc
   ```
   
 #### Review serve
 An alternative to running the development or OpenShift serve is the review serve. This allows you to view an environment without having to use OpenShift locally. You only need the base Frontigrade requirements to run this context.
   ```
-  $ npm run start:review
+  $ yarn start:review
   ```
  
 ### Debugging
 
 #### Force a specific http status for development responses
-If you've run the development command `$ npm start` you can spoof and force a specific http status for an endpoint.
+If you've run the development command `$ yarn start` you can spoof and force a specific http status for an endpoint.
 
 To force a specific http status you'll need to add an annotation to the ApiDoc service file annotations located here:
 - `src/services/*.js` 
@@ -96,12 +96,12 @@ Once you've made the change, restart the project and console browser logging sho
 ### Unit Testing
 To run the unit tests, use this command
   ```
-  $ npm test
+  $ yarn test
   ```
   
 To run the unit tests with a watch during development
   ```
-  $ npm run test:dev
+  $ yarn test:dev
   ```
 
 ### Development with a Cloudigrade API toolset

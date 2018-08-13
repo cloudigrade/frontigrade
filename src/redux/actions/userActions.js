@@ -1,5 +1,5 @@
 import { userTypes } from '../constants';
-import { userServices } from '../../services/';
+import { userServices } from '../../services';
 
 const checkUser = () => ({
   type: userTypes.USER_INFO,

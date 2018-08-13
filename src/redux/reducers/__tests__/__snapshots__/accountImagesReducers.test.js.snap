@@ -1,6 +1,426 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`fulfilled types 1`] = `
+exports[`AccountImagesReducers should handle all defined error types: rejected types 1`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 2`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 3`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "DELETE_ACCOUNTS_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 4`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 5`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNTS_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 6`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNTS_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 7`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 8`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_FIELD_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 9`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 10`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 11`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 12`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 13`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 14`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 15`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 1`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -28,7 +448,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 2`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 2`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -56,7 +476,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 3`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 3`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -84,7 +504,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 4`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 4`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -116,7 +536,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 5`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 5`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -144,7 +564,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 6`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 6`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -172,7 +592,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 7`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 7`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -200,7 +620,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 8`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 8`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -228,7 +648,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 9`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 9`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -258,7 +678,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 10`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 10`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -286,7 +706,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 11`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 11`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -314,7 +734,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 12`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 12`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -342,7 +762,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 13`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 13`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -370,7 +790,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 14`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 14`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -398,7 +818,7 @@ Object {
 }
 `;
 
-exports[`fulfilled types 15`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 15`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -426,7 +846,7 @@ Object {
 }
 `;
 
-exports[`pending types 1`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 1`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -454,7 +874,7 @@ Object {
 }
 `;
 
-exports[`pending types 2`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 2`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -482,7 +902,7 @@ Object {
 }
 `;
 
-exports[`pending types 3`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 3`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -510,7 +930,7 @@ Object {
 }
 `;
 
-exports[`pending types 4`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 4`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -538,7 +958,7 @@ Object {
 }
 `;
 
-exports[`pending types 5`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 5`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -566,7 +986,7 @@ Object {
 }
 `;
 
-exports[`pending types 6`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 6`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -594,7 +1014,7 @@ Object {
 }
 `;
 
-exports[`pending types 7`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 7`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -622,7 +1042,7 @@ Object {
 }
 `;
 
-exports[`pending types 8`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 8`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -650,7 +1070,7 @@ Object {
 }
 `;
 
-exports[`pending types 9`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 9`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -678,7 +1098,7 @@ Object {
 }
 `;
 
-exports[`pending types 10`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 10`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -706,7 +1126,7 @@ Object {
 }
 `;
 
-exports[`pending types 11`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 11`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -734,7 +1154,7 @@ Object {
 }
 `;
 
-exports[`pending types 12`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 12`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -762,7 +1182,7 @@ Object {
 }
 `;
 
-exports[`pending types 13`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 13`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -790,7 +1210,7 @@ Object {
 }
 `;
 
-exports[`pending types 14`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 14`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -818,7 +1238,7 @@ Object {
 }
 `;
 
-exports[`pending types 15`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types 15`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -843,425 +1263,5 @@ Object {
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_PENDING",
-}
-`;
-
-exports[`rejected types 1`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "ADD_ACCOUNT_REJECTED",
-}
-`;
-
-exports[`rejected types 2`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "DELETE_ACCOUNT_REJECTED",
-}
-`;
-
-exports[`rejected types 3`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "DELETE_ACCOUNTS_REJECTED",
-}
-`;
-
-exports[`rejected types 4`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "GET_ACCOUNT_REJECTED",
-}
-`;
-
-exports[`rejected types 5`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "GET_ACCOUNTS_REJECTED",
-}
-`;
-
-exports[`rejected types 6`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "UPDATE_ACCOUNTS_REJECTED",
-}
-`;
-
-exports[`rejected types 7`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "UPDATE_ACCOUNT_REJECTED",
-}
-`;
-
-exports[`rejected types 8`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "UPDATE_ACCOUNT_FIELD_REJECTED",
-}
-`;
-
-exports[`rejected types 9`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "GET_ACCOUNT_IMAGES_REJECTED",
-}
-`;
-
-exports[`rejected types 10`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
-}
-`;
-
-exports[`rejected types 11`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
-}
-`;
-
-exports[`rejected types 12`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "ADD_ACCOUNT_SHOW_REJECTED",
-}
-`;
-
-exports[`rejected types 13`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
-}
-`;
-
-exports[`rejected types 14`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
-}
-`;
-
-exports[`rejected types 15`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "account": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-    },
-  },
-  "type": "EDIT_ACCOUNT_HIDE_REJECTED",
 }
 `;

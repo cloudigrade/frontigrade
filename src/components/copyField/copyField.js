@@ -11,11 +11,12 @@ class CopyField extends React.Component {
   };
 
   onCopy = event => {
+    const { timer } = this.state;
     const { value } = this.props;
     const success = helpers.copyClipboard(value);
 
     event.target.blur();
-    clearTimeout(this.state.timer);
+    clearTimeout(timer);
 
     this.setState(
       {
@@ -26,10 +27,11 @@ class CopyField extends React.Component {
   };
 
   onExpand = event => {
+    const { expanded } = this.state;
     event.target.blur();
 
     this.setState({
-      expanded: !this.state.expanded
+      expanded: !expanded
     });
   };
 

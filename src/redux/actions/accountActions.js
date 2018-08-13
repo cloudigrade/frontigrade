@@ -1,5 +1,5 @@
 import { accountTypes } from '../constants';
-import { accountServices } from '../../services/';
+import { accountServices } from '../../services';
 
 const addAccount = data => dispatch =>
   dispatch({

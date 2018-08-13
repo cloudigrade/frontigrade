@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`connected 1`] = `
+exports[`AccountWizardStepResults Component should render a connected wizard results step with error: connected 1`] = `
 <AccountWizardStepResults
   account={Object {}}
   accountName={null}
@@ -14,7 +14,7 @@ exports[`connected 1`] = `
 />
 `;
 
-exports[`error 1`] = `
+exports[`AccountWizardStepResults Component should render a wizard results step with error: error 1`] = `
 <AccountWizardStepResults
   accountName={null}
   edit={false}
@@ -47,7 +47,7 @@ exports[`error 1`] = `
     <h3
       className="blank-slate-pf-main-action"
     >
-      Error 
+      Error
       Creating
        Account
     </h3>
@@ -60,7 +60,7 @@ exports[`error 1`] = `
 </AccountWizardStepResults>
 `;
 
-exports[`error edit 1`] = `
+exports[`AccountWizardStepResults Component should render a wizard results step with error: error edit 1`] = `
 <AccountWizardStepResults
   accountName={null}
   edit={true}
@@ -93,7 +93,7 @@ exports[`error edit 1`] = `
     <h3
       className="blank-slate-pf-main-action"
     >
-      Error 
+      Error
       Updating
        Account
     </h3>
@@ -106,7 +106,7 @@ exports[`error edit 1`] = `
 </AccountWizardStepResults>
 `;
 
-exports[`fulfilled 1`] = `
+exports[`AccountWizardStepResults Component should render a wizard results step with fulfilled: fulfilled 1`] = `
 <AccountWizardStepResults
   accountName="test"
   edit={false}
@@ -131,7 +131,7 @@ exports[`fulfilled 1`] = `
       <strong>
         test
       </strong>
-       was 
+      was
       created
       .
     </h3>
@@ -139,7 +139,7 @@ exports[`fulfilled 1`] = `
 </AccountWizardStepResults>
 `;
 
-exports[`fulfilled edit 1`] = `
+exports[`AccountWizardStepResults Component should render a wizard results step with fulfilled: fulfilled edit 1`] = `
 <AccountWizardStepResults
   accountName="test"
   edit={true}
@@ -164,7 +164,7 @@ exports[`fulfilled edit 1`] = `
       <strong>
         test
       </strong>
-       was 
+      was
       updated
       .
     </h3>
@@ -172,7 +172,7 @@ exports[`fulfilled edit 1`] = `
 </AccountWizardStepResults>
 `;
 
-exports[`pending 1`] = `
+exports[`AccountWizardStepResults Component should render a wizard results step with pending: pending 1`] = `
 <AccountWizardStepResults
   accountName="test"
   edit={false}
@@ -204,11 +204,11 @@ exports[`pending 1`] = `
     <p
       className="blank-slate-pf-secondary-action"
     >
-      Please wait while account 
+      Please wait while account
       <strong>
         test
       </strong>
-       is being 
+      is being 
       created
       .
     </p>
@@ -216,7 +216,7 @@ exports[`pending 1`] = `
 </AccountWizardStepResults>
 `;
 
-exports[`pending edit 1`] = `
+exports[`AccountWizardStepResults Component should render a wizard results step with pending: pending edit 1`] = `
 <AccountWizardStepResults
   accountName="test"
   edit={true}
@@ -248,11 +248,11 @@ exports[`pending edit 1`] = `
     <p
       className="blank-slate-pf-secondary-action"
     >
-      Please wait while account 
+      Please wait while account
       <strong>
         test
       </strong>
-       is being 
+      is being 
       updated
       .
     </p>

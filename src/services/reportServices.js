@@ -1,5 +1,5 @@
 import axios from 'axios';
-import serviceConfig from './index';
+import serviceConfig from './config';
 
 /**
  * @api {get} /api/v1/report/ Get report

@@ -135,7 +135,10 @@ class AccountView extends React.Component {
       return (
         <EmptyState>
           <Alert type="error">
-            <span>Error retrieving accounts: {errorMessage}</span>
+            <span>
+              Error retrieving accounts:
+              {errorMessage}
+            </span>
           </Alert>
           {this.renderPendingMessage()}
         </EmptyState>

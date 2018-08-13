@@ -1,5 +1,5 @@
 import { systemConfigTypes } from '../constants';
-import { systemConfigServices } from '../../services/';
+import { systemConfigServices } from '../../services';
 
 const getSystemConfig = () => dispatch =>
   dispatch({

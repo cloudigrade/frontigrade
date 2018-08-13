@@ -1,116 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountEditModal Component should render a non-connected component 1`] = `
-<div
-  role="dialog"
->
-  <div
-    class="fade modal-backdrop in"
-  />
-  <div
-    class="fade in modal"
-    role="dialog"
-    style="display: block; padding-right: 0px;"
-    tabindex="-1"
-  >
-    <div
-      class="modal-dialog"
-    >
-      <div
-        class="modal-content"
-        role="document"
-      >
-        <div
-          class="modal-header"
-        >
-          <button
-            aria-hidden="true"
-            aria-label="Close"
-            class="close btn btn-default"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-              class="pficon pficon-close"
-            />
-          </button>
-          <h4
-            class="modal-title"
-          >
-            Edit Account - undefined
-          </h4>
-        </div>
-        <div
-          class="modal-body"
-        />
-        <div
-          class="container-fluid"
-        >
-          <form
-            autocomplete="off"
-            class="form-horizontal"
-            method="post"
-          >
-            <div
-              class="form-group"
-            >
-              <label
-                class="col-sm-3 control-label"
-                for="edit-account-name"
-              >
-                Account Name
-              </label>
-              <div
-                class="col-sm-9"
-              >
-                <input
-                  class="form-control"
-                  id="edit-account-name"
-                  maxlength="256"
-                  name="accountName"
-                  placeholder="Enter a name for this account"
-                  type="text"
-                  value=""
-                />
-              </div>
-            </div>
-          </form>
-        </div>
-        <div
-          class="modal-footer"
-        >
-          <button
-            class="btn-cancel btn btn-default"
-            type="button"
-          >
-            Cancel
-          </button>
-          <button
-            class="btn btn-primary"
-            disabled=""
-            type="submit"
-          >
-            Save
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`connected 1`] = `
-<AccountEditModal
-  account={Object {}}
-  error={false}
-  errorMessage={null}
-  pending={false}
-  show={true}
-  updateAccount={[Function]}
-/>
-`;
-
-exports[`display error state 1`] = `
+exports[`AccountEditModal Component should have specific display states defined: display error state 1`] = `
 <div
   role="dialog"
 >
@@ -221,7 +111,7 @@ exports[`display error state 1`] = `
 </div>
 `;
 
-exports[`display pending state 1`] = `
+exports[`AccountEditModal Component should have specific display states defined: display pending state 1`] = `
 <div
   role="dialog"
 >
@@ -299,7 +189,7 @@ exports[`display pending state 1`] = `
 </div>
 `;
 
-exports[`expected form error 1`] = `
+exports[`AccountEditModal Component should have specific events defined: expected form error 1`] = `
 Object {
   "accountName": "",
   "accountNameError": "Enter minimum of 3 characters for account name",
@@ -309,7 +199,7 @@ Object {
 }
 `;
 
-exports[`expected form valid 1`] = `
+exports[`AccountEditModal Component should have specific events defined: expected form valid 1`] = `
 Object {
   "accountName": "lorem ipsum",
   "accountNameError": "",
@@ -317,4 +207,114 @@ Object {
   "formValid": true,
   "resourceType": "AwsAccount",
 }
+`;
+
+exports[`AccountEditModal Component should render a connected component with default props: connected 1`] = `
+<AccountEditModal
+  account={Object {}}
+  error={false}
+  errorMessage={null}
+  pending={false}
+  show={true}
+  updateAccount={[Function]}
+/>
+`;
+
+exports[`AccountEditModal Component should render a non-connected component 1`] = `
+<div
+  role="dialog"
+>
+  <div
+    class="fade modal-backdrop in"
+  />
+  <div
+    class="fade in modal"
+    role="dialog"
+    style="display: block; padding-right: 0px;"
+    tabindex="-1"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+        role="document"
+      >
+        <div
+          class="modal-header"
+        >
+          <button
+            aria-hidden="true"
+            aria-label="Close"
+            class="close btn btn-default"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="pficon pficon-close"
+            />
+          </button>
+          <h4
+            class="modal-title"
+          >
+            Edit Account - undefined
+          </h4>
+        </div>
+        <div
+          class="modal-body"
+        />
+        <div
+          class="container-fluid"
+        >
+          <form
+            autocomplete="off"
+            class="form-horizontal"
+            method="post"
+          >
+            <div
+              class="form-group"
+            >
+              <label
+                class="col-sm-3 control-label"
+                for="edit-account-name"
+              >
+                Account Name
+              </label>
+              <div
+                class="col-sm-9"
+              >
+                <input
+                  class="form-control"
+                  id="edit-account-name"
+                  maxlength="256"
+                  name="accountName"
+                  placeholder="Enter a name for this account"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn-cancel btn btn-default"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-primary"
+            disabled=""
+            type="submit"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;

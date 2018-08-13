@@ -1,4 +1,4 @@
-import { systemConfigReducers } from '../';
+import { systemConfigReducers } from '..';
 import { systemConfigTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 

@@ -1,4 +1,4 @@
-import { userReducers } from '../';
+import { userReducers } from '..';
 import { userTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 

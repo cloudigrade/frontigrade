@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button, Form, Grid, Icon, Modal, Spinner } from 'patternfly-react';
-import { connect, reduxActions, reduxTypes, store } from '../../redux/';
+import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import { FormField, fieldValidation } from '../formField/formField';
@@ -19,24 +19,6 @@ class AccountEditModal extends React.Component {
   state = {
     ...initialState
   };
-
-  // FixMe: API - inconsistent property naming, no underscore in "resourcetype"
-  // FixMe: API - inconsistent enum for "resourcetype", account summary response uses "type":"aws" vs "AwsAccount"
-  // FixMe: API - inconsistent property naming for ARN, /api/v1/report/accounts/ labels it "arn" vs /api/v1/account/:id/ "account_arn"
-  // FixMe: API - patch requires additional property of "resourcetype", an id is also being used...
-  // FixMe: API - patch not allowed by preflight, temporarily using put instead
-  static getDerivedStateFromProps(props, state) {
-    let updateInitialState = null;
-
-    if (!state.formTouched && props.account && props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME]) {
-      updateInitialState = {
-        accountName: props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME],
-        accountNameError: ''
-      };
-    }
-
-    return updateInitialState;
-  }
 
   onCancel = () => {
     this.setState(
@@ -102,12 +84,13 @@ class AccountEditModal extends React.Component {
               formValid: false
             },
             () => {
+              // eslint-disable-next-line react/destructuring-assignment
               if (!this.props.show) {
                 store.dispatch({
                   type: reduxTypes.toastNotifications.TOAST_ADD,
                   alertType: 'error',
                   header: `Error Updating Account`,
-                  message: `${this.props.errorMessage}`
+                  message: `${this.props.errorMessage}` // eslint-disable-line react/destructuring-assignment
                 });
               }
             }
@@ -116,6 +99,24 @@ class AccountEditModal extends React.Component {
       );
     }
   };
+
+  // FixMe: API - inconsistent property naming, no underscore in "resourcetype"
+  // FixMe: API - inconsistent enum for "resourcetype", account summary response uses "type":"aws" vs "AwsAccount"
+  // FixMe: API - inconsistent property naming for ARN, /api/v1/report/accounts/ labels it "arn" vs /api/v1/account/:id/ "account_arn"
+  // FixMe: API - patch requires additional property of "resourcetype", an id is also being used...
+  // FixMe: API - patch not allowed by preflight, temporarily using put instead
+  static getDerivedStateFromProps(props, state) {
+    let updateInitialState = null;
+
+    if (!state.formTouched && props.account && props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME]) {
+      updateInitialState = {
+        accountName: props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME],
+        accountNameError: ''
+      };
+    }
+
+    return updateInitialState;
+  }
 
   isFormValid() {
     const { accountName, accountNameError } = this.state;

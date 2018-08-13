@@ -1,4 +1,4 @@
-import { accountReducers } from '../';
+import { accountReducers } from '..';
 import { accountTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 import apiTypes from '../../../constants/apiConstants';

@@ -1,4 +1,4 @@
-import { accountImagesReducers } from '../';
+import { accountImagesReducers } from '..';
 import { accountTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 import apiTypes from '../../../constants/apiConstants';

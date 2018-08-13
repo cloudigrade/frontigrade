@@ -6,24 +6,24 @@ import { connect, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import logo from '../../styles/images/logo.svg';
 import logoBrand from '../../styles/images/logo-brand.svg';
-// import productTitle from '../../styles/images/title.svg';
-// import rhLogo from '../../styles/images/brand/logo.svg';
-// import rhProductTitle from '../../styles/images/brand/title.svg';
 import titleImg from '../../styles/images/title.svg';
 import titleImgBrand from '../../styles/images/title-brand.svg';
 
 class AboutModal extends React.Component {
+  selectElement = React.createRef();
+
   state = {
     copied: false,
     timer: null
   };
 
   onClick = () => {
+    const { timer } = this.state;
     const selectElement = this.selectElement.current;
     const success = helpers.copyClipboard(selectElement.innerText);
 
     selectElement.blur();
-    clearTimeout(this.state.timer);
+    clearTimeout(timer);
 
     this.setState(
       {
@@ -63,8 +63,6 @@ class AboutModal extends React.Component {
 
     this.setState({ timer });
   }
-
-  selectElement = React.createRef();
 
   render() {
     const { copied } = this.state;

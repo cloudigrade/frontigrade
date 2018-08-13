@@ -1,28 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar Component should render a basic component 1`] = `
-<div
-  class="container-fluid"
->
-  <div
-    class="toolbar-pf row"
-  >
-    <div
-      class="col-sm-12"
-    >
-      <form
-        class="toolbar-pf-actions"
-      >
-        test
-      </form>
-      <div
-        class="toolbar-pf-results row"
-      >
-        <div
-          class="col-sm-12"
-        />
-      </div>
-    </div>
-  </div>
-</div>
+<withContext(Toolbar)>
+  test
+  <ToolbarResults
+    className=""
+  />
+</withContext(Toolbar)>
 `;

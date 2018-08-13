@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { systemConfigActions } from '../';
+import { systemConfigActions } from '..';
 import { systemConfigReducers } from '../../reducers';
 
 describe('UserActions', () => {

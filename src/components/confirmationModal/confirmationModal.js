@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MessageDialog, Icon } from 'patternfly-react';
-import { connect, store, reduxTypes } from '../../redux/';
+import { connect, store, reduxTypes } from '../../redux';
 import helpers from '../../common/helpers';
 
 const ConfirmationModal = ({

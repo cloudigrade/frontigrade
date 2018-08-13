@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`unconnected 1`] = `
+exports[`AccountWizardStepRole Component should render a wizard policy step: unconnected 1`] = `
 <form
   class=""
 >
@@ -12,7 +12,7 @@ exports[`unconnected 1`] = `
     >
       <ul>
         <li>
-          Create a new role in the AWS 
+          Create a new role in the AWS
           <a
             href="https://console.aws.amazon.com/iam"
             rel="noopener noreferrer"
@@ -20,7 +20,7 @@ exports[`unconnected 1`] = `
           >
             Identity and Access Management
           </a>
-          . 
+          .
           <span>
             <span
               aria-hidden="true"

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Form, Grid, Icon } from 'patternfly-react';
 import { awsPolicySetup } from '../../common/configuration.json';
 import helpers from '../../common/helpers';
-import { connect, reduxTypes, store } from '../../redux/';
+import { connect, reduxTypes, store } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
@@ -63,6 +63,20 @@ class AccountWizardStepPolicy extends React.Component {
       stepError = stepPolicyErrorMessage;
     }
 
+    const popover = (
+      <ul className="cloudmeter-popover-list">
+        <li>Log in to AWS console</li>
+        <li>Search Services to go to IAM</li>
+        <li>Click Roles in the left nav</li>
+        <li>
+          Click the <strong>Create role</strong> button
+        </li>
+        <li>
+          Click <strong>Another AWS account</strong>
+        </li>
+      </ul>
+    );
+
     return (
       <Form horizontal onSubmit={this.onSubmit}>
         <FormField
@@ -88,23 +102,9 @@ class AccountWizardStepPolicy extends React.Component {
                 Create a new policy in the AWS{' '}
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>.{' '}
-                <Tooltip
-                  delayShow={100}
-                  popover={
-                    <ul className="cloudmeter-popover-list">
-                      <li>Log in to AWS console</li>
-                      <li>Search Services to go to IAM</li>
-                      <li>Click Roles in the left nav</li>
-                      <li>
-                        Click the <strong>Create role</strong> button
-                      </li>
-                      <li>
-                        Click <strong>Another AWS account</strong>
-                      </li>
-                    </ul>
-                  }
-                >
+                </a>
+                .{' '}
+                <Tooltip delayShow={100} popover={popover}>
                   <Icon type="pf" name="info" size="large" />
                   <span className="sr-only">Steps when logging into AWS Identity and Access Management</span>
                 </Tooltip>

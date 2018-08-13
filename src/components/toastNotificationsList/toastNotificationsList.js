@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect, reduxTypes, store } from '../../redux';
 import { ToastNotificationList, TimedToastNotification } from 'patternfly-react';
+import { connect, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 
 class ToastNotificationsList extends React.Component {
@@ -40,7 +40,12 @@ class ToastNotificationsList extends React.Component {
                   onMouseLeave={this.onLeave}
                 >
                   <span>
-                    {toast.header && <strong>{toast.header} &nbsp;</strong>}
+                    {toast.header && (
+                      <strong>
+                        {toast.header}
+                        &nbps;&nbsp;
+                      </strong>
+                    )}
                     {toast.message}
                   </span>
                 </TimedToastNotification>

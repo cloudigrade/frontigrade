@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`connected 1`] = `
+exports[`AccountImagesViewInstanceGraphs Component should render a connected component with default props: connected 1`] = `
 <AccountViewInstanceGraphs
   dailyUsage={Array []}
   error={false}
@@ -16,4 +16,28 @@ exports[`connected 1`] = `
   pending={false}
   updateInstances={false}
 />
+`;
+
+exports[`AccountImagesViewInstanceGraphs Component should render a non-connected component: non-connected 1`] = `
+<div
+  class="container-cards-pf container"
+>
+  <div
+    class=""
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-4"
+      />
+      <div
+        class="col-sm-4"
+      />
+      <div
+        class="col-sm-4"
+      />
+    </div>
+  </div>
+</div>
 `;

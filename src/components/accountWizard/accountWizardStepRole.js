@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Grid, Icon } from 'patternfly-react';
-import { connect, reduxActions } from '../../redux/';
+import { connect, reduxActions } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import CopyField from '../copyField/copyField';
@@ -9,7 +9,9 @@ import Tooltip from '../tooltip/tooltip';
 
 class AccountWizardStepRole extends React.Component {
   componentDidMount() {
-    this.props.getSystemConfig();
+    const { getSystemConfig } = this.props;
+
+    getSystemConfig();
   }
 
   // ToDo: when form valid evaluate moving to next step onEnter key-press event
@@ -20,32 +22,32 @@ class AccountWizardStepRole extends React.Component {
   render() {
     const { awsAccountId } = this.props;
 
+    const popover = (
+      <ul className="cloudmeter-popover-list">
+        <li>Log in to AWS console</li>
+        <li>Search Services to go to IAM</li>
+        <li>Click Roles in the left nav</li>
+        <li>
+          Click the <strong>Create role</strong> button
+        </li>
+        <li>
+          Click <strong>Another AWS account</strong>
+        </li>
+      </ul>
+    );
+
     return (
       <Form onSubmit={this.onSubmit}>
         <Form.FormGroup>
           <Grid.Col sm={12}>
             <ul>
               <li>
-                Create a new role in the AWS{' '}
+                Create a new role in the AWS
                 <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
                   Identity and Access Management
-                </a>.{' '}
-                <Tooltip
-                  delayShow={100}
-                  popover={
-                    <ul className="cloudmeter-popover-list">
-                      <li>Log in to AWS console</li>
-                      <li>Search Services to go to IAM</li>
-                      <li>Click Roles in the left nav</li>
-                      <li>
-                        Click the <strong>Create role</strong> button
-                      </li>
-                      <li>
-                        Click <strong>Another AWS account</strong>
-                      </li>
-                    </ul>
-                  }
-                >
+                </a>
+                .
+                <Tooltip delayShow={100} popover={popover}>
                   <Icon type="pf" name="info" size="large" />
                   <span className="sr-only">Steps when logging into AWS Identity and Access Management</span>
                 </Tooltip>

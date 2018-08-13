@@ -7,6 +7,8 @@ import helpers from '../../common/helpers';
 import Tooltip from '../tooltip/tooltip';
 
 class AccountImagesViewListItem extends React.Component {
+  kebab = React.createRef();
+
   /**
    * FixMe: PF-React issue
    * Need a prop added to PF-React ListView for generic whole row event, instead of
@@ -20,8 +22,6 @@ class AccountImagesViewListItem extends React.Component {
       onDetail(item);
     }
   };
-
-  kebab = React.createRef();
 
   static renderLeftContent() {
     return null;
@@ -74,14 +74,22 @@ class AccountImagesViewListItem extends React.Component {
     let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
     instances = Number.isNaN(instances) ? '-' : instances;
 
+    const popover = (
+      <React.Fragment>
+        {seconds}
+        seconds
+      </React.Fragment>
+    );
+
     return [
       <ListView.InfoItem key="1">
         <Icon type="pf" name="screen" className="cloudmeter-listview-infoitem" />
-        <strong>{instances}</strong> Instances
+        <strong>{instances}</strong>
+        Instances
       </ListView.InfoItem>,
       <ListView.InfoItem key="2" className="cloudmeter-listview-infoitem">
         {seconds !== null && (
-          <Tooltip delayShow={100} popover={<React.Fragment>{seconds} seconds</React.Fragment>}>
+          <Tooltip delayShow={100} popover={popover}>
             <Icon type="fa" name="clock-o" />
             <strong>{hours}</strong> Hours
           </Tooltip>

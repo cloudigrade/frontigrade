@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`expanded 1`] = `
+exports[`CopyField Component should display an expanded value textarea: expanded 1`] = `
 <textarea
   aria-hidden="true"
   class="cloudmeter-copy-display"
@@ -11,7 +11,7 @@ exports[`expanded 1`] = `
 </textarea>
 `;
 
-exports[`multi-line 1`] = `
+exports[`CopyField Component should render a multi-line copy component: multi-line 1`] = `
 <div
   aria-live="polite"
   class="cloudmeter-copy form-group"
@@ -55,7 +55,7 @@ exports[`multi-line 1`] = `
 </div>
 `;
 
-exports[`single-line 1`] = `
+exports[`CopyField Component should render a single-line copy component: single-line 1`] = `
 <div
   aria-live="polite"
   class="cloudmeter-copy form-group"

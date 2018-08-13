@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`popover 1`] = `
+exports[`Tooltip Component should render a popover: popover 1`] = `
 <Tooltip
   delayShow={500}
   id="test"
@@ -43,7 +43,7 @@ exports[`popover 1`] = `
 </Tooltip>
 `;
 
-exports[`tooltip 1`] = `
+exports[`Tooltip Component should render a tooltip: tooltip 1`] = `
 <Tooltip
   delayShow={500}
   id="test"

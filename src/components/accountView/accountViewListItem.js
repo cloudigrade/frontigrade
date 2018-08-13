@@ -6,6 +6,8 @@ import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 class AccountViewListItem extends React.Component {
+  kebab = React.createRef();
+
   /**
    * FixMe: PF-React issue
    * Need a prop added to PF-React ListView for generic whole row event, instead of
@@ -19,8 +21,6 @@ class AccountViewListItem extends React.Component {
       onDetail(item);
     }
   };
-
-  kebab = React.createRef();
 
   renderActions() {
     const { item, onEdit, onArchive } = this.props;

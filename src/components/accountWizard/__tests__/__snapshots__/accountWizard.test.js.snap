@@ -2,7 +2,7 @@
 
 exports[`AccountView Component should not display a wizard 1`] = `null`;
 
-exports[`connected 1`] = `
+exports[`AccountView Component should render a wizard: connected 1`] = `
 <Wizard
   className=""
   dialogClassName=""

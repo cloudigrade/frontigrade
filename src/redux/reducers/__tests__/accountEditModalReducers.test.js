@@ -1,4 +1,4 @@
-import { accountEditModalReducers } from '../';
+import { accountEditModalReducers } from '..';
 import { accountTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 

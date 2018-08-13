@@ -1,4 +1,4 @@
-import { toastNotificationsReducers } from '../';
+import { toastNotificationsReducers } from '..';
 import { toastNotificationTypes } from '../../constants';
 import helpers from '../../../common/helpers';
 

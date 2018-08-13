@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic 1`] = `
+exports[`Masthead Component should render a basic component: basic 1`] = `
 <Masthead
   logoutUser={[Function]}
   user={
@@ -11,7 +11,7 @@ exports[`basic 1`] = `
 />
 `;
 
-exports[`help dropdown 1`] = `
+exports[`Masthead Component should render a basic component: help dropdown 1`] = `
 <MastheadDropdown
   className=""
   id="app-help-dropdown"
@@ -47,7 +47,35 @@ exports[`help dropdown 1`] = `
 </MastheadDropdown>
 `;
 
-exports[`mobile-nav 1`] = `
+exports[`Masthead Component should render a basic component: user dropdown 1`] = `
+<MastheadDropdown
+  className=""
+  id="app-user-dropdown"
+  noCaret={false}
+  title={
+    <React.Fragment>
+      <Icon
+        name="user"
+        type="pf"
+      />
+       
+      Admin
+    </React.Fragment>
+  }
+>
+  <MenuItem
+    bsClass="dropdown"
+    disabled={false}
+    divider={false}
+    header={false}
+    onClick={[Function]}
+  >
+    Logout
+  </MenuItem>
+</MastheadDropdown>
+`;
+
+exports[`Masthead Component should render mobile navigation: mobile-nav 1`] = `
 <div
   aria-live="polite"
   className="nav-pf-vertical nav-pf-vertical-with-sub-menus nav-pf-vertical-with-badges hidden show-mobile-nav"
@@ -104,32 +132,4 @@ exports[`mobile-nav 1`] = `
     </li>
   </ul>
 </div>
-`;
-
-exports[`user dropdown 1`] = `
-<MastheadDropdown
-  className=""
-  id="app-user-dropdown"
-  noCaret={false}
-  title={
-    <UNDEFINED>
-      <Icon
-        name="user"
-        type="pf"
-      />
-       
-      Admin
-    </UNDEFINED>
-  }
->
-  <MenuItem
-    bsClass="dropdown"
-    disabled={false}
-    divider={false}
-    header={false}
-    onClick={[Function]}
-  >
-    Logout
-  </MenuItem>
-</MastheadDropdown>
 `;

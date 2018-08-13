@@ -36,7 +36,7 @@ exports[`AccountViewListItem Component should render 1`] = `
             <span
               class="cloudmeter-description-right"
             >
-              Created 11:09AM, July 6th 2018
+              Created 12:00AM, July 7th 2018
             </span>
           </div>
         </div>
