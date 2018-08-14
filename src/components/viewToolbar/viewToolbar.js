@@ -68,7 +68,7 @@ class ViewToolbar extends React.Component {
       const filterText = `${filterField.title || filterField}: ${filterValue.title || filterValue}`;
 
       this.dispatchFilter(reduxTypes.filter.TOOLBAR_ADD_FILTER, {
-        filter: { field: filterField, query: filterField.id, value: filterValue, label: filterText }
+        filter: { field: filterField, query: { [filterField.id]: filterValue }, label: filterText }
       });
     }
   };

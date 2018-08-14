@@ -66,6 +66,7 @@ const generatePriorYearMonthArray = () => {
 
   timeValues = timeValues.reverse();
   timeValues[0] = {
+    default: true,
     title: 'Last 30 Days',
     start: moment()
       .startOf('day')

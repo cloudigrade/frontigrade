@@ -52,6 +52,8 @@ class AccountViewListItem extends React.Component {
   renderDescription() {
     const { item } = this.props;
 
+    const timestamp = item[apiTypes.API_RESPONSE_ACCOUNTS_DATE];
+
     return (
       <div className="cloudmeter-split-description">
         <span className="cloudmeter-description-left">
@@ -61,9 +63,7 @@ class AccountViewListItem extends React.Component {
               `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`}
           </ListView.DescriptionHeading>
         </span>
-        <span className="cloudmeter-description-right">
-          Created {moment(item[apiTypes.API_RESPONSE_ACCOUNTS_DATE]).format('h:mmA, MMMM Do YYYY')}
-        </span>
+        <span className="cloudmeter-description-right">Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</span>
       </div>
     );
   }

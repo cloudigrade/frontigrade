@@ -1,21 +1,12 @@
+import _isEqual from 'lodash/isEqual';
 import { accountTypes, filterTypes } from '../constants';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
-/**
- * ToDo: API-no-default-list
- * API currently has no default values, we set these defaults in state as temp-fix.
- * The dateFieldTypes load, and values for lines
- *
- * [apiTypes.API_QUERY_END]: dateFieldTypes.defaultTime.end,
- * [apiTypes.API_QUERY_START]: dateFieldTypes.defaultTime.start
- *
- * should be removed.
- */
-const dateFieldTypes = helpers.generatePriorYearMonthArray();
-
 const initialState = {
   activeFilters: [],
+  dateValue: null,
+  dateValueDefault: false,
   currentPage: 1,
   expandedItems: [],
   filterField: null,
@@ -23,6 +14,8 @@ const initialState = {
   pageSize: 15,
   selectedCount: 0,
   selectedItems: [],
+  sortAscending: true,
+  sortValue: null,
   totalCount: 0,
   totalPages: 0,
   query: {
@@ -33,11 +26,12 @@ const initialState = {
 
 const initialGlobalState = {
   dateValue: null,
+  dateValueDefault: false,
   sortAscending: true,
   sortValue: null,
   query: {
-    [apiTypes.API_QUERY_END]: dateFieldTypes.defaultTime.end,
-    [apiTypes.API_QUERY_START]: dateFieldTypes.defaultTime.start,
+    [apiTypes.API_QUERY_END]: null,
+    [apiTypes.API_QUERY_START]: null,
     [apiTypes.API_QUERY_USER_ID]: null
   }
 };
@@ -63,6 +57,8 @@ const filterReducers = (state = initialFilterState, action) => {
 
   switch (checkActionType) {
     case filterTypes.TOOLBAR_SET_DATE_TYPE:
+      const setViewDateProps = !action.viewGlobal && action.view ? { currentPage: 1 } : {};
+
       query = { ...state[action.viewGlobal || action.view].query };
       query[apiTypes.API_QUERY_END] = action.dateValue[apiTypes.API_QUERY_END];
       query[apiTypes.API_QUERY_START] = action.dateValue[apiTypes.API_QUERY_START];
@@ -71,8 +67,28 @@ const filterReducers = (state = initialFilterState, action) => {
         action.viewGlobal || action.view,
         {
           dateValue: action.dateValue,
-          currentPage: 1,
-          query
+          dateValueDefault: action.dateValue.default,
+          query,
+          ...setViewDateProps
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case filterTypes.TOOLBAR_CLEAR_DATE_TYPE:
+      const clearViewDateProps = !action.viewGlobal && action.view ? { currentPage: 1 } : {};
+
+      return helpers.setStateProp(
+        action.viewGlobal || action.view,
+        {
+          dateValue: null,
+          dateValueDefault: false,
+          query: {
+            ...initialFilterState[action.viewGlobal || action.view].query
+          },
+          ...clearViewDateProps
         },
         {
           state,
@@ -81,12 +97,14 @@ const filterReducers = (state = initialFilterState, action) => {
       );
 
     case filterTypes.TOOLBAR_SET_SORT_TYPE:
+      const setViewSortProps = !action.viewGlobal && action.view ? { currentPage: 1 } : {};
+
       return helpers.setStateProp(
         action.viewGlobal || action.view,
         {
           sortValue: action.sortValue,
           sortAscending: (action.sortValue && action.sortValue.sortAscending) || true,
-          currentPage: 1
+          ...setViewSortProps
         },
         {
           state,
@@ -97,7 +115,12 @@ const filterReducers = (state = initialFilterState, action) => {
     case filterTypes.TOOLBAR_ADD_FILTER:
       activeFilters = [...state[action.view].activeFilters];
 
-      const currentFilter = activeFilters.find(filter => action.filter.field === filter.field);
+      const currentFilter = activeFilters.find(
+        filter =>
+          typeof action.filter.field === 'string'
+            ? action.filter.field === filter.field
+            : _isEqual(action.filter.field, filter.field)
+      );
       const index = activeFilters.indexOf(currentFilter);
 
       if (index > -1) {
@@ -109,7 +132,9 @@ const filterReducers = (state = initialFilterState, action) => {
       query = { ...state[action.view].query };
 
       activeFilters.forEach(filter => {
-        query[filter.query] = filter.value;
+        if (filter.query) {
+          Object.assign(query, { ...filter.query });
+        }
       });
 
       return helpers.setStateProp(
@@ -130,7 +155,7 @@ const filterReducers = (state = initialFilterState, action) => {
 
       activeFilters = state[action.view].activeFilters.filter(filter => {
         if (action.filter.field.id === filter.field.id) {
-          delete query[filter.query];
+          delete query[filter.field.id];
           return false;
         }
 
@@ -179,7 +204,7 @@ const filterReducers = (state = initialFilterState, action) => {
       query = { ...state[action.view].query };
 
       state[action.view].activeFilters.forEach(filter => {
-        delete query[filter.query];
+        delete query[filter.field.id];
       });
 
       return helpers.setStateProp(

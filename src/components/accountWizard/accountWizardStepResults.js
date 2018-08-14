@@ -11,10 +11,7 @@ const AccountWizardStepResults = ({ accountName, edit, error, errorMessage, fulf
         <div className="wizard-pf-success-icon">
           <Icon type="pf" name="error-circle-o" />
         </div>
-        <h3 className="blank-slate-pf-main-action">
-          Error
-          {edit ? 'Updating' : 'Creating'} Account
-        </h3>
+        <h3 className="blank-slate-pf-main-action">Error {edit ? 'Updating' : 'Creating'} Account</h3>
         <p className="blank-slate-pf-secondary-action">{errorMessage}</p>
       </div>
     )}
@@ -24,9 +21,7 @@ const AccountWizardStepResults = ({ accountName, edit, error, errorMessage, fulf
           <span className="glyphicon glyphicon-ok-circle" />
         </div>
         <h3 className="blank-slate-pf-main-action">
-          <strong>{accountName}</strong>
-          was
-          {edit ? 'updated' : 'created'}.
+          <strong>{accountName}</strong> was {edit ? 'updated' : 'created'}.
         </h3>
       </div>
     )}
@@ -35,9 +30,7 @@ const AccountWizardStepResults = ({ accountName, edit, error, errorMessage, fulf
         <Spinner loading size="lg" className="blank-slate-pf-icon" />
         <h3 className="blank-slate-pf-main-action">{edit ? 'Updating' : 'Creating'} Account...</h3>
         <p className="blank-slate-pf-secondary-action">
-          Please wait while account
-          <strong>{accountName}</strong>
-          is being {edit ? 'updated' : 'created'}.
+          Please wait while account <strong>{accountName}</strong> is being {edit ? 'updated' : 'created'}.
         </p>
       </div>
     )}

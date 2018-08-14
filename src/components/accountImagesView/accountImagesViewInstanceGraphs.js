@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardGrid, Label as PFLabel, Spinner, UtilizationCard } from 'patternfly-react';
-import _isEqual from 'lodash/isEqual';
 import _sumBy from 'lodash/sumBy';
 import { connect, reduxActions } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
@@ -32,10 +31,7 @@ class AccountImagesViewInstanceGraphs extends React.Component {
   componentDidUpdate(prevProps) {
     const { filter, filterId, getAccountImagesInstances, updateInstances } = this.props;
 
-    if (
-      (updateInstances === true && updateInstances !== prevProps.updateInstances) ||
-      !_isEqual(filter.query, prevProps.filter.query)
-    ) {
+    if (updateInstances === true && updateInstances !== prevProps.updateInstances) {
       getAccountImagesInstances(filterId, filter.query);
     }
   }
@@ -86,7 +82,7 @@ class AccountImagesViewInstanceGraphs extends React.Component {
                       <PFLabel bsStyle="warning">
                         <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
                       </PFLabel>{' '}
-                      Total
+                      Instances
                     </UtilizationCard.DetailsDesc>
                   </UtilizationCard.Details>
                 </Card.Body>
@@ -105,7 +101,7 @@ class AccountImagesViewInstanceGraphs extends React.Component {
                       <PFLabel bsStyle="primary">
                         <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
                       </PFLabel>{' '}
-                      Total
+                      Instances
                     </UtilizationCard.DetailsDesc>
                   </UtilizationCard.Details>
                 </Card.Body>

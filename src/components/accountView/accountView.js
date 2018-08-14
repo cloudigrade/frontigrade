@@ -14,7 +14,6 @@ import AccountViewListItem from './accountViewListItem';
 class AccountView extends React.Component {
   componentDidMount() {
     const { filter, getAccounts } = this.props;
-
     if (filter.query) {
       getAccounts(filter.query);
     }
@@ -45,10 +44,13 @@ class AccountView extends React.Component {
     });
   };
 
-  onClearFilters = () => {
+  onClearResetFilters = () => {
+    const { view, viewGlobal } = this.props;
+
     store.dispatch({
       type: reduxTypes.filter.TOOLBAR_CLEAR_FILTERS,
-      view: 'account'
+      view,
+      viewGlobal
     });
   };
 
@@ -80,35 +82,42 @@ class AccountView extends React.Component {
   };
 
   renderAccountsList() {
-    const { accounts } = this.props;
+    const { accounts, filter } = this.props;
 
     if (accounts.length) {
       return (
-        <ListView className="cloudmeter-list-view">
-          {accounts.map(item => (
-            <AccountViewListItem
-              item={item}
-              key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
-              onDetail={this.onDetailView}
-              onEdit={this.onEditName}
-              onArchive={this.onArchive}
-            />
-          ))}
-        </ListView>
+        <React.Fragment>
+          <AccountViewInstanceGraphs filter={filter} />
+          <ListView className="cloudmeter-list-view">
+            {accounts.map(item => (
+              <AccountViewListItem
+                item={item}
+                key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
+                onDetail={this.onDetailView}
+                onEdit={this.onEditName}
+                onArchive={this.onArchive}
+              />
+            ))}
+          </ListView>
+        </React.Fragment>
       );
     }
 
-    return (
-      <EmptyState className="list-view-blank-slate">
-        <EmptyState.Title>No Results Match the Filter Criteria</EmptyState.Title>
-        <EmptyState.Info>The active filters are hiding all items.</EmptyState.Info>
-        <EmptyState.Action>
-          <Button bsStyle="link" onClick={this.onClearFilters}>
-            Clear Filters
-          </Button>
-        </EmptyState.Action>
-      </EmptyState>
-    );
+    if (filter.activeFilters.length) {
+      return (
+        <EmptyState className="list-view-blank-slate">
+          <EmptyState.Title>No Results Match the Filter Criteria</EmptyState.Title>
+          <EmptyState.Info>The active filters are hiding all items.</EmptyState.Info>
+          <EmptyState.Action>
+            <Button bsStyle="link" onClick={this.onClearResetFilters}>
+              Clear Filters
+            </Button>
+          </EmptyState.Action>
+        </EmptyState>
+      );
+    }
+
+    return null;
   }
 
   renderPendingMessage() {
@@ -129,7 +138,7 @@ class AccountView extends React.Component {
   }
 
   render() {
-    const { accounts, error, errorMessage, filter, pending, updateAccounts, view, viewGlobal } = this.props;
+    const { accounts, error, errorMessage, filter, pending, view, viewGlobal } = this.props;
 
     if (error) {
       return (
@@ -169,10 +178,7 @@ class AccountView extends React.Component {
             viewGlobal={viewGlobal}
             {...filter}
           />
-          <div className="cloudmeter-list-container">
-            <AccountViewInstanceGraphs filter={filter} updateInstances={updateAccounts} />
-            {this.renderAccountsList()}
-          </div>
+          <div className="cloudmeter-list-container">{this.renderAccountsList()}</div>
           {this.renderPendingMessage()}
         </div>
       );
@@ -184,7 +190,23 @@ class AccountView extends React.Component {
           <EmptyState className="full-page-blank-slate fadein">
             <EmptyState.Icon />
             <EmptyState.Title>Welcome to Cloud Meter</EmptyState.Title>
-            <EmptyState.Info>Add an AWS account to monitor usage.</EmptyState.Info>
+            <EmptyState.Info>
+              <p>Add an AWS account to monitor usage of cloud infrastructure products in your environments.</p>
+              <p>
+                When you add an account, you connect it to Cloud Meter by creating a specialized IAM profile and role.
+              </p>
+              <p>
+                For more information about the IAM steps in this process, see the{' '}
+                <a
+                  href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  IAM User Guide
+                </a>
+                .
+              </p>
+            </EmptyState.Info>
             <EmptyState.Action>
               <Button bsStyle="primary" bsSize="large" onClick={this.onAddAccount}>
                 Add Account
@@ -210,7 +232,6 @@ AccountView.propTypes = {
     push: PropTypes.func.isRequired
   }).isRequired,
   pending: PropTypes.bool,
-  updateAccounts: PropTypes.bool,
   view: PropTypes.string,
   viewGlobal: PropTypes.string
 };
@@ -225,7 +246,6 @@ AccountView.defaultProps = {
   },
   getAccounts: helpers.noop,
   pending: false,
-  updateAccounts: false,
   view: 'account',
   viewGlobal: 'accountGlobal'
 };

@@ -4,7 +4,6 @@ import helpers from '../../common/helpers';
 
 const initialState = {
   view: {
-    account: {},
     images: [],
     error: false,
     errorStatus: null,
@@ -57,25 +56,12 @@ const accountImagesReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'view',
         {
-          account: state.view.account,
-          images: action.payload.data[apiTypes.API_RESPONSE_IMAGES] || [],
-          fulfilled: true
+          fulfilled: true,
+          images: action.payload.data[apiTypes.API_RESPONSE_IMAGES] || []
         },
         {
           state,
           initialState
-        }
-      );
-
-    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT):
-      return helpers.setStateProp(
-        'view',
-        {
-          account: action.payload.data || {}
-        },
-        {
-          state,
-          reset: false
         }
       );
 

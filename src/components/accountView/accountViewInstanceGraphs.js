@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, CardGrid, Label as PFLabel, Spinner, UtilizationCard } from 'patternfly-react';
-import _isEqual from 'lodash/isEqual';
 import _sumBy from 'lodash/sumBy';
 import { connect, reduxActions } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
@@ -32,10 +31,7 @@ class AccountViewInstanceGraphs extends React.Component {
   componentDidUpdate(prevProps) {
     const { filter, getAccountInstances, updateInstances } = this.props;
 
-    if (
-      (updateInstances === true && updateInstances !== prevProps.updateInstances) ||
-      !_isEqual(filter.query, prevProps.filter.query)
-    ) {
+    if (updateInstances === true && updateInstances !== prevProps.updateInstances) {
       getAccountInstances(filter.query);
     }
   }
@@ -85,7 +81,8 @@ class AccountViewInstanceGraphs extends React.Component {
                     <UtilizationCard.DetailsDesc>
                       <PFLabel bsStyle="warning">
                         <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-                      </PFLabel>
+                      </PFLabel>{' '}
+                      Instances
                     </UtilizationCard.DetailsDesc>
                   </UtilizationCard.Details>
                 </Card.Body>
@@ -103,7 +100,8 @@ class AccountViewInstanceGraphs extends React.Component {
                     <UtilizationCard.DetailsDesc>
                       <PFLabel bsStyle="primary">
                         <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-                      </PFLabel>
+                      </PFLabel>{' '}
+                      Instances
                     </UtilizationCard.DetailsDesc>
                   </UtilizationCard.Details>
                 </Card.Body>
