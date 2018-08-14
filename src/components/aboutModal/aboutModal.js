@@ -22,7 +22,6 @@ class AboutModal extends React.Component {
     const selectElement = this.selectElement.current;
     const success = helpers.copyClipboard(selectElement.innerText);
 
-    selectElement.blur();
     clearTimeout(timer);
 
     this.setState(
@@ -45,8 +44,7 @@ class AboutModal extends React.Component {
     }
   };
 
-  onKeyUp = event => {
-    event.preventDefault();
+  onKeyUp = () => {
     this.onClick();
   };
 
@@ -103,8 +101,8 @@ class AboutModal extends React.Component {
             )}
             {browser && <PfAboutModal.VersionItem label="Browser OS" versionText={browser.os || ''} />}
           </PfAboutModal.Versions>
-          {copied && <div className="cloudmeter-about-modal-copy">Copied</div>}
         </div>
+        {copied && <div className="cloudmeter-about-modal-copy">Copied</div>}
       </PfAboutModal>
     );
   }
