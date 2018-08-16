@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import { reportServices } from '..';
+import * as reportServices from '../reportServices';
 
 describe('ReportServices', () => {
   beforeEach(() => {
@@ -14,6 +14,10 @@ describe('ReportServices', () => {
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('should export a specific number of methods and classes', () => {
+    expect(Object.keys(reportServices)).toHaveLength(2);
   });
 
   it('should have specific methods', () => {

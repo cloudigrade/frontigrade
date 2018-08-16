@@ -100,9 +100,11 @@ class Masthead extends React.Component {
   }
 
   render() {
+    const { brand } = this.props;
+
     return (
       <PfMasthead
-        titleImg={helpers.RH_BRAND ? titleImgBrand : titleImg}
+        titleImg={brand ? titleImgBrand : titleImg}
         title="Cloud Meter"
         className="cloudmeter-nav"
         onNavToggleClick={this.navToggle}
@@ -118,6 +120,7 @@ class Masthead extends React.Component {
 }
 
 Masthead.propTypes = {
+  brand: PropTypes.bool,
   logoutUser: PropTypes.func,
   user: PropTypes.shape({
     username: PropTypes.string
@@ -125,6 +128,7 @@ Masthead.propTypes = {
 };
 
 Masthead.defaultProps = {
+  brand: helpers.RH_BRAND,
   logoutUser: helpers.noop,
   user: {}
 };

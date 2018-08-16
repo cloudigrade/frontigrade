@@ -64,7 +64,7 @@ class AboutModal extends React.Component {
 
   render() {
     const { copied } = this.state;
-    const { commitHash, show, session } = this.props;
+    const { brand, commitHash, show, session } = this.props;
     const browser = detect();
 
     const props = {
@@ -75,7 +75,7 @@ class AboutModal extends React.Component {
       altLogo: 'CM'
     };
 
-    if (helpers.RH_BRAND) {
+    if (brand) {
       props.logo = logoBrand;
       props.productTitle = <img src={titleImgBrand} alt="Red Hat Cloud Meter" />;
       props.altLogo = 'RH CM';
@@ -110,6 +110,7 @@ class AboutModal extends React.Component {
 
 AboutModal.propTypes = {
   commitHash: PropTypes.string,
+  brand: PropTypes.bool,
   onClose: PropTypes.func,
   resetTimer: PropTypes.number,
   session: PropTypes.shape({
@@ -120,6 +121,7 @@ AboutModal.propTypes = {
 
 AboutModal.defaultProps = {
   commitHash: helpers.UI_COMMIT_HASH,
+  brand: helpers.RH_BRAND,
   resetTimer: 3000,
   session: {
     username: null

@@ -58,4 +58,16 @@ describe('Authentication Component', () => {
     component.find('input[name="remember"]').simulate('change', { target: { checked: true } });
     expect(componentInstance.state).toMatchSnapshot('expected state');
   });
+
+  it('should contain brand', () => {
+    const props = {
+      brand: true
+    };
+    const component = shallow(
+      <Authentication {...props}>
+        <span className="test">lorem</span>
+      </Authentication>
+    );
+    expect(component).toMatchSnapshot('brand');
+  });
 });

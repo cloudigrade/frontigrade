@@ -47,7 +47,7 @@ exports[`AccountWizardStepResults Component should render a wizard results step 
     <h3
       className="blank-slate-pf-main-action"
     >
-      Error
+      Error 
       Creating
        Account
     </h3>
@@ -93,7 +93,7 @@ exports[`AccountWizardStepResults Component should render a wizard results step 
     <h3
       className="blank-slate-pf-main-action"
     >
-      Error
+      Error 
       Updating
        Account
     </h3>
@@ -131,7 +131,7 @@ exports[`AccountWizardStepResults Component should render a wizard results step 
       <strong>
         test
       </strong>
-      was
+       was 
       created
       .
     </h3>
@@ -164,7 +164,7 @@ exports[`AccountWizardStepResults Component should render a wizard results step 
       <strong>
         test
       </strong>
-      was
+       was 
       updated
       .
     </h3>
@@ -204,11 +204,11 @@ exports[`AccountWizardStepResults Component should render a wizard results step 
     <p
       className="blank-slate-pf-secondary-action"
     >
-      Please wait while account
+      Please wait while account 
       <strong>
         test
       </strong>
-      is being 
+       is being 
       created
       .
     </p>
@@ -248,11 +248,11 @@ exports[`AccountWizardStepResults Component should render a wizard results step 
     <p
       className="blank-slate-pf-secondary-action"
     >
-      Please wait while account
+      Please wait while account 
       <strong>
         test
       </strong>
-      is being 
+       is being 
       updated
       .
     </p>

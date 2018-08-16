@@ -103,7 +103,7 @@ class AccountView extends React.Component {
       );
     }
 
-    if (filter.activeFilters.length) {
+    if (filter.activeFilters && filter.activeFilters.length) {
       return (
         <EmptyState className="list-view-blank-slate">
           <EmptyState.Title>No Results Match the Filter Criteria</EmptyState.Title>
@@ -158,7 +158,7 @@ class AccountView extends React.Component {
       return <div className="cloudmeter-view-container">{this.renderPendingMessage()}</div>;
     }
 
-    if (accounts.length || filter.activeFilters.length) {
+    if (accounts.length || (filter.activeFilters && filter.activeFilters.length)) {
       return (
         <div className="cloudmeter-view-container fadein">
           <Grid fluid>
@@ -191,21 +191,21 @@ class AccountView extends React.Component {
             <EmptyState.Icon />
             <EmptyState.Title>Welcome to Cloud Meter</EmptyState.Title>
             <EmptyState.Info>
-              <p>Add an AWS account to monitor usage of cloud infrastructure products in your environments.</p>
-              <p>
-                When you add an account, you connect it to Cloud Meter by creating a specialized IAM profile and role.
-              </p>
-              <p>
-                For more information about the IAM steps in this process, see the{' '}
-                <a
-                  href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  IAM User Guide
-                </a>
-                .
-              </p>
+              Add an AWS account to monitor usage of cloud infrastructure products in your environments.
+            </EmptyState.Info>
+            <EmptyState.Info>
+              When you add an account, you connect it to Cloud Meter by creating a specialized IAM profile and role.
+            </EmptyState.Info>
+            <EmptyState.Info>
+              For more information about the IAM steps in this process, see the{' '}
+              <a
+                href="https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                IAM User Guide
+              </a>
+              .
             </EmptyState.Info>
             <EmptyState.Action>
               <Button bsStyle="primary" bsSize="large" onClick={this.onAddAccount}>

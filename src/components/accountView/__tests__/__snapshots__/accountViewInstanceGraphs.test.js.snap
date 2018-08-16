@@ -18,6 +18,278 @@ exports[`AccountImagesViewInstanceGraphs Component should render a connected com
 />
 `;
 
+exports[`AccountImagesViewInstanceGraphs Component should render a multiple states: error 1`] = `""`;
+
+exports[`AccountImagesViewInstanceGraphs Component should render a multiple states: fulfilled 1`] = `
+<CardGrid
+  className=""
+  matchHeight={true}
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={4}
+    >
+      <Card
+        accented={false}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph fadein"
+        matchHeight={true}
+      >
+        <CardTitle
+          className=""
+        >
+          Red Hat Enterprise Linux
+        </CardTitle>
+        <CardBody
+          className=""
+        >
+          <UtilizationCardDetails
+            className=""
+          >
+            <UtilizationCardDetailsCount
+              className=""
+            >
+              0
+            </UtilizationCardDetailsCount>
+            <UtilizationCardDetailsDesc
+              className=""
+            >
+              <Label
+                bsStyle="warning"
+                type="default"
+              >
+                <abbr
+                  title="Red Hat Enterprise Linux"
+                >
+                  RHEL
+                </abbr>
+              </Label>
+               
+              Instances
+            </UtilizationCardDetailsDesc>
+          </UtilizationCardDetails>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={4}
+    >
+      <Card
+        accented={false}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph fadein"
+        matchHeight={true}
+      >
+        <CardTitle
+          className=""
+        >
+          Red Hat OpenShift Container Platform
+        </CardTitle>
+        <CardBody
+          className=""
+        >
+          <UtilizationCardDetails
+            className=""
+          >
+            <UtilizationCardDetailsCount
+              className=""
+            >
+              0
+            </UtilizationCardDetailsCount>
+            <UtilizationCardDetailsDesc
+              className=""
+            >
+              <Label
+                bsStyle="primary"
+                type="default"
+              >
+                <abbr
+                  title="Red Hat OpenShift Container Platform"
+                >
+                  RHOCP
+                </abbr>
+              </Label>
+               
+              Instances
+            </UtilizationCardDetailsDesc>
+          </UtilizationCardDetails>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={4}
+    >
+      <Card
+        accented={false}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph fadein"
+        matchHeight={true}
+      >
+        <CardBody
+          className=""
+        >
+          <UtilizationCardDetails
+            className=""
+          >
+            <UtilizationCardDetailsCount
+              className=""
+            >
+              0
+            </UtilizationCardDetailsCount>
+            <UtilizationCardDetailsDesc
+              className=""
+            >
+              Red Hat Enterprise Linux Hours
+            </UtilizationCardDetailsDesc>
+          </UtilizationCardDetails>
+          <UtilizationCardDetails
+            className=""
+          >
+            <UtilizationCardDetailsCount
+              className=""
+            >
+              0
+            </UtilizationCardDetailsCount>
+            <UtilizationCardDetailsDesc
+              className=""
+            >
+              Red Hat OpenShift Container Platform Hours
+            </UtilizationCardDetailsDesc>
+          </UtilizationCardDetails>
+        </CardBody>
+      </Card>
+    </Col>
+  </Row>
+</CardGrid>
+`;
+
+exports[`AccountImagesViewInstanceGraphs Component should render a multiple states: pending 1`] = `
+<CardGrid
+  className=""
+  matchHeight={true}
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={4}
+    >
+      <Card
+        accented={false}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph cloudmeter-utilization-graph-loading fadein"
+        matchHeight={true}
+      >
+        <CardBody
+          className=""
+        >
+          <Spinner
+            className="blank-slate-pf-icon"
+            inline={false}
+            inverse={false}
+            loading={true}
+            size="sm"
+          />
+          <div
+            className="text-center"
+          >
+            <small>
+              Loading...
+            </small>
+          </div>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={4}
+    >
+      <Card
+        accented={false}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph cloudmeter-utilization-graph-loading fadein"
+        matchHeight={true}
+      >
+        <CardBody
+          className=""
+        >
+          <Spinner
+            className="blank-slate-pf-icon"
+            inline={false}
+            inverse={false}
+            loading={true}
+            size="sm"
+          />
+          <div
+            className="text-center"
+          >
+            <small>
+              Loading...
+            </small>
+          </div>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      sm={4}
+    >
+      <Card
+        accented={false}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph cloudmeter-utilization-graph-loading fadein"
+        matchHeight={true}
+      >
+        <CardBody
+          className=""
+        >
+          <Spinner
+            className="blank-slate-pf-icon"
+            inline={false}
+            inverse={false}
+            loading={true}
+            size="sm"
+          />
+          <div
+            className="text-center"
+          >
+            <small>
+              Loading...
+            </small>
+          </div>
+        </CardBody>
+      </Card>
+    </Col>
+  </Row>
+</CardGrid>
+`;
+
 exports[`AccountImagesViewInstanceGraphs Component should render a non-connected component: non-connected 1`] = `
 <div
   class="container-cards-pf container"

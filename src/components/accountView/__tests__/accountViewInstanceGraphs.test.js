@@ -25,4 +25,33 @@ describe('AccountImagesViewInstanceGraphs Component', () => {
 
     expect(component.render()).toMatchSnapshot('non-connected');
   });
+
+  it('should render a multiple states', () => {
+    const props = {
+      filter: { query: {} }
+    };
+
+    const component = shallow(<AccountViewInstanceGraphs {...props} />);
+
+    component.setProps({
+      error: true
+    });
+
+    expect(component).toMatchSnapshot('error');
+
+    component.setProps({
+      error: false,
+      pending: true
+    });
+
+    expect(component).toMatchSnapshot('pending');
+
+    component.setProps({
+      error: false,
+      pending: false,
+      fulfilled: true
+    });
+
+    expect(component).toMatchSnapshot('fulfilled');
+  });
 });

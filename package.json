@@ -27,9 +27,10 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/common/**",
-      "!src/index.js",
-      "!src/setupTests.js",
       "!src/components/app.js",
+      "!src/index.js",
+      "!src/services/index.js",
+      "!src/setupTests.js",
       "!src/redux/index.js",
       "!src/redux/store.js",
       "!src/redux/middleware/**"
@@ -45,8 +46,8 @@
     "build:clean": "rm -rf -- \"$(pwd)\"/build",
     "build:css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/styles/index.scss -o src/styles/.css",
     "build:js": "react-scripts build",
-    "build:rh": "export REACT_APP_RH_BRAND=true && export REACT_APP_UI_COMMIT_HASH=$(git rev-list -1 --all) && run-s -l build:clean build:css build:js",
-    "build": "export REACT_APP_UI_COMMIT_HASH=$(git rev-list -1 --all) && run-s -l build:clean build:css build:js",
+    "build:rh": "sh -ac 'export REACT_APP_RH_BRAND=true && export REACT_APP_UI_COMMIT_HASH=$(git rev-list -1 --all) && run-s -l build:clean build:css build:js'",
+    "build": "sh -ac 'export REACT_APP_UI_COMMIT_HASH=$(git rev-list -1 --all) && run-s -l build:clean build:css build:js'",
     "locale:gettext": "node ./scripts/gettext.js",
     "start:js": "react-scripts start",
     "start:oc": "sh -ac '. ./.env.oc; run-p -l watch:css start:js api:oc'",

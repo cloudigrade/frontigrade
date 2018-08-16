@@ -1,6 +1,6 @@
 import cookies from 'js-cookie';
 import moxios from 'moxios';
-import { userServices } from '..';
+import * as userServices from '../userServices';
 
 describe('UserServices', () => {
   beforeEach(() => {
@@ -9,6 +9,10 @@ describe('UserServices', () => {
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('should export a specific number of methods and classes', () => {
+    expect(Object.keys(userServices)).toHaveLength(7);
   });
 
   it('should have specific methods', () => {

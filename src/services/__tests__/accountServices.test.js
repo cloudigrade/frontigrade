@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import { accountServices } from '..';
+import * as accountServices from '../accountServices';
 
 describe('AccountServices', () => {
   beforeEach(() => {
@@ -14,6 +14,10 @@ describe('AccountServices', () => {
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('should export a specific number of methods and classes', () => {
+    expect(Object.keys(accountServices)).toHaveLength(7);
   });
 
   it('should have specific methods', () => {

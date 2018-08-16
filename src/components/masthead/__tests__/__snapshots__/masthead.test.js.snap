@@ -1,7 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Masthead Component should contain brand: brand 1`] = `
+<Masthead
+  className="cloudmeter-nav"
+  href="#"
+  iconImg=""
+  middleContent={null}
+  navToggle={true}
+  onNavToggleClick={[Function]}
+  onTitleClick={[Function]}
+  thin={false}
+  title="Cloud Meter"
+  titleImg="title-brand.svg"
+>
+  <MastheadCollapse
+    className=""
+  >
+    <MastheadDropdown
+      className=""
+      id="app-help-dropdown"
+      noCaret={false}
+      title={
+        <span
+          aria-hidden={true}
+          className="pficon pficon-help"
+        />
+      }
+    >
+      <MenuItem
+        bsClass="dropdown"
+        className="hidden"
+        disabled={false}
+        divider={false}
+        eventKey="1"
+        header={false}
+        onClick={[Function]}
+      >
+        Help
+      </MenuItem>
+      <MenuItem
+        bsClass="dropdown"
+        disabled={false}
+        divider={false}
+        eventKey="2"
+        header={false}
+        onClick={[Function]}
+      >
+        About
+      </MenuItem>
+    </MastheadDropdown>
+    <MastheadDropdown
+      className=""
+      id="app-user-dropdown"
+      noCaret={false}
+      title={
+        <React.Fragment>
+          <Icon
+            name="user"
+            type="pf"
+          />
+           
+        </React.Fragment>
+      }
+    >
+      <MenuItem
+        bsClass="dropdown"
+        disabled={false}
+        divider={false}
+        header={false}
+        onClick={[Function]}
+      >
+        Logout
+      </MenuItem>
+    </MastheadDropdown>
+  </MastheadCollapse>
+</Masthead>
+`;
+
 exports[`Masthead Component should render a basic component: basic 1`] = `
 <Masthead
+  brand={false}
   logoutUser={[Function]}
   user={
     Object {

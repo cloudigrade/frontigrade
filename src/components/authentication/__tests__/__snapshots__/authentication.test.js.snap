@@ -1,5 +1,186 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Authentication Component should contain brand: brand 1`] = `
+<div
+  className="login-pf cloudmeter-login fadein"
+>
+  <div
+    className="login-pf-page cloudmeter-login-body"
+  >
+    <div
+      className="container-fluid"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          lg={6}
+          lgOffset={3}
+          md={6}
+          mdOffset={3}
+          sm={8}
+          smOffset={2}
+        >
+          <header
+            className="login-pf-page-header"
+          >
+            <img
+              alt="Cloud Meter"
+              className="login-pf-brand cloudmeter-login-brand"
+              src="title-brand.svg"
+            />
+          </header>
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              lg={8}
+              lgOffset={2}
+              md={8}
+              mdOffset={2}
+              sm={10}
+              smOffset={1}
+            >
+              <Card
+                accented={false}
+                aggregated={false}
+                aggregatedMini={false}
+                cardRef={null}
+                className="cloudmeter-login-card"
+                matchHeight={false}
+              >
+                <header
+                  className="login-pf-header"
+                >
+                  <select
+                    className="selectpicker"
+                  >
+                    <option>
+                      English
+                    </option>
+                  </select>
+                  <h1>
+                    Log In to Your Account
+                  </h1>
+                </header>
+                <CardBody
+                  className=""
+                >
+                  <Form
+                    autoComplete="off"
+                    bsClass="form"
+                    componentClass="form"
+                    horizontal={false}
+                    inline={false}
+                    method="post"
+                    onSubmit={[Function]}
+                  >
+                    <div
+                      aria-live="polite"
+                      className="cloudmeter-login-card-error help-block"
+                    />
+                    <FormGroup
+                      bsClass="form-group"
+                      controlId="email"
+                    >
+                      <ControlLabel
+                        bsClass="control-label"
+                        srOnly={true}
+                      >
+                        Email address
+                      </ControlLabel>
+                      <FormControl
+                        bsClass="form-control"
+                        bsSize="lg"
+                        componentClass="input"
+                        name="email"
+                        onChange={[Function]}
+                        placeholder="Email address"
+                        required={true}
+                        type="email"
+                        value=""
+                      />
+                    </FormGroup>
+                    <FormGroup
+                      bsClass="form-group"
+                      controlId="password"
+                    >
+                      <ControlLabel
+                        bsClass="control-label"
+                        srOnly={true}
+                      >
+                        Password
+                      </ControlLabel>
+                      <FormControl
+                        bsClass="form-control"
+                        bsSize="lg"
+                        componentClass="input"
+                        name="password"
+                        onChange={[Function]}
+                        placeholder="Password"
+                        required={true}
+                        type="password"
+                        value=""
+                      />
+                    </FormGroup>
+                    <FormGroup
+                      bsClass="form-group"
+                      className="login-pf-settings cloudmeter-login-settings"
+                      controlId="remember"
+                    >
+                      <Checkbox
+                        bsClass="checkbox"
+                        checked={false}
+                        className="checkbox-label"
+                        disabled={false}
+                        inline={true}
+                        name="remember"
+                        onChange={[Function]}
+                        title=""
+                      >
+                        Remember email address
+                      </Checkbox>
+                      <Button
+                        active={false}
+                        block={false}
+                        bsClass="btn"
+                        bsStyle="link"
+                        className="sr-only"
+                        disabled={false}
+                      >
+                        Forgot password?
+                      </Button>
+                    </FormGroup>
+                    <Button
+                      active={false}
+                      block={false}
+                      bsClass="btn"
+                      bsSize="large"
+                      bsStyle="primary"
+                      className="btn-block"
+                      disabled={false}
+                      type="submit"
+                    >
+                      Log In
+                    </Button>
+                  </Form>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Authentication Component should have specific events defined: expected state 1`] = `
 Object {
   "email": "",
@@ -14,6 +195,7 @@ Object {
 
 exports[`Authentication Component should render a basic component with login form: connected 1`] = `
 <Authentication
+  brand={false}
   checkUser={[Function]}
   loginUser={[Function]}
   removeStoredData={[Function]}

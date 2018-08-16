@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import { systemConfigServices } from '..';
+import * as systemConfigServices from '../systemConfigServices';
 
 describe('SystemConfigServices', () => {
   beforeEach(() => {
@@ -14,6 +14,10 @@ describe('SystemConfigServices', () => {
 
   afterEach(() => {
     moxios.uninstall();
+  });
+
+  it('should export a specific number of methods and classes', () => {
+    expect(Object.keys(systemConfigServices)).toHaveLength(2);
   });
 
   it('should have specific methods', () => {

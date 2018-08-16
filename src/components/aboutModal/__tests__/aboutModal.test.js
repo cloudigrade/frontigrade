@@ -25,4 +25,13 @@ describe('AboutModal Component', () => {
     component.setState({ show: true });
     expect(component).toMatchSnapshot('show modal');
   });
+
+  it('should contain brand', () => {
+    const props = {
+      show: true,
+      brand: true
+    };
+    const component = shallow(<AboutModal {...props} />);
+    expect(component).toMatchSnapshot('brand');
+  });
 });

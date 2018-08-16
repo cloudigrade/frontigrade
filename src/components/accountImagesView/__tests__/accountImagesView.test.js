@@ -63,6 +63,48 @@ describe('AccountImagesView Component', () => {
       }
     });
 
-    expect(component).toMatchSnapshot('pending with list');
+    expect(component).toMatchSnapshot('pending with no visible list');
+  });
+
+  it('should render a non-connected component in fulfilled state', () => {
+    const props = {
+      fulfilled: true,
+      history: {
+        push: helpers.noop
+      }
+    };
+
+    const component = shallow(<AccountImagesView {...props} />);
+
+    expect(component.render()).toMatchSnapshot('fulfilled and empty');
+
+    component.setProps({
+      account: {
+        fulfilled: true
+      },
+      images: [
+        {
+          cloud_image_id: 'ami-rhel7',
+          id: 2,
+          instances_seen: 2,
+          is_encrypted: false,
+          name: null,
+          openshift: false,
+          openshift_challenged: false,
+          openshift_detected: false,
+          rhel: true,
+          rhel_challenged: false,
+          rhel_detected: true,
+          runtime_seconds: 86400.5,
+          status: 'inspected'
+        }
+      ],
+      filter: {
+        dateFields: null,
+        query: {}
+      }
+    });
+
+    expect(component).toMatchSnapshot('fulfilled with list');
   });
 });

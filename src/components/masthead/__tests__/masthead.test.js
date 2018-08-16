@@ -48,4 +48,12 @@ describe('Masthead Component', () => {
     componentInstance.onLogoutUser(mockEvent);
     expect(logoutUser).toHaveBeenCalled();
   });
+
+  it('should contain brand', () => {
+    const props = {
+      brand: true
+    };
+    const component = shallow(<Masthead {...props} />);
+    expect(component).toMatchSnapshot('brand');
+  });
 });

@@ -116,7 +116,7 @@ class AccountImagesView extends React.Component {
       );
     }
 
-    if (filter.activeFilters.length) {
+    if (filter.activeFilters && filter.activeFilters.length) {
       return (
         <EmptyState className="list-view-blank-slate">
           <EmptyState.Title>No Results Match the Filter Criteria</EmptyState.Title>
@@ -189,7 +189,7 @@ class AccountImagesView extends React.Component {
     }
 
     // ToDo: Replace filterFields={[]} with filterFields={accountImagesViewTypes.filterFields} when the name filter is active.
-    if ((account.fulfilled && fulfilled) || filter.activeFilters.length) {
+    if ((account.fulfilled && fulfilled) || (filter.activeFilters && filter.activeFilters.length)) {
       return (
         <div className="cloudmeter-view-container fadein">
           <Grid fluid>
@@ -199,9 +199,11 @@ class AccountImagesView extends React.Component {
                   <Breadcrumb.Item onClick={e => this.backToAccounts(e)}>Accounts</Breadcrumb.Item>
                   <Breadcrumb.Item active aria-current="page">
                     <strong>
-                      {account.data[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
-                        account.data[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
-                        `Account ${account.data[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`}
+                      {(account.data &&
+                        (account.data[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
+                          account.data[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
+                          `Account ${account.data[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`)) ||
+                        ''}
                     </strong>
                   </Breadcrumb.Item>
                 </Breadcrumb>
@@ -244,7 +246,9 @@ class AccountImagesView extends React.Component {
 }
 
 AccountImagesView.propTypes = {
-  account: PropTypes.object,
+  account: PropTypes.shape({
+    data: PropTypes.object
+  }),
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
   filter: PropTypes.shape({

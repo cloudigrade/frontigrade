@@ -220,7 +220,7 @@ class Authentication extends React.Component {
   }
 
   render() {
-    const { children, session } = this.props;
+    const { brand, children, session } = this.props;
 
     if (session.authorized) {
       return children;
@@ -235,7 +235,7 @@ class Authentication extends React.Component {
                 <header className="login-pf-page-header">
                   <img
                     className="login-pf-brand cloudmeter-login-brand"
-                    src={helpers.RH_BRAND ? titleImgBrand : titleImg}
+                    src={brand ? titleImgBrand : titleImg}
                     alt="Cloud Meter"
                   />
                 </header>
@@ -255,6 +255,7 @@ class Authentication extends React.Component {
 }
 
 Authentication.propTypes = {
+  brand: PropTypes.bool,
   checkUser: PropTypes.func,
   children: PropTypes.node.isRequired,
   loginUser: PropTypes.func,
@@ -271,6 +272,7 @@ Authentication.propTypes = {
 };
 
 Authentication.defaultProps = {
+  brand: helpers.RH_BRAND,
   checkUser: helpers.noop,
   loginUser: helpers.noop,
   removeStoredData: helpers.noop,
