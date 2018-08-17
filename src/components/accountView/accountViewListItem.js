@@ -4,6 +4,7 @@ import moment from 'moment';
 import { DropdownKebab, Icon, ListView, Label as PFLabel, MenuItem } from 'patternfly-react';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
+import Tooltip from '../tooltip/tooltip';
 
 class AccountViewListItem extends React.Component {
   kebab = React.createRef();
@@ -87,26 +88,56 @@ class AccountViewListItem extends React.Component {
     const rhos =
       item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT];
 
+    const imagesPopover = (
+      <React.Fragment>
+        Total number of machine images that are in use by active instances for the selected date range.
+      </React.Fragment>
+    );
+
+    const instancesPopover = (
+      <React.Fragment>Total number of active instances for the selected date range.</React.Fragment>
+    );
+
+    const rhelPopover = (
+      <React.Fragment>
+        Number of instances that are running Red Hat Enterprise Linux for the selected date range.
+      </React.Fragment>
+    );
+
+    const rhocpPopover = (
+      <React.Fragment>
+        Number of instances that are running Red Hat OpenShift Container Platform for the selected date range.
+      </React.Fragment>
+    );
+
     return [
       <ListView.InfoItem key="1" className="cloudmeter-listview-infoitem">
-        <Icon type="pf" name="cluster" />
-        <strong>{images}</strong> Images
+        <Tooltip delayShow={100} popover={imagesPopover} trigger="click">
+          <Icon type="pf" name="cluster" />
+          <strong>{images}</strong> Images
+        </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="2" className="cloudmeter-listview-infoitem">
-        <Icon type="pf" name="screen" />
-        <strong>{instances}</strong> Instances
+        <Tooltip delayShow={100} popover={instancesPopover} trigger="click">
+          <Icon type="pf" name="screen" />
+          <strong>{instances}</strong> Instances
+        </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label">
-        <strong>{rhel}</strong>
-        <PFLabel bsStyle="warning">
-          <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-        </PFLabel>
+        <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
+          <strong>{rhel}</strong>
+          <PFLabel bsStyle="warning">
+            <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
+          </PFLabel>
+        </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="4" className="cloudmeter-listview-label">
-        <strong>{rhos}</strong>
-        <PFLabel bsStyle="primary">
-          <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-        </PFLabel>
+        <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
+          <strong>{rhos}</strong>
+          <PFLabel bsStyle="primary">
+            <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
+          </PFLabel>
+        </Tooltip>
       </ListView.InfoItem>
     ];
   }

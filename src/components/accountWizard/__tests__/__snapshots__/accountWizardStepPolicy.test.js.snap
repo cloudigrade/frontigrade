@@ -91,6 +91,7 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
                 </li>
               </ul>
             }
+            rootClose={true}
             tooltip={null}
             trigger={
               Array [

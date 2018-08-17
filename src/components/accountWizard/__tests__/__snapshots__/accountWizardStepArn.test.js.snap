@@ -53,6 +53,7 @@ exports[`AccountWizardStepArn Component should render a wizard ARN step: connect
                 </li>
               </ul>
             }
+            rootClose={true}
             tooltip={null}
             trigger={
               Array [

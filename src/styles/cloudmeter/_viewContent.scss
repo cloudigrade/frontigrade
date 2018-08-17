@@ -248,6 +248,7 @@
   .cloudmeter-listview-infoitem,
   .cloudmeter-listview-label {
     flex: 1;
+    white-space: nowrap;
   }
 
   .cloudmeter-listview-label-hidden {

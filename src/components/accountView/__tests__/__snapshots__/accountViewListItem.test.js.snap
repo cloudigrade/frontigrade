@@ -47,57 +47,65 @@ exports[`AccountViewListItem Component should render 1`] = `
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
         >
-          <span
-            aria-hidden="true"
-            class="pficon pficon-cluster"
-          />
-          <strong>
-            1
-          </strong>
-           Images
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-cluster"
+            />
+            <strong>
+              1
+            </strong>
+             Images
+          </span>
         </div>
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
         >
-          <span
-            aria-hidden="true"
-            class="pficon pficon-screen"
-          />
-          <strong>
-            2
-          </strong>
-           Instances
-        </div>
-        <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-label"
-        >
-          <strong>
-            1
-          </strong>
-          <span
-            class="label label-warning"
-          >
-            <abbr
-              title="Red Hat Enterprise Linux"
-            >
-              RHEL
-            </abbr>
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-screen"
+            />
+            <strong>
+              2
+            </strong>
+             Instances
           </span>
         </div>
         <div
           class="list-view-pf-additional-info-item cloudmeter-listview-label"
         >
-          <strong>
-            N/A
-          </strong>
-          <span
-            class="label label-primary"
-          >
-            <abbr
-              title="Red Hat OpenShift Container Platform"
+          <span>
+            <strong>
+              1
+            </strong>
+            <span
+              class="label label-warning"
             >
-              RHOCP
-            </abbr>
+              <abbr
+                title="Red Hat Enterprise Linux"
+              >
+                RHEL
+              </abbr>
+            </span>
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label"
+        >
+          <span>
+            <strong>
+              N/A
+            </strong>
+            <span
+              class="label label-primary"
+            >
+              <abbr
+                title="Red Hat OpenShift Container Platform"
+              >
+                RHOCP
+              </abbr>
+            </span>
           </span>
         </div>
       </div>

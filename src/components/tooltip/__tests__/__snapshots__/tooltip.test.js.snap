@@ -6,6 +6,7 @@ exports[`Tooltip Component should render a popover: popover 1`] = `
   id="test"
   placement="top"
   popover="hello world"
+  rootClose={true}
   tooltip={null}
   trigger={
     Array [
@@ -26,6 +27,7 @@ exports[`Tooltip Component should render a popover: popover 1`] = `
       </Popover>
     }
     placement="top"
+    rootClose={true}
     trigger={
       Array [
         "hover",
@@ -49,6 +51,7 @@ exports[`Tooltip Component should render a tooltip: tooltip 1`] = `
   id="test"
   placement="top"
   popover={null}
+  rootClose={true}
   tooltip="hello world"
   trigger={
     Array [
@@ -69,6 +72,7 @@ exports[`Tooltip Component should render a tooltip: tooltip 1`] = `
       </Tooltip>
     }
     placement="top"
+    rootClose={true}
     trigger={
       Array [
         "hover",

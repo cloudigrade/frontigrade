@@ -74,12 +74,7 @@ class AccountImagesViewListItem extends React.Component {
     let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
     instances = Number.isNaN(instances) ? '-' : instances;
 
-    const popover = (
-      <React.Fragment>
-        {seconds}
-        seconds
-      </React.Fragment>
-    );
+    const tooltip = <React.Fragment>{seconds} seconds</React.Fragment>;
 
     return [
       <ListView.InfoItem key="1">
@@ -89,7 +84,7 @@ class AccountImagesViewListItem extends React.Component {
       </ListView.InfoItem>,
       <ListView.InfoItem key="2" className="cloudmeter-listview-infoitem">
         {seconds !== null && (
-          <Tooltip delayShow={100} popover={popover}>
+          <Tooltip delayShow={100} tooltip={tooltip}>
             <Icon type="fa" name="clock-o" />
             <strong>{hours}</strong> Hours
           </Tooltip>
