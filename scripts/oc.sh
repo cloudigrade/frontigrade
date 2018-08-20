@@ -78,7 +78,7 @@ startOc()
   local LOCAL_CONFIG="./.env.local"
   local REPO_PATH="${HOME}/.frontigrade"
   local REPO_LOCAL="${HOME}/.frontigrade/shiftigrade"
-  local REPO="https://github.com/cloudigrade/shiftigrade.git"
+  local REPO="https://gitlab.com/cloudigrade/shiftigrade.git"
   local UPDATE=$1
 
   if [ -z "$(git version)" ]; then
@@ -182,7 +182,7 @@ startOc()
 
   startOc $UPDATE
   checkOc 180
-  setupUser $USERNAME $PASSWORD $ENDPOINT
+  # setupUser $USERNAME $PASSWORD $ENDPOINT
 
   oc get pods
   printf "\n${GREEN}Cloudigrade ready to use!${NOCOLOR}\n"

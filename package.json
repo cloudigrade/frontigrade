@@ -7,10 +7,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/cloudigrade/frontigrade.git"
+    "url": "https://gitlab.com/cloudigrade/frontigrade.git"
   },
   "bugs": {
-    "url": "https://github.com/cloudigrade/frontigrade/issues"
+    "url": "https://gitlab.com/cloudigrade/frontigrade/issues"
   },
   "engines": {
     "node": ">=8.0.0"
