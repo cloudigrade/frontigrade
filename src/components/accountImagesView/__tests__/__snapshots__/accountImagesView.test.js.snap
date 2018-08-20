@@ -49,7 +49,7 @@ exports[`AccountImagesView Component should render a non-connected component in 
 </div>
 `;
 
-exports[`AccountImagesView Component should render a non-connected component in fulfilled state: fulfilled with list 1`] = `
+exports[`AccountImagesView Component should render a non-connected component in fulfilled state: fulfilled with a empty list 1`] = `
 <div
   className="cloudmeter-view-container fadein"
 >
@@ -81,7 +81,143 @@ exports[`AccountImagesView Component should render a non-connected component in 
             active={true}
             aria-current="page"
           >
-            <strong />
+            <strong>
+              Account 
+            </strong>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </Col>
+    </Row>
+  </Grid>
+  <ViewToolbar
+    activeFilters={Array []}
+    dateFields={null}
+    dateValue={null}
+    filterField={null}
+    filterFields={Array []}
+    filterValue=""
+    onAddAccount={[Function]}
+    onExport={null}
+    query={Object {}}
+    resultsType="Result"
+    resultsTypePlural="Results"
+    selectedCount={0}
+    sortAscending={true}
+    sortFields={
+      Array [
+        Object {
+          "id": "name",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Name",
+        },
+        Object {
+          "id": "images",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Images",
+        },
+        Object {
+          "id": "instances",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Instances",
+        },
+        Object {
+          "id": "rhel",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "Rhel",
+        },
+        Object {
+          "id": "openshift",
+          "isNumeric": false,
+          "sortAscending": true,
+          "title": "OpenShift",
+        },
+      ]
+    }
+    sortValue={null}
+    totalCount={0}
+    view="accountImages"
+    viewGlobal="accountGlobal"
+  />
+  <div
+    className="cloudmeter-list-container"
+  >
+    <EmptyState
+      className="list-view-blank-slate"
+    >
+      <EmptyStateTitle
+        className=""
+      >
+        No Results Available
+      </EmptyStateTitle>
+      <EmptyStateAction
+        className=""
+        secondary={false}
+      >
+        <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="link"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Reset Date Selector
+        </Button>
+        <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="link"
+          disabled={false}
+          onClick={[Function]}
+        >
+          Return to Accounts
+        </Button>
+      </EmptyStateAction>
+    </EmptyState>
+  </div>
+</div>
+`;
+
+exports[`AccountImagesView Component should render a non-connected component in fulfilled state: fulfilled with a list 1`] = `
+<div
+  className="cloudmeter-view-container fadein"
+>
+  <Grid
+    bsClass="container"
+    componentClass="div"
+    fluid={true}
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}
+      >
+        <Breadcrumb
+          className="cloudmeter-breadcrumb"
+          title={true}
+        >
+          <BreadcrumbItem
+            active={false}
+            onClick={[Function]}
+          >
+            Accounts
+          </BreadcrumbItem>
+          <BreadcrumbItem
+            active={true}
+            aria-current="page"
+          >
+            <strong>
+              Account 
+            </strong>
           </BreadcrumbItem>
         </Breadcrumb>
       </Col>

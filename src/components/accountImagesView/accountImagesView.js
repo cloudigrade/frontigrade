@@ -130,12 +130,12 @@ class AccountImagesView extends React.Component {
       );
     }
 
-    const timestamp = account.data[apiTypes.API_RESPONSE_ACCOUNT_UPDATED_AT];
+    const timestamp = (account.data && account.data[apiTypes.API_RESPONSE_ACCOUNT_UPDATED_AT]) || null;
 
     return (
       <EmptyState className="list-view-blank-slate">
         <EmptyState.Title>No Results Available</EmptyState.Title>
-        <EmptyState.Info>Still processing as of {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</EmptyState.Info>
+        {timestamp && <EmptyState.Info>Last updated {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</EmptyState.Info>}
         <EmptyState.Action>
           {!filter.dateValueDefault && (
             <Button bsStyle="link" onClick={e => this.onClearResetDate(e)}>
@@ -174,10 +174,7 @@ class AccountImagesView extends React.Component {
       return (
         <EmptyState>
           <Alert type="error">
-            <span>
-              Error retrieving images:
-              {errorMessage}
-            </span>
+            <span>Error retrieving images: {errorMessage}</span>
           </Alert>
           {this.renderPendingMessage()}
         </EmptyState>

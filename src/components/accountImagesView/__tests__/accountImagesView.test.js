@@ -80,7 +80,22 @@ describe('AccountImagesView Component', () => {
 
     component.setProps({
       account: {
-        fulfilled: true
+        fulfilled: true,
+        data: {}
+      },
+      images: [],
+      filter: {
+        dateFields: null,
+        query: {}
+      }
+    });
+
+    expect(component).toMatchSnapshot('fulfilled with a empty list');
+
+    component.setProps({
+      account: {
+        fulfilled: true,
+        data: {}
       },
       images: [
         {
@@ -98,13 +113,9 @@ describe('AccountImagesView Component', () => {
           runtime_seconds: 86400.5,
           status: 'inspected'
         }
-      ],
-      filter: {
-        dateFields: null,
-        query: {}
-      }
+      ]
     });
 
-    expect(component).toMatchSnapshot('fulfilled with list');
+    expect(component).toMatchSnapshot('fulfilled with a list');
   });
 });
