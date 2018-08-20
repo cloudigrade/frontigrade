@@ -3,7 +3,19 @@ import { accountTypes, filterTypes } from '../constants';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
-const initialState = {
+/**
+ * ToDo: API-no-default-list, these defaults need to be set at the component level, not reducer
+ * API currently has no default values, we set these defaults in state as temp-fix.
+ * The dateFieldTypes load, and values for lines:
+ *
+ * [apiTypes.API_QUERY_END]: dateFieldTypes.defaultTime.end,
+ * [apiTypes.API_QUERY_START]: dateFieldTypes.defaultTime.start
+ *
+ * Account views are currently DEPENDENT on these 2 defaults.
+ */
+const dateFieldTypes = helpers.generatePriorYearMonthArray();
+
+const baseState = {
   activeFilters: [],
   dateValue: null,
   dateValueDefault: false,
@@ -24,31 +36,31 @@ const initialState = {
   syncView: null
 };
 
-const initialGlobalState = {
+const baseGlobalState = {
   dateValue: null,
   dateValueDefault: false,
   sortAscending: true,
   sortValue: null,
   query: {
-    [apiTypes.API_QUERY_END]: null,
-    [apiTypes.API_QUERY_START]: null,
+    [apiTypes.API_QUERY_END]: dateFieldTypes.defaultTime.end,
+    [apiTypes.API_QUERY_START]: dateFieldTypes.defaultTime.start,
     [apiTypes.API_QUERY_USER_ID]: null
   }
 };
 
-const initialFilterState = {
+const initialState = {
   account: {
-    ...initialState
+    ...baseState
   },
   accountGlobal: {
-    ...initialGlobalState
+    ...baseGlobalState
   },
   accountImages: {
-    ...initialState
+    ...baseState
   }
 };
 
-const filterReducers = (state = initialFilterState, action) => {
+const filterReducers = (state = initialState, action) => {
   const checkActionType =
     (action.view && action.type) || (Object.keys(filterTypes).indexOf(action.type) < 0 && action.type) || null;
 
@@ -86,7 +98,7 @@ const filterReducers = (state = initialFilterState, action) => {
           dateValue: null,
           dateValueDefault: false,
           query: {
-            ...initialFilterState[action.viewGlobal || action.view].query
+            ...initialState[action.viewGlobal || action.view].query
           },
           ...clearViewDateProps
         },

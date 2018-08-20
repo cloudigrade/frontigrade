@@ -1,4 +1,5 @@
 import { filterReducers } from '..';
+import { initialState } from '../filterReducers';
 import { filterTypes as types, accountTypes } from '../../constants';
 import apiTypes from '../../../constants/apiConstants';
 import helpers from '../../../common/helpers';
@@ -6,6 +7,13 @@ import helpers from '../../../common/helpers';
 describe('FilterReducers', () => {
   it('should return the initial state', () => {
     expect(filterReducers.initialState).toBeDefined();
+    expect(Object.keys(filterReducers.initialState).join('') === Object.keys(initialState).join('')).toEqual(true);
+
+    const defaultStartDate = initialState.accountGlobal.query.start;
+    expect(typeof defaultStartDate === 'string' && /\d/.test(defaultStartDate)).toEqual(true);
+
+    const defaultEndDate = initialState.accountGlobal.query.end;
+    expect(typeof defaultEndDate === 'string' && /\d/.test(defaultEndDate)).toEqual(true);
   });
 
   it('should handle all defined types', () => {
