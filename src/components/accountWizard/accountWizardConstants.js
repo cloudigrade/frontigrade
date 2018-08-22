@@ -29,7 +29,7 @@ const addAccountWizardSteps = [
   {
     step: 4,
     label: '4',
-    title: 'Results',
+    title: 'Connect',
     page: <AccountWizardStepResults />,
     subSteps: []
   }

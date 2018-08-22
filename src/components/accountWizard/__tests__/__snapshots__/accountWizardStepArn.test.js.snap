@@ -20,65 +20,27 @@ exports[`AccountWizardStepArn Component should render a wizard ARN step: connect
         className="no-margin-bottom"
       >
         <li>
-          Click 
+          In the 
           <strong>
-            Cloud-Meter-role
+            IAM
           </strong>
-          .
-           
-          <Tooltip
-            delayShow={100}
-            id={null}
-            placement="top"
-            popover={
-              <ul
-                className="cloudmeter-popover-list"
-              >
-                <li>
-                  In 
-                  <strong>
-                    IAM
-                  </strong>
-                   go to the 
-                  <strong>
-                    Roles
-                  </strong>
-                   tab
-                </li>
-                <li>
-                  Click 
-                  <strong>
-                    Cloud-Meter-role
-                  </strong>
-                </li>
-              </ul>
-            }
-            rootClose={true}
-            tooltip={null}
-            trigger={
-              Array [
-                "hover",
-              ]
-            }
-          >
-            <Icon
-              name="info"
-              size="large"
-              type="pf"
-            />
-            <span
-              className="sr-only"
-            >
-              Steps when selecting a role
-            </span>
-          </Tooltip>
+           console, click your new role.
         </li>
         <li>
-          Copy the 
+          In the 
+          <strong>
+            Summary
+          </strong>
+           screen, copy the 
           <strong>
             Role ARN
           </strong>
-           and paste it in the ARN field.
+           and paste it in the following
+           
+          <strong>
+            ARN
+          </strong>
+           field.
         </li>
       </ul>
     </Col>
@@ -98,7 +60,6 @@ exports[`AccountWizardStepArn Component should render a wizard ARN step: connect
       componentClass="input"
       name="arn"
       onChange={[Function]}
-      placeholder="Enter an ARN"
       type="text"
       value=""
     />

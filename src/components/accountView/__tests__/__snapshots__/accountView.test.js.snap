@@ -207,12 +207,17 @@ exports[`AccountView Component should render a non-connected component with empt
       <p
         class="blank-slate-pf-info"
       >
-        Add an AWS account to monitor usage of cloud infrastructure products in your environments.
+        Cloud Meter collects usage analytics data for Red Hat cloud infrastructure products in your environments.
       </p>
       <p
         class="blank-slate-pf-info"
       >
-        When you add an account, you connect it to Cloud Meter by creating a specialized IAM profile and role.
+        Add an AWS account to get started.
+      </p>
+      <p
+        class="blank-slate-pf-info"
+      >
+        Adding an account includes creating a specialized IAM profile and role.
       </p>
       <p
         class="blank-slate-pf-info"

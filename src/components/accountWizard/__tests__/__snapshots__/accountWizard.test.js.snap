@@ -55,7 +55,7 @@ exports[`AccountView Component should render a wizard: connected 1`] = `
             onClick={[Function]}
             step={4}
             stepIndex={3}
-            title="Results"
+            title="Connect"
           />,
         ]
       }
@@ -100,7 +100,7 @@ exports[`AccountView Component should render a wizard: connected 1`] = `
           activeStepIndex={0}
           activeSubStepIndex={null}
           className=""
-          key="Results"
+          key="Connect"
           stepIndex={3}
           subStepIndex={null}
         >

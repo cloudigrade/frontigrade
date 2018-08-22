@@ -16,7 +16,24 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
     error={null}
     errorMessage={null}
     id={null}
-    label="Account Name"
+    label={
+      <div
+        className="cloudmeter-label-nowrap"
+      >
+        Account Name 
+        <FieldLevelHelp
+          buttonClass=""
+          close={true}
+          content={
+            <p>
+              The name or alternative name for the account. Account names must be unique.
+            </p>
+          }
+          placement="top"
+          rootClose={true}
+        />
+      </div>
+    }
   >
     <FormControl
       autoFocus={true}
@@ -25,7 +42,6 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
       maxLength={256}
       name="accountName"
       onChange={[Function]}
-      placeholder="Enter a name for this account"
       type="text"
       value=""
     />
@@ -48,72 +64,16 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
     >
       <ul>
         <li>
-          Create a new policy in the AWS
+          Sign in to the 
+          <strong>
+            AWS Identity Access Management
+          </strong>
+           (IAM) console.
            
-          <a
-            href="https://console.aws.amazon.com/iam"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Identity and Access Management
-          </a>
-          .
-           
-          <Tooltip
-            delayShow={100}
-            id={null}
-            placement="top"
-            popover={
-              <ul
-                className="cloudmeter-popover-list"
-              >
-                <li>
-                  Log in to AWS console
-                </li>
-                <li>
-                  Search Services to go to IAM
-                </li>
-                <li>
-                  Click Roles in the left nav
-                </li>
-                <li>
-                  Click the 
-                  <strong>
-                    Create role
-                  </strong>
-                   button
-                </li>
-                <li>
-                  Click 
-                  <strong>
-                    Another AWS account
-                  </strong>
-                </li>
-              </ul>
-            }
-            rootClose={true}
-            tooltip={null}
-            trigger={
-              Array [
-                "hover",
-              ]
-            }
-          >
-            <Icon
-              name="info"
-              size="large"
-              type="pf"
-            />
-            <span
-              className="sr-only"
-            >
-              Steps when logging into AWS Identity and Access Management
-            </span>
-          </Tooltip>
         </li>
         <li>
           <p>
-            In the JSON editor replace the contents with:
+            Create a new policy, pasting the following content into the JSON text box.
           </p>
           <CopyField
             expandDescription={null}
@@ -149,22 +109,7 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
           />
         </li>
         <li>
-          Click 
-          <strong>
-            Review policy
-          </strong>
-          .
-        </li>
-        <li>
-          Name the policy 
-          <strong>
-            Cloud-Meter-policy
-          </strong>
-           and click 
-          <strong>
-            Create policy
-          </strong>
-          .
+          Complete the process to create your new policy.
         </li>
       </ul>
     </Col>

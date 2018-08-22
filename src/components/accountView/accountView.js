@@ -188,11 +188,10 @@ class AccountView extends React.Component {
             <EmptyState.Icon />
             <EmptyState.Title>Welcome to Cloud Meter</EmptyState.Title>
             <EmptyState.Info>
-              Add an AWS account to monitor usage of cloud infrastructure products in your environments.
+              Cloud Meter collects usage analytics data for Red Hat cloud infrastructure products in your environments.
             </EmptyState.Info>
-            <EmptyState.Info>
-              When you add an account, you connect it to Cloud Meter by creating a specialized IAM profile and role.
-            </EmptyState.Info>
+            <EmptyState.Info>Add an AWS account to get started.</EmptyState.Info>
+            <EmptyState.Info>Adding an account includes creating a specialized IAM profile and role.</EmptyState.Info>
             <EmptyState.Info>
               For more information about the IAM steps in this process, see the{' '}
               <a

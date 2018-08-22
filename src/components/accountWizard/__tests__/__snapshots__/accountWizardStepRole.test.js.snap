@@ -12,34 +12,26 @@ exports[`AccountWizardStepRole Component should render a wizard policy step: unc
     >
       <ul>
         <li>
-          Create a new role in the AWS
-          <a
-            href="https://console.aws.amazon.com/iam"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Identity and Access Management
-          </a>
-          .
-          <span>
-            <span
-              aria-hidden="true"
-              class="pficon pficon-info"
-            />
-            <span
-              class="sr-only"
-            >
-              Steps when logging into AWS Identity and Access Management
-            </span>
-          </span>
+          In the 
+          <strong>
+            IAM
+          </strong>
+           console, create a new role.
+        </li>
+        <li>
+          Choose 
+          <strong>
+            Another AWS Account
+          </strong>
+           as the trusted entity type.
         </li>
         <li>
           <p>
-            Paste this value into the Account ID field under 
+            Paste the following content into the 
             <strong>
-              Another AWS account
+              Account ID
             </strong>
-            :
+             field.
           </p>
           <div
             aria-live="polite"
@@ -69,22 +61,7 @@ exports[`AccountWizardStepRole Component should render a wizard policy step: unc
           </div>
         </li>
         <li>
-          In the next step, select 
-          <strong>
-            Cloud-Meter-policy
-          </strong>
-          .
-        </li>
-        <li>
-          Continue, name the role 
-          <strong>
-            Cloud-Meter-role
-          </strong>
-          , and click 
-          <strong>
-            Create role
-          </strong>
-          .
+          In the permissions step, attach your new policy. Complete the process to create your new role.
         </li>
       </ul>
     </div>

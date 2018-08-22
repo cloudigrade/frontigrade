@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Grid, Icon } from 'patternfly-react';
+import { FieldLevelHelp, Form, Grid } from 'patternfly-react';
 import { awsPolicySetup } from '../../common/configuration.json';
 import helpers from '../../common/helpers';
 import { connect, reduxTypes, store } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import { FormField, fieldValidation } from '../formField/formField';
 import CopyField from '../copyField/copyField';
-import Tooltip from '../tooltip/tooltip';
 
 // FixMe: API - Hard Coded Values - "AwsAccount"
 class AccountWizardStepPolicy extends React.Component {
@@ -19,9 +18,7 @@ class AccountWizardStepPolicy extends React.Component {
 
   onChangeAccountName = event => {
     const { value } = event.target;
-    const errorMessage = fieldValidation.doesntHaveMinimumCharacters(value, 3)
-      ? 'Enter minimum of 3 characters for account name'
-      : '';
+    const errorMessage = fieldValidation.doesntHaveMinimumCharacters(value, 1) ? 'You must name your account' : '';
 
     this.setState(
       {
@@ -63,33 +60,22 @@ class AccountWizardStepPolicy extends React.Component {
       stepError = stepPolicyErrorMessage;
     }
 
-    const popover = (
-      <ul className="cloudmeter-popover-list">
-        <li>Log in to AWS console</li>
-        <li>Search Services to go to IAM</li>
-        <li>Click Roles in the left nav</li>
-        <li>
-          Click the <strong>Create role</strong> button
-        </li>
-        <li>
-          Click <strong>Another AWS account</strong>
-        </li>
-      </ul>
+    const popover = <p>The name or alternative name for the account. Account names must be unique.</p>;
+
+    const nameLabel = (
+      <div className="cloudmeter-label-nowrap">
+        Account Name <FieldLevelHelp content={popover} close />
+      </div>
     );
 
     return (
       <Form horizontal onSubmit={this.onSubmit}>
-        <FormField
-          label="Account Name"
-          error={stepError || accountNameError}
-          errorMessage={stepError || accountNameError}
-        >
+        <FormField label={nameLabel} error={stepError || accountNameError} errorMessage={stepError || accountNameError}>
           <Form.FormControl
             autoFocus
             type="text"
             name="accountName"
             value={accountName}
-            placeholder="Enter a name for this account"
             maxLength={256}
             onChange={this.onChangeAccountName}
           />
@@ -99,26 +85,13 @@ class AccountWizardStepPolicy extends React.Component {
           <Grid.Col sm={12} className="padding-left">
             <ul>
               <li>
-                Create a new policy in the AWS{' '}
-                <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
-                  Identity and Access Management
-                </a>
-                .{' '}
-                <Tooltip delayShow={100} popover={popover}>
-                  <Icon type="pf" name="info" size="large" />
-                  <span className="sr-only">Steps when logging into AWS Identity and Access Management</span>
-                </Tooltip>
+                Sign in to the <strong>AWS Identity Access Management</strong> (IAM) console.{' '}
               </li>
               <li>
-                <p>In the JSON editor replace the contents with:</p>
+                <p>Create a new policy, pasting the following content into the JSON text box.</p>
                 <CopyField multiline value={policySetupConfig} />
               </li>
-              <li>
-                Click <strong>Review policy</strong>.
-              </li>
-              <li>
-                Name the policy <strong>Cloud-Meter-policy</strong> and click <strong>Create policy</strong>.
-              </li>
+              <li>Complete the process to create your new policy.</li>
             </ul>
           </Grid.Col>
         </Form.FormGroup>

@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Grid, Icon } from 'patternfly-react';
+import { Form, Grid } from 'patternfly-react';
 import { connect, reduxTypes, store } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import { FormField } from '../formField/formField';
-import Tooltip from '../tooltip/tooltip';
 
 class AccountWizardStepArn extends React.Component {
   state = {
@@ -55,31 +54,17 @@ class AccountWizardStepArn extends React.Component {
       stepError = stepArnErrorMessage;
     }
 
-    const popover = (
-      <ul className="cloudmeter-popover-list">
-        <li>
-          In <strong>IAM</strong> go to the <strong>Roles</strong> tab
-        </li>
-        <li>
-          Click <strong>Cloud-Meter-role</strong>
-        </li>
-      </ul>
-    );
-
     return (
       <Form horizontal onSubmit={this.onSubmit}>
         <Form.FormGroup>
           <Grid.Col sm={12}>
             <ul className="no-margin-bottom">
               <li>
-                Click <strong>Cloud-Meter-role</strong>.{' '}
-                <Tooltip delayShow={100} popover={popover}>
-                  <Icon type="pf" name="info" size="large" />
-                  <span className="sr-only">Steps when selecting a role</span>
-                </Tooltip>
+                In the <strong>IAM</strong> console, click your new role.
               </li>
               <li>
-                Copy the <strong>Role ARN</strong> and paste it in the ARN field.
+                In the <strong>Summary</strong> screen, copy the <strong>Role ARN</strong> and paste it in the following{' '}
+                <strong>ARN</strong> field.
               </li>
             </ul>
           </Grid.Col>
@@ -91,13 +76,7 @@ class AccountWizardStepArn extends React.Component {
           colLabel={2}
           colField={10}
         >
-          <Form.FormControl
-            type="text"
-            name="arn"
-            value={accountArn}
-            placeholder="Enter an ARN"
-            onChange={this.onChangeAccountArn}
-          />
+          <Form.FormControl type="text" name="arn" value={accountArn} onChange={this.onChangeAccountArn} />
           <Form.HelpBlock>ex: arn:aws:iam::123456789012:role/Cloud-Meter-role</Form.HelpBlock>
         </FormField>
       </Form>
