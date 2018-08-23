@@ -49,32 +49,43 @@ const generateHoursFromSeconds = seconds => {
 };
 
 const generatePriorYearMonthArray = () => {
-  const dateStart = moment().subtract(12, 'months');
-  const dateEnd = moment().startOf('month');
+  const dateStart = moment()
+    .utc()
+    .subtract(12, 'months');
+  const dateEnd = moment()
+    .utc()
+    .startOf('month');
 
   let timeValues = [];
 
   while (dateEnd > dateStart || dateStart.format('M') === dateEnd.format('M')) {
-    timeValues.push({
+    const tempObj = {
       title: dateStart.startOf('month').format('YYYY MMMM'),
-      start: dateStart.startOf('month').toISOString(),
-      end: dateStart.endOf('month').toISOString()
-    });
+      start: dateStart.startOf('month').format()
+    };
 
     dateStart.add(1, 'month');
+
+    tempObj.end = dateStart.startOf('month').format();
+
+    timeValues.push(tempObj);
   }
 
   timeValues = timeValues.reverse();
+
   timeValues[0] = {
     default: true,
     title: 'Last 30 Days',
     start: moment()
+      .utc()
       .startOf('day')
       .subtract(30, 'days')
-      .toISOString(),
+      .format(),
     end: moment()
-      .endOf('day')
-      .toISOString()
+      .utc()
+      .add(1, 'day')
+      .startOf('day')
+      .format()
   };
 
   return { defaultTime: timeValues[0], timeValues };
