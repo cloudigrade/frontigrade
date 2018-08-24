@@ -216,7 +216,7 @@ exports[`AccountEditModal Component should render a connected component with def
   errorMessage={null}
   pending={false}
   show={true}
-  updateAccount={[Function]}
+  updateAccountField={[Function]}
 />
 `;
 

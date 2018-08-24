@@ -51,15 +51,14 @@ class AccountEditModal extends React.Component {
 
   onSubmit = event => {
     const { accountName, resourceType, formValid } = this.state;
-    const { account, updateAccount } = this.props;
+    const { account, updateAccountField } = this.props;
 
     event.preventDefault();
 
     if (formValid) {
-      updateAccount(account[apiTypes.API_RESPONSE_ACCOUNTS_ID], {
+      updateAccountField(account[apiTypes.API_RESPONSE_ACCOUNTS_ID], {
         [apiTypes.API_SUBMIT_ACCOUNT_NAME]: accountName,
-        [apiTypes.API_SUBMIT_ACCOUNT_RESOURCE_TYPE]: resourceType,
-        [apiTypes.API_SUBMIT_ACCOUNT_ARN]: account[apiTypes.API_RESPONSE_ACCOUNTS_ARN]
+        [apiTypes.API_SUBMIT_ACCOUNT_RESOURCE_TYPE]: resourceType
       }).then(
         () => {
           this.onCancel();
@@ -222,18 +221,18 @@ AccountEditModal.propTypes = {
   errorMessage: PropTypes.string,
   pending: PropTypes.bool,
   show: PropTypes.bool.isRequired,
-  updateAccount: PropTypes.func
+  updateAccountField: PropTypes.func
 };
 
 AccountEditModal.defaultProps = {
   error: false,
   errorMessage: null,
   pending: false,
-  updateAccount: helpers.noop
+  updateAccountField: helpers.noop
 };
 
 const mapDispatchToProps = dispatch => ({
-  updateAccount: (id, data) => dispatch(reduxActions.account.updateAccount(id, data))
+  updateAccountField: (id, data) => dispatch(reduxActions.account.updateAccountField(id, data))
 });
 
 const mapStateToProps = state => ({ ...state.accountEditModal });
