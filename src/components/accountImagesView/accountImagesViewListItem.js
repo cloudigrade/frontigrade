@@ -30,7 +30,6 @@ class AccountImagesViewListItem extends React.Component {
   renderHeading() {
     const { item } = this.props;
 
-    // ToDo:
     return item[apiTypes.API_RESPONSE_IMAGES_NAME] || `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID]}`;
   }
 

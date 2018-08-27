@@ -78,10 +78,23 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
           <CopyField
             expandDescription={null}
             id={null}
-            label="Copy"
-            labelDescription={null}
+            label={
+              <Icon
+                name="paste"
+                type="fa"
+              />
+            }
+            labelClicked={
+              <Icon
+                name="check"
+                type="fa"
+              />
+            }
+            labelClickedDescription="Copied"
+            labelDescription="Copy to Clipboard"
             multiline={true}
             resetTimer={8000}
+            tooltipPlacement="top"
             value="{
   \\"Version\\": \\"2012-10-17\\",
   \\"Statement\\": [

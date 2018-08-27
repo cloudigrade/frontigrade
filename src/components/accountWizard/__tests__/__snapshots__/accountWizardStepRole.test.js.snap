@@ -51,10 +51,14 @@ exports[`AccountWizardStepRole Component should render a wizard policy step: unc
                 class="input-group-btn"
               >
                 <button
+                  aria-label="Copy to Clipboard"
                   class="btn btn-default"
                   type="button"
                 >
-                  Copy
+                  <span
+                    aria-hidden="true"
+                    class="fa fa-paste"
+                  />
                 </button>
               </span>
             </span>

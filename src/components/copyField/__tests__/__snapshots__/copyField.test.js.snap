@@ -45,10 +45,14 @@ exports[`CopyField Component should render a multi-line copy component: multi-li
       class="input-group-btn"
     >
       <button
+        aria-label="Copy to Clipboard"
         class="btn btn-default"
         type="button"
       >
-        Copy
+        <span
+          aria-hidden="true"
+          class="fa fa-paste"
+        />
       </button>
     </span>
   </span>
@@ -74,10 +78,14 @@ exports[`CopyField Component should render a single-line copy component: single-
       class="input-group-btn"
     >
       <button
+        aria-label="Copy to Clipboard"
         class="btn btn-default"
         type="button"
       >
-        Copy
+        <span
+          aria-hidden="true"
+          class="fa fa-paste"
+        />
       </button>
     </span>
   </span>

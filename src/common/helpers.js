@@ -11,11 +11,8 @@ const copyClipboard = text => {
     newTextarea.appendChild(document.createTextNode(text));
 
     newTextarea.style.position = 'absolute';
-    newTextarea.style.top = '-1000px';
-    newTextarea.style.left = '-1000px';
-    newTextarea.style.overflow = 'hidden';
-    newTextarea.style.width = '1px';
-    newTextarea.style.height = '1px';
+    newTextarea.style.top = '-9999px';
+    newTextarea.style.left = '-9999px';
 
     const range = document.createRange();
     window.document.body.appendChild(newTextarea);
