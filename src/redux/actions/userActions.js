@@ -18,6 +18,11 @@ const deleteUser = data => dispatch =>
     payload: userServices.deleteUser(data)
   });
 
+const getLocale = () => ({
+  type: userTypes.USER_LOCALE,
+  payload: userServices.getLocale()
+});
+
 const loginUser = data => dispatch =>
   dispatch({
     type: userTypes.USER_LOGIN,
@@ -40,4 +45,4 @@ const storeData = data => dispatch =>
     payload: userServices.storeData(data)
   });
 
-export { checkUser, createUser, deleteUser, loginUser, logoutUser, removeStoredData, storeData };
+export { checkUser, createUser, deleteUser, getLocale, loginUser, logoutUser, removeStoredData, storeData };

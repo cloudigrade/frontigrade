@@ -13,7 +13,8 @@ const initialState = {
     remember: false,
     storedEmail: null,
     username: null,
-    email: null
+    email: null,
+    locale: null
   },
   user: {
     error: false,
@@ -47,6 +48,7 @@ const userReducers = (state = initialState, action) => {
         {
           error: action.error,
           errorMessage: action.payload.message,
+          locale: state.session.locale,
           loginFailed: true
         },
         {
@@ -73,6 +75,7 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
+          locale: state.session.locale,
           pending: true
         },
         {
@@ -130,12 +133,25 @@ const userReducers = (state = initialState, action) => {
         }
       );
 
+    case helpers.FULFILLED_ACTION(userTypes.USER_LOCALE):
+      return helpers.setStateProp(
+        'session',
+        {
+          locale: action.payload.data
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
     case helpers.FULFILLED_ACTION(userTypes.USER_LOGIN):
       return helpers.setStateProp(
         'session',
         {
-          fulfilled: true,
           authorized: true,
+          fulfilled: true,
+          locale: state.session.locale,
           remember: state.session.remember,
           storedEmail: state.session.storedEmail
         },
@@ -150,6 +166,7 @@ const userReducers = (state = initialState, action) => {
         'session',
         {
           authorized: false,
+          locale: state.session.locale,
           remember: state.session.remember,
           storedEmail: state.session.storedEmail
         },
@@ -163,6 +180,7 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
+          locale: state.session.locale,
           remember: true,
           storedEmail: action.payload.email
         },
@@ -176,6 +194,7 @@ const userReducers = (state = initialState, action) => {
       return helpers.setStateProp(
         'session',
         {
+          locale: state.session.locale,
           remember: false,
           storedEmail: null
         },

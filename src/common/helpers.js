@@ -143,6 +143,8 @@ const getStatusFromResults = results => {
 
 const noop = Function.prototype;
 
+const noopTranslate = (key, value) => value;
+
 const setStateProp = (prop, data, options) => {
   const { state = {}, initialState = {}, reset = true } = options;
   let obj = { ...state };
@@ -208,6 +210,7 @@ const helpers = {
   getMessageFromResults,
   getStatusFromResults,
   noop,
+  noopTranslate,
   setStateProp,
   prettyPrintJson,
   DEV_MODE,

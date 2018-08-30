@@ -75,7 +75,7 @@ class AccountViewListItem extends React.Component {
    * Open it up to allow both, "node" OR "array"
    */
   renderAdditionalInfo() {
-    const { item } = this.props;
+    const { item, t } = this.props;
 
     const images =
       item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES];
@@ -90,23 +90,37 @@ class AccountViewListItem extends React.Component {
 
     const imagesPopover = (
       <React.Fragment>
-        Total number of machine images that are in use by active instances for the selected date range.
+        {t(
+          'list-accounts.images.images-tooltip',
+          'Total number of machine images that are in use by active instances for the selected date range.'
+        )}
       </React.Fragment>
     );
 
     const instancesPopover = (
-      <React.Fragment>Total number of active instances for the selected date range.</React.Fragment>
+      <React.Fragment>
+        {t(
+          'list-accounts.instances.instances-tooltip',
+          'Total number of active instances for the selected date range.'
+        )}
+      </React.Fragment>
     );
 
     const rhelPopover = (
       <React.Fragment>
-        Number of instances that are running Red Hat Enterprise Linux for the selected date range.
+        {t(
+          'list-accounts.rhel.rhel-tooltip',
+          'Number of instances that are running Red Hat Enterprise Linux for the selected date range.'
+        )}
       </React.Fragment>
     );
 
     const rhocpPopover = (
       <React.Fragment>
-        Number of instances that are running Red Hat OpenShift Container Platform for the selected date range.
+        {t(
+          'list-accounts.rhocp.rhocp-tooltip',
+          'Number of instances that are running Red Hat OpenShift Container Platform for the selected date range.'
+        )}
       </React.Fragment>
     );
 
@@ -164,13 +178,15 @@ AccountViewListItem.propTypes = {
   item: PropTypes.object.isRequired,
   onArchive: PropTypes.func,
   onDetail: PropTypes.func,
-  onEdit: PropTypes.func
+  onEdit: PropTypes.func,
+  t: PropTypes.func
 };
 
 AccountViewListItem.defaultProps = {
   onArchive: null,
   onDetail: helpers.noop,
-  onEdit: null
+  onEdit: null,
+  t: helpers.noopTranslate
 };
 
 export { AccountViewListItem as default, AccountViewListItem };

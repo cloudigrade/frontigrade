@@ -18,7 +18,9 @@ build
 translations
 .css
 styles/*.css
-public/locales/
+public/locales/*.json
+!public/locales/locales.json
+!public/locales/en.json
 !public/icons/
 
 # misc

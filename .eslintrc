@@ -9,6 +9,7 @@
   "plugins": [
     "import",
     "jest",
+    "json",
     "prettier",
     "react"
   ],

@@ -4,6 +4,28 @@ import _ from 'lodash';
 import serviceConfig from './config';
 
 /**
+ * ToDo: Prep for accessing the users locale through a service and/or storage.
+ * This should be replaced with the appropriate API, cookie, and/or sessionStorage/localStorage access
+ */
+/**
+ * Get the users locale
+ * @returns {Promise<any>}
+ */
+const getLocale = () => {
+  const locale = { value: 'en', key: 'English' };
+
+  return new Promise(resolve => {
+    if (locale) {
+      return resolve({
+        data: locale
+      });
+    }
+
+    return resolve({});
+  });
+};
+
+/**
  * @api {get} /auth/me/ User information
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {String} email
@@ -187,4 +209,4 @@ const storeData = (data, remove = false, config = { extend: true }) =>
  */
 const removeStoredData = () => storeData(null, true);
 
-export { checkUser, createUser, deleteUser, loginUser, logoutUser, storeData, removeStoredData };
+export { getLocale, checkUser, createUser, deleteUser, loginUser, logoutUser, storeData, removeStoredData };
