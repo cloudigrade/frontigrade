@@ -76,6 +76,9 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
               Instances
             </UtilizationCardDetailsDesc>
           </UtilizationCardDetails>
+          <div
+            className="cloudmeter-utilization-graph-display"
+          />
         </CardBody>
       </Card>
     </Col>
@@ -125,6 +128,9 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
               Instances
             </UtilizationCardDetailsDesc>
           </UtilizationCardDetails>
+          <div
+            className="cloudmeter-utilization-graph-display"
+          />
         </CardBody>
       </Card>
     </Col>
@@ -157,21 +163,24 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
             >
               Red Hat Enterprise Linux Hours
             </UtilizationCardDetailsDesc>
-          </UtilizationCardDetails>
-          <UtilizationCardDetails
-            className=""
-          >
-            <UtilizationCardDetailsCount
-              className=""
+            <span
+              className="cloudmeter-utilization-graph-detail"
             >
-              0
-            </UtilizationCardDetailsCount>
-            <UtilizationCardDetailsDesc
-              className=""
-            >
-              Red Hat OpenShift Container Platform Hours
-            </UtilizationCardDetailsDesc>
+              <UtilizationCardDetailsCount
+                className=""
+              >
+                0
+              </UtilizationCardDetailsCount>
+              <UtilizationCardDetailsDesc
+                className=""
+              >
+                Red Hat OpenShift Container Platform Hours
+              </UtilizationCardDetailsDesc>
+            </span>
           </UtilizationCardDetails>
+          <div
+            className="cloudmeter-utilization-graph-display"
+          />
         </CardBody>
       </Card>
     </Col>

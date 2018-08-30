@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import moment from 'moment/moment';
+import 'patternfly/dist/js/patternfly-settings';
 
 const copyClipboard = text => {
   let successful;
@@ -184,6 +185,8 @@ const setStateProp = (prop, data, options) => {
   return obj;
 };
 
+const pfPaletteColors = { ...window.patternfly.pfPaletteColors };
+
 const prettyPrintJson = json => JSON.stringify(json, null, 2);
 
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';
@@ -212,6 +215,7 @@ const helpers = {
   noop,
   noopTranslate,
   setStateProp,
+  pfPaletteColors,
   prettyPrintJson,
   DEV_MODE,
   OC_MODE,

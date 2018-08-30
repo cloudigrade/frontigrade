@@ -1,25 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardGrid, Label as PFLabel, Spinner, UtilizationCard } from 'patternfly-react';
-import _sumBy from 'lodash/sumBy';
+import { Card, CardGrid, Label as PFLabel, SparklineChart, Spinner, UtilizationCard } from 'patternfly-react';
 import { connect, reduxActions } from '../../redux';
-import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
+import graphHelpers from '../../common/graphHelpers';
 
 class AccountViewInstanceGraphs extends React.Component {
-  static calculateInstanceTotals(dailyUsage = []) {
-    const openshift = _sumBy(dailyUsage, val =>
-      Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME])
-    );
-
-    const rhel = _sumBy(dailyUsage, val => Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]));
-
-    return {
-      openshiftHours: helpers.generateHoursFromSeconds(openshift),
-      rhelHours: helpers.generateHoursFromSeconds(rhel)
-    };
-  }
-
   componentDidMount() {
     const { filter, getAccountInstances } = this.props;
 
@@ -58,13 +44,15 @@ class AccountViewInstanceGraphs extends React.Component {
   render() {
     const { error, fulfilled, dailyUsage, instancesOpenshift, instancesRhel } = this.props;
     let displayTotals = {};
+    let chartData = null;
 
     if (error) {
       return null;
     }
 
     if (dailyUsage && dailyUsage.length) {
-      displayTotals = { ...AccountViewInstanceGraphs.calculateInstanceTotals(dailyUsage) };
+      displayTotals = { ...graphHelpers.calculateInstanceTotals(dailyUsage) };
+      chartData = graphHelpers.convertGraphData(dailyUsage);
     }
 
     return (
@@ -85,6 +73,16 @@ class AccountViewInstanceGraphs extends React.Component {
                       Instances
                     </UtilizationCard.DetailsDesc>
                   </UtilizationCard.Details>
+                  <div className="cloudmeter-utilization-graph-display">
+                    {chartData && (
+                      <SparklineChart
+                        className="cloudmeter-utilization-graph-display-c3"
+                        data={chartData.rhelData}
+                        tooltip={graphHelpers.graphDefaults.tooltips}
+                        axis={graphHelpers.graphDefaults.axis}
+                      />
+                    )}
+                  </div>
                 </Card.Body>
               </Card>
             )}
@@ -104,6 +102,16 @@ class AccountViewInstanceGraphs extends React.Component {
                       Instances
                     </UtilizationCard.DetailsDesc>
                   </UtilizationCard.Details>
+                  <div className="cloudmeter-utilization-graph-display">
+                    {chartData && (
+                      <SparklineChart
+                        className="cloudmeter-utilization-graph-display-c3"
+                        data={chartData.openshiftData}
+                        tooltip={graphHelpers.graphDefaults.tooltips}
+                        axis={graphHelpers.graphDefaults.axis}
+                      />
+                    )}
+                  </div>
                 </Card.Body>
               </Card>
             )}
@@ -116,13 +124,23 @@ class AccountViewInstanceGraphs extends React.Component {
                   <UtilizationCard.Details>
                     <UtilizationCard.DetailsCount>{displayTotals.rhelHours || 0}</UtilizationCard.DetailsCount>
                     <UtilizationCard.DetailsDesc>Red Hat Enterprise Linux Hours</UtilizationCard.DetailsDesc>
+                    <span className="cloudmeter-utilization-graph-detail">
+                      <UtilizationCard.DetailsCount>{displayTotals.openshiftHours || 0}</UtilizationCard.DetailsCount>
+                      <UtilizationCard.DetailsDesc>
+                        Red Hat OpenShift Container Platform Hours
+                      </UtilizationCard.DetailsDesc>
+                    </span>
                   </UtilizationCard.Details>
-                  <UtilizationCard.Details>
-                    <UtilizationCard.DetailsCount>{displayTotals.openshiftHours || 0}</UtilizationCard.DetailsCount>
-                    <UtilizationCard.DetailsDesc>
-                      Red Hat OpenShift Container Platform Hours
-                    </UtilizationCard.DetailsDesc>
-                  </UtilizationCard.Details>
+                  <div className="cloudmeter-utilization-graph-display">
+                    {chartData && (
+                      <SparklineChart
+                        className="cloudmeter-utilization-graph-display-c3"
+                        data={chartData.rhelOpenshiftTime}
+                        tooltip={graphHelpers.graphDefaults.tooltips}
+                        axis={graphHelpers.graphDefaults.axis}
+                      />
+                    )}
+                  </div>
                 </Card.Body>
               </Card>
             )}
