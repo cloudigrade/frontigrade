@@ -56,16 +56,14 @@ class AccountViewListItem extends React.Component {
     const timestamp = item[apiTypes.API_RESPONSE_ACCOUNTS_DATE];
 
     return (
-      <div className="cloudmeter-split-description">
-        <span className="cloudmeter-description-left">
-          <ListView.DescriptionHeading>
-            {item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] ||
-              item[apiTypes[apiTypes.API_RESPONSE_ACCOUNTS_ACCOUNT_ID]] ||
-              `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`}
-          </ListView.DescriptionHeading>
-        </span>
-        <span className="cloudmeter-description-right">Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</span>
-      </div>
+      <React.Fragment>
+        <ListView.DescriptionHeading>
+          {item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] ||
+            item[apiTypes[apiTypes.API_RESPONSE_ACCOUNTS_ACCOUNT_ID]] ||
+            `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`}
+        </ListView.DescriptionHeading>
+        <ListView.DescriptionText>Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</ListView.DescriptionText>
+      </React.Fragment>
     );
   }
 
@@ -137,7 +135,7 @@ class AccountViewListItem extends React.Component {
           <strong>{instances}</strong> Instances
         </Tooltip>
       </ListView.InfoItem>,
-      <ListView.InfoItem key="3" className="cloudmeter-listview-label">
+      <ListView.InfoItem key="3" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
           <strong>{rhel}</strong>
           <PFLabel bsStyle="warning">
@@ -145,7 +143,7 @@ class AccountViewListItem extends React.Component {
           </PFLabel>
         </Tooltip>
       </ListView.InfoItem>,
-      <ListView.InfoItem key="4" className="cloudmeter-listview-label">
+      <ListView.InfoItem key="4" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
           <strong>{rhos}</strong>
           <PFLabel bsStyle="primary">

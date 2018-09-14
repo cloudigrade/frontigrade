@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, CardGrid, Label as PFLabel, SparklineChart, Spinner, UtilizationCard } from 'patternfly-react';
+import { Card, CardGrid, Label as PFLabel, SparklineChart, Spinner } from 'patternfly-react';
 import { connect, reduxActions } from '../../redux';
 import helpers from '../../common/helpers';
 import graphHelpers from '../../common/graphHelpers';
@@ -27,7 +27,7 @@ class AccountViewInstanceGraphs extends React.Component {
 
     if (pending) {
       return (
-        <Card matchHeight className="cloudmeter-utilization-graph cloudmeter-utilization-graph-loading fadein">
+        <Card matchHeight accented className="cloudmeter-utilization-graph cloudmeter-utilization-graph-loading fadein">
           <Card.Body>
             <Spinner loading size="sm" className="blank-slate-pf-icon" />
             <div className="text-center">
@@ -56,90 +56,74 @@ class AccountViewInstanceGraphs extends React.Component {
     }
 
     return (
-      <CardGrid matchHeight>
-        <CardGrid.Row>
-          <CardGrid.Col sm={4}>
+      <CardGrid fluid matchHeight>
+        <CardGrid.Row className="row-cards-pf">
+          <CardGrid.Col sm={6} md={4}>
             {this.renderPendingCard()}
             {fulfilled && (
-              <Card matchHeight className="cloudmeter-utilization-graph fadein">
-                <Card.Title>Red Hat Enterprise Linux</Card.Title>
+              <Card matchHeight accented className="cloudmeter-utilization-graph fadein">
+                <Card.Heading>
+                  <Card.Title>Red Hat Enterprise Linux</Card.Title>
+                </Card.Heading>
                 <Card.Body>
-                  <UtilizationCard.Details>
-                    <UtilizationCard.DetailsCount>{instancesRhel}</UtilizationCard.DetailsCount>
-                    <UtilizationCard.DetailsDesc>
-                      <PFLabel bsStyle="warning">
-                        <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-                      </PFLabel>{' '}
-                      Instances
-                    </UtilizationCard.DetailsDesc>
-                  </UtilizationCard.Details>
+                  <div className="cloudmeter-card-info">
+                    <strong>{instancesRhel}</strong>
+                    <PFLabel bsStyle="warning">
+                      <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
+                    </PFLabel>{' '}
+                    Instances
+                  </div>
+                  {chartData && <SparklineChart data={chartData.rhelData} tooltip={chartData.tooltips} />}
+                </Card.Body>
+              </Card>
+            )}
+          </CardGrid.Col>
+          <CardGrid.Col sm={6} md={4}>
+            {this.renderPendingCard()}
+            {fulfilled && (
+              <Card matchHeight accented className="cloudmeter-utilization-graph fadein">
+                <Card.Heading>
+                  <Card.Title>Red Hat OpenShift Container Platform</Card.Title>
+                </Card.Heading>
+                <Card.Body>
+                  <div className="cloudmeter-card-info">
+                    <strong>{instancesOpenshift}</strong>
+                    <PFLabel bsStyle="primary">
+                      <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
+                    </PFLabel>{' '}
+                    Instances
+                  </div>
                   <div className="cloudmeter-utilization-graph-display">
-                    {chartData && (
-                      <SparklineChart
-                        className="cloudmeter-utilization-graph-display-c3"
-                        data={chartData.rhelData}
-                        tooltip={graphHelpers.graphDefaults.tooltips}
-                        axis={graphHelpers.graphDefaults.axis}
-                      />
-                    )}
+                    {chartData && <SparklineChart data={chartData.openshiftData} tooltip={chartData.tooltips} />}
                   </div>
                 </Card.Body>
               </Card>
             )}
           </CardGrid.Col>
-          <CardGrid.Col sm={4}>
+          <CardGrid.Col sm={12} md={4}>
             {this.renderPendingCard()}
             {fulfilled && (
-              <Card matchHeight className="cloudmeter-utilization-graph fadein">
-                <Card.Title>Red Hat OpenShift Container Platform</Card.Title>
+              <Card matchHeight accented className="cloudmeter-utilization-graph fadein">
+                <Card.Heading>
+                  <Card.Title>Utilized hours</Card.Title>
+                </Card.Heading>
                 <Card.Body>
-                  <UtilizationCard.Details>
-                    <UtilizationCard.DetailsCount>{instancesOpenshift}</UtilizationCard.DetailsCount>
-                    <UtilizationCard.DetailsDesc>
-                      <PFLabel bsStyle="primary">
-                        <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-                      </PFLabel>{' '}
-                      Instances
-                    </UtilizationCard.DetailsDesc>
-                  </UtilizationCard.Details>
-                  <div className="cloudmeter-utilization-graph-display">
-                    {chartData && (
-                      <SparklineChart
-                        className="cloudmeter-utilization-graph-display-c3"
-                        data={chartData.openshiftData}
-                        tooltip={graphHelpers.graphDefaults.tooltips}
-                        axis={graphHelpers.graphDefaults.axis}
-                      />
-                    )}
+                  <div className="cloudmeter-card-info">
+                    <strong>{displayTotals.rhelHours || 0}</strong>
+                    <PFLabel bsStyle="warning">
+                      <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
+                    </PFLabel>{' '}
+                    Hrs
                   </div>
-                </Card.Body>
-              </Card>
-            )}
-          </CardGrid.Col>
-          <CardGrid.Col sm={4}>
-            {this.renderPendingCard()}
-            {fulfilled && (
-              <Card matchHeight className="cloudmeter-utilization-graph fadein">
-                <Card.Body>
-                  <UtilizationCard.Details>
-                    <UtilizationCard.DetailsCount>{displayTotals.rhelHours || 0}</UtilizationCard.DetailsCount>
-                    <UtilizationCard.DetailsDesc>Red Hat Enterprise Linux Hours</UtilizationCard.DetailsDesc>
-                    <span className="cloudmeter-utilization-graph-detail">
-                      <UtilizationCard.DetailsCount>{displayTotals.openshiftHours || 0}</UtilizationCard.DetailsCount>
-                      <UtilizationCard.DetailsDesc>
-                        Red Hat OpenShift Container Platform Hours
-                      </UtilizationCard.DetailsDesc>
-                    </span>
-                  </UtilizationCard.Details>
+                  <div className="cloudmeter-card-info">
+                    <strong>{displayTotals.openshiftHours || 0}</strong>
+                    <PFLabel bsStyle="primary">
+                      <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
+                    </PFLabel>{' '}
+                    Hrs
+                  </div>
                   <div className="cloudmeter-utilization-graph-display">
-                    {chartData && (
-                      <SparklineChart
-                        className="cloudmeter-utilization-graph-display-c3"
-                        data={chartData.rhelOpenshiftTime}
-                        tooltip={graphHelpers.graphDefaults.tooltips}
-                        axis={graphHelpers.graphDefaults.axis}
-                      />
-                    )}
+                    {chartData && <SparklineChart data={chartData.rhelOpenshiftTime} tooltip={chartData.tooltips} />}
                   </div>
                 </Card.Body>
               </Card>

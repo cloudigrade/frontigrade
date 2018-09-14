@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Button, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Alert, Button, Breadcrumb, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
 import { withRouter } from 'react-router-dom';
 import _isEqual from 'lodash/isEqual';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
@@ -88,17 +88,25 @@ class AccountView extends React.Component {
       return (
         <React.Fragment>
           <AccountViewInstanceGraphs filter={filter} />
-          <ListView className="cloudmeter-list-view">
-            {accounts.map(item => (
-              <AccountViewListItem
-                item={item}
-                key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
-                onDetail={this.onDetailView}
-                onEdit={this.onEditName}
-                onArchive={this.onArchive}
-              />
-            ))}
-          </ListView>
+          <Grid fluid>
+            <Grid.Row className="row-cards-pf">
+              <Grid.Col xs={12}>
+                <Card className="cloudmeter-list-view-card">
+                  <ListView className="cloudmeter-list-view">
+                    {accounts.map(item => (
+                      <AccountViewListItem
+                        item={item}
+                        key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
+                        onDetail={this.onDetailView}
+                        onEdit={this.onEditName}
+                        onArchive={this.onArchive}
+                      />
+                    ))}
+                  </ListView>
+                </Card>
+              </Grid.Col>
+            </Grid.Row>
+          </Grid>
         </React.Fragment>
       );
     }
@@ -159,11 +167,11 @@ class AccountView extends React.Component {
       return (
         <div className="cloudmeter-view-container fadein">
           <Grid fluid>
-            <Grid.Row>
-              <Grid.Col xs={12}>
-                <h1>Accounts</h1>
-              </Grid.Col>
-            </Grid.Row>
+            <Breadcrumb title className="cloudmeter-breadcrumb">
+              <Breadcrumb.Item active aria-current="page">
+                <strong>Accounts</strong>
+              </Breadcrumb.Item>
+            </Breadcrumb>
           </Grid>
           <ViewToolbar
             dateFields={accountViewTypes.dateFields.timeValues}

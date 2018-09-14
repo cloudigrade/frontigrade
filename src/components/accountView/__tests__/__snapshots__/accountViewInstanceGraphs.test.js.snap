@@ -23,58 +23,107 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
 exports[`AccountImagesViewInstanceGraphs Component should render a multiple states: fulfilled 1`] = `
 <CardGrid
   className=""
+  fluid={true}
   matchHeight={true}
 >
   <Row
     bsClass="row"
+    className="row-cards-pf"
     componentClass="div"
   >
     <Col
       bsClass="col"
       componentClass="div"
-      sm={4}
+      md={4}
+      sm={6}
     >
       <Card
-        accented={false}
+        accented={true}
         aggregated={false}
         aggregatedMini={false}
         cardRef={null}
         className="cloudmeter-utilization-graph fadein"
         matchHeight={true}
       >
-        <CardTitle
+        <CardHeading
           className=""
         >
-          Red Hat Enterprise Linux
-        </CardTitle>
+          <CardTitle
+            className=""
+          >
+            Red Hat Enterprise Linux
+          </CardTitle>
+        </CardHeading>
         <CardBody
           className=""
         >
-          <UtilizationCardDetails
+          <div
+            className="cloudmeter-card-info"
+          >
+            <strong>
+              0
+            </strong>
+            <Label
+              bsStyle="warning"
+              type="default"
+            >
+              <abbr
+                title="Red Hat Enterprise Linux"
+              >
+                RHEL
+              </abbr>
+            </Label>
+             
+            Instances
+          </div>
+        </CardBody>
+      </Card>
+    </Col>
+    <Col
+      bsClass="col"
+      componentClass="div"
+      md={4}
+      sm={6}
+    >
+      <Card
+        accented={true}
+        aggregated={false}
+        aggregatedMini={false}
+        cardRef={null}
+        className="cloudmeter-utilization-graph fadein"
+        matchHeight={true}
+      >
+        <CardHeading
+          className=""
+        >
+          <CardTitle
             className=""
           >
-            <UtilizationCardDetailsCount
-              className=""
-            >
+            Red Hat OpenShift Container Platform
+          </CardTitle>
+        </CardHeading>
+        <CardBody
+          className=""
+        >
+          <div
+            className="cloudmeter-card-info"
+          >
+            <strong>
               0
-            </UtilizationCardDetailsCount>
-            <UtilizationCardDetailsDesc
-              className=""
+            </strong>
+            <Label
+              bsStyle="primary"
+              type="default"
             >
-              <Label
-                bsStyle="warning"
-                type="default"
+              <abbr
+                title="Red Hat OpenShift Container Platform"
               >
-                <abbr
-                  title="Red Hat Enterprise Linux"
-                >
-                  RHEL
-                </abbr>
-              </Label>
-               
-              Instances
-            </UtilizationCardDetailsDesc>
-          </UtilizationCardDetails>
+                RHOCP
+              </abbr>
+            </Label>
+             
+            Instances
+          </div>
           <div
             className="cloudmeter-utilization-graph-display"
           />
@@ -84,99 +133,67 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
     <Col
       bsClass="col"
       componentClass="div"
-      sm={4}
+      md={4}
+      sm={12}
     >
       <Card
-        accented={false}
+        accented={true}
         aggregated={false}
         aggregatedMini={false}
         cardRef={null}
         className="cloudmeter-utilization-graph fadein"
         matchHeight={true}
       >
-        <CardTitle
+        <CardHeading
           className=""
         >
-          Red Hat OpenShift Container Platform
-        </CardTitle>
+          <CardTitle
+            className=""
+          >
+            Utilized hours
+          </CardTitle>
+        </CardHeading>
         <CardBody
           className=""
         >
-          <UtilizationCardDetails
-            className=""
-          >
-            <UtilizationCardDetailsCount
-              className=""
-            >
-              0
-            </UtilizationCardDetailsCount>
-            <UtilizationCardDetailsDesc
-              className=""
-            >
-              <Label
-                bsStyle="primary"
-                type="default"
-              >
-                <abbr
-                  title="Red Hat OpenShift Container Platform"
-                >
-                  RHOCP
-                </abbr>
-              </Label>
-               
-              Instances
-            </UtilizationCardDetailsDesc>
-          </UtilizationCardDetails>
           <div
-            className="cloudmeter-utilization-graph-display"
-          />
-        </CardBody>
-      </Card>
-    </Col>
-    <Col
-      bsClass="col"
-      componentClass="div"
-      sm={4}
-    >
-      <Card
-        accented={false}
-        aggregated={false}
-        aggregatedMini={false}
-        cardRef={null}
-        className="cloudmeter-utilization-graph fadein"
-        matchHeight={true}
-      >
-        <CardBody
-          className=""
-        >
-          <UtilizationCardDetails
-            className=""
+            className="cloudmeter-card-info"
           >
-            <UtilizationCardDetailsCount
-              className=""
-            >
+            <strong>
               0
-            </UtilizationCardDetailsCount>
-            <UtilizationCardDetailsDesc
-              className=""
+            </strong>
+            <Label
+              bsStyle="warning"
+              type="default"
             >
-              Red Hat Enterprise Linux Hours
-            </UtilizationCardDetailsDesc>
-            <span
-              className="cloudmeter-utilization-graph-detail"
+              <abbr
+                title="Red Hat Enterprise Linux"
+              >
+                RHEL
+              </abbr>
+            </Label>
+             
+            Hrs
+          </div>
+          <div
+            className="cloudmeter-card-info"
+          >
+            <strong>
+              0
+            </strong>
+            <Label
+              bsStyle="primary"
+              type="default"
             >
-              <UtilizationCardDetailsCount
-                className=""
+              <abbr
+                title="Red Hat OpenShift Container Platform"
               >
-                0
-              </UtilizationCardDetailsCount>
-              <UtilizationCardDetailsDesc
-                className=""
-              >
-                Red Hat OpenShift Container Platform Hours
-              </UtilizationCardDetailsDesc>
-            </span>
-          </UtilizationCardDetails>
+                RHOCP
+              </abbr>
+            </Label>
+             
+            Hrs
+          </div>
           <div
             className="cloudmeter-utilization-graph-display"
           />
@@ -190,19 +207,22 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
 exports[`AccountImagesViewInstanceGraphs Component should render a multiple states: pending 1`] = `
 <CardGrid
   className=""
+  fluid={true}
   matchHeight={true}
 >
   <Row
     bsClass="row"
+    className="row-cards-pf"
     componentClass="div"
   >
     <Col
       bsClass="col"
       componentClass="div"
-      sm={4}
+      md={4}
+      sm={6}
     >
       <Card
-        accented={false}
+        accented={true}
         aggregated={false}
         aggregatedMini={false}
         cardRef={null}
@@ -232,10 +252,11 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
     <Col
       bsClass="col"
       componentClass="div"
-      sm={4}
+      md={4}
+      sm={6}
     >
       <Card
-        accented={false}
+        accented={true}
         aggregated={false}
         aggregatedMini={false}
         cardRef={null}
@@ -265,10 +286,11 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
     <Col
       bsClass="col"
       componentClass="div"
-      sm={4}
+      md={4}
+      sm={12}
     >
       <Card
-        accented={false}
+        accented={true}
         aggregated={false}
         aggregatedMini={false}
         cardRef={null}
@@ -301,22 +323,22 @@ exports[`AccountImagesViewInstanceGraphs Component should render a multiple stat
 
 exports[`AccountImagesViewInstanceGraphs Component should render a non-connected component: non-connected 1`] = `
 <div
-  class="container-cards-pf container"
+  class="container-cards-pf container-fluid"
 >
   <div
     class=""
   >
     <div
-      class="row"
+      class="row-cards-pf row"
     >
       <div
-        class="col-sm-4"
+        class="col-md-4 col-sm-6"
       />
       <div
-        class="col-sm-4"
+        class="col-md-4 col-sm-6"
       />
       <div
-        class="col-sm-4"
+        class="col-md-4 col-sm-12"
       />
     </div>
   </div>

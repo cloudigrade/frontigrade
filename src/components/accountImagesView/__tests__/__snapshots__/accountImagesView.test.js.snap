@@ -58,36 +58,25 @@ exports[`AccountImagesView Component should render a non-connected component in 
     componentClass="div"
     fluid={true}
   >
-    <Row
-      bsClass="row"
-      componentClass="div"
+    <Breadcrumb
+      className="cloudmeter-breadcrumb"
+      title={true}
     >
-      <Col
-        bsClass="col"
-        componentClass="div"
-        xs={12}
+      <BreadcrumbItem
+        active={false}
+        onClick={[Function]}
       >
-        <Breadcrumb
-          className="cloudmeter-breadcrumb"
-          title={true}
-        >
-          <BreadcrumbItem
-            active={false}
-            onClick={[Function]}
-          >
-            Accounts
-          </BreadcrumbItem>
-          <BreadcrumbItem
-            active={true}
-            aria-current="page"
-          >
-            <strong>
-              Account 
-            </strong>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Col>
-    </Row>
+        Accounts
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        active={true}
+        aria-current="page"
+      >
+        <strong>
+          Account 
+        </strong>
+      </BreadcrumbItem>
+    </Breadcrumb>
   </Grid>
   <ViewToolbar
     activeFilters={Array []}
@@ -192,36 +181,25 @@ exports[`AccountImagesView Component should render a non-connected component in 
     componentClass="div"
     fluid={true}
   >
-    <Row
-      bsClass="row"
-      componentClass="div"
+    <Breadcrumb
+      className="cloudmeter-breadcrumb"
+      title={true}
     >
-      <Col
-        bsClass="col"
-        componentClass="div"
-        xs={12}
+      <BreadcrumbItem
+        active={false}
+        onClick={[Function]}
       >
-        <Breadcrumb
-          className="cloudmeter-breadcrumb"
-          title={true}
-        >
-          <BreadcrumbItem
-            active={false}
-            onClick={[Function]}
-          >
-            Accounts
-          </BreadcrumbItem>
-          <BreadcrumbItem
-            active={true}
-            aria-current="page"
-          >
-            <strong>
-              Account 
-            </strong>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Col>
-    </Row>
+        Accounts
+      </BreadcrumbItem>
+      <BreadcrumbItem
+        active={true}
+        aria-current="page"
+      >
+        <strong>
+          Account 
+        </strong>
+      </BreadcrumbItem>
+    </Breadcrumb>
   </Grid>
   <ViewToolbar
     activeFilters={Array []}
@@ -279,31 +257,58 @@ exports[`AccountImagesView Component should render a non-connected component in 
   <div
     className="cloudmeter-list-container"
   >
-    <ListView
-      className="cloudmeter-list-view"
+    <Grid
+      bsClass="container"
+      componentClass="div"
+      fluid={true}
     >
-      <AccountImagesViewListItem
-        item={
-          Object {
-            "cloud_image_id": "ami-rhel7",
-            "id": 2,
-            "instances_seen": 2,
-            "is_encrypted": false,
-            "name": null,
-            "openshift": false,
-            "openshift_challenged": false,
-            "openshift_detected": false,
-            "rhel": true,
-            "rhel_challenged": false,
-            "rhel_detected": true,
-            "runtime_seconds": 86400.5,
-            "status": "inspected",
-          }
-        }
-        key="2"
-        onDetail={[Function]}
-      />
-    </ListView>
+      <Row
+        bsClass="row"
+        className="row-cards-pf"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <Card
+            accented={false}
+            aggregated={false}
+            aggregatedMini={false}
+            cardRef={null}
+            className="cloudmeter-list-view-card"
+            matchHeight={false}
+          >
+            <ListView
+              className="cloudmeter-list-view"
+            >
+              <AccountImagesViewListItem
+                item={
+                  Object {
+                    "cloud_image_id": "ami-rhel7",
+                    "id": 2,
+                    "instances_seen": 2,
+                    "is_encrypted": false,
+                    "name": null,
+                    "openshift": false,
+                    "openshift_challenged": false,
+                    "openshift_detected": false,
+                    "rhel": true,
+                    "rhel_challenged": false,
+                    "rhel_detected": true,
+                    "runtime_seconds": 86400.5,
+                    "status": "inspected",
+                  }
+                }
+                key="2"
+                onDetail={[Function]}
+              />
+            </ListView>
+          </Card>
+        </Col>
+      </Row>
+    </Grid>
   </div>
 </div>
 `;

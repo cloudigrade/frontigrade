@@ -2,7 +2,7 @@
 
 exports[`AccountImagesViewListItem Component should render 1`] = `
 <div
-  class="list-group-item list-view-pf-stacked"
+  class="list-group-item"
 >
   <div
     class="list-view-pf-main-info"
@@ -17,20 +17,9 @@ exports[`AccountImagesViewListItem Component should render 1`] = `
           class="list-group-item-text"
         >
           <div
-            class="cloudmeter-split-description"
+            class="list-group-item-heading"
           >
-            <span
-              class="cloudmeter-description-left"
-            >
-              <div
-                class="list-group-item-heading"
-              >
-                Lorem test
-              </div>
-            </span>
-            <span
-              class="cloudmeter-description-right"
-            />
+            Lorem test
           </div>
         </div>
       </div>

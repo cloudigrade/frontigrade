@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Alert, Button, Breadcrumb, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Alert, Button, Breadcrumb, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
 import { withRouter } from 'react-router-dom';
 import _isEqual from 'lodash/isEqual';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
@@ -101,17 +101,25 @@ class AccountImagesView extends React.Component {
       return (
         <React.Fragment>
           {/\d/.test(accountId) && <AccountImagesViewInstanceGraphs filterId={accountId} filter={filter} />}
-          <ListView className="cloudmeter-list-view">
-            {images.map(item => (
-              <AccountImagesViewListItem
-                item={item}
-                key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
-                onDetail={this.onDetailView}
-                onEdit={this.onEditName}
-                onArchive={this.onArchive}
-              />
-            ))}
-          </ListView>
+          <Grid fluid>
+            <Grid.Row className="row-cards-pf">
+              <Grid.Col xs={12}>
+                <Card className="cloudmeter-list-view-card">
+                  <ListView className="cloudmeter-list-view">
+                    {images.map(item => (
+                      <AccountImagesViewListItem
+                        item={item}
+                        key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
+                        onDetail={this.onDetailView}
+                        onEdit={this.onEditName}
+                        onArchive={this.onArchive}
+                      />
+                    ))}
+                  </ListView>
+                </Card>
+              </Grid.Col>
+            </Grid.Row>
+          </Grid>
         </React.Fragment>
       );
     }
@@ -190,22 +198,18 @@ class AccountImagesView extends React.Component {
       return (
         <div className="cloudmeter-view-container fadein">
           <Grid fluid>
-            <Grid.Row>
-              <Grid.Col xs={12}>
-                <Breadcrumb title className="cloudmeter-breadcrumb">
-                  <Breadcrumb.Item onClick={e => this.backToAccounts(e)}>Accounts</Breadcrumb.Item>
-                  <Breadcrumb.Item active aria-current="page">
-                    <strong>
-                      {(account.data &&
-                        (account.data[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
-                          account.data[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
-                          `Account ${account.data[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`)) ||
-                        ''}
-                    </strong>
-                  </Breadcrumb.Item>
-                </Breadcrumb>
-              </Grid.Col>
-            </Grid.Row>
+            <Breadcrumb title className="cloudmeter-breadcrumb">
+              <Breadcrumb.Item onClick={e => this.backToAccounts(e)}>Accounts</Breadcrumb.Item>
+              <Breadcrumb.Item active aria-current="page">
+                <strong>
+                  {(account.data &&
+                    (account.data[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
+                      account.data[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
+                      `Account ${account.data[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`)) ||
+                    ''}
+                </strong>
+              </Breadcrumb.Item>
+            </Breadcrumb>
           </Grid>
           <ViewToolbar
             dateFields={accountImagesViewTypes.dateFields.timeValues}

@@ -1,19 +1,11 @@
 .list-view-pf-top-align {
-  .list-view-pf-additional-info, .list-view-pf-description {
+  .list-view-pf-additional-info,
+  .list-view-pf-description {
     align-self: flex-start;
   }
 }
 
 .cloudmeter-view-container {
-  background-color: $color-pf-white;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  > .container-fluid {
-    width: 100%;
-  }
-
   .toolbar-pf {
     border-top: 1px solid $color-pf-black-300;
 
@@ -46,96 +38,106 @@
   }
 }
 
+// Hacking the breadcrumbs to add a white background.
 .cloudmeter-breadcrumb {
-  &.breadcrumb {
-    margin-bottom: 10px;
-    margin-top: 20px;
-    padding: 0;
-  }
+  background: #fff;
+  margin-bottom: 0;
+  padding: 20px ($grid-gutter-width / 2);
+  margin-left: -$grid-gutter-width / 2;
+  margin-right: -$grid-gutter-width / 2;
 
-  &.breadcrumb > .active strong {
+  > .active strong {
     font-size: 18px;
     font-weight: 400;
   }
 }
 
-.cloudmeter-utilization-graph {
-  .card-pf-title {
-    font-size: 14px;
+// Card info structure
+.cloudmeter-card-info {
+  display: flex;
+  align-items: center;
+  
+  > * {
+    margin-right: 5px;
   }
 
-  .card-pf-utilization-details {
-    border-bottom-width: 0;
-  }
-
-  .card-pf-utilization-details .card-pf-utilization-card-details-count,
-  .card-pf-utilization-details .card-pf-utilization-card-details-description {
-    float: none;
-    vertical-align: middle;
+  abbr {
+    padding: 2px 0;
     display: inline-block;
   }
 
-  .card-pf-utilization-details .card-pf-utilization-card-details-description {
-    width: 70%;
-  }
-
-  .cloudmeter-utilization-graph-detail {
-    display: block;
-    padding-top: 10px;
+  strong {
+    font-size: 26px;
+    font-weight: 300;
   }
 }
 
-.cloudmeter-utilization-graph-loading {
-  @extend .cloudmeter-utilization-graph;
+.cloudmeter-utilization-graph {
+  position: relative;
+  padding-bottom: 60px;
 
+  .chart-pf-sparkline {
+    position: absolute!important;
+    bottom: 20px;
+    left: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+// ToDo: Eval the loading style
+.cloudmeter-utilization-graph-loading {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100px;
+  padding-bottom: 0;
 }
 
-// List container should scroll
-.cloudmeter-list-container {
-  background-color: $color-pf-black-150;
-  flex: 1;
-  padding: 0 20px 40px;
-  overflow-y: auto;
-  width: 100%;
-
-  .list-view-pf-checkbox {
-    padding-top: 3px;
-  }
+//1. hacking the card so it can contain a list view inside and align with the other cards
+.cloudmeter-list-view-card {
+  padding: 0; //1.
+  border-top: none; //1.
 }
 
 .cloudmeter-list-view {
-  .list-view-pf-actions {
-    margin-left: 0;
-    text-align: right;
-    width: 150px;
+  margin: 0; //1.
 
+  .list-group-item-heading {
+    @media (min-width: $screen-md-min) {
+      flex-basis: calc(50% - 20px);
+      width: calc(50% - 20px);
+      word-wrap: break-word;
+    }
+  }
+
+  .list-group-item-text {
+    @media (min-width: $screen-md-min) {
+      width: calc(50% - 40px);
+    }
+  }
+
+  .list-view-pf-actions {
     .btn-link {
       color: $color-pf-black-700;
+
       .pficon, .fa {
         font-size: 14px;
       }
+
       &:hover, &:focus {
         color: $color-pf-blue;
       }
     }
+
     .dropdown.btn-group {
       margin-left: 10px;
     }
   }
 
-  .list-item-name {
-    font-size: 16px;
-    font-weight: 600;
-    margin: -7px 0 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .list-view-pf-left .pficon.list-view-pf-icon-sm, .list-view-pf-left .fa.list-view-pf-icon-sm {
+  .list-view-pf-left .pficon.list-view-pf-icon-sm,
+  .list-view-pf-left .fa.list-view-pf-icon-sm {
     border: 0;
   }
 
@@ -147,9 +149,11 @@
     .container-fluid {
       padding-right: 40px;
       flex: 1 1 auto;
+
       .dropdown.btn-group {
         .dropdown-toggle {
           color: $color-pf-black-700;
+
           &:hover, &:focus {
             color: $color-pf-blue;
           }
@@ -157,46 +161,18 @@
       }
     }
 
-    .pager {
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .host-results {
-      width: 100%;
-    }
-
-    .hidden-results {
-      opacity: 0;
-      span {
-        white-space: nowrap;
-      }
-    }
-
-    .host-list {
-      overflow-y: auto;
-      max-height: 300px;
-      border: solid 1px $list-view-divider;
-      border-left: 0;
-      border-right: 0;
-      margin-top: 25px;
-      padding: 5px 20px 5px 10px;
-    }
-
-    .show-next-button {
-      padding-left: 0;
-    }
-
     // Within an expansion area, make blank slate become a single line, no background, no borders
     .blank-slate-pf {
       background: transparent;
       border: none;
       padding: 10px 20px;
+
       .blank-slate-pf-icon {
         font-size: 22px;
         line-height: 22px;
         float: left;
       }
+
       .blank-slate-pf-title {
         font-size: 12px;
         line-height: 22px;
@@ -205,6 +181,7 @@
         margin-left: 10px;
         float: left;
       }
+
       .blank-slate-pf-info {
         float: left;
         margin-left: 10px;
@@ -213,55 +190,22 @@
   }
 }
 
-
-.list-view-pagination-top {
-  padding: 0 14px;
-}
-
-.cloudmeter-split-description {
-  display: flex;
-  flex-direction: row;
-}
-
-.cloudmeter-description-left {
-  width: 50%;
-  margin-right: 10px;
-  .list-group-item-heading {
-    margin-right: 0;
-
-    @media (min-width: $screen-sm-min) {
-      float: none;
-      width: auto;
-    }
-
-    .btn-link {
-      font-size: inherit;
-    }
-  }
-  .list-group-item-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-right: 0;
-  }
-}
-
-.cloudmeter-description-right {
-  width: 50%;
-}
-
-  .cloudmeter-listview-infoitem,
-  .cloudmeter-listview-label {
+.cloudmeter-listview-infoitem,
+.cloudmeter-listview-label {
+  @media (min-width: $screen-md-min) {
     flex: 1;
     white-space: nowrap;
   }
+}
 
-  .cloudmeter-listview-label-hidden {
-    visibility: hidden;
-  }
+.cloudmeter-listview-label-has-badge strong {
+  min-width: 25px;
+  display: inline-block;
+  text-align: right;
+}
 
-.cloudmeter-sources-network-button {
-  padding-left: 0;
+.cloudmeter-listview-label-hidden {
+  visibility: hidden;
 }
 
 .blank-slate-pf {
@@ -289,34 +233,6 @@
   &.empty-count {
     font-style: italic;
     opacity: 0.8;
-  }
-}
-
-.cloudmeter-form-control.form-control[readonly] {
-  background-color: $color-pf-white;
-  border: 0;
-  color: inherit;
-  font-weight: 700;
-  &[type=textarea] {
-    resize: none;
-  }
-}
-
-.cloudmeter-scan-list-item .list-view-pf-left {
-  overflow: hidden;
-  padding-top: 6px;
-  text-align: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 150px;
-}
-
-.cloudmeter-credential-list-item {
-  .list-view-pf-description {
-    margin-top: 4px;
-  }
-  .list-view-pf-additional-info {
-    margin-top: -3px;
   }
 }
 

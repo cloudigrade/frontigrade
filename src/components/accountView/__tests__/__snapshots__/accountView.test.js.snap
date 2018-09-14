@@ -21,20 +21,19 @@ exports[`AccountView Component should render a non-connected component in pendin
     componentClass="div"
     fluid={true}
   >
-    <Row
-      bsClass="row"
-      componentClass="div"
+    <Breadcrumb
+      className="cloudmeter-breadcrumb"
+      title={true}
     >
-      <Col
-        bsClass="col"
-        componentClass="div"
-        xs={12}
+      <BreadcrumbItem
+        active={true}
+        aria-current="page"
       >
-        <h1>
+        <strong>
           Accounts
-        </h1>
-      </Col>
-    </Row>
+        </strong>
+      </BreadcrumbItem>
+    </Breadcrumb>
   </Grid>
   <ViewToolbar
     activeFilters={Array []}
@@ -109,31 +108,58 @@ exports[`AccountView Component should render a non-connected component in pendin
         }
       }
     />
-    <ListView
-      className="cloudmeter-list-view"
+    <Grid
+      bsClass="container"
+      componentClass="div"
+      fluid={true}
     >
-      <AccountViewListItem
-        item={
-          Object {
-            "arn": "arn:aws:iam::TEST",
-            "creation_date": "2018-07-06T15:09:21.442412Z",
-            "id": "1",
-            "images": 1,
-            "instances": 2,
-            "name": "Lorem test",
-            "openshift_instances": null,
-            "rhel_instances": 1,
-            "type": "aws",
-            "user_id": 1,
-          }
-        }
-        key="1"
-        onArchive={[Function]}
-        onDetail={[Function]}
-        onEdit={[Function]}
-        t={[Function]}
-      />
-    </ListView>
+      <Row
+        bsClass="row"
+        className="row-cards-pf"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          xs={12}
+        >
+          <Card
+            accented={false}
+            aggregated={false}
+            aggregatedMini={false}
+            cardRef={null}
+            className="cloudmeter-list-view-card"
+            matchHeight={false}
+          >
+            <ListView
+              className="cloudmeter-list-view"
+            >
+              <AccountViewListItem
+                item={
+                  Object {
+                    "arn": "arn:aws:iam::TEST",
+                    "creation_date": "2018-07-06T15:09:21.442412Z",
+                    "id": "1",
+                    "images": 1,
+                    "instances": 2,
+                    "name": "Lorem test",
+                    "openshift_instances": null,
+                    "rhel_instances": 1,
+                    "type": "aws",
+                    "user_id": 1,
+                  }
+                }
+                key="1"
+                onArchive={[Function]}
+                onDetail={[Function]}
+                onEdit={[Function]}
+                t={[Function]}
+              />
+            </ListView>
+          </Card>
+        </Col>
+      </Row>
+    </Grid>
   </div>
   <Modal
     animation={false}

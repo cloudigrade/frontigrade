@@ -22,22 +22,14 @@ exports[`AccountViewListItem Component should render 1`] = `
           class="list-group-item-text"
         >
           <div
-            class="cloudmeter-split-description"
+            class="list-group-item-heading"
           >
-            <span
-              class="cloudmeter-description-left"
-            >
-              <div
-                class="list-group-item-heading"
-              >
-                Lorem test
-              </div>
-            </span>
-            <span
-              class="cloudmeter-description-right"
-            >
-              Created 12:00AM, July 7th 2018
-            </span>
+            Lorem test
+          </div>
+          <div
+            class="list-group-item-text"
+          >
+            Created 12:00AM, July 7th 2018
           </div>
         </div>
       </div>
@@ -73,7 +65,7 @@ exports[`AccountViewListItem Component should render 1`] = `
           </span>
         </div>
         <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-label"
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
         >
           <span>
             <strong>
@@ -91,7 +83,7 @@ exports[`AccountViewListItem Component should render 1`] = `
           </span>
         </div>
         <div
-          class="list-view-pf-additional-info-item cloudmeter-listview-label"
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
         >
           <span>
             <strong>

@@ -37,16 +37,11 @@ class AccountImagesViewListItem extends React.Component {
     const { item } = this.props;
 
     return (
-      <div className="cloudmeter-split-description">
-        <span className="cloudmeter-description-left">
-          <ListView.DescriptionHeading>
-            {item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
-              item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
-              `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID] || ''}`}
-          </ListView.DescriptionHeading>
-        </span>
-        <span className="cloudmeter-description-right" />
-      </div>
+      <ListView.DescriptionHeading>
+        {item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
+          item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
+          `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID] || ''}`}
+      </ListView.DescriptionHeading>
     );
   }
 
@@ -132,7 +127,7 @@ class AccountImagesViewListItem extends React.Component {
         leftContent={AccountImagesViewListItem.renderLeftContent()}
         description={this.renderDescription()}
         additionalInfo={this.renderAdditionalInfo()}
-        stacked
+        stacked={false}
       />
     );
   }

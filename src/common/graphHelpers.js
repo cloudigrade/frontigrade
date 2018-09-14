@@ -19,6 +19,7 @@ const calculateInstanceTotals = (dailyUsage = []) => {
 const convertGraphData = (data = []) => {
   const graphData = {
     date: ['x'],
+    tooltipTitle: [],
     rhelInstances: ['rhelInstances'],
     openshiftInstances: ['openshiftInstances'],
     rhelTime: ['rhelTime'],
@@ -26,12 +27,13 @@ const convertGraphData = (data = []) => {
   };
 
   data.forEach(val => {
-    graphData.date.push(
-      moment
-        .utc(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_DATE])
-        .local()
-        .format('YYYY-MM-DD')
-    );
+    const formattedDate = moment
+      .utc(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_DATE])
+      .local()
+      .format('YYYY-MM-DD');
+
+    graphData.tooltipTitle.push(formattedDate);
+    graphData.date.push(formattedDate);
     graphData.rhelInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL]);
     graphData.openshiftInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT]);
     graphData.rhelTime.push(helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]));
@@ -44,7 +46,6 @@ const convertGraphData = (data = []) => {
     names: {
       rhelInstances: 'RHEL Instances'
     },
-    x: 'x',
     columns: [graphData.date, graphData.rhelInstances],
     colors: { rhelInstances: helpers.pfPaletteColors.orange }
   };
@@ -53,7 +54,6 @@ const convertGraphData = (data = []) => {
     names: {
       openshiftInstances: 'RHOCP Instances'
     },
-    x: 'x',
     columns: [graphData.date, graphData.openshiftInstances],
     colors: { openshiftInstances: helpers.pfPaletteColors.blue300 }
   };
@@ -63,31 +63,22 @@ const convertGraphData = (data = []) => {
       rhelTime: 'RHEL Hours',
       openshiftTime: 'RHOCP Hours'
     },
-    x: 'x',
     columns: [graphData.date, graphData.rhelTime, graphData.openshiftTime],
     colors: { rhelTime: helpers.pfPaletteColors.orange, openshiftTime: helpers.pfPaletteColors.blue300 }
   };
 
-  return { rhelData, openshiftData, rhelOpenshiftTime };
-};
-
-const graphDefaults = {
-  axis: {
-    x: {
-      type: 'category',
-      show: false
+  const tooltips = {
+    format: {
+      title: d => graphData.tooltipTitle[d] || `Data ${d}`
     },
-    y: {
-      show: false
-    }
-  },
-  tooltips: {
     tooltip: {
       grouped: false
     }
-  }
+  };
+
+  return { rhelData, openshiftData, rhelOpenshiftTime, tooltips };
 };
 
-const graphHelpers = { calculateInstanceTotals, convertGraphData, graphDefaults };
+const graphHelpers = { calculateInstanceTotals, convertGraphData };
 
-export { graphHelpers as default, graphHelpers, calculateInstanceTotals, convertGraphData, graphDefaults };
+export { graphHelpers as default, graphHelpers, calculateInstanceTotals, convertGraphData };
