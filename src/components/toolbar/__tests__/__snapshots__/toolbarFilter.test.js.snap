@@ -31,8 +31,8 @@ exports[`ToolbarFilter Component should render a basic component: basic, one fie
   onSelectFilter={[Function]}
   onUpdateValue={[Function]}
 >
-  <getContext(Filter)>
-    <Filter
+  <getContext(ContextualFilter)>
+    <ContextualFilter
       className=""
     >
       <div
@@ -46,8 +46,8 @@ exports[`ToolbarFilter Component should render a basic component: basic, one fie
           />
         </div>
       </div>
-    </Filter>
-  </getContext(Filter)>
+    </ContextualFilter>
+  </getContext(ContextualFilter)>
 </ToolbarFilter>
 `;
 
@@ -136,19 +136,6 @@ exports[`ToolbarFilter Component should render multiple filter fields: multiple 
             class="dropdown-menu"
             role="menu"
           >
-            <li
-              class=""
-              role="presentation"
-            >
-              <a
-                href="#"
-                role="menuitem"
-                tabindex="-1"
-                title="Filter by ipsum type"
-              >
-                Filter by ipsum type
-              </a>
-            </li>
             <li
               class=""
               role="presentation"

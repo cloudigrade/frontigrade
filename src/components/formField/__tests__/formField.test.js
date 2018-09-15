@@ -8,7 +8,7 @@ describe('FormField Component', () => {
 
     const component = mount(
       <FormField {...props}>
-        <input id="test" type="text" value="" />
+        <input id="test" type="text" value="" readOnly />
       </FormField>
     );
 

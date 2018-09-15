@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar Component should render a basic component 1`] = `
-<withContext(Toolbar)>
+<withContext(ContextualToolbar)>
   test
   <ToolbarResults
     className=""
   />
-</withContext(Toolbar)>
+</withContext(ContextualToolbar)>
 `;

@@ -101,7 +101,7 @@ ToolbarFilter.propTypes = {
       id: PropTypes.string,
       title: PropTypes.string.isRequired,
       placeholder: PropTypes.string,
-      filterType: PropTypes.string.isRequired,
+      filterType: PropTypes.string,
       filterValues: PropTypes.array
     })
   ]),

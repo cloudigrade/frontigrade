@@ -13,6 +13,7 @@ exports[`FormField Component should render 1`] = `
   >
     <input
       id="test"
+      readonly=""
       type="text"
       value=""
     />
