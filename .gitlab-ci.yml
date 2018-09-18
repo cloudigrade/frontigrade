@@ -2,6 +2,7 @@
 stages:
   - test
   - build
+  - review
   - deploy
   - release
 
@@ -60,6 +61,51 @@ Push Frontigrade Tagged Image:
     - docker pull ${IMAGE_NAME}:latest || true
     - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME}:${CI_COMMIT_TAG} .
     - docker push ${IMAGE_NAME}:${CI_COMMIT_TAG}
+
+### REVIEW STAGE ###
+Deploy Review:
+  stage: review
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - branches@cloudigrade/frontigrade
+  except:
+    - master@cloudigrade/frontigrade
+    - tags@cloudigrade/frontigrade
+  before_script:
+    - oc login --token ${KUBE_TOKEN}
+    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
+    - oc start-build -F cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade
+    - if ! oc rollout status dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade; then oc rollout latest dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade && oc rollout status dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade; fi;
+  environment:
+    name: review/${CI_COMMIT_REF_NAME}
+    url: https://${CI_COMMIT_REF_SLUG}-review-gitlab.1b13.insights.openshiftapps.com
+    on_stop: Clean Up Review
+
+Clean Up Review:
+  stage: review
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - branches@cloudigrade/frontigrade
+  except:
+    - master@cloudigrade/frontigrade
+    - tags@cloudigrade/frontigrade
+  before_script:
+    - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
+    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - oc delete bc,cm,dc,is,routes,secrets,svc -l gitlab-deployment="${CI_COMMIT_REF_SLUG}-frontigrade"
+  when: manual
+  environment:
+    name: review/${CI_COMMIT_REF_NAME}
+    action: stop
 
 ### DEPLOY STAGE ###
 ### MASTER ONLY ###
