@@ -311,7 +311,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_REJECTED",
+  "type": "UPDATE_ACCOUNT_IMAGE_REJECTED",
 }
 `;
 
@@ -346,7 +346,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_REJECTED",
 }
 `;
 
@@ -363,9 +363,9 @@ Object {
     },
     "instances": Object {
       "dailyUsage": Array [],
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
@@ -381,7 +381,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
+  "type": "GET_ACCOUNT_IMAGES_REJECTED",
 }
 `;
 
@@ -416,7 +416,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
 }
 `;
 
@@ -433,9 +433,9 @@ Object {
     },
     "instances": Object {
       "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
       "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
@@ -451,7 +451,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
 }
 `;
 
@@ -486,11 +486,81 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+  "type": "ADD_ACCOUNT_SHOW_REJECTED",
 }
 `;
 
 exports[`AccountReducers should handle all defined error types: rejected types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types: rejected types 16`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types: rejected types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -842,7 +912,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_FULFILLED",
+  "type": "UPDATE_ACCOUNT_IMAGE_FULFILLED",
 }
 `;
 
@@ -877,7 +947,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_FULFILLED",
 }
 `;
 
@@ -897,7 +967,7 @@ Object {
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": true,
+      "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
@@ -912,7 +982,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
+  "type": "GET_ACCOUNT_IMAGES_FULFILLED",
 }
 `;
 
@@ -947,7 +1017,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
 }
 `;
 
@@ -967,7 +1037,7 @@ Object {
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": false,
+      "fulfilled": true,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
@@ -982,7 +1052,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
 }
 `;
 
@@ -1017,11 +1087,81 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
 }
 `;
 
 exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 16`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1367,7 +1507,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_PENDING",
+  "type": "UPDATE_ACCOUNT_IMAGE_PENDING",
 }
 `;
 
@@ -1402,7 +1542,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_PENDING",
 }
 `;
 
@@ -1425,7 +1565,7 @@ Object {
       "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
-      "pending": true,
+      "pending": false,
     },
     "view": Object {
       "accounts": Array [],
@@ -1437,7 +1577,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_INSTANCES_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_PENDING",
 }
 `;
 
@@ -1472,7 +1612,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
 }
 `;
 
@@ -1495,7 +1635,7 @@ Object {
       "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
-      "pending": false,
+      "pending": true,
     },
     "view": Object {
       "accounts": Array [],
@@ -1507,7 +1647,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+  "type": "GET_ACCOUNT_INSTANCES_PENDING",
 }
 `;
 
@@ -1542,11 +1682,81 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+  "type": "ADD_ACCOUNT_SHOW_PENDING",
 }
 `;
 
 exports[`AccountReducers should handle all defined pending types: pending types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types: pending types 16`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types: pending types 17`] = `
 Object {
   "result": Object {
     "account": Object {

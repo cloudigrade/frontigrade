@@ -101,3 +101,15 @@
 .cloudmeter-label-nowrap {
   white-space: nowrap;
 }
+
+.cloudmeter-flag-status-pending {
+  input[type=checkbox] {
+    display: none;
+  }
+
+  .cloudmeter-flag-status-icon {
+    position: relative;
+    margin-left: -20px;
+    margin-right: 5px;
+  }
+}

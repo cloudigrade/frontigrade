@@ -5,7 +5,7 @@ describe('AccountServices', () => {
   beforeEach(() => {
     moxios.install();
 
-    moxios.stubRequest(/\/(account|images|instances).*?/, {
+    moxios.stubRequest(/\/(account|images|image|instances).*?/, {
       status: 200,
       responseText: 'success',
       timeout: 1
@@ -17,7 +17,7 @@ describe('AccountServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(accountServices)).toHaveLength(7);
+    expect(Object.keys(accountServices)).toHaveLength(9);
   });
 
   it('should have specific methods', () => {
@@ -28,6 +28,8 @@ describe('AccountServices', () => {
     expect(accountServices.getAccountInstances).toBeDefined();
     expect(accountServices.updateAccount).toBeDefined();
     expect(accountServices.updateAccountField).toBeDefined();
+    expect(accountServices.updateAccountImage).toBeDefined();
+    expect(accountServices.updateAccountImageField).toBeDefined();
   });
 
   it('should return promises for every method against known endpoints', done => {

@@ -122,7 +122,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_IMAGES_REJECTED",
+  "type": "UPDATE_ACCOUNT_IMAGE_REJECTED",
 }
 `;
 
@@ -136,7 +136,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_REJECTED",
 }
 `;
 
@@ -150,7 +150,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
+  "type": "GET_ACCOUNT_IMAGES_REJECTED",
 }
 `;
 
@@ -164,7 +164,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
 }
 `;
 
@@ -178,7 +178,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
 }
 `;
 
@@ -192,11 +192,39 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+  "type": "ADD_ACCOUNT_SHOW_REJECTED",
 }
 `;
 
 exports[`AccountImagesReducers should handle all defined error types: rejected types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "error": false,
+    "errorMessage": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 16`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "error": false,
+    "errorMessage": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+  },
+  "type": "EDIT_ACCOUNT_SHOW_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 17`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -332,7 +360,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_IMAGES_FULFILLED",
+  "type": "UPDATE_ACCOUNT_IMAGE_FULFILLED",
 }
 `;
 
@@ -346,7 +374,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_FULFILLED",
 }
 `;
 
@@ -360,7 +388,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
+  "type": "GET_ACCOUNT_IMAGES_FULFILLED",
 }
 `;
 
@@ -374,7 +402,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
 }
 `;
 
@@ -388,7 +416,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
 }
 `;
 
@@ -402,11 +430,39 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
 }
 `;
 
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "error": false,
+    "errorMessage": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 16`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "error": false,
+    "errorMessage": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+  },
+  "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 17`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -542,7 +598,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_IMAGES_PENDING",
+  "type": "UPDATE_ACCOUNT_IMAGE_PENDING",
 }
 `;
 
@@ -556,7 +612,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_PENDING",
 }
 `;
 
@@ -570,7 +626,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "GET_ACCOUNT_INSTANCES_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_PENDING",
 }
 `;
 
@@ -584,7 +640,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "ADD_ACCOUNT_SHOW_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
 }
 `;
 
@@ -598,7 +654,7 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+  "type": "GET_ACCOUNT_INSTANCES_PENDING",
 }
 `;
 
@@ -612,11 +668,39 @@ Object {
     "pending": false,
     "show": false,
   },
-  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+  "type": "ADD_ACCOUNT_SHOW_PENDING",
 }
 `;
 
 exports[`AccountImagesReducers should handle all defined pending types: pending types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "error": false,
+    "errorMessage": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+  },
+  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined pending types: pending types 16`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "error": false,
+    "errorMessage": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+  },
+  "type": "EDIT_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined pending types: pending types 17`] = `
 Object {
   "result": Object {
     "account": Object {},

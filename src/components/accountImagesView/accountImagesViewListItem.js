@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Icon, ListView, Label as PFLabel } from 'patternfly-react';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
+import AccountImagesViewListItemDetail from './accountImagesViewListItemDetail';
 import Tooltip from '../tooltip/tooltip';
 
 class AccountImagesViewListItem extends React.Component {
@@ -24,13 +25,11 @@ class AccountImagesViewListItem extends React.Component {
   };
 
   static renderLeftContent() {
-    return null;
+    return <ListView.Icon name="unknown" />;
   }
 
-  renderHeading() {
-    const { item } = this.props;
-
-    return item[apiTypes.API_RESPONSE_IMAGES_NAME] || `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID]}`;
+  static renderHeading() {
+    return null;
   }
 
   renderDescription() {
@@ -44,7 +43,16 @@ class AccountImagesViewListItem extends React.Component {
       title = <span title={title}>{title}</span>;
     }
 
-    return <ListView.DescriptionHeading>{title}</ListView.DescriptionHeading>;
+    const timestamp = item[apiTypes.API_RESPONSE_IMAGES_EDIT_UPDATED];
+
+    return (
+      <React.Fragment>
+        <ListView.DescriptionHeading>{title}</ListView.DescriptionHeading>
+        {timestamp && (
+          <ListView.DescriptionText>Updated {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</ListView.DescriptionText>
+        )}
+      </React.Fragment>
+    );
   }
 
   /**
@@ -61,6 +69,9 @@ class AccountImagesViewListItem extends React.Component {
    */
   renderAdditionalInfo() {
     const { item } = this.props;
+
+    const rhelChallenged = item[apiTypes.API_RESPONSE_IMAGES_RHEL_CHALLENGED];
+    const openshiftChallenged = item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_CHALLENGED];
 
     let seconds = Number.parseFloat(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
     seconds = Number.isNaN(seconds) ? null : seconds;
@@ -100,9 +111,10 @@ class AccountImagesViewListItem extends React.Component {
             : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
         }
       >
-        <PFLabel bsStyle="warning">
+        <PFLabel bsStyle={rhelChallenged ? 'default' : 'warning'}>
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-        </PFLabel>
+        </PFLabel>{' '}
+        {rhelChallenged && <Icon type="fa" name="asterisk" className="cloudmeter-pficon-error" />}
       </ListView.InfoItem>,
       <ListView.InfoItem
         key="4"
@@ -112,9 +124,10 @@ class AccountImagesViewListItem extends React.Component {
             : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
         }
       >
-        <PFLabel bsStyle="primary">
+        <PFLabel bsStyle={openshiftChallenged ? 'default' : 'primary'}>
           <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-        </PFLabel>
+        </PFLabel>{' '}
+        {openshiftChallenged && <Icon type="fa" name="asterisk" className="cloudmeter-pficon-error" />}
       </ListView.InfoItem>
     ];
   }
@@ -127,10 +140,13 @@ class AccountImagesViewListItem extends React.Component {
         onClick={this.onVerifyDetail}
         key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
         leftContent={AccountImagesViewListItem.renderLeftContent()}
+        heading={AccountImagesViewListItem.renderHeading()}
         description={this.renderDescription()}
         additionalInfo={this.renderAdditionalInfo()}
         stacked={false}
-      />
+      >
+        <AccountImagesViewListItemDetail item={item} />
+      </ListView.Item>
     );
   }
 }

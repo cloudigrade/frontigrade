@@ -49,6 +49,18 @@ const updateAccountField = (id, data) => dispatch =>
     payload: accountServices.updateAccountField(id, data)
   });
 
+const updateAccountImage = (id, data) => dispatch =>
+  dispatch({
+    type: accountTypes.UPDATE_ACCOUNT_IMAGE,
+    payload: accountServices.updateAccountImage(id, data)
+  });
+
+const updateAccountImageField = (id, data) => dispatch =>
+  dispatch({
+    type: accountTypes.UPDATE_ACCOUNT_IMAGE_FIELD,
+    payload: accountServices.updateAccountImageField(id, data)
+  });
+
 export {
   addAccount,
   getAccount,
@@ -57,5 +69,7 @@ export {
   getAccountInstances,
   getAccounts,
   updateAccount,
-  updateAccountField
+  updateAccountField,
+  updateAccountImage,
+  updateAccountImageField
 };

@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountImagesViewListItemDetail Component should render 1`] = `
+<div
+  class="container-fluid"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-xs-6"
+    >
+      <strong>
+        Red Hat Enterprise Linux was detected
+      </strong>
+      <form
+        class=""
+      >
+        <div
+          class="form-group"
+        >
+          <div
+            class="checkbox"
+          >
+            <label
+              title=""
+            >
+              <input
+                type="checkbox"
+              />
+              Flag for review 
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      class="col-xs-6"
+    >
+      <strong>
+        Red Hat OpenShift Container Platform was not detected
+      </strong>
+      <form
+        class=""
+      >
+        <div
+          class="form-group"
+        >
+          <div
+            class="checkbox"
+          >
+            <label
+              title=""
+            >
+              <input
+                checked=""
+                type="checkbox"
+              />
+              Flagged for review 
+              <span
+                aria-hidden="true"
+                class="fa fa-asterisk cloudmeter-pficon-error"
+              />
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

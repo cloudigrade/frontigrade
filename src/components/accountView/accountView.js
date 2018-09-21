@@ -236,6 +236,7 @@ AccountView.propTypes = {
     push: PropTypes.func.isRequired
   }).isRequired,
   pending: PropTypes.bool,
+  updateAccounts: PropTypes.bool,
   view: PropTypes.string,
   viewGlobal: PropTypes.string
 };
@@ -250,6 +251,7 @@ AccountView.defaultProps = {
   },
   getAccounts: helpers.noop,
   pending: false,
+  updateAccounts: false,
   view: 'account',
   viewGlobal: 'accountGlobal'
 };

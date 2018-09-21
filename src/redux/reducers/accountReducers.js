@@ -6,9 +6,7 @@ import helpers from '../../common/helpers';
  * Notes:
  * The updateAccounts prop is only used to trigger a refresh of the account summary API call.
  * This prop anticipates being reset through "helpers.setStateProp" when the API call is
- * rejected, pending, or fulfilled. If "updateAccounts" is not reset to false, and/or checks
- * within the accountView component are relaxed an infinite refresh loop could, potentially,
- * happen.
+ * rejected, pending, or fulfilled.
  */
 const initialState = {
   account: {

@@ -120,7 +120,6 @@ describe('UserActions', () => {
     expect(accountActions.updateAccount).toBeDefined();
   });
 
-  // FixMe: API - patch not allowed by preflight, temporarily using put instead which uses "updateAccount"
   it('Should return response content for updateAccountField method', done => {
     const store = generateStore();
     const dispatcher = accountActions.updateAccountField();
@@ -129,6 +128,22 @@ describe('UserActions', () => {
       const response = store.getState().accountEditModal;
 
       expect(response.fulfilled).toEqual(true);
+      done();
+    });
+  });
+
+  it('Should return response content for updateAccountImage method', () => {
+    expect(accountActions.updateAccountImage()).toBeDefined();
+  });
+
+  it('Should return response content for updateAccountImageField method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.updateAccountImageField();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountImages.view;
+
+      expect(response.updateImages).toEqual(true);
       done();
     });
   });

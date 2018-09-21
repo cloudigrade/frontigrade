@@ -3,14 +3,6 @@ import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 const initialState = {
-  view: {
-    images: [],
-    error: false,
-    errorStatus: null,
-    errorMessage: null,
-    pending: false,
-    fulfilled: false
-  },
   instances: {
     account: {},
     dailyUsage: [],
@@ -21,6 +13,15 @@ const initialState = {
     errorMessage: null,
     pending: false,
     fulfilled: false
+  },
+  view: {
+    images: [],
+    error: false,
+    errorStatus: null,
+    errorMessage: null,
+    pending: false,
+    fulfilled: false,
+    updateImages: false
   }
 };
 
@@ -104,6 +105,28 @@ const accountImagesReducers = (state = initialState, action) => {
         {
           state,
           initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(accountTypes.UPDATE_ACCOUNT_IMAGE):
+    case helpers.FULFILLED_ACTION(accountTypes.UPDATE_ACCOUNT_IMAGE_FIELD):
+      const updatedImage = action.payload.data || {};
+      const existingImageIndex = state.view.images.findIndex(image => updatedImage.id === image.id);
+      const updatedImages = [...state.view.images];
+
+      if (existingImageIndex > -1) {
+        updatedImages[existingImageIndex] = Object.assign({ ...updatedImages[existingImageIndex] }, updatedImage);
+      }
+
+      return helpers.setStateProp(
+        'view',
+        {
+          images: updatedImages,
+          updateImages: true
+        },
+        {
+          state,
+          reset: false
         }
       );
 
