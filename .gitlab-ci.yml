@@ -16,6 +16,9 @@ variables:
 Yarn:
   stage: test
   image: node:8
+  except:
+    - chat
+    - trigger
   before_script:
     - yarn
     - yarn global add codecov
@@ -27,6 +30,9 @@ Docker:
   image: docker:stable
   services:
     - docker:dind
+  except:
+    - chat
+    - trigger
   stage: test
   script: docker build .
 
@@ -40,6 +46,8 @@ Push Frontigrade Image:
     - master@cloudigrade/frontigrade
   except:
     - tags@cloudigrade/frontigrade
+    - chat
+    - trigger
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
@@ -55,6 +63,9 @@ Push Frontigrade Tagged Image:
     - docker:dind
   only:
     - tags@cloudigrade/frontigrade
+  except:
+    - chat
+    - trigger
   before_script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
@@ -73,6 +84,8 @@ Deploy Review:
   except:
     - master@cloudigrade/frontigrade
     - tags@cloudigrade/frontigrade
+    - chat
+    - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
     - git clone https://gitlab.com/cloudigrade/shiftigrade.git
@@ -83,7 +96,7 @@ Deploy Review:
     - if ! oc rollout status dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade; then oc rollout latest dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade && oc rollout status dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade; fi;
   environment:
     name: review/${CI_COMMIT_REF_NAME}
-    url: https://${CI_COMMIT_REF_SLUG}-review-gitlab.1b13.insights.openshiftapps.com
+    url: https://cloudireview-${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
     on_stop: Clean Up Review
 
 Clean Up Review:
@@ -96,6 +109,8 @@ Clean Up Review:
   except:
     - master@cloudigrade/frontigrade
     - tags@cloudigrade/frontigrade
+    - chat
+    - trigger
   before_script:
     - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
     - git clone https://gitlab.com/cloudigrade/shiftigrade.git
@@ -105,6 +120,74 @@ Clean Up Review:
   when: manual
   environment:
     name: review/${CI_COMMIT_REF_NAME}
+    action: stop
+
+Review-Master:
+  stage: review
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - chat
+    - trigger
+  except:
+    - tags@cloudigrade/cloudigrade
+  before_script:
+    - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
+    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - >
+      if [ -n "${CHAT_INPUT}" ]; then
+        export FRONTIGRADE_REPO_REF=master
+        export CI_COMMIT_REF_SLUG=master-${CHAT_INPUT}
+        export FRONTIGRADE_ROUTE_HOST=${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
+        export DEPLOYMENT_PREFIX=${CI_COMMIT_REF_SLUG}-
+        export GITLAB_DEPLOYMENT=${CI_COMMIT_REF_SLUG}-frontigrade
+      else
+        echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nPlease provide a name for the deployment.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
+        exit 1
+      fi
+    - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
+    - oc start-build -F ${CI_COMMIT_REF_SLUG}-frontigrade
+    - if ! oc rollout status dc/${CI_COMMIT_REF_SLUG}-frontigrade; then oc rollout latest dc/${CI_COMMIT_REF_SLUG}-frontigrade && oc rollout status dc/${CI_COMMIT_REF_SLUG}-frontigrade; fi;
+    - echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nDeployed ${CHAT_INPUT}, available at https://${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com\nsection_end:$( date +%s ):chat_reply\r\033[0K"
+  environment:
+    name: review/master-${CHAT_INPUT}
+    url: https://${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
+    on_stop: Clean-up-master
+
+Clean-up-master:
+  stage: review
+  image: registry.gitlab.com/cloudigrade/images/deploy-container:latest
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - chat
+    - trigger
+  except:
+    - tags@cloudigrade/cloudigrade
+  before_script:
+    - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
+    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
+    - cd shiftigrade
+  script:
+    - >
+      if [ -n "${CHAT_INPUT}" ]; then
+        export FRONTIGRADE_REPO_REF=master
+        export CI_COMMIT_REF_SLUG=master-${CHAT_INPUT}
+        export FRONTIGRADE_ROUTE_HOST=${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
+        export DEPLOYMENT_PREFIX=${CI_COMMIT_REF_SLUG}-
+        export GITLAB_DEPLOYMENT=${CI_COMMIT_REF_SLUG}-frontigrade
+      else
+        echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nPlease provide a name for the deployment.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
+        exit 1
+      fi
+    - oc delete bc,dc,is,routes,secrets,svc -l gitlab-deployment="${CI_COMMIT_REF_SLUG}-frontigrade"
+    - echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nFrontigrade master review - ${CHAT_INPUT} - cleaned up.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
+  when: manual
+  environment:
+    name: review/master-${CHAT_INPUT}
     action: stop
 
 ### DEPLOY STAGE ###
@@ -117,6 +200,9 @@ Deploy to Test:
     FRONTIGRADE_IMAGE: registry.gitlab.com/${CI_PROJECT_PATH}/commits/${CI_PROJECT_NAME}:${CI_BUILD_REF}
   only:
     - master@cloudigrade/frontigrade
+  except:
+    - chat
+    - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
     - git clone https://gitlab.com/cloudigrade/shiftigrade.git
@@ -136,6 +222,9 @@ Deploy to Stage:
     FRONTIGRADE_IMAGE: registry.gitlab.com/${CI_PROJECT_PATH}:${CI_COMMIT_TAG}
   only:
     - tags@cloudigrade/frontigrade
+  except:
+    - chat
+    - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
     - git clone https://gitlab.com/cloudigrade/shiftigrade.git
@@ -156,6 +245,9 @@ Deploy to Production:
     FRONTIGRADE_IMAGE: registry.gitlab.com/${CI_PROJECT_PATH}:${CI_COMMIT_TAG}
   only:
     - tags@cloudigrade/frontigrade
+  except:
+    - chat
+    - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
     - git clone https://gitlab.com/cloudigrade/shiftigrade.git
