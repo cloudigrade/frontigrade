@@ -1,14 +1,14 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import { mount, shallow } from 'enzyme';
-import { ConnectedAccountViewEditModal, AccountEditModal } from '../accountEditModal';
+import { ConnectedAccountEditModal, AccountEditModal } from '../accountEditModal';
 
 describe('AccountEditModal Component', () => {
   const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
 
   it('should render a connected component with default props', () => {
-    const store = generateEmptyStore({ accountEditModal: { show: true, account: {} } });
-    const component = shallow(<ConnectedAccountViewEditModal />, { context: { store } });
+    const store = generateEmptyStore({ accountEdit: { modal: { show: true, account: {} } } });
+    const component = shallow(<ConnectedAccountEditModal />, { context: { store } });
 
     expect(component).toMatchSnapshot('connected');
   });

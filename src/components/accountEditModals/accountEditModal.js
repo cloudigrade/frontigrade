@@ -7,8 +7,10 @@ import helpers from '../../common/helpers';
 import { FormField, fieldValidation } from '../formField/formField';
 
 const initialState = {
+  accountId: null,
   accountName: '',
   accountNameError: null,
+  displayName: '',
   resourceType: 'AwsAccount',
   formTouched: false,
   formValid: false
@@ -50,13 +52,13 @@ class AccountEditModal extends React.Component {
   };
 
   onSubmit = event => {
-    const { accountName, resourceType, formValid } = this.state;
-    const { account, updateAccountField } = this.props;
+    const { accountId, accountName, resourceType, formValid } = this.state;
+    const { updateAccountField } = this.props;
 
     event.preventDefault();
 
     if (formValid) {
-      updateAccountField(account[apiTypes.API_RESPONSE_ACCOUNTS_ID], {
+      updateAccountField(accountId, {
         [apiTypes.API_SUBMIT_ACCOUNT_NAME]: accountName,
         [apiTypes.API_SUBMIT_ACCOUNT_RESOURCE_TYPE]: resourceType
       }).then(
@@ -84,6 +86,12 @@ class AccountEditModal extends React.Component {
             },
             () => {
               // eslint-disable-next-line react/destructuring-assignment
+              if (Math.floor(this.props.errorStatus / 100) === 5) {
+                this.onCancel();
+                return;
+              }
+
+              // eslint-disable-next-line react/destructuring-assignment
               if (!this.props.show) {
                 store.dispatch({
                   type: reduxTypes.toastNotifications.TOAST_ADD,
@@ -103,14 +111,19 @@ class AccountEditModal extends React.Component {
   // FixMe: API - inconsistent enum for "resourcetype", account summary response uses "type":"aws" vs "AwsAccount"
   // FixMe: API - inconsistent property naming for ARN, /api/v1/report/accounts/ labels it "arn" vs /api/v1/account/:id/ "account_arn"
   // FixMe: API - patch requires additional property of "resourcetype", an id is also being used...
-  // FixMe: API - patch not allowed by preflight, temporarily using put instead
   static getDerivedStateFromProps(props, state) {
     let updateInitialState = null;
 
     if (!state.formTouched && props.account && props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME]) {
+      const accountId = props.account[apiTypes.API_RESPONSE_ACCOUNTS_ID];
+      const accountName = props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME];
+      const displayName = fieldValidation.isEmpty(accountName) ? accountId : accountName;
+
       updateInitialState = {
-        accountName: props.account[apiTypes.API_RESPONSE_ACCOUNTS_NAME],
-        accountNameError: ''
+        accountId,
+        accountName,
+        accountNameError: '',
+        displayName
       };
     }
 
@@ -158,11 +171,8 @@ class AccountEditModal extends React.Component {
   }
 
   render() {
-    const { account, pending, show } = this.props;
-    const { accountName, accountNameError, formTouched, formValid } = this.state;
-    const displayName = fieldValidation.isEmpty(account[apiTypes.API_RESPONSE_ACCOUNTS_NAME])
-      ? account[apiTypes.API_RESPONSE_ACCOUNTS_ID]
-      : account[apiTypes.API_RESPONSE_ACCOUNTS_NAME];
+    const { accountName, accountNameError, displayName, formTouched, formValid } = this.state;
+    const { pending, show } = this.props;
 
     return (
       <Modal show={show} onHide={this.cancel}>
@@ -219,6 +229,7 @@ AccountEditModal.propTypes = {
   account: PropTypes.object.isRequired,
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
+  errorStatus: PropTypes.number,
   pending: PropTypes.bool,
   show: PropTypes.bool.isRequired,
   updateAccountField: PropTypes.func
@@ -227,6 +238,7 @@ AccountEditModal.propTypes = {
 AccountEditModal.defaultProps = {
   error: false,
   errorMessage: null,
+  errorStatus: null,
   pending: false,
   updateAccountField: helpers.noop
 };
@@ -235,11 +247,11 @@ const mapDispatchToProps = dispatch => ({
   updateAccountField: (id, data) => dispatch(reduxActions.account.updateAccountField(id, data))
 });
 
-const mapStateToProps = state => ({ ...state.accountEditModal });
+const mapStateToProps = state => ({ ...state.accountEdit.modal });
 
-const ConnectedAccountViewEditModal = connect(
+const ConnectedAccountEditModal = connect(
   mapStateToProps,
   mapDispatchToProps
 )(AccountEditModal);
 
-export { ConnectedAccountViewEditModal as default, ConnectedAccountViewEditModal, AccountEditModal };
+export { ConnectedAccountEditModal as default, ConnectedAccountEditModal, AccountEditModal };

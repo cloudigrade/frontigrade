@@ -150,7 +150,7 @@ exports[`AccountView Component should render a non-connected component in pendin
                   }
                 }
                 key="1"
-                onArchive={[Function]}
+                onDelete={[Function]}
                 onDetail={[Function]}
                 onEdit={[Function]}
                 t={[Function]}

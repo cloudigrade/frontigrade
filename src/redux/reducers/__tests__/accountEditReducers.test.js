@@ -1,10 +1,10 @@
-import { accountEditModalReducers } from '..';
+import { accountEditReducers } from '..';
 import { accountTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 
 describe('AccountImagesReducers', () => {
   it('should return the initial state', () => {
-    expect(accountEditModalReducers.initialState).toBeDefined();
+    expect(accountEditReducers.initialState).toBeDefined();
   });
 
   it('should handle all defined error types', () => {
@@ -28,7 +28,7 @@ describe('AccountImagesReducers', () => {
         }
       };
 
-      const resultState = accountEditModalReducers(undefined, dispatched);
+      const resultState = accountEditReducers(undefined, dispatched);
 
       expect({ type: helpers.REJECTED_ACTION(value), result: resultState }).toMatchSnapshot('rejected types');
     });
@@ -44,7 +44,7 @@ describe('AccountImagesReducers', () => {
         type: helpers.PENDING_ACTION(value)
       };
 
-      const resultState = accountEditModalReducers(undefined, dispatched);
+      const resultState = accountEditReducers(undefined, dispatched);
 
       expect({ type: helpers.PENDING_ACTION(value), result: resultState }).toMatchSnapshot('pending types');
     });
@@ -65,7 +65,7 @@ describe('AccountImagesReducers', () => {
         }
       };
 
-      const resultState = accountEditModalReducers(undefined, dispatched);
+      const resultState = accountEditReducers(undefined, dispatched);
 
       expect({ type: helpers.FULFILLED_ACTION(value), result: resultState }).toMatchSnapshot('fulfilled types');
     });

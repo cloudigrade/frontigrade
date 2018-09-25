@@ -5,7 +5,8 @@ import helpers from '../common/helpers';
 import { Router } from './router/router';
 import AboutModal from './aboutModal/aboutModal';
 import AccountWizard from './accountWizard/accountWizard';
-import AccountEditModal from './accountEditModal/accountEditModal';
+import AccountDeleteModal from './accountEditModals/accountDeleteModal';
+import AccountEditModal from './accountEditModals/accountEditModal';
 import Authentication from './authentication/authentication';
 import ConfirmationModal from './confirmationModal/confirmationModal';
 import I18n from './i18n/i18n';
@@ -31,6 +32,7 @@ class App extends React.Component {
               <ToastNotificationsList />
               <AboutModal />
               <AccountWizard />
+              <AccountDeleteModal />
               <AccountEditModal />
               <ConfirmationModal />
               <Router />

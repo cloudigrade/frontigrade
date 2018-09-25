@@ -28,7 +28,7 @@ Object {
         "alertType": "error",
         "header": "Error",
         "message": "Network Error",
-        "persistent": true,
+        "persistent": false,
       },
     ],
   },

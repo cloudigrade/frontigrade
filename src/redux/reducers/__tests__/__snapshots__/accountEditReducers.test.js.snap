@@ -3,25 +3,23 @@
 exports[`AccountImagesReducers should handle all defined error types: rejected types 1`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "ADD_ACCOUNT_REJECTED",
@@ -31,25 +29,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 2`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_REJECTED",
@@ -59,25 +55,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 3`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNTS_REJECTED",
@@ -87,25 +81,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 4`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_REJECTED",
@@ -115,25 +107,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 5`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNTS_REJECTED",
@@ -143,25 +133,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 6`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNTS_REJECTED",
@@ -171,25 +159,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 7`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
+    "modal": Object {
+      "account": Object {},
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_REJECTED",
@@ -199,25 +185,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 8`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
+    "modal": Object {
+      "account": Object {},
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FIELD_REJECTED",
@@ -227,25 +211,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 9`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_REJECTED",
@@ -255,25 +237,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 10`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_FIELD_REJECTED",
@@ -283,25 +263,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 11`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_REJECTED",
@@ -311,25 +289,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 12`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
@@ -339,25 +315,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 13`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_INSTANCES_REJECTED",
@@ -367,25 +341,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 14`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "ADD_ACCOUNT_SHOW_REJECTED",
@@ -395,25 +367,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 15`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
@@ -423,25 +393,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 16`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_HIDE_REJECTED",
@@ -451,25 +419,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 17`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_SHOW_REJECTED",
@@ -479,25 +445,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 18`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_REJECTED",
@@ -507,25 +471,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined error types: rejected types 19`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_REJECTED",
@@ -535,25 +497,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 1`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "ADD_ACCOUNT_FULFILLED",
@@ -563,25 +523,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 2`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
+      "fulfilled": true,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_FULFILLED",
@@ -591,25 +549,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 3`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNTS_FULFILLED",
@@ -619,25 +575,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 4`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_FULFILLED",
@@ -647,25 +601,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 5`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNTS_FULFILLED",
@@ -675,25 +627,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 6`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNTS_FULFILLED",
@@ -703,25 +653,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 7`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
+      "fulfilled": true,
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FULFILLED",
@@ -731,25 +679,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 8`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
+      "fulfilled": true,
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FIELD_FULFILLED",
@@ -759,25 +705,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 9`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": true,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_FULFILLED",
@@ -787,25 +731,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 10`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": true,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_FIELD_FULFILLED",
@@ -815,27 +757,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 11`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
-      "fulfilled": true,
-      "images": Array [
-        "success",
-      ],
+      "fulfilled": false,
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_FULFILLED",
@@ -845,25 +783,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 12`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": true,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
@@ -873,25 +809,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 13`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
@@ -901,25 +835,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 14`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "ADD_ACCOUNT_SHOW_FULFILLED",
@@ -929,25 +861,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 15`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
@@ -957,25 +887,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 16`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_HIDE_FULFILLED",
@@ -985,25 +913,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 17`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_SHOW_FULFILLED",
@@ -1013,25 +939,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 18`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_FULFILLED",
@@ -1041,25 +965,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 19`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_FULFILLED",
@@ -1069,25 +991,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 1`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "ADD_ACCOUNT_PENDING",
@@ -1097,25 +1017,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 2`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
+      "pending": true,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_PENDING",
@@ -1125,25 +1043,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 3`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNTS_PENDING",
@@ -1153,25 +1069,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 4`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_PENDING",
@@ -1181,25 +1095,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 5`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNTS_PENDING",
@@ -1209,25 +1121,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 6`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNTS_PENDING",
@@ -1237,25 +1147,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 7`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-      "updateImages": false,
+      "pending": true,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_PENDING",
@@ -1265,25 +1173,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 8`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-      "updateImages": false,
+      "pending": true,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_FIELD_PENDING",
@@ -1293,25 +1199,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 9`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_PENDING",
@@ -1321,25 +1225,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 10`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_FIELD_PENDING",
@@ -1349,25 +1251,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 11`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
-      "pending": true,
-      "updateImages": false,
+      "pending": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_PENDING",
@@ -1377,25 +1277,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 12`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": true,
-    },
-    "view": Object {
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
@@ -1405,25 +1303,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 13`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "GET_ACCOUNT_INSTANCES_PENDING",
@@ -1433,25 +1329,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 14`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "ADD_ACCOUNT_SHOW_PENDING",
@@ -1461,25 +1355,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 15`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "UPDATE_ACCOUNT_HIDE_PENDING",
@@ -1489,25 +1381,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 16`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_HIDE_PENDING",
@@ -1517,25 +1407,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 17`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "DELETE_ACCOUNT_SHOW_PENDING",
@@ -1545,25 +1433,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 18`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "EDIT_ACCOUNT_HIDE_PENDING",
@@ -1573,25 +1459,23 @@ Object {
 exports[`AccountImagesReducers should handle all defined pending types: pending types 19`] = `
 Object {
   "result": Object {
-    "instances": Object {
+    "del": Object {
       "account": Object {},
-      "dailyUsage": Array [],
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
       "pending": false,
+      "show": false,
     },
-    "view": Object {
+    "modal": Object {
+      "account": Object {},
       "error": false,
       "errorMessage": null,
       "errorStatus": null,
       "fulfilled": false,
-      "images": Array [],
       "pending": false,
-      "updateImages": false,
+      "show": false,
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_PENDING",

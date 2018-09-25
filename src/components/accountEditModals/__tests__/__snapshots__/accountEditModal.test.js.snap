@@ -37,7 +37,7 @@ exports[`AccountEditModal Component should have specific display states defined:
           <h4
             class="modal-title"
           >
-            Edit Account - undefined
+            Edit Account - 
           </h4>
         </div>
         <div
@@ -148,7 +148,7 @@ exports[`AccountEditModal Component should have specific display states defined:
           <h4
             class="modal-title"
           >
-            Edit Account - undefined
+            Edit Account - 
           </h4>
         </div>
         <div
@@ -191,8 +191,10 @@ exports[`AccountEditModal Component should have specific display states defined:
 
 exports[`AccountEditModal Component should have specific events defined: expected form error 1`] = `
 Object {
+  "accountId": null,
   "accountName": "",
   "accountNameError": "Enter minimum of 3 characters for account name",
+  "displayName": "",
   "formTouched": true,
   "formValid": false,
   "resourceType": "AwsAccount",
@@ -201,8 +203,10 @@ Object {
 
 exports[`AccountEditModal Component should have specific events defined: expected form valid 1`] = `
 Object {
+  "accountId": null,
   "accountName": "lorem ipsum",
   "accountNameError": "",
+  "displayName": "",
   "formTouched": true,
   "formValid": true,
   "resourceType": "AwsAccount",
@@ -214,6 +218,7 @@ exports[`AccountEditModal Component should render a connected component with def
   account={Object {}}
   error={false}
   errorMessage={null}
+  errorStatus={null}
   pending={false}
   show={true}
   updateAccountField={[Function]}
@@ -257,7 +262,7 @@ exports[`AccountEditModal Component should render a non-connected component 1`] 
           <h4
             class="modal-title"
           >
-            Edit Account - undefined
+            Edit Account - 
           </h4>
         </div>
         <div

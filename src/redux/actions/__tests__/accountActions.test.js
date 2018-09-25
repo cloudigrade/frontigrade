@@ -2,12 +2,7 @@ import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { accountActions } from '..';
-import {
-  accountReducers,
-  accountEditModalReducers,
-  accountImagesReducers,
-  accountWizardReducers
-} from '../../reducers';
+import { accountReducers, accountEditReducers, accountImagesReducers, accountWizardReducers } from '../../reducers';
 import apiTypes from '../../../constants/apiConstants';
 
 describe('UserActions', () => {
@@ -16,7 +11,7 @@ describe('UserActions', () => {
     createStore(
       combineReducers({
         account: accountReducers,
-        accountEditModal: accountEditModalReducers,
+        accountEdit: accountEditReducers,
         accountImages: accountImagesReducers,
         accountWizard: accountWizardReducers
       }),
@@ -52,6 +47,18 @@ describe('UserActions', () => {
       const response = store.getState().accountWizard;
 
       expect(response.account.test).toEqual('success');
+      done();
+    });
+  });
+
+  it('Should return a response for deleteAccount method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.deleteAccount();
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountEdit.del;
+
+      expect(response.fulfilled).toEqual(true);
       done();
     });
   });
@@ -125,7 +132,7 @@ describe('UserActions', () => {
     const dispatcher = accountActions.updateAccountField();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().accountEditModal;
+      const response = store.getState().accountEdit.modal;
 
       expect(response.fulfilled).toEqual(true);
       done();

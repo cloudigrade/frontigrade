@@ -7,6 +7,12 @@ const addAccount = data => dispatch =>
     payload: accountServices.addAccount(data)
   });
 
+const deleteAccount = id => dispatch =>
+  dispatch({
+    type: accountTypes.DELETE_ACCOUNT,
+    payload: accountServices.deleteAccount(id)
+  });
+
 const getAccount = id => dispatch =>
   dispatch({
     type: accountTypes.GET_ACCOUNT,
@@ -63,6 +69,7 @@ const updateAccountImageField = (id, data) => dispatch =>
 
 export {
   addAccount,
+  deleteAccount,
   getAccount,
   getAccountImages,
   getAccountImagesInstances,

@@ -62,7 +62,7 @@ const toastNotificationsReducers = (state = initialState, action) => {
         header: 'Error',
         message: action.message,
         alertType: 'error',
-        persistent: true
+        persistent: action.status > 501
       };
 
       return {

@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountDeleteModal Component should render a connected component with default props: connected 1`] = `
+<AccountDeleteModal
+  account={Object {}}
+  deleteAccount={[Function]}
+  error={false}
+  errorMessage={null}
+  errorStatus={null}
+  pending={false}
+  show={true}
+/>
+`;
+
+exports[`AccountDeleteModal Component should render a non-connected component 1`] = `
+<div
+  role="dialog"
+>
+  <div
+    class="fade modal-backdrop in"
+  />
+  <div
+    class="fade in modal"
+    role="dialog"
+    style="display: block; padding-right: 0px;"
+    tabindex="-1"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+        role="document"
+      >
+        <div
+          class="modal-header"
+        >
+          <button
+            aria-hidden="true"
+            aria-label="Close"
+            class="close btn btn-default"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="pficon pficon-close"
+            />
+          </button>
+          <h4
+            class="modal-title"
+          >
+            Delete Account - 
+          </h4>
+        </div>
+        <div
+          class="modal-body"
+        />
+        <div
+          class="container-fluid"
+        >
+          <p>
+            Are you sure you want to delete the account ?
+          </p>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn-cancel btn btn-default"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

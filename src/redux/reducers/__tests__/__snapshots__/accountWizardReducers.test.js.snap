@@ -533,7 +533,7 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "EDIT_ACCOUNT_SHOW",
+  "type": "DELETE_ACCOUNT_HIDE",
 }
 `;
 
@@ -556,6 +556,52 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
+  "type": "DELETE_ACCOUNT_SHOW",
+}
+`;
+
+exports[`AccountWizardReducers should handle all defined types: defined types 25`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "configuration": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
   "type": "EDIT_ACCOUNT_HIDE",
+}
+`;
+
+exports[`AccountWizardReducers should handle all defined types: defined types 26`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "configuration": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "EDIT_ACCOUNT_SHOW",
 }
 `;

@@ -1,0 +1,43 @@
+// Card info structure
+.cloudmeter-card-info {
+  display: flex;
+  align-items: center;
+
+  > * {
+    margin-right: 5px;
+  }
+
+  abbr {
+    padding: 2px 0;
+    display: inline-block;
+  }
+
+  strong {
+    font-size: 26px;
+    font-weight: 300;
+  }
+}
+
+.cloudmeter-utilization-graph {
+  position: relative;
+  padding-bottom: 60px;
+  z-index: 1;
+
+  .chart-pf-sparkline {
+    position: absolute!important;
+    bottom: 20px;
+    left: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+// ToDo: Eval the loading style
+.cloudmeter-utilization-graph-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  padding-bottom: 0;
+}

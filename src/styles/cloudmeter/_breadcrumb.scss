@@ -1,0 +1,13 @@
+// Hacking the breadcrumbs to add a white background.
+.cloudmeter-breadcrumb {
+  background: #fff;
+  margin-bottom: 0;
+  padding: 20px ($grid-gutter-width / 2);
+  margin-left: -$grid-gutter-width / 2;
+  margin-right: -$grid-gutter-width / 2;
+
+  > .active strong {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}

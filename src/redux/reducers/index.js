@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import aboutModalReducers from './aboutModalReducers';
 import accountReducers from './accountReducers';
 import accountImagesReducers from './accountImagesReducers';
-import accountEditModalReducers from './accountEditModalReducers';
+import accountEditReducers from './accountEditReducers';
 import accountWizardReducers from './accountWizardReducers';
 import confirmationModalReducers from './confirmationModalReducers';
 import filterReducers from './filterReducers';
@@ -14,7 +14,7 @@ const reducers = {
   aboutModal: aboutModalReducers,
   account: accountReducers,
   accountImages: accountImagesReducers,
-  accountEditModal: accountEditModalReducers,
+  accountEdit: accountEditReducers,
   accountWizard: accountWizardReducers,
   confirmationModal: confirmationModalReducers,
   filter: filterReducers,
@@ -31,7 +31,7 @@ export {
   aboutModalReducers,
   accountReducers,
   accountImagesReducers,
-  accountEditModalReducers,
+  accountEditReducers,
   accountWizardReducers,
   confirmationModalReducers,
   filterReducers,

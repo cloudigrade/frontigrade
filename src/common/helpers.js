@@ -95,22 +95,26 @@ const getMessageFromResults = (results, filterField = null) => {
   const messageResponse = _.get(results, 'response.data', results.message);
   const detailResponse = _.get(results, 'response.data', results.detail);
 
+  let serverStatus = '';
+
   if (status < 400 && !messageResponse && !detailResponse) {
     return statusResponse;
   }
 
-  if (status >= 500 || (status === undefined && (messageResponse || detailResponse))) {
-    return `${status || ''} Server is currently unable to handle this request. ${messageResponse ||
-      detailResponse ||
-      ''}`;
+  if ((status >= 500 || status === undefined) && !messageResponse && !detailResponse) {
+    return `${status || ''} Server is currently unable to handle this request.`;
+  }
+
+  if (status >= 500 || status === undefined) {
+    serverStatus = `${status} ` || '';
   }
 
   if (typeof messageResponse === 'string') {
-    return messageResponse;
+    return `${serverStatus}${messageResponse}`;
   }
 
   if (typeof detailResponse === 'string') {
-    return detailResponse;
+    return `${serverStatus}${detailResponse}`;
   }
 
   const getMessages = (messageObject, filterKey) => {
@@ -129,7 +133,7 @@ const getMessageFromResults = (results, filterField = null) => {
     );
   };
 
-  return _.join(getMessages(messageResponse || detailResponse, filterField), '\n');
+  return `${serverStatus}${_.join(getMessages(messageResponse || detailResponse, filterField), '\n')}`;
 };
 
 const getStatusFromResults = results => {

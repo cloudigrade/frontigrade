@@ -36,14 +36,6 @@ class AccountView extends React.Component {
     });
   };
 
-  onArchive = () => {
-    store.dispatch({
-      type: reduxTypes.toastNotifications.TOAST_ADD,
-      alertType: 'warning',
-      message: 'Archive not yet enabled for accounts'
-    });
-  };
-
   onClearResetFilters = () => {
     const { view, viewGlobal } = this.props;
 
@@ -74,6 +66,13 @@ class AccountView extends React.Component {
     }
   };
 
+  onDelete = account => {
+    store.dispatch({
+      type: reduxTypes.account.DELETE_ACCOUNT_SHOW,
+      account
+    });
+  };
+
   onEditName = account => {
     store.dispatch({
       type: reduxTypes.account.EDIT_ACCOUNT_SHOW,
@@ -97,9 +96,9 @@ class AccountView extends React.Component {
                       <AccountViewListItem
                         item={item}
                         key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
+                        onDelete={this.onDelete}
                         onDetail={this.onDetailView}
                         onEdit={this.onEditName}
-                        onArchive={this.onArchive}
                       />
                     ))}
                   </ListView>

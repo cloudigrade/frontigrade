@@ -24,18 +24,14 @@ class AccountViewListItem extends React.Component {
   };
 
   renderActions() {
-    const { item, onEdit, onArchive } = this.props;
+    const { item, onDelete, onEdit } = this.props;
 
     return (
       <div ref={this.kebab}>
-        {(onEdit || onArchive) && (
+        {(onEdit || onDelete) && (
           <DropdownKebab id={`account-item-menu-${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`} pullRight>
             {onEdit && <MenuItem onClick={() => onEdit(item)}>Edit Name</MenuItem>}
-            {onArchive && (
-              <MenuItem className="hidden" onClick={() => onArchive(item)}>
-                Archive
-              </MenuItem>
-            )}
+            {onDelete && <MenuItem onClick={() => onDelete(item)}>Delete</MenuItem>}
           </DropdownKebab>
         )}
       </div>
@@ -178,14 +174,14 @@ class AccountViewListItem extends React.Component {
 
 AccountViewListItem.propTypes = {
   item: PropTypes.object.isRequired,
-  onArchive: PropTypes.func,
+  onDelete: PropTypes.func,
   onDetail: PropTypes.func,
   onEdit: PropTypes.func,
   t: PropTypes.func
 };
 
 AccountViewListItem.defaultProps = {
-  onArchive: null,
+  onDelete: null,
   onDetail: helpers.noop,
   onEdit: null,
   t: helpers.noopTranslate

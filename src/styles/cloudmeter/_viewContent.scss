@@ -38,64 +38,6 @@
   }
 }
 
-// Hacking the breadcrumbs to add a white background.
-.cloudmeter-breadcrumb {
-  background: #fff;
-  margin-bottom: 0;
-  padding: 20px ($grid-gutter-width / 2);
-  margin-left: -$grid-gutter-width / 2;
-  margin-right: -$grid-gutter-width / 2;
-
-  > .active strong {
-    font-size: 18px;
-    font-weight: 400;
-  }
-}
-
-// Card info structure
-.cloudmeter-card-info {
-  display: flex;
-  align-items: center;
-  
-  > * {
-    margin-right: 5px;
-  }
-
-  abbr {
-    padding: 2px 0;
-    display: inline-block;
-  }
-
-  strong {
-    font-size: 26px;
-    font-weight: 300;
-  }
-}
-
-.cloudmeter-utilization-graph {
-  position: relative;
-  padding-bottom: 60px;
-  z-index: 1;
-
-  .chart-pf-sparkline {
-    position: absolute!important;
-    bottom: 20px;
-    left: 0;
-    margin-left: 20px;
-    margin-right: 20px;
-    width: calc(100% - 40px);
-  }
-}
-
-// ToDo: Eval the loading style
-.cloudmeter-utilization-graph-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  padding-bottom: 0;
-}
-
 //1. hacking the card so it can contain a list view inside and align with the other cards
 .cloudmeter-list-view-card {
   padding: 0; //1.
@@ -243,9 +185,4 @@
 
 .list-view-pf-actions .dropdown.btn-group {
   margin-left: 10px;
-}
-
-.cloudmeter-pficon-error,
-.pficon.pficon-disconnected.is-error::before {
-  color: $color-pf-red-100;
 }
