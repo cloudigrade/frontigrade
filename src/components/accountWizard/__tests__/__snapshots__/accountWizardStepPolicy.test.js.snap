@@ -64,12 +64,17 @@ exports[`AccountWizardStepPolicy Component should render a wizard policy step: c
     >
       <ul>
         <li>
-          Sign in to the 
-          <strong>
-            AWS Identity Access Management
-          </strong>
-           (IAM) console.
+          Sign in to the
            
+          <a
+            href="https://console.aws.amazon.com/iam"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            AWS Identity Access Management
+          </a>
+           
+          (IAM) console.
         </li>
         <li>
           <p>

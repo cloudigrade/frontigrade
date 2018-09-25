@@ -85,7 +85,11 @@ class AccountWizardStepPolicy extends React.Component {
           <Grid.Col sm={12} className="padding-left">
             <ul>
               <li>
-                Sign in to the <strong>AWS Identity Access Management</strong> (IAM) console.{' '}
+                Sign in to the{' '}
+                <a href="https://console.aws.amazon.com/iam" target="_blank" rel="noopener noreferrer">
+                  AWS Identity Access Management
+                </a>{' '}
+                (IAM) console.
               </li>
               <li>
                 <p>Create a new policy, pasting the following content into the JSON text box.</p>
