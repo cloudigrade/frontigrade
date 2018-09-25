@@ -35,14 +35,16 @@ class AccountImagesViewListItem extends React.Component {
 
   renderDescription() {
     const { item } = this.props;
+    let title =
+      item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
+      item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
+      `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID] || ''}`;
 
-    return (
-      <ListView.DescriptionHeading>
-        {item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
-          item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
-          `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID] || ''}`}
-      </ListView.DescriptionHeading>
-    );
+    if (title && title.length > 25) {
+      title = <span title={title}>{title}</span>;
+    }
+
+    return <ListView.DescriptionHeading>{title}</ListView.DescriptionHeading>;
   }
 
   /**

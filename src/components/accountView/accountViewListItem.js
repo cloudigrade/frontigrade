@@ -54,14 +54,18 @@ class AccountViewListItem extends React.Component {
     const { item } = this.props;
 
     const timestamp = item[apiTypes.API_RESPONSE_ACCOUNTS_DATE];
+    let title =
+      item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] ||
+      item[apiTypes[apiTypes.API_RESPONSE_ACCOUNTS_ACCOUNT_ID]] ||
+      `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`;
+
+    if (title && title.length > 25) {
+      title = <span title={title}>{title}</span>;
+    }
 
     return (
       <React.Fragment>
-        <ListView.DescriptionHeading>
-          {item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] ||
-            item[apiTypes[apiTypes.API_RESPONSE_ACCOUNTS_ACCOUNT_ID]] ||
-            `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`}
-        </ListView.DescriptionHeading>
+        <ListView.DescriptionHeading>{title}</ListView.DescriptionHeading>
         <ListView.DescriptionText>Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</ListView.DescriptionText>
       </React.Fragment>
     );

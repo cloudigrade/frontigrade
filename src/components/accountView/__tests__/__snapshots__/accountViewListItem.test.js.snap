@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountViewListItem Component should render 1`] = `
+exports[`AccountViewListItem Component should render a component 1`] = `
 <div
   class="list-group-item"
 >
@@ -25,6 +25,116 @@ exports[`AccountViewListItem Component should render 1`] = `
             class="list-group-item-heading"
           >
             Lorem test
+          </div>
+          <div
+            class="list-group-item-text"
+          >
+            Created 12:00AM, July 7th 2018
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-view-pf-additional-info"
+      >
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-cluster"
+            />
+            <strong>
+              1
+            </strong>
+             Images
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-screen"
+            />
+            <strong>
+              2
+            </strong>
+             Instances
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
+        >
+          <span>
+            <strong>
+              1
+            </strong>
+            <span
+              class="label label-warning"
+            >
+              <abbr
+                title="Red Hat Enterprise Linux"
+              >
+                RHEL
+              </abbr>
+            </span>
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
+        >
+          <span>
+            <strong>
+              N/A
+            </strong>
+            <span
+              class="label label-primary"
+            >
+              <abbr
+                title="Red Hat OpenShift Container Platform"
+              >
+                RHOCP
+              </abbr>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AccountViewListItem Component should wrap long names with a on hover title 1`] = `
+<div
+  class="list-group-item"
+>
+  <div
+    class="list-view-pf-actions"
+  >
+    <div />
+  </div>
+  <div
+    class="list-view-pf-main-info"
+  >
+    <div
+      class="list-view-pf-body"
+    >
+      <div
+        class="list-view-pf-description"
+      >
+        <div
+          class="list-group-item-text"
+        >
+          <div
+            class="list-group-item-heading"
+          >
+            <span
+              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros."
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.
+            </span>
           </div>
           <div
             class="list-group-item-text"

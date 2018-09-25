@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountImagesViewListItem Component should render 1`] = `
+exports[`AccountImagesViewListItem Component should render a component 1`] = `
 <div
   class="list-group-item"
 >
@@ -20,6 +20,92 @@ exports[`AccountImagesViewListItem Component should render 1`] = `
             class="list-group-item-heading"
           >
             Lorem test
+          </div>
+        </div>
+      </div>
+      <div
+        class="list-view-pf-additional-info"
+      >
+        <div
+          class="list-view-pf-additional-info-item"
+        >
+          <span
+            aria-hidden="true"
+            class="pficon pficon-screen cloudmeter-listview-infoitem"
+          />
+          <strong>
+            -
+          </strong>
+          Instances
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+        >
+          <span
+            aria-hidden="true"
+            class="fa fa-clock-o"
+          />
+          <strong>
+            -
+          </strong>
+           Hours
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
+        >
+          <span
+            class="label label-warning"
+          >
+            <abbr
+              title="Red Hat Enterprise Linux"
+            >
+              RHEL
+            </abbr>
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
+        >
+          <span
+            class="label label-primary"
+          >
+            <abbr
+              title="Red Hat OpenShift Container Platform"
+            >
+              RHOCP
+            </abbr>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AccountImagesViewListItem Component should wrap long names with a on hover title 1`] = `
+<div
+  class="list-group-item"
+>
+  <div
+    class="list-view-pf-main-info"
+  >
+    <div
+      class="list-view-pf-body"
+    >
+      <div
+        class="list-view-pf-description"
+      >
+        <div
+          class="list-group-item-text"
+        >
+          <div
+            class="list-group-item-heading"
+          >
+            <span
+              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros."
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.
+            </span>
           </div>
         </div>
       </div>

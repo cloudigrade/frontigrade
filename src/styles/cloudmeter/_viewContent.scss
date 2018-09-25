@@ -104,6 +104,10 @@
 .cloudmeter-list-view {
   margin: 0; //1.
 
+  .list-view-pf-description {
+    overflow: hidden;
+  }
+
   .list-group-item-heading {
     @media (min-width: $screen-md-min) {
       flex-basis: calc(50% - 20px);
