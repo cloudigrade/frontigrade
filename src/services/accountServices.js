@@ -61,6 +61,39 @@ const addAccount = (data = {}) =>
   );
 
 /**
+ * @apiMock {DelayResponse} 2000
+ * @api {delete} /api/v1/account/:id/ Delete account
+ * @apiDescription Delete a specific account.
+ *
+ * @apiParam {Number} id Account identifier
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 204 OK
+ *
+ * @apiError {String} detail
+ * @apiErrorExample {text} Error-Response:
+ *     HTTP/1.1 500 Internal Server Error
+ *     {
+ *       "detail": "Account deletion failed because of {reasons}"
+ *     }
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+const deleteAccount = id =>
+  axios(
+    serviceConfig({
+      method: 'delete',
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE}${id}/`
+    })
+  );
+
+/**
  * @api {get} /api/v1/account/:id/ Get account
  * @apiDescription Retrieve a specific account.
  *
@@ -596,6 +629,7 @@ const updateAccountImageField = (id, data = {}) =>
 
 export {
   addAccount,
+  deleteAccount,
   getAccount,
   getAccounts,
   getAccountImages,

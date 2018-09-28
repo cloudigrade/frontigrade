@@ -17,11 +17,12 @@ describe('AccountServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(accountServices)).toHaveLength(9);
+    expect(Object.keys(accountServices)).toHaveLength(10);
   });
 
   it('should have specific methods', () => {
     expect(accountServices.addAccount).toBeDefined();
+    expect(accountServices.deleteAccount).toBeDefined();
     expect(accountServices.getAccount).toBeDefined();
     expect(accountServices.getAccounts).toBeDefined();
     expect(accountServices.getAccountImages).toBeDefined();
