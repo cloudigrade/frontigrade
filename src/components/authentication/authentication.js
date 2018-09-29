@@ -112,7 +112,7 @@ class Authentication extends React.Component {
   static getDerivedStateFromProps(props, state) {
     let updateInitialState = null;
 
-    if (helpers.OC_MODE) {
+    if (helpers.OC_MODE || helpers.REVIEW_MODE) {
       updateInitialState = {
         email: (props.session.remember && props.session.storedEmail) || state.email || process.env.REACT_APP_DEV_USER,
         password: state.password || process.env.REACT_APP_DEV_PASSWORD,

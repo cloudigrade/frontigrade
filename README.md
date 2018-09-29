@@ -37,37 +37,43 @@ Setting Docker up on a Linux machine can include an additional convenience step.
      ```
 
 ### Development Serve
-This is the default context for running the UI with a local mock API. You need the base Frontigrade requirements to run this context.
+This is the default context for running the UI with a local mock API. You need the base Frontigrade requirements to run this context. 
+
+Make sure Docker is running then run
   ```
   $ yarn start
   ```
 There are limitations in running against the mock serve, accuracy in API responses is much more lenient. Meaning server responses may not throw the appropriate errors where needed.
   
-#### Review serve
-*Review serve has been suspended against the built in default test.cloudigra.de. The functionality 
-still remains, however you'll need to run it against a custom Cloudigrade instance, directions below.*
+#### Testing Features, Review serve
+*Review serve in it's original form has been removed from test.cloudigra.de.*
 
-An alternative to running the development serve is the review serve. `This allows you to interact with an OpenShift environment without having to install or update anything outside of Frontigrade.` You only need the base Frontigrade requirements to run this context, and a login for `test.cloudigra.de`
-  ```
-  $ yarn start:review
-  ```
-  
-##### Don't want to run against the default test.cloudigra.de?
+[The Cloudigrade project uses multiple environments](https://gitlab.com/cloudigrade/shiftigrade#our-environments) including a review enivronment. 
 
-To run against a different instance of [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade), create a file in the root
-of the `frontigrade` repo named `.env.local`, within it, set `API_HOST` to the desired cloudigrade instance.
+To test a new feature a feature branch, with the exact same name, needs to be created on both the Frontigrade and [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade) repositories.
+Once the feature branches are created on both repositories you can access them via the browser here
+- https://cloudireview-FEATURE_BRANCH_NAME_GOES_HERE.1b13.insights.openshiftapps.com/
 
-Run this terminal command to create a `.env.local` file with the appropriate host reference: 
-  ```
-  cat > .env.local << 'EOL'
-  API_HOST=https://your_url_for_some_cloudigrade_instance
-  EOL
-  ```
+#### Using review serve against a local run Frontigrade
+You can take advantage of the review serve setup by running your local copy of Frontigrade against the feature branch generated host.
 
-Then run `$ yarn start:review`.
+1. First, make sure that feature branches, with the same names, have been created on both Frontigrade and [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade)
+1. Next create a `.env.local` file in the root of your local Frontigrade
+
+   You can run this terminal command to create a `.env.local` file with the appropriate host reference. Make sure to replace `FEATURE_BRANCH_NAME_GOES_HERE` with the correct feature branch name: 
+   ```
+   cat > .env.local << 'EOL'
+   API_HOST=https://cloudireview-FEATURE_BRANCH_NAME_GOES_HERE.1b13.insights.openshiftapps.com
+   EOL
+   ```
+1. Run the command
+   ```
+   $ yarn start:review
+   ```
+1. After you've completed your testing make sure to clean up, either by removing or merging, the feature branches on Frontigrade and [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade)
 
 **NOTE:** 
-- Any time you want to change `API_HOST`, you must `ctl-c` out of `$ yarn start:review` and then restart it. 
+- Any time you want to change `API_HOST`, you must `ctl-c` out of `$ yarn start:review` update the `.env.local` file and then restart it. 
 
 ### Debugging with the mock server
 
@@ -107,7 +113,7 @@ Once you've made the change, restart the project and console browser logging sho
 *Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
 
 ### Unit Testing
-To run the unit tests, use this command
+To run the unit tests with a coverage report, use this command
   ```
   $ yarn test
   ```
@@ -115,6 +121,12 @@ To run the unit tests, use this command
 To run the unit tests with a watch during development
   ```
   $ yarn test:dev
+  ```
+  
+#### Code coverage failing to update?
+If you're having trouble getting an accurate code coverage report, or it's failing to provide updated results (i.e. you renamed files) you can try running
+  ```
+  $ yarn test:clearCache
   ```
 
 ### Running with the Cloudigrade API toolset locally

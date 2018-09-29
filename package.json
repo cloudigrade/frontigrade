@@ -51,11 +51,12 @@
     "locale:gettext": "node ./scripts/gettext.js",
     "start:js": "react-scripts start",
     "start:oc": "sh -ac '. ./.env.oc; run-p -l watch:css start:js api:oc'",
-    "start:review": "sh -ac '[[ -e ./.env.local ]] && . ./.env.local; . ./.env.review; run-p -l watch:css start:js'",
+    "start:review": "sh -ac '[[ -e ./.env.local ]] && . ./.env.local; . ./.env.review; [[ ! -z $API_HOST ]] && run-p -l watch:css start:js || echo \"API_HOST is not defined, review the README for review serve directions.\"'",
     "start": "run-p -l watch:css start:js api:dev",
     "test:dev": "run-s test:lint-js test:local",
     "test:lint-js": "eslint --ext=json --ext=js --ext=jsx src ./public/locales",
     "test:ci": "CI=true; react-scripts test --env=jsdom --coverage",
+    "test:clearCache": "react-scripts test --clearCache",
     "test:local": "react-scripts test --env=jsdom",
     "test": "run-s test:lint-js test:ci",
     "watch:css": "npm run build:css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/styles/index.scss -o src/styles/.css --watch --recursive"

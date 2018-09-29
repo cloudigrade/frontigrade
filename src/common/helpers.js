@@ -193,6 +193,8 @@ const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const OC_MODE = process.env.REACT_APP_ENV === 'oc';
 
+const REVIEW_MODE = process.env.REACT_APP_ENV === 'review';
+
 const RH_BRAND = process.env.REACT_APP_RH_BRAND === 'true';
 
 const UI_COMMIT_HASH = process.env.REACT_APP_UI_COMMIT_HASH;
@@ -219,6 +221,7 @@ const helpers = {
   prettyPrintJson,
   DEV_MODE,
   OC_MODE,
+  REVIEW_MODE,
   RH_BRAND,
   UI_COMMIT_HASH,
   FULFILLED_ACTION,
