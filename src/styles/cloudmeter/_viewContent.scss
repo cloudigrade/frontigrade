@@ -75,13 +75,14 @@
 .cloudmeter-utilization-graph {
   position: relative;
   padding-bottom: 60px;
+  z-index: 1;
 
   .chart-pf-sparkline {
     position: absolute!important;
     bottom: 20px;
     left: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     width: calc(100% - 40px);
   }
 }
