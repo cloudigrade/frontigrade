@@ -13,6 +13,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -41,6 +42,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -69,6 +71,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -97,6 +100,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -125,6 +129,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -153,6 +158,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -181,6 +187,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -209,6 +216,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -237,6 +245,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -265,6 +274,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -293,6 +303,36 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+      "updateImages": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 12`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": true,
@@ -308,7 +348,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 12`] = `
+exports[`AccountImagesReducers should handle all defined error types: rejected types 13`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -321,6 +361,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -333,34 +374,6 @@ Object {
     },
   },
   "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
-}
-`;
-
-exports[`AccountImagesReducers should handle all defined error types: rejected types 13`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-      "updateImages": false,
-    },
-  },
-  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
 }
 `;
 
@@ -377,6 +390,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -388,7 +402,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_REJECTED",
+  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
 }
 `;
 
@@ -405,6 +419,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -416,7 +431,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
+  "type": "ADD_ACCOUNT_SHOW_REJECTED",
 }
 `;
 
@@ -433,6 +448,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -444,7 +460,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "DELETE_ACCOUNT_HIDE_REJECTED",
+  "type": "UPDATE_ACCOUNT_HIDE_REJECTED",
 }
 `;
 
@@ -461,6 +477,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -472,7 +489,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "DELETE_ACCOUNT_SHOW_REJECTED",
+  "type": "DELETE_ACCOUNT_HIDE_REJECTED",
 }
 `;
 
@@ -489,6 +506,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -500,7 +518,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "EDIT_ACCOUNT_HIDE_REJECTED",
+  "type": "DELETE_ACCOUNT_SHOW_REJECTED",
 }
 `;
 
@@ -517,6 +535,36 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+      "updateImages": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types 20`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -545,6 +593,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -573,6 +622,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -601,6 +651,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -629,6 +680,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -657,6 +709,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -685,6 +738,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -713,6 +767,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -741,6 +796,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -769,6 +825,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -797,6 +854,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -825,6 +883,36 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+      "updateImages": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 12`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -842,7 +930,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 12`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 13`] = `
 Object {
   "result": Object {
     "instances": Object {
@@ -855,6 +943,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -867,34 +956,6 @@ Object {
     },
   },
   "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
-}
-`;
-
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 13`] = `
-Object {
-  "result": Object {
-    "instances": Object {
-      "account": Object {},
-      "dailyUsage": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "instancesOpenshift": 0,
-      "instancesRhel": 0,
-      "pending": false,
-    },
-    "view": Object {
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-      "updateImages": false,
-    },
-  },
-  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
 }
 `;
 
@@ -911,6 +972,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -922,7 +984,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
+  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
 }
 `;
 
@@ -939,6 +1001,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -950,7 +1013,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
+  "type": "ADD_ACCOUNT_SHOW_FULFILLED",
 }
 `;
 
@@ -967,6 +1030,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -978,7 +1042,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "DELETE_ACCOUNT_HIDE_FULFILLED",
+  "type": "UPDATE_ACCOUNT_HIDE_FULFILLED",
 }
 `;
 
@@ -995,6 +1059,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1006,7 +1071,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "DELETE_ACCOUNT_SHOW_FULFILLED",
+  "type": "DELETE_ACCOUNT_HIDE_FULFILLED",
 }
 `;
 
@@ -1023,6 +1088,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1034,7 +1100,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "EDIT_ACCOUNT_HIDE_FULFILLED",
+  "type": "DELETE_ACCOUNT_SHOW_FULFILLED",
 }
 `;
 
@@ -1051,6 +1117,36 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+      "updateImages": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_FULFILLED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 20`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1079,6 +1175,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1107,6 +1204,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1135,6 +1233,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1163,6 +1262,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1191,6 +1291,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1219,6 +1320,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1247,6 +1349,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1275,6 +1378,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1303,6 +1407,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1331,6 +1436,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1359,6 +1465,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1366,11 +1473,11 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "images": Array [],
-      "pending": true,
+      "pending": false,
       "updateImages": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_PENDING",
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_PENDING",
 }
 `;
 
@@ -1386,7 +1493,8 @@ Object {
       "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
-      "pending": true,
+      "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1394,11 +1502,11 @@ Object {
       "errorStatus": null,
       "fulfilled": false,
       "images": Array [],
-      "pending": false,
+      "pending": true,
       "updateImages": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_PENDING",
 }
 `;
 
@@ -1414,7 +1522,8 @@ Object {
       "fulfilled": false,
       "instancesOpenshift": 0,
       "instancesRhel": 0,
-      "pending": false,
+      "pending": true,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1426,7 +1535,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "GET_ACCOUNT_INSTANCES_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
 }
 `;
 
@@ -1443,6 +1552,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1454,7 +1564,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "ADD_ACCOUNT_SHOW_PENDING",
+  "type": "GET_ACCOUNT_INSTANCES_PENDING",
 }
 `;
 
@@ -1471,6 +1581,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1482,7 +1593,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
+  "type": "ADD_ACCOUNT_SHOW_PENDING",
 }
 `;
 
@@ -1499,6 +1610,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1510,7 +1622,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "DELETE_ACCOUNT_HIDE_PENDING",
+  "type": "UPDATE_ACCOUNT_HIDE_PENDING",
 }
 `;
 
@@ -1527,6 +1639,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1538,7 +1651,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "DELETE_ACCOUNT_SHOW_PENDING",
+  "type": "DELETE_ACCOUNT_HIDE_PENDING",
 }
 `;
 
@@ -1555,6 +1668,7 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1566,7 +1680,7 @@ Object {
       "updateImages": false,
     },
   },
-  "type": "EDIT_ACCOUNT_HIDE_PENDING",
+  "type": "DELETE_ACCOUNT_SHOW_PENDING",
 }
 `;
 
@@ -1583,6 +1697,36 @@ Object {
       "instancesOpenshift": 0,
       "instancesRhel": 0,
       "pending": false,
+      "updateInstances": false,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+      "updateImages": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE_PENDING",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined pending types: pending types 20`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+      "updateInstances": false,
     },
     "view": Object {
       "error": false,
@@ -1595,5 +1739,34 @@ Object {
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`AccountImagesReducers should handle specific defined types: defined type UPDATE_ACCOUNT_IMAGES_INSTANCES 1`] = `
+Object {
+  "result": Object {
+    "instances": Object {
+      "account": Object {},
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+      "updateInstances": true,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+      "updateImages": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES",
 }
 `;

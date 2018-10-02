@@ -8,6 +8,17 @@ describe('AccountImagesReducers', () => {
     expect(accountImagesReducers.initialState).toBeDefined();
   });
 
+  it('should handle specific defined types', () => {
+    const value = types.UPDATE_ACCOUNT_IMAGES_INSTANCES;
+    const dispatched = {
+      type: value
+    };
+
+    const resultState = accountImagesReducers(undefined, dispatched);
+
+    expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+  });
+
   it('should handle all defined error types', () => {
     Object.keys(types).forEach(value => {
       if (/wizard/i.test(value)) {

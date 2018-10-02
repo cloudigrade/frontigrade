@@ -249,7 +249,7 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "GET_ACCOUNT_IMAGES",
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES",
 }
 `;
 
@@ -272,7 +272,7 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES",
+  "type": "GET_ACCOUNT_IMAGES",
 }
 `;
 
@@ -295,7 +295,7 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "GET_ACCOUNT_INSTANCES",
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES",
 }
 `;
 
@@ -318,11 +318,34 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "ADD_ACCOUNT_WIZARD",
+  "type": "GET_ACCOUNT_INSTANCES",
 }
 `;
 
 exports[`AccountWizardReducers should handle all defined types: defined types 15`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "configuration": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "ADD_ACCOUNT_WIZARD",
+}
+`;
+
+exports[`AccountWizardReducers should handle all defined types: defined types 16`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -347,7 +370,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 16`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -372,7 +395,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 17`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 18`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -395,7 +418,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 18`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 19`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -418,7 +441,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 19`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 20`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -443,7 +466,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 20`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 21`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -468,7 +491,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 21`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 22`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -491,7 +514,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 22`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 23`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -514,7 +537,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 23`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 24`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -537,7 +560,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 24`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 25`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -560,7 +583,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 25`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 26`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -583,7 +606,7 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 26`] = `
+exports[`AccountWizardReducers should handle all defined types: defined types 27`] = `
 Object {
   "result": Object {
     "account": Object {},

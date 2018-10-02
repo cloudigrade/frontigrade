@@ -106,7 +106,7 @@ class AccountImagesViewListItem extends React.Component {
       <ListView.InfoItem
         key="3"
         className={
-          item[apiTypes.API_RESPONSE_IMAGES_RHEL]
+          item[apiTypes.API_RESPONSE_IMAGES_RHEL_DETECTED] || rhelChallenged
             ? 'cloudmeter-listview-label'
             : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
         }
@@ -119,7 +119,7 @@ class AccountImagesViewListItem extends React.Component {
       <ListView.InfoItem
         key="4"
         className={
-          item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT]
+          item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_DETECTED] || openshiftChallenged
             ? 'cloudmeter-listview-label'
             : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
         }

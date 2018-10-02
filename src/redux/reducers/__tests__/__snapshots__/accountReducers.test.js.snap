@@ -381,7 +381,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_REJECTED",
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_REJECTED",
 }
 `;
 
@@ -416,11 +416,46 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+  "type": "GET_ACCOUNT_IMAGES_REJECTED",
 }
 `;
 
 exports[`AccountReducers should handle all defined error types: rejected types 13`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountReducers should handle all defined error types: rejected types 14`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -455,7 +490,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined error types: rejected types 14`] = `
+exports[`AccountReducers should handle all defined error types: rejected types 15`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -490,7 +525,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined error types: rejected types 15`] = `
+exports[`AccountReducers should handle all defined error types: rejected types 16`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -525,7 +560,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined error types: rejected types 16`] = `
+exports[`AccountReducers should handle all defined error types: rejected types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -560,7 +595,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined error types: rejected types 17`] = `
+exports[`AccountReducers should handle all defined error types: rejected types 18`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -595,7 +630,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined error types: rejected types 18`] = `
+exports[`AccountReducers should handle all defined error types: rejected types 19`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -630,7 +665,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined error types: rejected types 19`] = `
+exports[`AccountReducers should handle all defined error types: rejected types 20`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1052,7 +1087,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_FULFILLED",
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
 }
 `;
 
@@ -1087,11 +1122,46 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+  "type": "GET_ACCOUNT_IMAGES_FULFILLED",
 }
 `;
 
 exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 13`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 14`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1126,7 +1196,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 14`] = `
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 15`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1161,7 +1231,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 15`] = `
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 16`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1196,7 +1266,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 16`] = `
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1231,7 +1301,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 17`] = `
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 18`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1266,7 +1336,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 18`] = `
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 19`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1301,7 +1371,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 19`] = `
+exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 20`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1717,7 +1787,7 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_PENDING",
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_PENDING",
 }
 `;
 
@@ -1752,11 +1822,46 @@ Object {
       "updateAccounts": false,
     },
   },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+  "type": "GET_ACCOUNT_IMAGES_PENDING",
 }
 `;
 
 exports[`AccountReducers should handle all defined pending types: pending types 13`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": false,
+    },
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle all defined pending types: pending types 14`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1791,7 +1896,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined pending types: pending types 14`] = `
+exports[`AccountReducers should handle all defined pending types: pending types 15`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1826,7 +1931,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined pending types: pending types 15`] = `
+exports[`AccountReducers should handle all defined pending types: pending types 16`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1861,7 +1966,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined pending types: pending types 16`] = `
+exports[`AccountReducers should handle all defined pending types: pending types 17`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1896,7 +2001,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined pending types: pending types 17`] = `
+exports[`AccountReducers should handle all defined pending types: pending types 18`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1931,7 +2036,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined pending types: pending types 18`] = `
+exports[`AccountReducers should handle all defined pending types: pending types 19`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1966,7 +2071,7 @@ Object {
 }
 `;
 
-exports[`AccountReducers should handle all defined pending types: pending types 19`] = `
+exports[`AccountReducers should handle all defined pending types: pending types 20`] = `
 Object {
   "result": Object {
     "account": Object {
@@ -1998,5 +2103,40 @@ Object {
     },
   },
   "type": "EDIT_ACCOUNT_SHOW_PENDING",
+}
+`;
+
+exports[`AccountReducers should handle specific defined types: defined type UPDATE_ACCOUNTS 1`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "instances": Object {
+      "dailyUsage": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "instancesOpenshift": 0,
+      "instancesRhel": 0,
+      "pending": false,
+    },
+    "view": Object {
+      "accounts": Array [],
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "updateAccounts": true,
+    },
+  },
+  "type": "UPDATE_ACCOUNTS",
 }
 `;

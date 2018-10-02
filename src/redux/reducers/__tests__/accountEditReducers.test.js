@@ -2,7 +2,7 @@ import { accountEditReducers } from '..';
 import { accountTypes as types } from '../../constants';
 import helpers from '../../../common/helpers';
 
-describe('AccountImagesReducers', () => {
+describe('AccountEditReducers', () => {
   it('should return the initial state', () => {
     expect(accountEditReducers.initialState).toBeDefined();
   });

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Checkbox, Form, Grid, Icon } from 'patternfly-react';
 import _isEqual from 'lodash/isEqual';
 import apiTypes from '../../constants/apiConstants';
-import { connect, reduxActions } from '../../redux';
+import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 
 class AccountImagesViewListItemDetail extends React.Component {
@@ -56,12 +56,17 @@ class AccountImagesViewListItemDetail extends React.Component {
           [apiTypes.API_SUBMIT_IMAGE_RESOURCE_TYPE]: resourceType,
           [apiTypes.API_SUBMIT_IMAGE_OPENSHIFT_CHALLENGED]: checked
         }).then(
-          () =>
+          () => {
             this.setState({
               openshiftError: false,
               openshiftFlagged: checked,
               openshiftPending: false
-            }),
+            });
+
+            store.dispatch({
+              type: reduxTypes.account.UPDATE_ACCOUNT_IMAGES_INSTANCES
+            });
+          },
           () =>
             this.setState({
               openshiftError: true,
@@ -87,12 +92,17 @@ class AccountImagesViewListItemDetail extends React.Component {
           [apiTypes.API_SUBMIT_IMAGE_RESOURCE_TYPE]: resourceType,
           [apiTypes.API_SUBMIT_IMAGE_RHEL_CHALLENGED]: checked
         }).then(
-          () =>
+          () => {
             this.setState({
               rhelError: false,
               rhelFlagged: checked,
               rhelPending: false
-            }),
+            });
+
+            store.dispatch({
+              type: reduxTypes.account.UPDATE_ACCOUNT_IMAGES_INSTANCES
+            });
+          },
           () =>
             this.setState({
               rhelError: true,

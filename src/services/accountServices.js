@@ -600,7 +600,7 @@ const updateAccountImage = (id, data = {}) =>
  *       "inspection_json": null,
  *       "is_encrypted": false,
  *       "openshift": false,
- *       "openshift_challenged": false,
+ *       "openshift_challenged": true,
  *       "openshift_detected": false,
  *       "owner_aws_account_id": "273470430754",
  *       "resourcetype": "AwsMachineImage",

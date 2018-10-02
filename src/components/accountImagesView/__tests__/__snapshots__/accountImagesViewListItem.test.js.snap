@@ -85,7 +85,7 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
              
           </div>
           <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
+            class="list-view-pf-additional-info-item cloudmeter-listview-label"
           >
             <span
               class="label label-default"

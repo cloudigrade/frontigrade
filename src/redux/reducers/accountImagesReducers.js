@@ -12,7 +12,8 @@ const initialState = {
     errorStatus: null,
     errorMessage: null,
     pending: false,
-    fulfilled: false
+    fulfilled: false,
+    updateInstances: false
   },
   view: {
     images: [],
@@ -105,6 +106,18 @@ const accountImagesReducers = (state = initialState, action) => {
         {
           state,
           initialState
+        }
+      );
+
+    case accountTypes.UPDATE_ACCOUNT_IMAGES_INSTANCES:
+      return helpers.setStateProp(
+        'instances',
+        {
+          updateInstances: true
+        },
+        {
+          state,
+          reset: false
         }
       );
 

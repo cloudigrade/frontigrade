@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 1`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 1`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -26,7 +26,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 2`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 2`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -52,7 +52,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 3`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 3`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -78,7 +78,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 4`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 4`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -104,7 +104,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 5`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 5`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -130,7 +130,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 6`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 6`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -156,7 +156,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 7`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 7`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -182,7 +182,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 8`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 8`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -208,7 +208,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 9`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 9`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -234,7 +234,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 10`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 10`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -260,7 +260,33 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 11`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 11`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountEditReducers should handle all defined error types: rejected types 12`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -286,7 +312,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 12`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 13`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -312,7 +338,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 13`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 14`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -338,7 +364,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 14`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 15`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -364,7 +390,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 15`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 16`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -390,7 +416,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 16`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 17`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -416,7 +442,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 17`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 18`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -442,7 +468,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 18`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 19`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -468,7 +494,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 19`] = `
+exports[`AccountEditReducers should handle all defined error types: rejected types 20`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -494,7 +520,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 1`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 1`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -520,7 +546,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 2`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 2`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -546,7 +572,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 3`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 3`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -572,7 +598,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 4`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 4`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -598,7 +624,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 5`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 5`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -624,7 +650,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 6`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 6`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -650,7 +676,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 7`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 7`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -676,7 +702,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 8`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 8`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -702,7 +728,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 9`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 9`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -728,7 +754,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 10`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 10`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -754,7 +780,33 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 11`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 11`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 12`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -780,7 +832,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 12`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 13`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -806,7 +858,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 13`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 14`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -832,7 +884,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 14`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 15`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -858,7 +910,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 15`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 16`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -884,7 +936,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 16`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 17`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -910,7 +962,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 17`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 18`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -936,7 +988,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 18`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 19`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -962,7 +1014,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 19`] = `
+exports[`AccountEditReducers should handle all defined fulfilled types: fulfilled types 20`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -988,7 +1040,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 1`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 1`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1014,7 +1066,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 2`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 2`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1040,7 +1092,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 3`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 3`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1066,7 +1118,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 4`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 4`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1092,7 +1144,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 5`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 5`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1118,7 +1170,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 6`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 6`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1144,7 +1196,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 7`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 7`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1170,7 +1222,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 8`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 8`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1196,7 +1248,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 9`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 9`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1222,7 +1274,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 10`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 10`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1248,7 +1300,33 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 11`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 11`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES_PENDING",
+}
+`;
+
+exports[`AccountEditReducers should handle all defined pending types: pending types 12`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1274,7 +1352,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 12`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 13`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1300,7 +1378,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 13`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 14`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1326,7 +1404,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 14`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 15`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1352,7 +1430,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 15`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 16`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1378,7 +1456,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 16`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 17`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1404,7 +1482,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 17`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 18`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1430,7 +1508,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 18`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 19`] = `
 Object {
   "result": Object {
     "del": Object {
@@ -1456,7 +1534,7 @@ Object {
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 19`] = `
+exports[`AccountEditReducers should handle all defined pending types: pending types 20`] = `
 Object {
   "result": Object {
     "del": Object {

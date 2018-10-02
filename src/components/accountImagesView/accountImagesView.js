@@ -248,7 +248,10 @@ class AccountImagesView extends React.Component {
 
 AccountImagesView.propTypes = {
   account: PropTypes.shape({
-    data: PropTypes.object
+    data: PropTypes.object,
+    error: PropTypes.bool,
+    fulfilled: PropTypes.bool,
+    pending: PropTypes.bool
   }),
   error: PropTypes.bool,
   errorMessage: PropTypes.string,
