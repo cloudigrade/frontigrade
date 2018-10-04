@@ -22,4 +22,25 @@ describe('AccountDeleteModal Component', () => {
     const component = mount(<AccountDeleteModal {...props} />);
     expect(component.render()).toMatchSnapshot();
   });
+
+  it('should have specific display states defined', () => {
+    const props = {
+      show: true,
+      account: {}
+    };
+
+    const component = mount(<AccountDeleteModal {...props} />);
+
+    component.setProps({
+      pending: true
+    });
+    expect(component.render()).toMatchSnapshot('display pending state');
+
+    component.setProps({
+      pending: false,
+      error: true,
+      errorMessage: 'Lorem ipsum test'
+    });
+    expect(component.render()).toMatchSnapshot('display error state');
+  });
 });

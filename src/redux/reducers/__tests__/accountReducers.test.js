@@ -9,14 +9,17 @@ describe('AccountReducers', () => {
   });
 
   it('should handle specific defined types', () => {
-    const value = types.UPDATE_ACCOUNTS;
-    const dispatched = {
-      type: value
-    };
+    const specificTypes = [types.UPDATE_ACCOUNTS];
 
-    const resultState = accountReducers(undefined, dispatched);
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: value
+      };
 
-    expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+      const resultState = accountReducers(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
   });
 
   it('should handle all defined error types', () => {

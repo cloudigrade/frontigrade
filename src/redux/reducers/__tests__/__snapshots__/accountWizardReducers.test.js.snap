@@ -628,3 +628,28 @@ Object {
   "type": "EDIT_ACCOUNT_SHOW",
 }
 `;
+
+exports[`AccountWizardReducers should handle specific defined types: defined type GET_SYSTEM_CONFIG_FULFILLED 1`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "configuration": Object {
+      "detail": "TEST",
+    },
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "GET_SYSTEM_CONFIG_FULFILLED",
+}
+`;

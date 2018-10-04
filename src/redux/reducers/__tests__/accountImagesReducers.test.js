@@ -9,14 +9,17 @@ describe('AccountImagesReducers', () => {
   });
 
   it('should handle specific defined types', () => {
-    const value = types.UPDATE_ACCOUNT_IMAGES_INSTANCES;
-    const dispatched = {
-      type: value
-    };
+    const specificTypes = [types.UPDATE_ACCOUNT_IMAGES_INSTANCES];
 
-    const resultState = accountImagesReducers(undefined, dispatched);
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: value
+      };
 
-    expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+      const resultState = accountImagesReducers(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
   });
 
   it('should handle all defined error types', () => {

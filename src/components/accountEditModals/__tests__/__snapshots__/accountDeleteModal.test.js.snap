@@ -1,5 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AccountDeleteModal Component should have specific display states defined: display error state 1`] = `
+<div
+  role="dialog"
+>
+  <div
+    class="fade modal-backdrop in"
+  />
+  <div
+    class="fade in modal"
+    role="dialog"
+    style="display: block; padding-right: 0px;"
+    tabindex="-1"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+        role="document"
+      >
+        <div
+          class="modal-header"
+        >
+          <button
+            aria-hidden="true"
+            aria-label="Close"
+            class="close btn btn-default"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="pficon pficon-close"
+            />
+          </button>
+          <h4
+            class="modal-title"
+          >
+            Delete Account - 
+          </h4>
+        </div>
+        <div
+          class="modal-body"
+        />
+        <div
+          class="container-fluid"
+        >
+          <div
+            class="alert alert-danger"
+          >
+            <span
+              aria-hidden="true"
+              class="pficon pficon-error-circle-o"
+            />
+            <strong>
+              Error
+            </strong>
+            : Lorem ipsum test
+          </div>
+          <p>
+            Are you sure you want to delete the account ?
+          </p>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn-cancel btn btn-default"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AccountDeleteModal Component should have specific display states defined: display pending state 1`] = `
+<div
+  role="dialog"
+>
+  <div
+    class="fade modal-backdrop in"
+  />
+  <div
+    class="fade in modal"
+    role="dialog"
+    style="display: block; padding-right: 0px;"
+    tabindex="-1"
+  >
+    <div
+      class="modal-dialog"
+    >
+      <div
+        class="modal-content"
+        role="document"
+      >
+        <div
+          class="modal-header"
+        >
+          <button
+            aria-hidden="true"
+            aria-label="Close"
+            class="close btn btn-default"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+              class="pficon pficon-close"
+            />
+          </button>
+          <h4
+            class="modal-title"
+          >
+            Delete Account - 
+          </h4>
+        </div>
+        <div
+          class="modal-body"
+        />
+        <div
+          class="container-fluid"
+        >
+          <div
+            class="blank-slate-pf-icon spinner spinner-lg"
+          />
+          <div
+            class="text-center"
+          >
+            Deleting account...
+          </div>
+        </div>
+        <div
+          class="modal-footer"
+        >
+          <button
+            class="btn-cancel btn btn-default"
+            type="button"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-primary"
+            disabled=""
+            type="submit"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`AccountDeleteModal Component should render a connected component with default props: connected 1`] = `
 <AccountDeleteModal
   account={Object {}}

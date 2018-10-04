@@ -7,6 +7,25 @@ describe('AccountEditReducers', () => {
     expect(accountEditReducers.initialState).toBeDefined();
   });
 
+  it('should handle specific defined types', () => {
+    const specificTypes = [
+      types.DELETE_ACCOUNT_HIDE,
+      types.DELETE_ACCOUNT_SHOW,
+      types.EDIT_ACCOUNT_HIDE,
+      types.EDIT_ACCOUNT_SHOW
+    ];
+
+    specificTypes.forEach(value => {
+      const dispatched = {
+        type: value
+      };
+
+      const resultState = accountEditReducers(undefined, dispatched);
+
+      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
+    });
+  });
+
   it('should handle all defined error types', () => {
     Object.keys(types).forEach(value => {
       if (/wizard/i.test(value)) {

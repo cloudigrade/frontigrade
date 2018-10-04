@@ -1,6 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountImagesViewListItemDetail Component should render 1`] = `
+exports[`AccountImagesViewListItemDetail Component should render a connected component with default props: connected 1`] = `
+<AccountImagesViewListItemDetail
+  item={
+    Object {
+      "cloud_image_id": "ami-rhel7",
+      "id": 2,
+      "instances_seen": 2,
+      "is_encrypted": false,
+      "name": null,
+      "openshift": false,
+      "openshift_challenged": true,
+      "openshift_detected": false,
+      "rhel": true,
+      "rhel_challenged": false,
+      "rhel_detected": true,
+      "runtime_seconds": 86400.5,
+      "status": "inspected",
+    }
+  }
+  updateAccountImageField={[Function]}
+/>
+`;
+
+exports[`AccountImagesViewListItemDetail Component should render a non-connected component: non-connected 1`] = `
 <div
   class="container-fluid"
 >

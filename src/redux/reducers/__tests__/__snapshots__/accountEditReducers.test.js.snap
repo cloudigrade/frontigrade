@@ -1559,3 +1559,107 @@ Object {
   "type": "EDIT_ACCOUNT_SHOW_PENDING",
 }
 `;
+
+exports[`AccountEditReducers should handle specific defined types: defined type DELETE_ACCOUNT_HIDE 1`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+  },
+  "type": "DELETE_ACCOUNT_HIDE",
+}
+`;
+
+exports[`AccountEditReducers should handle specific defined types: defined type DELETE_ACCOUNT_SHOW 1`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": undefined,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": true,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+  },
+  "type": "DELETE_ACCOUNT_SHOW",
+}
+`;
+
+exports[`AccountEditReducers should handle specific defined types: defined type EDIT_ACCOUNT_HIDE 1`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+  },
+  "type": "EDIT_ACCOUNT_HIDE",
+}
+`;
+
+exports[`AccountEditReducers should handle specific defined types: defined type EDIT_ACCOUNT_SHOW 1`] = `
+Object {
+  "result": Object {
+    "del": Object {
+      "account": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": false,
+    },
+    "modal": Object {
+      "account": undefined,
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+      "show": true,
+    },
+  },
+  "type": "EDIT_ACCOUNT_SHOW",
+}
+`;
