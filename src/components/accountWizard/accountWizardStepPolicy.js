@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FieldLevelHelp, Form, Grid } from 'patternfly-react';
-import { awsPolicySetup } from '../../common/configuration.json';
 import helpers from '../../common/helpers';
 import { connect, reduxTypes, store } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
@@ -52,12 +51,18 @@ class AccountWizardStepPolicy extends React.Component {
 
   render() {
     const { accountName, accountNameError, resourceType } = this.state;
-    const { policySetupConfig, stepPolicyValid, stepPolicyErrorMessage } = this.props;
+    const { awsConfigPolicySetup, stepPolicyValid, stepPolicyErrorMessage } = this.props;
 
     let stepError = null;
 
     if (!stepPolicyValid) {
       stepError = stepPolicyErrorMessage;
+    }
+
+    let displayAwsConfigPolicySetup = awsConfigPolicySetup;
+
+    if (displayAwsConfigPolicySetup) {
+      displayAwsConfigPolicySetup = helpers.prettyPrintJson(displayAwsConfigPolicySetup);
     }
 
     const popover = <p>The name or alternative name for the account. Account names must be unique.</p>;
@@ -93,7 +98,7 @@ class AccountWizardStepPolicy extends React.Component {
               </li>
               <li>
                 <p>Create a new policy, pasting the following content into the JSON text box.</p>
-                <CopyField multiline value={policySetupConfig} />
+                <CopyField multiline value={displayAwsConfigPolicySetup} />
               </li>
               <li>Complete the process to create your new policy.</li>
             </ul>
@@ -105,13 +110,13 @@ class AccountWizardStepPolicy extends React.Component {
 }
 
 AccountWizardStepPolicy.propTypes = {
-  policySetupConfig: PropTypes.string,
+  awsConfigPolicySetup: PropTypes.object,
   stepPolicyValid: PropTypes.bool,
   stepPolicyErrorMessage: PropTypes.string
 };
 
 AccountWizardStepPolicy.defaultProps = {
-  policySetupConfig: helpers.prettyPrintJson(awsPolicySetup),
+  awsConfigPolicySetup: {},
   stepPolicyValid: false,
   stepPolicyErrorMessage: null
 };

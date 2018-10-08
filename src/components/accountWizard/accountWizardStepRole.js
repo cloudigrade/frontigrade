@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Grid } from 'patternfly-react';
 import { connect, reduxActions } from '../../redux';
-import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import CopyField from '../copyField/copyField';
 
@@ -19,7 +18,7 @@ class AccountWizardStepRole extends React.Component {
   };
 
   render() {
-    const { awsAccountId } = this.props;
+    const { awsConfigAccountId } = this.props;
 
     return (
       <Form onSubmit={this.onSubmit}>
@@ -36,7 +35,7 @@ class AccountWizardStepRole extends React.Component {
                 <p>
                   Paste the following content into the <strong>Account ID</strong> field.
                 </p>
-                <CopyField id="account-id" value={awsAccountId || ''} />
+                <CopyField id="account-id" value={awsConfigAccountId || ''} />
               </li>
               <li>In the permissions step, attach your new policy. Complete the process to create your new role.</li>
             </ul>
@@ -48,22 +47,20 @@ class AccountWizardStepRole extends React.Component {
 }
 
 AccountWizardStepRole.propTypes = {
-  getSystemConfig: PropTypes.func,
-  awsAccountId: PropTypes.string
+  awsConfigAccountId: PropTypes.string,
+  getSystemConfig: PropTypes.func
 };
 
 AccountWizardStepRole.defaultProps = {
-  getSystemConfig: helpers.noop,
-  awsAccountId: null
+  awsConfigAccountId: null,
+  getSystemConfig: helpers.noop
 };
 
 const mapDispatchToProps = dispatch => ({
   getSystemConfig: () => dispatch(reduxActions.systemConfig.getSystemConfig())
 });
 
-const mapStateToProps = state => ({
-  awsAccountId: state.accountWizard.configuration[apiTypes.API_SUBMIT_ACCOUNT_AWS_ID]
-});
+const mapStateToProps = state => ({ awsConfigAccountId: state.accountWizard.awsConfigAccountId });
 
 const ConnectedAccountWizardStepRole = connect(
   mapStateToProps,

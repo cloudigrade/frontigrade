@@ -45,7 +45,7 @@ exports[`AccountWizardStepRole Component should render a wizard policy step: unc
                 id="account-id"
                 readonly=""
                 type="text"
-                value=""
+                value="123"
               />
               <span
                 class="input-group-btn"

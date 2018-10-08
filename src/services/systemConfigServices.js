@@ -10,7 +10,34 @@ import serviceConfig from './config';
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       "aws_account_id": "1234567890"
+ *       "aws_account_id": "1234567890",
+ *       "aws_policies": {
+ *         "traditional_inspection": {
+ *           "Version":"2012-10-17",
+ *           "Statement": [
+ *             {
+ *               "Sid":"VisualEditor0",
+ *               "Effect":"Allow",
+ *               "Action":[
+ *                 "ec2:DescribeImages",
+ *                 "ec2:DescribeInstances",
+ *                 "ec2:ModifySnapshotAttribute",
+ *                 "ec2:DescribeSnapshotAttribute",
+ *                 "ec2:DescribeSnapshots",
+ *                 "ec2:CopyImage",
+ *                 "ec2:CreateTags",
+ *                 "cloudtrail:CreateTrail",
+ *                 "cloudtrail:UpdateTrail",
+ *                 "cloudtrail:PutEventSelectors",
+ *                 "cloudtrail:DescribeTrails",
+ *                 "cloudtrail:StartLogging",
+ *                 "cloudtrail:StopLogging"
+ *               ],
+ *               "Resource":"*"
+ *             }
+ *           ]
+ *         }
+ *       }
  *     }
  * @apiError {String} detail
  * @apiErrorExample {json} Error-Response:

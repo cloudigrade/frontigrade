@@ -1,3 +1,4 @@
+import _get from 'lodash/get';
 import { accountTypes, systemConfigTypes } from '../constants';
 import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
@@ -5,7 +6,8 @@ import apiTypes from '../../constants/apiConstants';
 const initialState = {
   add: false,
   account: {},
-  configuration: {},
+  awsConfigAccountId: null,
+  awsConfigPolicySetup: {},
   edit: false,
   error: false,
   errorStatus: null,
@@ -100,10 +102,18 @@ const accountWizardReducers = (state = initialState, action) => {
       );
 
     case helpers.FULFILLED_ACTION(systemConfigTypes.GET_SYSTEM_CONFIG):
+      const configuration = action.payload.data;
+      const awsConfigPolicySetup = _get(
+        configuration,
+        [apiTypes.API_RESPONSE_SYS_CONFIG_AWS_POLICIES, apiTypes.API_RESPONSE_SYS_CONFIG_TRADITIONAL_INSPECTION],
+        {}
+      );
+
       return helpers.setStateProp(
         null,
         {
-          configuration: action.payload.data
+          awsConfigAccountId: (configuration && configuration[apiTypes.API_RESPONSE_SYS_CONFIG_AWS_ID]) || null,
+          awsConfigPolicySetup
         },
         {
           state,
