@@ -41,7 +41,7 @@ const generateHoursFromSeconds = seconds => {
   parsedSeconds = Number.isNaN(parsedSeconds) ? null : parsedSeconds;
 
   parsedSeconds =
-    parsedSeconds === null ? parsedSeconds : Math.floor(moment.duration(parsedSeconds, 'seconds').asHours());
+    parsedSeconds === null ? parsedSeconds : Math.ceil(moment.duration(parsedSeconds, 'seconds').asHours());
 
   return parsedSeconds;
 };

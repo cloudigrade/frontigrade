@@ -65,7 +65,7 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
                 class="fa fa-clock-o"
               />
               <strong>
-                24
+                25
               </strong>
                Hours
             </span>
