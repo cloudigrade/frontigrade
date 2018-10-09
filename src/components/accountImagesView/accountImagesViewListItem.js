@@ -76,7 +76,7 @@ class AccountImagesViewListItem extends React.Component {
     let seconds = Number.parseFloat(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
     seconds = Number.isNaN(seconds) ? null : seconds;
 
-    const hours = seconds === null ? '-' : Math.ceil(moment.duration(seconds, 'seconds').asHours());
+    const hours = seconds === null ? '-' : helpers.generateHoursFromSeconds(seconds);
 
     let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
     instances = Number.isNaN(instances) ? '-' : instances;
