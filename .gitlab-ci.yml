@@ -9,7 +9,7 @@ stages:
 ### GLOBAL VARS ###
 variables:
   SHIFTIGRADE_IMAGE: registry.gitlab.com/cloudigrade/shiftigrade
-  SHIFTIGRADE_VERSION: 0.0.1
+  SHIFTIGRADE_VERSION: 0.1.0
   IMAGE_NAME: registry.gitlab.com/${CI_PROJECT_PATH}
   IMAGE_NAME_COMMIT: registry.gitlab.com/${CI_PROJECT_PATH}/commits/${CI_PROJECT_NAME}:${CI_BUILD_REF}
   DOCKER_DRIVER: overlay2
@@ -92,12 +92,14 @@ Deploy Review:
     - oc login --token ${KUBE_TOKEN}
     - cd /opt/shiftigrade
   script:
+    - export FRONTIGRADE_ROUTE_HOST=review-${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
+    - export DEPLOYMENT_PREFIX=$(echo review-${CI_COMMIT_REF_SLUG} | cut -c 1-36)
     - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
-    - oc start-build -F cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade
-    - if ! oc rollout status dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade; then oc rollout latest dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade && oc rollout status dc/cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade; fi;
+    - oc start-build -F f-${DEPLOYMENT_PREFIX}
+    - if ! oc rollout status dc/f-${DEPLOYMENT_PREFIX}; then oc rollout latest dc/f-${DEPLOYMENT_PREFIX} && oc rollout status dc/f-${DEPLOYMENT_PREFIX}; fi;
   environment:
     name: review/${CI_COMMIT_REF_NAME}
-    url: https://cloudireview-${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
+    url: https://review-${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
     on_stop: Clean Up Review
 
 Clean Up Review:
@@ -137,16 +139,16 @@ Clean Up Review:
       if [ -n "${CHAT_INPUT}" ]; then
         export FRONTIGRADE_REPO_REF=master
         export CI_COMMIT_REF_SLUG=master-${CHAT_INPUT}
+        export DEPLOYMENT_PREFIX=$(echo ${CI_COMMIT_REF_SLUG} | cut -c 1-36)
         export FRONTIGRADE_ROUTE_HOST=${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
-        export DEPLOYMENT_PREFIX=${CI_COMMIT_REF_SLUG}-
         export GITLAB_DEPLOYMENT=${CI_COMMIT_REF_SLUG}-frontigrade
       else
         echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nPlease provide a name for the deployment.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
         exit 1
       fi
     - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
-    - oc start-build -F ${CI_COMMIT_REF_SLUG}-frontigrade
-    - if ! oc rollout status dc/${CI_COMMIT_REF_SLUG}-frontigrade; then oc rollout latest dc/${CI_COMMIT_REF_SLUG}-frontigrade && oc rollout status dc/${CI_COMMIT_REF_SLUG}-frontigrade; fi;
+    - oc start-build -F f-${DEPLOYMENT_PREFIX}
+    - if ! oc rollout status dc/f-${CI_COMMIT_REF_SLUG}; then oc rollout latest dc/f-${CI_COMMIT_REF_SLUG} && oc rollout status dc/f-${CI_COMMIT_REF_SLUG}; fi;
     - echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nDeployed [frontigrade] ${CHAT_INPUT}, available at https://${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com/ If both cloudigrade and frontigrade are deployed you can login with username 'admin@example.com' and the current Red Hat Guest WiFi password as the password.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
 
 Review-Master:
@@ -182,8 +184,6 @@ Review Master:
       if [ -n "${CHAT_INPUT}" ]; then
         export FRONTIGRADE_REPO_REF=master
         export CI_COMMIT_REF_SLUG=master-${CHAT_INPUT}
-        export FRONTIGRADE_ROUTE_HOST=${CI_COMMIT_REF_SLUG}.1b13.insights.openshiftapps.com
-        export DEPLOYMENT_PREFIX=${CI_COMMIT_REF_SLUG}-
         export GITLAB_DEPLOYMENT=${CI_COMMIT_REF_SLUG}-frontigrade
       else
         echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nPlease provide a name for the deployment.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
