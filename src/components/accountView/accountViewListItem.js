@@ -29,7 +29,11 @@ class AccountViewListItem extends React.Component {
     return (
       <div ref={this.kebab}>
         {(onEdit || onDelete) && (
-          <DropdownKebab id={`account-item-menu-${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`} pullRight>
+          <DropdownKebab
+            id={`account-item-menu-${item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}`}
+            title="More options"
+            pullRight
+          >
             {onEdit && <MenuItem onClick={() => onEdit(item)}>Edit Name</MenuItem>}
             {onDelete && <MenuItem onClick={() => onDelete(item)}>Delete</MenuItem>}
           </DropdownKebab>

@@ -6435,9 +6435,10 @@ patternfly-bootstrap-treeview@~2.1.0:
     bootstrap "3.3.x"
     jquery ">= 2.1.x"
 
-patternfly-react@^2.17.3:
-  version "2.17.3"
-  resolved "https://registry.yarnpkg.com/patternfly-react/-/patternfly-react-2.17.3.tgz#def0c43c5cef213d24ebbadc5dcdb88621150c0b"
+patternfly-react@^2.22.4:
+  version "2.22.4"
+  resolved "https://registry.yarnpkg.com/patternfly-react/-/patternfly-react-2.22.4.tgz#dc356bf0b67f298d6cb0c70102b34e7371522279"
+  integrity sha512-rnfC5i/yH48l+goKPN3vKazo2rR5Gv1wel30nU77tmTxJXQhF7MN+YY3L4rNL85spFRj1iynaUVNMS/lHkBqsA==
   dependencies:
     bootstrap-slider-without-jquery "^10.0.0"
     breakjs "^1.0.0"
@@ -6458,9 +6459,10 @@ patternfly-react@^2.17.3:
     sortabular "^1.5.1"
     table-resolver "^3.2.0"
 
-patternfly@3.54.1:
-  version "3.54.1"
-  resolved "https://registry.yarnpkg.com/patternfly/-/patternfly-3.54.1.tgz#a0f8b52076aa405486e77ecb504460b1ff35fe92"
+patternfly@3.55.0:
+  version "3.55.0"
+  resolved "https://registry.yarnpkg.com/patternfly/-/patternfly-3.55.0.tgz#ee8a711d42713738176aed51eb60722d7f324ad8"
+  integrity sha512-YG35hzE8To4BIZBM3gwi3SvIxLpefFmq46hwojlWS9gWLer4voyeQlS0O6daVzYZ7v5vecp6U3fwDiWcl3j4Iw==
   dependencies:
     bootstrap "~3.3.7"
     font-awesome "^4.7.0"

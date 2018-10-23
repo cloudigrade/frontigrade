@@ -44,7 +44,7 @@ class AccountDeleteModal extends React.Component {
           alertType: 'success',
           message: (
             <span>
-              Account <strong>{displayName}</strong> successfully deleted.
+              Account <strong>{displayName}</strong> was successfully deleted.
             </span>
           )
         });
