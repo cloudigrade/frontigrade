@@ -99,7 +99,7 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
              
             <span
               aria-hidden="true"
-              class="fa fa-asterisk cloudmeter-pficon-error"
+              class="fa fa-flag cloudmeter-pficon-error"
             />
           </div>
         </div>

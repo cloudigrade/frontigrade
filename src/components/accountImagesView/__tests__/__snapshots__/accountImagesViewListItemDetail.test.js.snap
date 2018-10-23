@@ -82,7 +82,7 @@ exports[`AccountImagesViewListItemDetail Component should render a non-connected
               Flagged for review 
               <span
                 aria-hidden="true"
-                class="fa fa-asterisk cloudmeter-pficon-error"
+                class="fa fa-flag cloudmeter-pficon-error"
               />
             </label>
           </div>

@@ -114,7 +114,7 @@ class AccountImagesViewListItem extends React.Component {
         <PFLabel bsStyle={rhelChallenged ? 'default' : 'warning'}>
           <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
         </PFLabel>{' '}
-        {rhelChallenged && <Icon type="fa" name="asterisk" className="cloudmeter-pficon-error" />}
+        {rhelChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
       </ListView.InfoItem>,
       <ListView.InfoItem
         key="4"
@@ -127,7 +127,7 @@ class AccountImagesViewListItem extends React.Component {
         <PFLabel bsStyle={openshiftChallenged ? 'default' : 'primary'}>
           <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
         </PFLabel>{' '}
-        {openshiftChallenged && <Icon type="fa" name="asterisk" className="cloudmeter-pficon-error" />}
+        {openshiftChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
       </ListView.InfoItem>
     ];
   }

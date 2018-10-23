@@ -144,7 +144,7 @@ class AccountImagesViewListItemDetail extends React.Component {
                     <Icon className="cloudmeter-flag-status-icon fa-spin" size="lg" type="fa" name="spinner" />
                   )}
                   {rhelFlagged ? 'Flagged' : 'Flag'} for review{' '}
-                  {rhelFlagged && <Icon type="fa" name="asterisk" className="cloudmeter-pficon-error" />}
+                  {rhelFlagged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
                 </Checkbox>
               </Form.FormGroup>
             </Form>
@@ -164,7 +164,7 @@ class AccountImagesViewListItemDetail extends React.Component {
                     <Icon className="cloudmeter-flag-status-icon fa-spin" size="lg" type="fa" name="spinner" />
                   )}
                   {openshiftFlagged ? 'Flagged' : 'Flag'} for review{' '}
-                  {openshiftFlagged && <Icon type="fa" name="asterisk" className="cloudmeter-pficon-error" />}
+                  {openshiftFlagged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
                 </Checkbox>
               </Form.FormGroup>
             </Form>
