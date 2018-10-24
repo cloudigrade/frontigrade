@@ -13,7 +13,7 @@ class AccountWizardStepArn extends React.Component {
 
   onChangeAccountArn = event => {
     const { value } = event.target;
-    const errorMessage = !new RegExp('^arn:aws:').test(value) ? 'You must enter a valid ARN' : '';
+    const errorMessage = !/^\s*arn:aws:/.test(value) ? 'You must enter a valid ARN' : '';
 
     this.setState(
       {
@@ -36,10 +36,12 @@ class AccountWizardStepArn extends React.Component {
       ? reduxTypes.account.ADD_ACCOUNT_WIZARD_STEP_ARN
       : reduxTypes.account.INVALID_ACCOUNT_WIZARD_STEP_ARN;
 
+    const trimmedArn = stepValid ? accountArn.trim() : accountArn;
+
     store.dispatch({
       type: dispatchType,
       account: {
-        [apiTypes.API_SUBMIT_ACCOUNT_ARN]: accountArn
+        [apiTypes.API_SUBMIT_ACCOUNT_ARN]: trimmedArn
       }
     });
   }
