@@ -90,8 +90,7 @@ Deploy Review:
     - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
     - oc start-build -F cloudireview-${CI_COMMIT_REF_SLUG}-frontigrade
@@ -115,8 +114,7 @@ Clean Up Review:
     - trigger
   before_script:
     - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - oc delete bc,cm,dc,is,routes,secrets,svc -l gitlab-deployment="${CI_COMMIT_REF_SLUG}-frontigrade"
   when: manual
@@ -133,8 +131,7 @@ Clean Up Review:
     - tags@cloudigrade/cloudigrade
   before_script:
     - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - >
       if [ -n "${CHAT_INPUT}" ]; then
@@ -179,8 +176,7 @@ Review Master:
     - tags@cloudigrade/cloudigrade
   before_script:
     - oc login ${OPENSHIFT_URL} --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - >
       if [ -n "${CHAT_INPUT}" ]; then
@@ -225,8 +221,7 @@ Deploy to Test:
     - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/test.yaml -i frontigrade | oc apply -f -
     - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
@@ -247,8 +242,7 @@ Deploy to Stage:
     - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/stage.yaml -i frontigrade | oc apply -f -
     - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
@@ -270,8 +264,7 @@ Deploy to Production:
     - trigger
   before_script:
     - oc login --token ${KUBE_TOKEN}
-    - git clone https://gitlab.com/cloudigrade/shiftigrade.git
-    - cd shiftigrade
+    - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/prod.yaml -i frontigrade | oc apply -f -
     - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
