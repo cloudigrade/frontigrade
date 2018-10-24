@@ -34,6 +34,52 @@ const copyClipboard = text => {
   return successful;
 };
 
+const downloadData = (data = '', fileName = 'download.txt', fileType = 'text/plain') =>
+  new Promise((resolve, reject) => {
+    try {
+      const blob = new Blob([data], { type: fileType });
+
+      if (window.navigator && window.navigator.msSaveBlob) {
+        window.navigator.msSaveBlob(blob, fileName);
+        resolve({ fileName, data });
+      } else {
+        const anchorTag = window.document.createElement('a');
+
+        anchorTag.href = window.URL.createObjectURL(blob);
+        anchorTag.style.display = 'none';
+        anchorTag.download = fileName;
+
+        window.document.body.appendChild(anchorTag);
+
+        anchorTag.click();
+
+        setTimeout(() => {
+          window.document.body.removeChild(anchorTag);
+          window.URL.revokeObjectURL(blob);
+          resolve({ fileName, data });
+        }, 250);
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
+
+const debugLogDownload = () => {
+  try {
+    const filename = `${process.env.REACT_APP_UI_LOGGER_FILE}`.replace(
+      '{0}',
+      moment(Date.now()).format('YYYYMMDD_HHmmss')
+    );
+    const data = window.sessionStorage.getItem(`${process.env.REACT_APP_UI_LOGGER_ID}`);
+
+    downloadData(JSON.stringify(JSON.parse(data), null, 2), filename, 'application/json');
+  } catch (e) {
+    console.info(e.message);
+  }
+};
+
+window.debugLogDownload = debugLogDownload;
+
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
 
 const generateHoursFromSeconds = seconds => {
@@ -203,6 +249,8 @@ const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const OC_MODE = process.env.REACT_APP_ENV === 'oc';
 
+const PROD_MODE = process.env.REACT_APP_ENV === 'production';
+
 const REVIEW_MODE = process.env.REACT_APP_ENV === 'review';
 
 const FULFILLED_ACTION = (base = '') => `${base}_FULFILLED`;
@@ -215,6 +263,8 @@ const HTTP_STATUS_RANGE = status => `${status}_STATUS_RANGE`;
 
 const helpers = {
   copyClipboard,
+  downloadData,
+  debugLogDownload,
   generateId,
   generateHoursFromSeconds,
   generatePriorYearMonthArray,
@@ -229,6 +279,7 @@ const helpers = {
   UI_VERSION,
   DEV_MODE,
   OC_MODE,
+  PROD_MODE,
   REVIEW_MODE,
   FULFILLED_ACTION,
   PENDING_ACTION,

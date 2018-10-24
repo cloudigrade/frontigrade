@@ -1,6 +1,7 @@
 import axios from 'axios';
 import cookies from 'js-cookie';
 import _ from 'lodash';
+import apiTypes from '../constants/apiConstants';
 import serviceConfig from './config';
 
 /**
@@ -133,8 +134,8 @@ const loginUser = (data = {}) =>
     )
   ).then(success => {
     // ToDo: review using session/local storage instead of session cookie
-    if (success.data && success.data.auth_token) {
-      cookies.set(process.env.REACT_APP_AUTH_TOKEN, success.data.auth_token);
+    if (success.data && success.data[apiTypes.API_RESPONSE_AUTH_TOKEN]) {
+      cookies.set(process.env.REACT_APP_AUTH_TOKEN, success.data[apiTypes.API_RESPONSE_AUTH_TOKEN]);
       return success;
     }
 

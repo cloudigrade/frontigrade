@@ -1,16 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import promiseMiddleware from 'redux-promise-middleware';
 import reduxMiddleware from './middleware';
 import reduxReducers from './reducers';
 
-const middleware = [thunkMiddleware, reduxMiddleware.status(), promiseMiddleware()];
+const store = createStore(reduxReducers, applyMiddleware(...reduxMiddleware));
 
-if (process.env.NODE_ENV !== 'production' && process.env.REACT_APP_DEBUG_MIDDLEWARE === 'true') {
-  middleware.push(createLogger());
-}
-
-const store = createStore(reduxReducers, applyMiddleware(...middleware));
-
-export default store;
+export { store as default, store };
