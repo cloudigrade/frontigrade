@@ -224,7 +224,7 @@ Deploy to Test:
     - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/test.yaml -i frontigrade | oc apply -f -
-    - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
+    - if ! oc rollout status dc/f; then oc rollout latest dc/f && oc rollout status dc/f; fi;
   environment:
     name: test
     url: https://test.cloudigra.de/
@@ -245,7 +245,7 @@ Deploy to Stage:
     - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/stage.yaml -i frontigrade | oc apply -f -
-    - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
+    - if ! oc rollout status dc/f; then oc rollout latest dc/f && oc rollout status dc/f; fi;
   environment:
     name: stage
     url: https://stage.cloudigra.de/
@@ -267,7 +267,7 @@ Deploy to Production:
     - cd /opt/shiftigrade
   script:
     - kontemplate template ocp/prod.yaml -i frontigrade | oc apply -f -
-    - if ! oc rollout status dc/frontigrade; then oc rollout latest dc/frontigrade && oc rollout status dc/frontigrade; fi;
+    - if ! oc rollout status dc/f; then oc rollout latest dc/f && oc rollout status dc/f; fi;
   when: manual
   environment:
     name: production
