@@ -2,7 +2,13 @@ import moxios from 'moxios';
 import promiseMiddleware from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { accountActions } from '..';
-import { accountReducers, accountEditReducers, accountImagesReducers, accountWizardReducers } from '../../reducers';
+import {
+  accountReducers,
+  accountEditReducers,
+  accountGraphReducers,
+  accountImagesReducers,
+  accountWizardReducers
+} from '../../reducers';
 import apiTypes from '../../../constants/apiConstants';
 
 describe('UserActions', () => {
@@ -12,6 +18,7 @@ describe('UserActions', () => {
       combineReducers({
         account: accountReducers,
         accountEdit: accountEditReducers,
+        accountGraph: accountGraphReducers,
         accountImages: accountImagesReducers,
         accountWizard: accountWizardReducers
       }),
@@ -87,14 +94,14 @@ describe('UserActions', () => {
     });
   });
 
-  it('Should return response content for getAccountImagesInstances method', done => {
+  it('Should return response content for images with getAccountInstances method and passed parameter', done => {
     const store = generateStore();
-    const dispatcher = accountActions.getAccountImagesInstances();
+    const dispatcher = accountActions.getAccountInstances(1);
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().accountImages.instances;
+      const response = store.getState().accountGraph;
 
-      expect(response.dailyUsage[0]).toEqual('success');
+      expect(response.graphData.dailyUsage[0]).toEqual('success');
       done();
     });
   });
@@ -104,9 +111,9 @@ describe('UserActions', () => {
     const dispatcher = accountActions.getAccountInstances();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().account.instances;
+      const response = store.getState().accountGraph;
 
-      expect(response.dailyUsage[0]).toEqual('success');
+      expect(response.graphData.dailyUsage[0]).toEqual('success');
       done();
     });
   });

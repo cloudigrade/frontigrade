@@ -2,7 +2,7 @@
 
 exports[`AccountViewListItem Component should render a component 1`] = `
 <div
-  class="list-group-item"
+  class="list-group-item cloudmeter-accountview-list-view-item"
 >
   <div
     class="list-view-pf-actions"
@@ -19,18 +19,19 @@ exports[`AccountViewListItem Component should render a component 1`] = `
         class="list-view-pf-description"
       >
         <div
-          class="list-group-item-text"
+          class="list-group-item-heading"
         >
-          <div
-            class="list-group-item-heading"
+          <span
+            class="cloudmeter-list-view-item-heading"
           >
-            Lorem test
-          </div>
-          <div
-            class="list-group-item-text"
-          >
+            <strong
+              class="cloudmeter-list-view-item-heading-title"
+            >
+              Lorem test
+            </strong>
+            <br />
             Created 12:00AM, July 7th 2018
-          </div>
+          </span>
         </div>
       </div>
       <div
@@ -68,9 +69,15 @@ exports[`AccountViewListItem Component should render a component 1`] = `
           class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
         >
           <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
             <strong>
-              1
+              0
             </strong>
+          </span>
+          <span>
             <span
               class="label label-warning"
             >
@@ -86,9 +93,15 @@ exports[`AccountViewListItem Component should render a component 1`] = `
           class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
         >
           <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
             <strong>
-              N/A
+              1
             </strong>
+          </span>
+          <span>
             <span
               class="label label-primary"
             >
@@ -108,7 +121,7 @@ exports[`AccountViewListItem Component should render a component 1`] = `
 
 exports[`AccountViewListItem Component should wrap long names with a on hover title 1`] = `
 <div
-  class="list-group-item"
+  class="list-group-item cloudmeter-accountview-list-view-item"
 >
   <div
     class="list-view-pf-actions"
@@ -125,22 +138,23 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
         class="list-view-pf-description"
       >
         <div
-          class="list-group-item-text"
+          class="list-group-item-heading"
         >
-          <div
-            class="list-group-item-heading"
+          <span
+            class="cloudmeter-list-view-item-heading"
           >
-            <span
-              title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros."
+            <strong
+              class="cloudmeter-list-view-item-heading-title"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.
-            </span>
-          </div>
-          <div
-            class="list-group-item-text"
-          >
+              <span
+                title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros."
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.
+              </span>
+            </strong>
+            <br />
             Created 12:00AM, July 7th 2018
-          </div>
+          </span>
         </div>
       </div>
       <div
@@ -178,9 +192,15 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
           class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
         >
           <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
             <strong>
-              1
+              0
             </strong>
+          </span>
+          <span>
             <span
               class="label label-warning"
             >
@@ -196,9 +216,15 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
           class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
         >
           <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
             <strong>
-              N/A
+              1
             </strong>
+          </span>
+          <span>
             <span
               class="label label-primary"
             >

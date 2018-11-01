@@ -7,7 +7,8 @@ import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
 import accountViewTypes from './accountViewConstants';
-import AccountViewInstanceGraphs from './accountViewInstanceGraphs';
+// import AccountViewInstanceGraphs from './accountViewInstanceGraphs';
+import AccountGraphCard from '../accountGraphCard/accountGraphCard';
 import ViewToolbar from '../viewToolbar/viewToolbar';
 import AccountViewListItem from './accountViewListItem';
 
@@ -81,12 +82,12 @@ class AccountView extends React.Component {
   };
 
   renderAccountsList() {
-    const { accounts, filter } = this.props;
+    const { accounts, filter, view } = this.props;
 
     if (accounts.length) {
       return (
         <React.Fragment>
-          <AccountViewInstanceGraphs filter={filter} />
+          <AccountGraphCard filter={filter} view={view} />
           <Grid fluid>
             <Grid.Row className="row-cards-pf">
               <Grid.Col xs={12}>

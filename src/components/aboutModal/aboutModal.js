@@ -64,7 +64,7 @@ class AboutModal extends React.Component {
 
   render() {
     const { copied } = this.state;
-    const { brand, commitHash, show, session } = this.props;
+    const { brand, commitAPISHA, commitUISHA, show, session } = this.props;
     const browser = detect();
 
     const props = {
@@ -94,7 +94,8 @@ class AboutModal extends React.Component {
           aria-live="polite"
         >
           <PfAboutModal.Versions>
-            {commitHash && <PfAboutModal.VersionItem label="Version Hash" versionText={commitHash || ''} />}
+            {commitAPISHA && <PfAboutModal.VersionItem label="API Version SHA" versionText={commitAPISHA || ''} />}
+            {commitUISHA && <PfAboutModal.VersionItem label="UI Version SHA" versionText={commitUISHA || ''} />}
             {session && <PfAboutModal.VersionItem label="Username" versionText={session.username || ''} />}
             {browser && (
               <PfAboutModal.VersionItem label="Browser Version" versionText={`${browser.name} ${browser.version}`} />
@@ -109,7 +110,8 @@ class AboutModal extends React.Component {
 }
 
 AboutModal.propTypes = {
-  commitHash: PropTypes.string,
+  commitAPISHA: PropTypes.string,
+  commitUISHA: PropTypes.string,
   brand: PropTypes.bool,
   onClose: PropTypes.func,
   resetTimer: PropTypes.number,
@@ -120,7 +122,8 @@ AboutModal.propTypes = {
 };
 
 AboutModal.defaultProps = {
-  commitHash: helpers.UI_COMMIT_HASH,
+  commitAPISHA: null,
+  commitUISHA: helpers.UI_SHA,
   brand: helpers.RH_BRAND,
   resetTimer: 3000,
   session: {

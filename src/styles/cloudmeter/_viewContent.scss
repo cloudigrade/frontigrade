@@ -51,7 +51,19 @@
     overflow: hidden;
   }
 
+  .cloudmeter-accountview-list-view-item .list-view-pf-description {
+    flex: 1 0 15%;
+  }
+
   .list-group-item-heading {
+    .cloudmeter-list-view-item-heading {
+      font-weight: normal;
+    }
+
+    .cloudmeter-list-view-item-heading-title {
+      font-size: 14px;
+    }
+
     @media (min-width: $screen-md-min) {
       flex-basis: calc(50% - 20px);
       width: calc(50% - 20px);
@@ -146,9 +158,9 @@
 }
 
 .cloudmeter-listview-label-has-badge strong {
-  min-width: 25px;
+  min-width: 30px;
   display: inline-block;
-  text-align: right;
+  text-align: left;
 }
 
 .cloudmeter-listview-label-hidden {

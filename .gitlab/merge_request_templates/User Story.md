@@ -8,7 +8,7 @@
 <!--
   Are there directions to test/review?
   
-  The QE review setup can be used to help a quick confirmation. You'll need a login, or access to a Cloudigrade instance.
+  The review setup can be used to help a quick confirmation. You'll need a login, or access to a Cloudigrade instance.
   1. Clone the updates locally, then
   1. From the terminal, within the repo context, run `$ yarn start:review`
   1. You may need to log in, do so

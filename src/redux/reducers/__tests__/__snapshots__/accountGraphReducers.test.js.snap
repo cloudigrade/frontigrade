@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountGraphReducers should handle all defined error types: rejected types 1`] = `
+Object {
+  "result": Object {
+    "error": true,
+    "errorMessage": "ERROR",
+    "errorStatus": 0,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": false,
+    "updateInstances": false,
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountGraphReducers should handle all defined error types: rejected types 2`] = `
+Object {
+  "result": Object {
+    "error": true,
+    "errorMessage": "ERROR",
+    "errorStatus": 0,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": false,
+    "updateInstances": false,
+  },
+  "type": "GET_ACCOUNT_INSTANCES_REJECTED",
+}
+`;
+
+exports[`AccountGraphReducers should handle all defined fulfilled types: fulfilled types 1`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": true,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": false,
+    "updateInstances": false,
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`AccountGraphReducers should handle all defined fulfilled types: fulfilled types 2`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": true,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": false,
+    "updateInstances": false,
+  },
+  "type": "GET_ACCOUNT_INSTANCES_FULFILLED",
+}
+`;
+
+exports[`AccountGraphReducers should handle all defined pending types: pending types 1`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": true,
+    "updateInstances": false,
+  },
+  "type": "GET_ACCOUNT_IMAGES_INSTANCES_PENDING",
+}
+`;
+
+exports[`AccountGraphReducers should handle all defined pending types: pending types 2`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": true,
+    "updateInstances": false,
+  },
+  "type": "GET_ACCOUNT_INSTANCES_PENDING",
+}
+`;
+
+exports[`AccountGraphReducers should handle specific defined types: defined type UPDATE_ACCOUNT_IMAGES_INSTANCES 1`] = `
+Object {
+  "result": Object {
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "graphData": Object {
+      "dailyUsage": Array [],
+      "totalInstancesOpenshift": 0,
+      "totalInstancesRhel": 0,
+    },
+    "pending": false,
+    "updateInstances": true,
+  },
+  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES",
+}
+`;

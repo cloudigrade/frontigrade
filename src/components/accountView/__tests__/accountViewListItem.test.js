@@ -8,12 +8,15 @@ describe('AccountViewListItem Component', () => {
       item: {
         arn: 'arn:aws:iam::TEST',
         creation_date: '2018-07-07',
+        cloud_account_id: '000000000',
         id: '1',
         images: 1,
         instances: 2,
         name: 'Lorem test',
         openshift_instances: null,
+        openshift_runtime_seconds: 3600.0,
         rhel_instances: 1,
+        rhel_runtime_seconds: 0.0,
         type: 'aws',
         user_id: 1
       }
@@ -29,12 +32,15 @@ describe('AccountViewListItem Component', () => {
       item: {
         arn: 'arn:aws:iam::TEST',
         creation_date: '2018-07-07',
+        cloud_account_id: '000000000',
         id: '1',
         images: 1,
         instances: 2,
         name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.',
         openshift_instances: null,
+        openshift_runtime_seconds: 3600.0,
         rhel_instances: 1,
+        rhel_runtime_seconds: 0.0,
         type: 'aws',
         user_id: 1
       }

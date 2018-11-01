@@ -44,10 +44,6 @@ describe('FilterReducers', () => {
     const specificTypes = [accountTypes.GET_ACCOUNTS, accountTypes.GET_ACCOUNT_IMAGES];
 
     specificTypes.forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
-
       const dispatched = {
         type: helpers.FULFILLED_ACTION(value),
         payload: {

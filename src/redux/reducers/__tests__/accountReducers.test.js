@@ -23,11 +23,9 @@ describe('AccountReducers', () => {
   });
 
   it('should handle all defined error types', () => {
-    Object.keys(types).forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
+    const specificTypes = [types.GET_ACCOUNT, types.GET_ACCOUNTS];
 
+    specificTypes.forEach(value => {
       const dispatched = {
         type: helpers.REJECTED_ACTION(value),
         error: true,
@@ -50,11 +48,9 @@ describe('AccountReducers', () => {
   });
 
   it('should handle all defined pending types', () => {
-    Object.keys(types).forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
+    const specificTypes = [types.GET_ACCOUNT, types.GET_ACCOUNTS];
 
+    specificTypes.forEach(value => {
       const dispatched = {
         type: helpers.PENDING_ACTION(value)
       };
@@ -66,11 +62,9 @@ describe('AccountReducers', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    Object.keys(types).forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
+    const specificTypes = [types.GET_ACCOUNT, types.GET_ACCOUNTS];
 
+    specificTypes.forEach(value => {
       const dispatched = {
         type: helpers.FULFILLED_ACTION(value),
         payload: {

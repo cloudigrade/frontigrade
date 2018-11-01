@@ -106,7 +106,7 @@ const getMessageFromResults = (results, filterField = null) => {
   }
 
   if (status >= 500 || status === undefined) {
-    serverStatus = `${status} ` || '';
+    serverStatus = status ? `${status} ` : '';
   }
 
   if (typeof messageResponse === 'string') {
@@ -193,15 +193,17 @@ const pfPaletteColors = { ...window.patternfly.pfPaletteColors };
 
 const prettyPrintJson = json => JSON.stringify(json, null, 2);
 
+const RH_BRAND = process.env.REACT_APP_RH_BRAND === 'true';
+
+const UI_SHA = process.env.REACT_APP_UI_SHA;
+
+const UI_VERSION = process.env.REACT_APP_UI_VERSION;
+
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';
 
 const OC_MODE = process.env.REACT_APP_ENV === 'oc';
 
 const REVIEW_MODE = process.env.REACT_APP_ENV === 'review';
-
-const RH_BRAND = process.env.REACT_APP_RH_BRAND === 'true';
-
-const UI_COMMIT_HASH = process.env.REACT_APP_UI_COMMIT_HASH;
 
 const FULFILLED_ACTION = (base = '') => `${base}_FULFILLED`;
 
@@ -223,11 +225,12 @@ const helpers = {
   setStateProp,
   pfPaletteColors,
   prettyPrintJson,
+  RH_BRAND,
+  UI_SHA,
+  UI_VERSION,
   DEV_MODE,
   OC_MODE,
   REVIEW_MODE,
-  RH_BRAND,
-  UI_COMMIT_HASH,
   FULFILLED_ACTION,
   PENDING_ACTION,
   REJECTED_ACTION,

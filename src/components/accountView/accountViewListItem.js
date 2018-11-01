@@ -38,15 +38,7 @@ class AccountViewListItem extends React.Component {
     );
   }
 
-  static renderHeading() {
-    return null;
-  }
-
-  static renderLeftContent() {
-    return null;
-  }
-
-  renderDescription() {
+  renderHeading() {
     const { item } = this.props;
 
     const timestamp = item[apiTypes.API_RESPONSE_ACCOUNTS_DATE];
@@ -60,11 +52,20 @@ class AccountViewListItem extends React.Component {
     }
 
     return (
-      <React.Fragment>
-        <ListView.DescriptionHeading>{title}</ListView.DescriptionHeading>
-        <ListView.DescriptionText>Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</ListView.DescriptionText>
-      </React.Fragment>
+      <span className="cloudmeter-list-view-item-heading">
+        <strong className="cloudmeter-list-view-item-heading-title">{title}</strong>
+        <br />
+        Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}
+      </span>
     );
+  }
+
+  static renderLeftContent() {
+    return null;
+  }
+
+  static renderDescription() {
+    return null;
   }
 
   /**
@@ -81,10 +82,17 @@ class AccountViewListItem extends React.Component {
     const instances =
       item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES];
 
-    const rhel = item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL];
+    let rhelSeconds = Number.parseFloat(item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_RUNTIME]);
+    rhelSeconds = Number.isNaN(rhelSeconds) ? null : rhelSeconds;
 
-    const rhos =
-      item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT];
+    let rhocpSeconds = Number.parseFloat(item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_RUNTIME]);
+    rhocpSeconds = Number.isNaN(rhocpSeconds) ? null : rhocpSeconds;
+
+    const rhelHours = rhelSeconds === null ? 'N/A' : helpers.generateHoursFromSeconds(rhelSeconds);
+    const rhocpHours = rhocpSeconds === null ? 'N/A' : helpers.generateHoursFromSeconds(rhocpSeconds);
+
+    const rhelTooltip = <React.Fragment>{rhelSeconds} seconds</React.Fragment>;
+    const rhocpTooltip = <React.Fragment>{rhocpSeconds} seconds</React.Fragment>;
 
     const imagesPopover = (
       <React.Fragment>
@@ -106,10 +114,7 @@ class AccountViewListItem extends React.Component {
 
     const rhelPopover = (
       <React.Fragment>
-        {t(
-          'list-accounts.rhel.rhel-tooltip',
-          'Number of instances that are running Red Hat Enterprise Linux for the selected date range.'
-        )}
+        {t('list-accounts.rhel.rhel-tooltip', 'Hours of Red Hat Enterprise Linux usage for the selected date range.')}
       </React.Fragment>
     );
 
@@ -117,7 +122,7 @@ class AccountViewListItem extends React.Component {
       <React.Fragment>
         {t(
           'list-accounts.rhocp.rhocp-tooltip',
-          'Number of instances that are running Red Hat OpenShift Container Platform for the selected date range.'
+          'Hours of Red Hat OpenShift Container Platform usage for the selected date range.'
         )}
       </React.Fragment>
     );
@@ -136,16 +141,38 @@ class AccountViewListItem extends React.Component {
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
+        {rhelSeconds !== null && (
+          <Tooltip tooltip={rhelTooltip} placement="bottom">
+            <Icon type="fa" name="clock-o" />
+            <strong>{rhelHours}</strong>
+          </Tooltip>
+        )}
+        {rhelSeconds === null && (
+          <React.Fragment>
+            <Icon type="fa" name="clock-o" />
+            <strong>{rhelHours}</strong>
+          </React.Fragment>
+        )}
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
-          <strong>{rhel}</strong>
           <PFLabel bsStyle="warning">
             <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
           </PFLabel>
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="4" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
+        {rhocpSeconds !== null && (
+          <Tooltip tooltip={rhocpTooltip} placement="bottom">
+            <Icon type="fa" name="clock-o" />
+            <strong>{rhocpHours}</strong>
+          </Tooltip>
+        )}
+        {rhocpSeconds === null && (
+          <React.Fragment>
+            <Icon type="fa" name="clock-o" />
+            <strong>{rhocpHours}</strong>
+          </React.Fragment>
+        )}
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
-          <strong>{rhos}</strong>
           <PFLabel bsStyle="primary">
             <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
           </PFLabel>
@@ -159,11 +186,12 @@ class AccountViewListItem extends React.Component {
 
     return (
       <ListView.Item
+        className="cloudmeter-accountview-list-view-item"
         onClick={this.onVerifyDetail}
         key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
         leftContent={AccountViewListItem.renderLeftContent()}
-        heading={AccountViewListItem.renderHeading()}
-        description={this.renderDescription()}
+        heading={this.renderHeading()}
+        description={AccountViewListItem.renderDescription()}
         additionalInfo={this.renderAdditionalInfo()}
         actions={this.renderActions()}
         stacked={false}

@@ -1,21 +1,19 @@
 import React from 'react';
 import configureMockStore from 'redux-mock-store';
 import { mount, shallow } from 'enzyme';
-import {
-  ConnectedAccountImagesViewInstanceGraphs,
-  AccountImagesViewInstanceGraphs
-} from '../accountImagesViewInstanceGraphs';
+import { ConnectedAccountGraphCard, AccountGraphCard } from '../accountGraphCard';
 
-describe('AccountImagesViewInstanceGraphs Component', () => {
+describe('AccountGraphCard Component', () => {
   const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
 
   it('should render a connected component with default props', () => {
-    const store = generateEmptyStore({ accountImages: { instances: {} } });
+    const store = generateEmptyStore({ accountGraph: {} });
     const props = {
       filter: { query: {} },
-      filterId: 1
+      filterId: 1,
+      view: 'test'
     };
-    const component = shallow(<ConnectedAccountImagesViewInstanceGraphs {...props} />, { context: { store } });
+    const component = shallow(<ConnectedAccountGraphCard {...props} />, { context: { store } });
 
     expect(component).toMatchSnapshot('connected');
   });
@@ -23,21 +21,21 @@ describe('AccountImagesViewInstanceGraphs Component', () => {
   it('should render a non-connected component', () => {
     const props = {
       filter: { query: {} },
-      filterId: 1
+      filterId: null
     };
 
-    const component = mount(<AccountImagesViewInstanceGraphs {...props} />);
+    const component = mount(<AccountGraphCard {...props} />);
 
     expect(component.render()).toMatchSnapshot('non-connected');
   });
 
-  it('should render a multiple states', () => {
+  it('should render multiple states', () => {
     const props = {
       filter: { query: {} },
       filterId: 1
     };
 
-    const component = shallow(<AccountImagesViewInstanceGraphs {...props} />);
+    const component = shallow(<AccountGraphCard {...props} />);
 
     component.setProps({
       error: true

@@ -9,7 +9,7 @@ Web user interface for [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade)
 Before developing for Frontigrade, the basic requirements:
  * Your system needs to be running [NodeJS version 8+](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
- * And **NOW REQUIRED** [Yarn 1.9+](https://yarnpkg.com) for the initial install. NPM can be used to run subsequent steps after Yarn has done the initial install.
+ * And **NOW REQUIRED** [Yarn 1.9+](https://yarnpkg.com) for dependency and script management.
 
 ### Docker & Mac
 Setting Docker up on a Mac? Install the appropriate package and you should be good to go. To check if everything installed correctly you can try these steps.
@@ -22,6 +22,14 @@ Setting Docker up on a Mac? Install the appropriate package and you should be go
 ### Docker & Linux
 Setting Docker up on a Linux machine can include an additional convenience step. If you're having to prefix "sudo" in front of your Docker commands you can try these steps.
   * [Docker postinstall documentation](https://docs.docker.com/install/linux/linux-postinstall/)
+
+### Yarn
+ We recommend using [Homebrew](https://brew.sh/) to do the install.
+
+  ```
+  $ brew update
+  $ brew install yarn
+  ```
 
 ## Development
 
@@ -39,11 +47,11 @@ Setting Docker up on a Linux machine can include an additional convenience step.
 ### Development Serve
 This is the default context for running the UI with a local mock API. You need the base Frontigrade requirements to run this context. 
 
-Make sure Docker is running then run
+Make sure **Docker** is running, then run
   ```
   $ yarn start
   ```
-There are limitations in running against the mock serve, accuracy in API responses is much more lenient. Meaning server responses may not throw the appropriate errors where needed.
+There are limitations in running against the mock serve, accuracy in API responses is much more lenient. This means server responses may not throw the appropriate errors where needed.
   
 #### Testing Features, Review serve
 *Review serve in it's original form has been removed from test.cloudigra.de.*
@@ -113,14 +121,23 @@ Once you've made the change, restart the project and console browser logging sho
 *Any changes you make to the `.env.local` file should be ignored with `.gitignore`.*
 
 ### Unit Testing
-To run the unit tests with a coverage report, use this command
-  ```
-  $ yarn test
-  ```
-  
-To run the unit tests with a watch during development
+To run the unit tests with a watch during development you'll need to open an additional terminal instance, then run
   ```
   $ yarn test:dev
+  ```
+
+#### Updating snapshots
+To update snapshots from the terminal run 
+  ```
+  $ yarn test:dev
+  ```
+  
+From there you'll be presented with a few choices, one of them is "update", you can then hit the "u" key. Once the update script has run you should see additional changed files within Git, make sure to commit them along with your changes or testing will fail.
+
+#### Checking code coverage
+To check the coverage report from the terminal run
+  ```
+  $ yarn test
   ```
   
 #### Code coverage failing to update?

@@ -164,7 +164,9 @@ const getAccount = id =>
  *           "instances": 2,
  *           "name": "Lorem ipsum",
  *           "openshift_instances": null,
+ *           "openshift_runtime_seconds": 0.0,
  *           "rhel_instances": 2,
+ *           "rhel_runtime_seconds": 87600.4,
  *           "type": "aws",
  *           "user_id": 1
  *         },
@@ -176,8 +178,10 @@ const getAccount = id =>
  *           "images": 1,
  *           "instances": 1,
  *           "name": "Dolor",
- *           "openshift_instances": 1,
+ *           "openshift_instances": 2000,
+ *           "openshift_runtime_seconds": 8000.0,
  *           "rhel_instances": null,
+ *           "rhel_runtime_seconds": 0.0,
  *           "type": "aws",
  *           "user_id": 1
  *         }
@@ -324,7 +328,7 @@ const getAccountImages = (id, query = {}) =>
  *           "openshift_instances": 0,
  *           "openshift_runtime_seconds": 0.0,
  *           "rhel_instances": 1,
- *           "rhel_runtime_seconds": 54000.0
+ *           "rhel_runtime_seconds": 50400.4
  *         },
  *         {
  *           "date": "2018-08-02T00:00:00Z",

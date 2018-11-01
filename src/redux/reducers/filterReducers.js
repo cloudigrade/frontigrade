@@ -23,6 +23,8 @@ const baseState = {
   expandedItems: [],
   filterField: null,
   filterValue: '',
+  graphRhelValue: 'time',
+  graphOpenshiftValue: 'time',
   pageSize: 15,
   selectedCount: 0,
   selectedItems: [],
@@ -32,8 +34,7 @@ const baseState = {
   totalPages: 0,
   query: {
     [apiTypes.API_QUERY_NAME]: null
-  },
-  syncView: null
+  }
 };
 
 const baseGlobalState = {
@@ -238,6 +239,33 @@ const filterReducers = (state = initialState, action) => {
         {
           currentPage: 1,
           sortAscending: !state[action.view].sortAscending
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case filterTypes.GRAPH_OPENSHIFT_SET_FILTER_VALUE:
+      return helpers.setStateProp(
+        action.view,
+        {
+          graphOpenshiftValue:
+            (action.graphOpenshiftValue && action.graphOpenshiftValue.toLowerCase()) ||
+            state[action.view].graphOpenshiftValue
+        },
+        {
+          state,
+          reset: false
+        }
+      );
+
+    case filterTypes.GRAPH_RHEL_SET_FILTER_VALUE:
+      return helpers.setStateProp(
+        action.view,
+        {
+          graphRhelValue:
+            (action.graphRhelValue && action.graphRhelValue.toLowerCase()) || state[action.view].graphRhelValue
         },
         {
           state,

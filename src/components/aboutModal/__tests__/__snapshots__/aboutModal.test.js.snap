@@ -39,6 +39,7 @@ exports[`AboutModal Component should contain brand: brand 1`] = `
 exports[`AboutModal Component should render a connected component with default props: connected 1`] = `
 <AboutModal
   brand={false}
+  commitAPISHA={null}
   dispatch={[Function]}
   onClose={null}
   resetTimer={3000}
@@ -54,6 +55,7 @@ exports[`AboutModal Component should render a connected component with default p
 exports[`AboutModal Component should render a non-connected component: hidden modal 1`] = `
 <AboutModal
   brand={false}
+  commitAPISHA={null}
   onClose={null}
   resetTimer={3000}
   session={
@@ -147,6 +149,7 @@ exports[`AboutModal Component should render a non-connected component: hidden mo
 exports[`AboutModal Component should render a non-connected component: show modal 1`] = `
 <AboutModal
   brand={false}
+  commitAPISHA={null}
   onClose={null}
   resetTimer={3000}
   session={

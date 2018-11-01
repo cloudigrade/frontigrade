@@ -3,18 +3,6 @@ import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 const initialState = {
-  instances: {
-    account: {},
-    dailyUsage: [],
-    instancesOpenshift: 0,
-    instancesRhel: 0,
-    error: false,
-    errorStatus: null,
-    errorMessage: null,
-    pending: false,
-    fulfilled: false,
-    updateInstances: false
-  },
   view: {
     images: [],
     error: false,
@@ -64,60 +52,6 @@ const accountImagesReducers = (state = initialState, action) => {
         {
           state,
           initialState
-        }
-      );
-
-    case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNT_IMAGES_INSTANCES):
-      return helpers.setStateProp(
-        'instances',
-        {
-          error: action.error,
-          errorMessage: helpers.getMessageFromResults(action.payload),
-          errorStatus: helpers.getStatusFromResults(action.payload)
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case helpers.PENDING_ACTION(accountTypes.GET_ACCOUNT_IMAGES_INSTANCES):
-      return helpers.setStateProp(
-        'instances',
-        {
-          pending: true
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT_IMAGES_INSTANCES):
-      return helpers.setStateProp(
-        'instances',
-        {
-          account: state.instances.account,
-          dailyUsage: action.payload.data[apiTypes.API_RESPONSE_INSTANCES_USAGE] || [],
-          instancesOpenshift: action.payload.data[apiTypes.API_RESPONSE_INSTANCES_OPENSHIFT] || 0,
-          instancesRhel: action.payload.data[apiTypes.API_RESPONSE_INSTANCES_RHEL] || 0,
-          fulfilled: true
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case accountTypes.UPDATE_ACCOUNT_IMAGES_INSTANCES:
-      return helpers.setStateProp(
-        'instances',
-        {
-          updateInstances: true
-        },
-        {
-          state,
-          reset: false
         }
       );
 

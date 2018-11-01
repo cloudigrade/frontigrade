@@ -9,7 +9,7 @@ import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
 import accountImagesViewTypes from './accountImagesViewConstants';
 import ViewToolbar from '../viewToolbar/viewToolbar';
-import AccountImagesViewInstanceGraphs from './accountImagesViewInstanceGraphs';
+import AccountGraphCard from '../accountGraphCard/accountGraphCard';
 import AccountImagesViewListItem from './accountImagesViewListItem';
 
 class AccountImagesView extends React.Component {
@@ -95,12 +95,12 @@ class AccountImagesView extends React.Component {
 
   renderList() {
     const { accountId } = this.state;
-    const { account, filter, images } = this.props;
+    const { account, filter, images, view } = this.props;
 
     if (images.length) {
       return (
         <React.Fragment>
-          {/\d/.test(accountId) && <AccountImagesViewInstanceGraphs filterId={accountId} filter={filter} />}
+          {/\d/.test(accountId) && <AccountGraphCard filterId={accountId} filter={filter} view={view} />}
           <Grid fluid>
             <Grid.Row className="row-cards-pf">
               <Grid.Col xs={12}>

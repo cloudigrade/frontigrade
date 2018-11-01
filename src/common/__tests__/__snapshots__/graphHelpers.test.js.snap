@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphHelpers should consistently calculate totals: totals 1`] = `
+Object {
+  "instancesOpenshift": undefined,
+  "instancesRhel": undefined,
+  "openshiftTime": 3,
+  "rhelTime": 26,
+}
+`;
+
+exports[`GraphHelpers should consistently convert data: converted 1`] = `
+Object {
+  "openshiftInstances": Object {
+    "colors": Object {
+      "openshiftInstances": "#39a5dc",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "openshiftInstances",
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+      ],
+    ],
+    "names": Object {
+      "openshiftInstances": "RHOCP Instances",
+    },
+  },
+  "openshiftTime": Object {
+    "colors": Object {
+      "openshiftTime": "#39a5dc",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "openshiftTime",
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+      ],
+    ],
+    "names": Object {
+      "openshiftTime": "RHOCP Hours",
+    },
+  },
+  "rhelInstances": Object {
+    "colors": Object {
+      "rhelInstances": "#ec7a08",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "rhelInstances",
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+      ],
+    ],
+    "names": Object {
+      "rhelInstances": "RHEL Instances",
+    },
+  },
+  "rhelTime": Object {
+    "colors": Object {
+      "rhelTime": "#ec7a08",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "rhelTime",
+        15,
+        1,
+        3,
+        3,
+        3,
+        3,
+      ],
+    ],
+    "names": Object {
+      "rhelTime": "RHEL Hours",
+    },
+  },
+  "tooltips": Object {
+    "format": Object {
+      "title": [Function],
+    },
+    "tooltip": Object {
+      "grouped": false,
+    },
+  },
+}
+`;
+
+exports[`GraphHelpers should have a specific convertGraphData methods for tooltip titles: tooltip title 1`] = `"Data Lorem Ipsum"`;
+
+exports[`GraphHelpers should have defined methods: calculateGraphTotals keys 1`] = `
+Array [
+  "instancesOpenshift",
+  "instancesRhel",
+  "openshiftTime",
+  "rhelTime",
+]
+`;
+
+exports[`GraphHelpers should have defined methods: convertGraphData keys 1`] = `
+Array [
+  "openshiftInstances",
+  "rhelInstances",
+  "openshiftTime",
+  "rhelTime",
+  "tooltips",
+]
+`;

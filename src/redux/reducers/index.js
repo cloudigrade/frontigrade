@@ -3,6 +3,7 @@ import aboutModalReducers from './aboutModalReducers';
 import accountReducers from './accountReducers';
 import accountImagesReducers from './accountImagesReducers';
 import accountEditReducers from './accountEditReducers';
+import accountGraphReducers from './accountGraphReducers';
 import accountWizardReducers from './accountWizardReducers';
 import confirmationModalReducers from './confirmationModalReducers';
 import filterReducers from './filterReducers';
@@ -15,6 +16,7 @@ const reducers = {
   account: accountReducers,
   accountImages: accountImagesReducers,
   accountEdit: accountEditReducers,
+  accountGraph: accountGraphReducers,
   accountWizard: accountWizardReducers,
   confirmationModal: confirmationModalReducers,
   filter: filterReducers,
@@ -32,6 +34,7 @@ export {
   accountReducers,
   accountImagesReducers,
   accountEditReducers,
+  accountGraphReducers,
   accountWizardReducers,
   confirmationModalReducers,
   filterReducers,

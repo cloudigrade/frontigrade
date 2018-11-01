@@ -3,20 +3,24 @@ import _sumBy from 'lodash/sumBy';
 import apiTypes from '../constants/apiConstants';
 import helpers from './helpers';
 
-const calculateInstanceTotals = (dailyUsage = []) => {
-  const openshift = _sumBy(dailyUsage, val =>
+const calculateGraphTotals = ({ dailyUsage, totalInstancesOpenshift, totalInstancesRhel }) => {
+  const openshiftTime = _sumBy(dailyUsage, val =>
     Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME])
   );
 
-  const rhel = _sumBy(dailyUsage, val => Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]));
+  const rhelTime = _sumBy(dailyUsage, val =>
+    Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME])
+  );
 
   return {
-    openshiftHours: helpers.generateHoursFromSeconds(openshift),
-    rhelHours: helpers.generateHoursFromSeconds(rhel)
+    instancesOpenshift: totalInstancesOpenshift,
+    instancesRhel: totalInstancesRhel,
+    openshiftTime: helpers.generateHoursFromSeconds(openshiftTime),
+    rhelTime: helpers.generateHoursFromSeconds(rhelTime)
   };
 };
 
-const convertGraphData = (data = []) => {
+const convertGraphData = ({ dailyUsage }) => {
   const graphData = {
     date: ['x'],
     tooltipTitle: [],
@@ -26,7 +30,7 @@ const convertGraphData = (data = []) => {
     openshiftTime: ['openshiftTime']
   };
 
-  data.forEach(val => {
+  dailyUsage.forEach(val => {
     const formattedDate = moment
       .utc(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_DATE])
       .local()
@@ -42,7 +46,7 @@ const convertGraphData = (data = []) => {
     );
   });
 
-  const rhelData = {
+  const rhelInstances = {
     names: {
       rhelInstances: 'RHEL Instances'
     },
@@ -50,7 +54,7 @@ const convertGraphData = (data = []) => {
     colors: { rhelInstances: helpers.pfPaletteColors.orange }
   };
 
-  const openshiftData = {
+  const openshiftInstances = {
     names: {
       openshiftInstances: 'RHOCP Instances'
     },
@@ -58,13 +62,20 @@ const convertGraphData = (data = []) => {
     colors: { openshiftInstances: helpers.pfPaletteColors.blue300 }
   };
 
-  const rhelOpenshiftTime = {
+  const rhelTime = {
     names: {
-      rhelTime: 'RHEL Hours',
+      rhelTime: 'RHEL Hours'
+    },
+    columns: [graphData.date, graphData.rhelTime],
+    colors: { rhelTime: helpers.pfPaletteColors.orange }
+  };
+
+  const openshiftTime = {
+    names: {
       openshiftTime: 'RHOCP Hours'
     },
-    columns: [graphData.date, graphData.rhelTime, graphData.openshiftTime],
-    colors: { rhelTime: helpers.pfPaletteColors.orange, openshiftTime: helpers.pfPaletteColors.blue300 }
+    columns: [graphData.date, graphData.openshiftTime],
+    colors: { openshiftTime: helpers.pfPaletteColors.blue300 }
   };
 
   const tooltips = {
@@ -76,9 +87,9 @@ const convertGraphData = (data = []) => {
     }
   };
 
-  return { rhelData, openshiftData, rhelOpenshiftTime, tooltips };
+  return { openshiftInstances, rhelInstances, openshiftTime, rhelTime, tooltips };
 };
 
-const graphHelpers = { calculateInstanceTotals, convertGraphData };
+const graphHelpers = { calculateGraphTotals, convertGraphData };
 
-export { graphHelpers as default, graphHelpers, calculateInstanceTotals, convertGraphData };
+export { graphHelpers as default, graphHelpers, calculateGraphTotals, convertGraphData };

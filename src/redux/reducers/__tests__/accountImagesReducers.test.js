@@ -8,26 +8,10 @@ describe('AccountImagesReducers', () => {
     expect(accountImagesReducers.initialState).toBeDefined();
   });
 
-  it('should handle specific defined types', () => {
-    const specificTypes = [types.UPDATE_ACCOUNT_IMAGES_INSTANCES];
+  it('should handle all defined error types', () => {
+    const specificTypes = [types.GET_ACCOUNT_IMAGES, types.UPDATE_ACCOUNT_IMAGE, types.UPDATE_ACCOUNT_IMAGE_FIELD];
 
     specificTypes.forEach(value => {
-      const dispatched = {
-        type: value
-      };
-
-      const resultState = accountImagesReducers(undefined, dispatched);
-
-      expect({ type: value, result: resultState }).toMatchSnapshot(`defined type ${value}`);
-    });
-  });
-
-  it('should handle all defined error types', () => {
-    Object.keys(types).forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
-
       const dispatched = {
         type: helpers.REJECTED_ACTION(value),
         error: true,
@@ -50,11 +34,9 @@ describe('AccountImagesReducers', () => {
   });
 
   it('should handle all defined pending types', () => {
-    Object.keys(types).forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
+    const specificTypes = [types.GET_ACCOUNT_IMAGES, types.UPDATE_ACCOUNT_IMAGE, types.UPDATE_ACCOUNT_IMAGE_FIELD];
 
+    specificTypes.forEach(value => {
       const dispatched = {
         type: helpers.PENDING_ACTION(value)
       };
@@ -66,11 +48,9 @@ describe('AccountImagesReducers', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    Object.keys(types).forEach(value => {
-      if (/wizard/i.test(value)) {
-        return;
-      }
+    const specificTypes = [types.GET_ACCOUNT_IMAGES, types.UPDATE_ACCOUNT_IMAGE, types.UPDATE_ACCOUNT_IMAGE_FIELD];
 
+    specificTypes.forEach(value => {
       const dispatched = {
         type: helpers.FULFILLED_ACTION(value),
         payload: {

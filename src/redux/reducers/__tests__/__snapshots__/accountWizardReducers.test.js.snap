@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountWizardReducers should handle all defined types: defined types 1`] = `
+exports[`AccountWizardReducers should handle all defined error types: rejected types 1`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -8,411 +8,23 @@ Object {
     "awsConfigAccountId": null,
     "awsConfigPolicySetup": Object {},
     "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
+    "error": true,
+    "errorMessage": "ERROR",
+    "errorStatus": 0,
     "fulfilled": false,
     "pending": false,
     "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "ADD_ACCOUNT",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 2`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "DELETE_ACCOUNT",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 3`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "DELETE_ACCOUNTS",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 4`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "GET_ACCOUNT",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 5`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "GET_ACCOUNTS",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 6`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "UPDATE_ACCOUNTS",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 7`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "UPDATE_ACCOUNT",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 8`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "UPDATE_ACCOUNT_FIELD",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 9`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "UPDATE_ACCOUNT_IMAGE",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 10`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "UPDATE_ACCOUNT_IMAGE_FIELD",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 11`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "UPDATE_ACCOUNT_IMAGES_INSTANCES",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 12`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "GET_ACCOUNT_IMAGES",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 13`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "GET_ACCOUNT_IMAGES_INSTANCES",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 14`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "GET_ACCOUNT_INSTANCES",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 15`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "ADD_ACCOUNT_WIZARD",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 16`] = `
-Object {
-  "result": Object {
-    "account": Object {
-      "test": "success",
-    },
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
+    "stepArnErrorMessage": "",
+    "stepArnValid": true,
+    "stepPolicyErrorMessage": "",
     "stepPolicyValid": true,
     "stepRoleValid": true,
   },
-  "type": "ADD_ACCOUNT_WIZARD_STEP_POLICY",
+  "type": "ADD_ACCOUNT_REJECTED",
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 17`] = `
-Object {
-  "result": Object {
-    "account": Object {
-      "test": "success",
-    },
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "INVALID_ACCOUNT_WIZARD_STEP_POLICY",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 18`] = `
+exports[`AccountWizardReducers should handle all defined error types: rejected types 2`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -432,11 +44,37 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "ADD_ACCOUNT_WIZARD_STEP_ROLE",
+  "type": "GET_SYSTEM_CONFIG_REJECTED",
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 19`] = `
+exports[`AccountWizardReducers should handle all defined fulfilled types: fulfilled types 1`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "lorem": "success",
+    },
+    "add": false,
+    "awsConfigAccountId": null,
+    "awsConfigPolicySetup": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": true,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "ADD_ACCOUNT_FULFILLED",
+}
+`;
+
+exports[`AccountWizardReducers should handle all defined fulfilled types: fulfilled types 2`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -456,16 +94,14 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "INVALID_ACCOUNT_WIZARD_STEP_ROLE",
+  "type": "GET_SYSTEM_CONFIG_FULFILLED",
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 20`] = `
+exports[`AccountWizardReducers should handle all defined pending types: pending types 1`] = `
 Object {
   "result": Object {
-    "account": Object {
-      "test": "success",
-    },
+    "account": Object {},
     "add": false,
     "awsConfigAccountId": null,
     "awsConfigPolicySetup": Object {},
@@ -474,24 +110,22 @@ Object {
     "errorMessage": null,
     "errorStatus": null,
     "fulfilled": false,
-    "pending": false,
+    "pending": true,
     "show": false,
     "stepArnErrorMessage": null,
-    "stepArnValid": true,
+    "stepArnValid": false,
     "stepPolicyErrorMessage": null,
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "ADD_ACCOUNT_WIZARD_STEP_ARN",
+  "type": "ADD_ACCOUNT_PENDING",
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 21`] = `
+exports[`AccountWizardReducers should handle all defined pending types: pending types 2`] = `
 Object {
   "result": Object {
-    "account": Object {
-      "test": "success",
-    },
+    "account": Object {},
     "add": false,
     "awsConfigAccountId": null,
     "awsConfigPolicySetup": Object {},
@@ -508,11 +142,11 @@ Object {
     "stepPolicyValid": false,
     "stepRoleValid": true,
   },
-  "type": "INVALID_ACCOUNT_WIZARD_STEP_ARN",
+  "type": "GET_SYSTEM_CONFIG_PENDING",
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 22`] = `
+exports[`AccountWizardReducers should handle specific defined types: defined type ADD_ACCOUNT_SHOW 1`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -536,7 +170,103 @@ Object {
 }
 `;
 
-exports[`AccountWizardReducers should handle all defined types: defined types 23`] = `
+exports[`AccountWizardReducers should handle specific defined types: defined type ADD_ACCOUNT_WIZARD_STEP_ARN 1`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "awsConfigAccountId": null,
+    "awsConfigPolicySetup": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": true,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "ADD_ACCOUNT_WIZARD_STEP_ARN",
+}
+`;
+
+exports[`AccountWizardReducers should handle specific defined types: defined type ADD_ACCOUNT_WIZARD_STEP_POLICY 1`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "awsConfigAccountId": null,
+    "awsConfigPolicySetup": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": true,
+    "stepRoleValid": true,
+  },
+  "type": "ADD_ACCOUNT_WIZARD_STEP_POLICY",
+}
+`;
+
+exports[`AccountWizardReducers should handle specific defined types: defined type INVALID_ACCOUNT_WIZARD_STEP_ARN 1`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "awsConfigAccountId": null,
+    "awsConfigPolicySetup": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "INVALID_ACCOUNT_WIZARD_STEP_ARN",
+}
+`;
+
+exports[`AccountWizardReducers should handle specific defined types: defined type INVALID_ACCOUNT_WIZARD_STEP_POLICY 1`] = `
+Object {
+  "result": Object {
+    "account": Object {},
+    "add": false,
+    "awsConfigAccountId": null,
+    "awsConfigPolicySetup": Object {},
+    "edit": false,
+    "error": false,
+    "errorMessage": null,
+    "errorStatus": null,
+    "fulfilled": false,
+    "pending": false,
+    "show": false,
+    "stepArnErrorMessage": null,
+    "stepArnValid": false,
+    "stepPolicyErrorMessage": null,
+    "stepPolicyValid": false,
+    "stepRoleValid": true,
+  },
+  "type": "INVALID_ACCOUNT_WIZARD_STEP_POLICY",
+}
+`;
+
+exports[`AccountWizardReducers should handle specific defined types: defined type UPDATE_ACCOUNT_HIDE 1`] = `
 Object {
   "result": Object {
     "account": Object {},
@@ -557,125 +287,5 @@ Object {
     "stepRoleValid": true,
   },
   "type": "UPDATE_ACCOUNT_HIDE",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 24`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "DELETE_ACCOUNT_HIDE",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 25`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "DELETE_ACCOUNT_SHOW",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 26`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "EDIT_ACCOUNT_HIDE",
-}
-`;
-
-exports[`AccountWizardReducers should handle all defined types: defined types 27`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "EDIT_ACCOUNT_SHOW",
-}
-`;
-
-exports[`AccountWizardReducers should handle specific defined types: defined type GET_SYSTEM_CONFIG_FULFILLED 1`] = `
-Object {
-  "result": Object {
-    "account": Object {},
-    "add": false,
-    "awsConfigAccountId": null,
-    "awsConfigPolicySetup": Object {},
-    "edit": false,
-    "error": false,
-    "errorMessage": null,
-    "errorStatus": null,
-    "fulfilled": false,
-    "pending": false,
-    "show": false,
-    "stepArnErrorMessage": null,
-    "stepArnValid": false,
-    "stepPolicyErrorMessage": null,
-    "stepPolicyValid": false,
-    "stepRoleValid": true,
-  },
-  "type": "GET_SYSTEM_CONFIG_FULFILLED",
 }
 `;
