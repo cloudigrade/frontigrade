@@ -60,7 +60,7 @@ There are limitations in running against the mock serve, accuracy in API respons
 
 To test a new feature a feature branch, with the exact same name, needs to be created on both the Frontigrade and [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade) repositories.
 Once the feature branches are created on both repositories you can access them via the browser here
-- https://cloudireview-FEATURE_BRANCH_NAME_GOES_HERE.1b13.insights.openshiftapps.com/
+- https://cloudireview-FEATURE_BRANCH_NAME_GOES_HERE.5a9f.insights-dev.openshiftapps.com/
 
 #### Using review serve against a local run Frontigrade
 You can take advantage of the review serve setup by running your local copy of Frontigrade against the feature branch generated host.
@@ -71,7 +71,7 @@ You can take advantage of the review serve setup by running your local copy of F
    You can run this terminal command to create a `.env.local` file with the appropriate host reference. Make sure to replace `FEATURE_BRANCH_NAME_GOES_HERE` with the correct feature branch name: 
    ```
    cat > .env.local << 'EOL'
-   API_HOST=https://cloudireview-FEATURE_BRANCH_NAME_GOES_HERE.1b13.insights.openshiftapps.com
+   API_HOST=https://cloudireview-FEATURE_BRANCH_NAME_GOES_HERE.5a9f.insights-dev.openshiftapps.com
    EOL
    ```
 1. Run the command
