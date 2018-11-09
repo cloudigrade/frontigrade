@@ -2,7 +2,7 @@
 
 exports[`AccountImagesViewListItem Component should render a component 1`] = `
 <div
-  class="list-group-item"
+  class="list-group-item cloudmeter-accountview-list-view-item"
 >
   <div
     class="list-group-item-header"
@@ -32,32 +32,38 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
           class="list-view-pf-description"
         >
           <div
-            class="list-group-item-text"
+            class="list-group-item-heading"
           >
-            <div
-              class="list-group-item-heading"
+            <span
+              class="cloudmeter-list-view-item-heading"
             >
-              ami-rhel7
-            </div>
+              <strong
+                class="cloudmeter-list-view-item-heading-title"
+              >
+                ami-rhel7
+              </strong>
+            </span>
           </div>
         </div>
         <div
           class="list-view-pf-additional-info"
         >
           <div
-            class="list-view-pf-additional-info-item"
+            class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
           >
-            <span
-              aria-hidden="true"
-              class="pficon pficon-screen cloudmeter-listview-infoitem"
-            />
-            <strong>
-              2
-            </strong>
-            Instances
+            <span>
+              <span
+                aria-hidden="true"
+                class="pficon pficon-screen"
+              />
+              <strong>
+                2
+              </strong>
+               Instances
+            </span>
           </div>
           <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
           >
             <span>
               <span
@@ -67,40 +73,46 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
               <strong>
                 25
               </strong>
-               Hours
+            </span>
+            <span>
+              <span
+                class="label label-warning"
+              >
+                <abbr
+                  title="Red Hat Enterprise Linux"
+                >
+                  RHEL
+                </abbr>
+              </span>
+               
             </span>
           </div>
           <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-label"
+            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
           >
-            <span
-              class="label label-warning"
-            >
-              <abbr
-                title="Red Hat Enterprise Linux"
-              >
-                RHEL
-              </abbr>
-            </span>
-             
-          </div>
-          <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-label"
-          >
-            <span
-              class="label label-default"
-            >
-              <abbr
-                title="Red Hat OpenShift Container Platform"
-              >
-                RHOCP
-              </abbr>
-            </span>
-             
             <span
               aria-hidden="true"
-              class="fa fa-flag cloudmeter-pficon-error"
+              class="fa fa-clock-o"
             />
+            <strong>
+              N/A
+            </strong>
+            <span>
+              <span
+                class="label label-default"
+              >
+                <abbr
+                  title="Red Hat OpenShift Container Platform"
+                >
+                  RHOCP
+                </abbr>
+              </span>
+               
+              <span
+                aria-hidden="true"
+                class="fa fa-flag cloudmeter-pficon-error"
+              />
+            </span>
           </div>
         </div>
       </div>
@@ -122,7 +134,7 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
 
 exports[`AccountImagesViewListItem Component should wrap long names with a on hover title 1`] = `
 <div
-  class="list-group-item"
+  class="list-group-item cloudmeter-accountview-list-view-item"
 >
   <div
     class="list-group-item-header"
@@ -152,73 +164,85 @@ exports[`AccountImagesViewListItem Component should wrap long names with a on ho
           class="list-view-pf-description"
         >
           <div
-            class="list-group-item-text"
+            class="list-group-item-heading"
           >
-            <div
-              class="list-group-item-heading"
+            <span
+              class="cloudmeter-list-view-item-heading"
             >
-              <span
-                title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros."
+              <strong
+                class="cloudmeter-list-view-item-heading-title"
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.
-              </span>
-            </div>
+                <span
+                  title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros."
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.
+                </span>
+              </strong>
+            </span>
           </div>
         </div>
         <div
           class="list-view-pf-additional-info"
         >
           <div
-            class="list-view-pf-additional-info-item"
+            class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
           >
-            <span
-              aria-hidden="true"
-              class="pficon pficon-screen cloudmeter-listview-infoitem"
-            />
-            <strong>
-              -
-            </strong>
-            Instances
+            <span>
+              <span
+                aria-hidden="true"
+                class="pficon pficon-screen"
+              />
+              <strong>
+                N/A
+              </strong>
+               Instances
+            </span>
           </div>
           <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
           >
             <span
               aria-hidden="true"
               class="fa fa-clock-o"
             />
             <strong>
-              -
+              N/A
             </strong>
-             Hours
+            <span>
+              <span
+                class="label label-warning"
+              >
+                <abbr
+                  title="Red Hat Enterprise Linux"
+                >
+                  RHEL
+                </abbr>
+              </span>
+               
+            </span>
           </div>
           <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
+            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
           >
             <span
-              class="label label-warning"
-            >
-              <abbr
-                title="Red Hat Enterprise Linux"
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
+            <strong>
+              N/A
+            </strong>
+            <span>
+              <span
+                class="label label-primary"
               >
-                RHEL
-              </abbr>
+                <abbr
+                  title="Red Hat OpenShift Container Platform"
+                >
+                  RHOCP
+                </abbr>
+              </span>
+               
             </span>
-             
-          </div>
-          <div
-            class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-hidden"
-          >
-            <span
-              class="label label-primary"
-            >
-              <abbr
-                title="Red Hat OpenShift Container Platform"
-              >
-                RHOCP
-              </abbr>
-            </span>
-             
           </div>
         </div>
       </div>

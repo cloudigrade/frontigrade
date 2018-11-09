@@ -7,7 +7,6 @@ import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
 import accountViewTypes from './accountViewConstants';
-// import AccountViewInstanceGraphs from './accountViewInstanceGraphs';
 import AccountGraphCard from '../accountGraphCard/accountGraphCard';
 import ViewToolbar from '../viewToolbar/viewToolbar';
 import AccountViewListItem from './accountViewListItem';

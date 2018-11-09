@@ -86,49 +86,33 @@ class AccountViewListItem extends React.Component {
     const instances =
       item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES];
 
-    let rhelSeconds = Number.parseFloat(item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_RUNTIME]);
-    rhelSeconds = Number.isNaN(rhelSeconds) ? null : rhelSeconds;
+    const rhelSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_RUNTIME]);
+    const rhocpSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_RUNTIME]);
 
-    let rhocpSeconds = Number.parseFloat(item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_RUNTIME]);
-    rhocpSeconds = Number.isNaN(rhocpSeconds) ? null : rhocpSeconds;
+    const rhelSeconds = rhelSecondsHours.seconds;
+    const rhocpSeconds = rhocpSecondsHours.seconds;
 
-    const rhelHours = rhelSeconds === null ? 'N/A' : helpers.generateHoursFromSeconds(rhelSeconds);
-    const rhocpHours = rhocpSeconds === null ? 'N/A' : helpers.generateHoursFromSeconds(rhocpSeconds);
+    const rhelHours = rhelSeconds === null ? 'N/A' : rhelSecondsHours.hours;
+    const rhocpHours = rhocpSeconds === null ? 'N/A' : rhocpSecondsHours.hours;
 
-    const rhelTooltip = <React.Fragment>{rhelSeconds} seconds</React.Fragment>;
-    const rhocpTooltip = <React.Fragment>{rhocpSeconds} seconds</React.Fragment>;
-
-    const imagesPopover = (
-      <React.Fragment>
-        {t(
-          'list-accounts.images.images-tooltip',
-          'Total number of machine images that are in use by active instances for the selected date range.'
-        )}
-      </React.Fragment>
+    const imagesPopover = t(
+      'list-accounts.images.images-tooltip',
+      'Total number of machine images that are in use by active instances for the selected date range.'
     );
 
-    const instancesPopover = (
-      <React.Fragment>
-        {t(
-          'list-accounts.instances.instances-tooltip',
-          'Total number of active instances for the selected date range.'
-        )}
-      </React.Fragment>
+    const instancesPopover = t(
+      'list-accounts.instances.instances-tooltip',
+      'Total number of active instances for the selected date range.'
     );
 
-    const rhelPopover = (
-      <React.Fragment>
-        {t('list-accounts.rhel.rhel-tooltip', 'Hours of Red Hat Enterprise Linux usage for the selected date range.')}
-      </React.Fragment>
+    const rhelPopover = t(
+      'list-accounts.rhel.rhel-tooltip',
+      'Hours of Red Hat Enterprise Linux usage for the selected date range.'
     );
 
-    const rhocpPopover = (
-      <React.Fragment>
-        {t(
-          'list-accounts.rhocp.rhocp-tooltip',
-          'Hours of Red Hat OpenShift Container Platform usage for the selected date range.'
-        )}
-      </React.Fragment>
+    const rhocpPopover = t(
+      'list-accounts.rhocp.rhocp-tooltip',
+      'Hours of Red Hat OpenShift Container Platform usage for the selected date range.'
     );
 
     return [
@@ -146,7 +130,7 @@ class AccountViewListItem extends React.Component {
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
         {rhelSeconds !== null && (
-          <Tooltip tooltip={rhelTooltip} placement="bottom">
+          <Tooltip tooltip={`${rhelSeconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
             <strong>{rhelHours}</strong>
           </Tooltip>
@@ -165,7 +149,7 @@ class AccountViewListItem extends React.Component {
       </ListView.InfoItem>,
       <ListView.InfoItem key="4" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
         {rhocpSeconds !== null && (
-          <Tooltip tooltip={rhocpTooltip} placement="bottom">
+          <Tooltip tooltip={`${rhocpSeconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
             <strong>{rhocpHours}</strong>
           </Tooltip>

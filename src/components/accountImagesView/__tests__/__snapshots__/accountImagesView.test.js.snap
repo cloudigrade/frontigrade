@@ -302,7 +302,7 @@ exports[`AccountImagesView Component should render a non-connected component in 
                   }
                 }
                 key="2"
-                onDetail={[Function]}
+                t={[Function]}
               />
             </ListView>
           </Card>

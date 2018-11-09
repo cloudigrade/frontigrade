@@ -37,13 +37,12 @@ const copyClipboard = text => {
 const generateId = prefix => `${prefix || 'generatedid'}-${Math.ceil(1e5 * Math.random())}`;
 
 const generateHoursFromSeconds = seconds => {
-  let parsedSeconds = Number.parseFloat(seconds);
-  parsedSeconds = Number.isNaN(parsedSeconds) ? null : parsedSeconds;
+  let validSeconds = Number.parseFloat(seconds);
+  validSeconds = Number.isNaN(validSeconds) ? null : validSeconds;
 
-  parsedSeconds =
-    parsedSeconds === null ? parsedSeconds : Math.ceil(moment.duration(parsedSeconds, 'seconds').asHours());
+  const hours = validSeconds === null ? validSeconds : Math.ceil(moment.duration(validSeconds, 'seconds').asHours());
 
-  return parsedSeconds;
+  return { seconds: validSeconds, hours };
 };
 
 const generatePriorYearMonthArray = () => {

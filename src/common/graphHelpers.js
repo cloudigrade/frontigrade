@@ -15,8 +15,8 @@ const calculateGraphTotals = ({ dailyUsage, totalInstancesOpenshift, totalInstan
   return {
     instancesOpenshift: totalInstancesOpenshift,
     instancesRhel: totalInstancesRhel,
-    openshiftTime: helpers.generateHoursFromSeconds(openshiftTime),
-    rhelTime: helpers.generateHoursFromSeconds(rhelTime)
+    openshiftTime: helpers.generateHoursFromSeconds(openshiftTime).hours,
+    rhelTime: helpers.generateHoursFromSeconds(rhelTime).hours
   };
 };
 
@@ -40,9 +40,11 @@ const convertGraphData = ({ dailyUsage }) => {
     graphData.date.push(formattedDate);
     graphData.rhelInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL]);
     graphData.openshiftInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT]);
-    graphData.rhelTime.push(helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]));
+    graphData.rhelTime.push(
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]).hours
+    );
     graphData.openshiftTime.push(
-      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME])
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME]).hours
     );
   });
 

@@ -8,32 +8,14 @@ import AccountImagesViewListItemDetail from './accountImagesViewListItemDetail';
 import Tooltip from '../tooltip/tooltip';
 
 class AccountImagesViewListItem extends React.Component {
-  kebab = React.createRef();
-
-  /**
-   * FixMe: PF-React issue
-   * Need a prop added to PF-React ListView for generic whole row event, instead of
-   * having to use a "ref" and "contains" check
-   */
-  onVerifyDetail = event => {
-    const { item, onDetail } = this.props;
-    const currentKebabRef = this.kebab.current;
-
-    if ((currentKebabRef && !currentKebabRef.contains(event.target)) || !currentKebabRef) {
-      onDetail(item);
-    }
-  };
-
   static renderLeftContent() {
     return <ListView.Icon name="unknown" />;
   }
 
-  static renderHeading() {
-    return null;
-  }
-
-  renderDescription() {
+  renderHeading() {
     const { item } = this.props;
+
+    const timestamp = item[apiTypes.API_RESPONSE_IMAGES_EDIT_UPDATED];
     let title =
       item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
       item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
@@ -43,16 +25,21 @@ class AccountImagesViewListItem extends React.Component {
       title = <span title={title}>{title}</span>;
     }
 
-    const timestamp = item[apiTypes.API_RESPONSE_IMAGES_EDIT_UPDATED];
-
     return (
-      <React.Fragment>
-        <ListView.DescriptionHeading>{title}</ListView.DescriptionHeading>
+      <span className="cloudmeter-list-view-item-heading">
+        <strong className="cloudmeter-list-view-item-heading-title">{title}</strong>
         {timestamp && (
-          <ListView.DescriptionText>Updated {moment(timestamp).format('h:mmA, MMMM Do YYYY')}</ListView.DescriptionText>
+          <React.Fragment>
+            <br />
+            Updated {moment(timestamp).format('h:mmA, MMMM Do YYYY')}
+          </React.Fragment>
         )}
-      </React.Fragment>
+      </span>
     );
+  }
+
+  static renderDescription() {
+    return null;
   }
 
   /**
@@ -60,74 +47,84 @@ class AccountImagesViewListItem extends React.Component {
    * listview "additionalInfo" attribute "requires" an array propType, restrictive limit.
    * Open it up to allow both, "node" OR "array"
    */
-  /**
-   * FixMe: API - issue
-   * added additional checks around seconds and instances since we're having to calculate seconds
-   * into hours. went ahead and added instances into the mix since unsure. ideally we'd prefer a
-   * simple display check, like null, then dump it out to the UI. the tooltip was added to
-   * provide the original seconds value in the event the calculation is off
-   */
   renderAdditionalInfo() {
-    const { item } = this.props;
+    const { item, t } = this.props;
 
     const rhelChallenged = item[apiTypes.API_RESPONSE_IMAGES_RHEL_CHALLENGED];
     const openshiftChallenged = item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_CHALLENGED];
 
-    let seconds = Number.parseFloat(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
-    seconds = Number.isNaN(seconds) ? null : seconds;
+    const parsedSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
 
-    const hours = seconds === null ? '-' : helpers.generateHoursFromSeconds(seconds);
+    const rhelSeconds = !item[apiTypes.API_RESPONSE_IMAGES_RHEL_DETECTED] ? null : parsedSecondsHours.seconds;
+    const rhocpSeconds = !item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_DETECTED] ? null : parsedSecondsHours.seconds;
+
+    const rhelHours = rhelSeconds === null ? 'N/A' : parsedSecondsHours.hours;
+    const rhocpHours = rhocpSeconds === null ? 'N/A' : parsedSecondsHours.hours;
 
     let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
-    instances = Number.isNaN(instances) ? '-' : instances;
+    instances = Number.isNaN(instances) ? 'N/A' : instances;
 
-    const tooltip = <React.Fragment>{seconds} seconds</React.Fragment>;
+    const instancesPopover = t(
+      'list-images.instances.instances-tooltip',
+      'Total number of active instances for the selected date range.'
+    );
+
+    const rhelPopover = t(
+      'list-images.rhel.rhel-tooltip',
+      'Hours of Red Hat Enterprise Linux usage for the selected date range.'
+    );
+
+    const rhocpPopover = t(
+      'list-images.rhocp.rhocp-tooltip',
+      'Hours of Red Hat OpenShift Container Platform usage for the selected date range.'
+    );
 
     return [
-      <ListView.InfoItem key="1">
-        <Icon type="pf" name="screen" className="cloudmeter-listview-infoitem" />
-        <strong>{instances}</strong>
-        Instances
+      <ListView.InfoItem key="1" className="cloudmeter-listview-infoitem">
+        <Tooltip delayShow={100} popover={instancesPopover} trigger="click">
+          <Icon type="pf" name="screen" />
+          <strong>{instances}</strong> Instances
+        </Tooltip>
       </ListView.InfoItem>,
-      <ListView.InfoItem key="2" className="cloudmeter-listview-infoitem">
-        {seconds !== null && (
-          <Tooltip delayShow={100} tooltip={tooltip}>
+      <ListView.InfoItem key="2" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
+        {rhelSeconds !== null && (
+          <Tooltip tooltip={`${rhelSeconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{hours}</strong> Hours
+            <strong>{rhelHours}</strong>
           </Tooltip>
         )}
-        {seconds === null && (
+        {rhelSeconds === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>{hours}</strong> Hours
+            <strong>{rhelHours}</strong>
           </React.Fragment>
         )}
+        <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
+          <PFLabel bsStyle={rhelChallenged ? 'default' : 'warning'}>
+            <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
+          </PFLabel>{' '}
+          {rhelChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
+        </Tooltip>
       </ListView.InfoItem>,
-      <ListView.InfoItem
-        key="3"
-        className={
-          item[apiTypes.API_RESPONSE_IMAGES_RHEL_DETECTED] || rhelChallenged
-            ? 'cloudmeter-listview-label'
-            : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
-        }
-      >
-        <PFLabel bsStyle={rhelChallenged ? 'default' : 'warning'}>
-          <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-        </PFLabel>{' '}
-        {rhelChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
-      </ListView.InfoItem>,
-      <ListView.InfoItem
-        key="4"
-        className={
-          item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_DETECTED] || openshiftChallenged
-            ? 'cloudmeter-listview-label'
-            : 'cloudmeter-listview-label cloudmeter-listview-label-hidden'
-        }
-      >
-        <PFLabel bsStyle={openshiftChallenged ? 'default' : 'primary'}>
-          <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-        </PFLabel>{' '}
-        {openshiftChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
+      <ListView.InfoItem key="3" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
+        {rhocpSeconds !== null && (
+          <Tooltip tooltip={`${rhocpSeconds} seconds`} placement="bottom">
+            <Icon type="fa" name="clock-o" />
+            <strong>{rhocpHours}</strong>
+          </Tooltip>
+        )}
+        {rhocpSeconds === null && (
+          <React.Fragment>
+            <Icon type="fa" name="clock-o" />
+            <strong>{rhocpHours}</strong>
+          </React.Fragment>
+        )}
+        <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
+          <PFLabel bsStyle={openshiftChallenged ? 'default' : 'primary'}>
+            <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
+          </PFLabel>{' '}
+          {openshiftChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
+        </Tooltip>
       </ListView.InfoItem>
     ];
   }
@@ -137,11 +134,11 @@ class AccountImagesViewListItem extends React.Component {
 
     return (
       <ListView.Item
-        onClick={this.onVerifyDetail}
+        className="cloudmeter-accountview-list-view-item"
         key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
         leftContent={AccountImagesViewListItem.renderLeftContent()}
-        heading={AccountImagesViewListItem.renderHeading()}
-        description={this.renderDescription()}
+        heading={this.renderHeading()}
+        description={AccountImagesViewListItem.renderDescription()}
         additionalInfo={this.renderAdditionalInfo()}
         stacked={false}
       >
@@ -153,11 +150,11 @@ class AccountImagesViewListItem extends React.Component {
 
 AccountImagesViewListItem.propTypes = {
   item: PropTypes.object.isRequired,
-  onDetail: PropTypes.func
+  t: PropTypes.func
 };
 
 AccountImagesViewListItem.defaultProps = {
-  onDetail: helpers.noop
+  t: helpers.noopTranslate
 };
 
 export { AccountImagesViewListItem as default, AccountImagesViewListItem };
