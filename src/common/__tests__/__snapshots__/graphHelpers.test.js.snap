@@ -4,8 +4,12 @@ exports[`GraphHelpers should consistently calculate totals: totals 1`] = `
 Object {
   "instancesOpenshift": undefined,
   "instancesRhel": undefined,
-  "openshiftTime": 3,
-  "rhelTime": 26,
+  "openshiftMemoryTime": null,
+  "openshiftRuntimeTime": 3,
+  "openshiftVcpuTime": null,
+  "rhelMemoryTime": null,
+  "rhelRuntimeTime": 26,
+  "rhelVcpuTime": null,
 }
 `;
 
@@ -39,9 +43,9 @@ Object {
       "openshiftInstances": "RHOCP Instances",
     },
   },
-  "openshiftTime": Object {
+  "openshiftMemoryTime": Object {
     "colors": Object {
-      "openshiftTime": "#39a5dc",
+      "openshiftMemoryTime": "#39a5dc",
     },
     "columns": Array [
       Array [
@@ -54,7 +58,35 @@ Object {
         "Invalid date",
       ],
       Array [
-        "openshiftTime",
+        "openshiftMemoryTime",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+      ],
+    ],
+    "names": Object {
+      "openshiftMemoryTime": "RHOCP GB Memory Hours",
+    },
+  },
+  "openshiftRuntimeTime": Object {
+    "colors": Object {
+      "openshiftRuntimeTime": "#39a5dc",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "openshiftRuntimeTime",
         0,
         0,
         0,
@@ -64,7 +96,35 @@ Object {
       ],
     ],
     "names": Object {
-      "openshiftTime": "RHOCP Hours",
+      "openshiftRuntimeTime": "RHOCP Instance Hours",
+    },
+  },
+  "openshiftVcpuTime": Object {
+    "colors": Object {
+      "openshiftVcpuTime": "#39a5dc",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "openshiftVcpuTime",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+      ],
+    ],
+    "names": Object {
+      "openshiftVcpuTime": "RHOCP Core Hours",
     },
   },
   "rhelInstances": Object {
@@ -95,9 +155,9 @@ Object {
       "rhelInstances": "RHEL Instances",
     },
   },
-  "rhelTime": Object {
+  "rhelMemoryTime": Object {
     "colors": Object {
-      "rhelTime": "#ec7a08",
+      "rhelMemoryTime": "#ec7a08",
     },
     "columns": Array [
       Array [
@@ -110,7 +170,35 @@ Object {
         "Invalid date",
       ],
       Array [
-        "rhelTime",
+        "rhelMemoryTime",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+      ],
+    ],
+    "names": Object {
+      "rhelMemoryTime": "RHEL GB Memory Hours",
+    },
+  },
+  "rhelRuntimeTime": Object {
+    "colors": Object {
+      "rhelRuntimeTime": "#ec7a08",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "rhelRuntimeTime",
         15,
         1,
         3,
@@ -120,7 +208,35 @@ Object {
       ],
     ],
     "names": Object {
-      "rhelTime": "RHEL Hours",
+      "rhelRuntimeTime": "RHEL Instance Hours",
+    },
+  },
+  "rhelVcpuTime": Object {
+    "colors": Object {
+      "rhelVcpuTime": "#ec7a08",
+    },
+    "columns": Array [
+      Array [
+        "x",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+        "Invalid date",
+      ],
+      Array [
+        "rhelVcpuTime",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+      ],
+    ],
+    "names": Object {
+      "rhelVcpuTime": "RHEL Core Hours",
     },
   },
   "tooltips": Object {
@@ -140,8 +256,12 @@ exports[`GraphHelpers should have defined methods: calculateGraphTotals keys 1`]
 Array [
   "instancesOpenshift",
   "instancesRhel",
-  "openshiftTime",
-  "rhelTime",
+  "openshiftMemoryTime",
+  "openshiftRuntimeTime",
+  "openshiftVcpuTime",
+  "rhelMemoryTime",
+  "rhelRuntimeTime",
+  "rhelVcpuTime",
 ]
 `;
 
@@ -149,8 +269,12 @@ exports[`GraphHelpers should have defined methods: convertGraphData keys 1`] = `
 Array [
   "openshiftInstances",
   "rhelInstances",
-  "openshiftTime",
-  "rhelTime",
+  "openshiftMemoryTime",
+  "openshiftRuntimeTime",
+  "openshiftVcpuTime",
+  "rhelMemoryTime",
+  "rhelRuntimeTime",
+  "rhelVcpuTime",
   "tooltips",
 ]
 `;

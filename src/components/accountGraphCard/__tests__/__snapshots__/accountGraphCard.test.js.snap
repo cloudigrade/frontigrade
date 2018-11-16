@@ -19,8 +19,43 @@ exports[`AccountGraphCard Component should render a connected component with def
     }
   }
   pending={false}
+  rhelOptions={
+    Array [
+      Object {
+        "title": "Core Hours",
+        "value": "rhelVcpuTime",
+      },
+      Object {
+        "title": "GB Memory Hours",
+        "value": "rhelMemoryTime",
+      },
+      Object {
+        "active": true,
+        "title": "Instance Hours",
+        "value": "rhelRuntimeTime",
+      },
+    ]
+  }
+  rhocpOptions={
+    Array [
+      Object {
+        "active": true,
+        "title": "Core Hours",
+        "value": "openshiftVcpuTime",
+      },
+      Object {
+        "title": "GB Memory Hours",
+        "value": "openshiftMemoryTime",
+      },
+      Object {
+        "title": "Instance Hours",
+        "value": "openshiftRuntimeTime",
+      },
+    ]
+  }
   updateInstances={false}
   view="test"
+  viewGlobal={null}
 />
 `;
 
@@ -74,6 +109,32 @@ exports[`AccountGraphCard Component should render multiple states: fulfilled 1`]
         <CardHeading
           className=""
         >
+          <DropdownSelect
+            className="card-pf-time-frame-filter"
+            id="graphRhel"
+            multiselect={false}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "title": "Core Hours",
+                  "value": "rhelVcpuTime",
+                },
+                Object {
+                  "title": "GB Memory Hours",
+                  "value": "rhelMemoryTime",
+                },
+                Object {
+                  "active": true,
+                  "title": "Instance Hours",
+                  "value": "rhelRuntimeTime",
+                },
+              ]
+            }
+            pullRight={true}
+            selectValue={null}
+            title="Select option"
+          />
           <CardTitle
             className=""
           >
@@ -87,7 +148,7 @@ exports[`AccountGraphCard Component should render multiple states: fulfilled 1`]
             className="cloudmeter-card-info"
           >
             <strong>
-              0
+              <Component />
             </strong>
             <Label
               bsStyle="warning"
@@ -99,8 +160,6 @@ exports[`AccountGraphCard Component should render multiple states: fulfilled 1`]
                 RHEL
               </abbr>
             </Label>
-             
-            Hours
           </div>
         </CardBody>
       </Card>
@@ -121,6 +180,32 @@ exports[`AccountGraphCard Component should render multiple states: fulfilled 1`]
         <CardHeading
           className=""
         >
+          <DropdownSelect
+            className="card-pf-time-frame-filter"
+            id="graphOpenshift"
+            multiselect={false}
+            onSelect={[Function]}
+            options={
+              Array [
+                Object {
+                  "active": true,
+                  "title": "Core Hours",
+                  "value": "openshiftVcpuTime",
+                },
+                Object {
+                  "title": "GB Memory Hours",
+                  "value": "openshiftMemoryTime",
+                },
+                Object {
+                  "title": "Instance Hours",
+                  "value": "openshiftRuntimeTime",
+                },
+              ]
+            }
+            pullRight={true}
+            selectValue={null}
+            title="Select option"
+          />
           <CardTitle
             className=""
           >
@@ -134,7 +219,7 @@ exports[`AccountGraphCard Component should render multiple states: fulfilled 1`]
             className="cloudmeter-card-info"
           >
             <strong>
-              0
+              <Component />
             </strong>
             <Label
               bsStyle="primary"
@@ -146,8 +231,6 @@ exports[`AccountGraphCard Component should render multiple states: fulfilled 1`]
                 RHOCP
               </abbr>
             </Label>
-             
-            Hours
           </div>
         </CardBody>
       </Card>

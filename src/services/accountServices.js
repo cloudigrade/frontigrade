@@ -326,44 +326,68 @@ const getAccountImages = (id, query = {}) =>
  *         {
  *           "date": "2018-08-01T00:00:00Z",
  *           "openshift_instances": 0,
+ *           "openshift_memory_seconds": 0.0,
  *           "openshift_runtime_seconds": 0.0,
+ *           "openshift_vcpu_seconds": 0.0,
  *           "rhel_instances": 1,
- *           "rhel_runtime_seconds": 50400.4
+ *           "rhel_memory_seconds": 107607.0,
+ *           "rhel_runtime_seconds": 50400.4,
+ *           "rhel_vcpu_seconds": 49216.0
  *         },
  *         {
  *           "date": "2018-08-02T00:00:00Z",
  *           "openshift_instances": 0,
+ *           "openshift_memory_seconds": 0.0,
  *           "openshift_runtime_seconds": 0.0,
+ *           "openshift_vcpu_seconds": 0.0,
  *           "rhel_instances": 1,
- *           "rhel_runtime_seconds": 500.0
+ *           "rhel_memory_seconds": 1200.4,
+ *           "rhel_runtime_seconds": 500.0,
+ *           "rhel_vcpu_seconds": 300.6
  *         },
  *         {
  *           "date": "2018-08-03T00:00:00Z",
  *           "openshift_instances": 0,
+ *           "openshift_memory_seconds": 0.0,
  *           "openshift_runtime_seconds": 0.0,
+ *           "openshift_vcpu_seconds": 0.0,
  *           "rhel_instances": 2,
- *           "rhel_runtime_seconds": 9600.0
+ *           "rhel_memory_seconds": 10200.1,
+ *           "rhel_runtime_seconds": 9600.0,
+ *           "rhel_vcpu_seconds": 9500.3
  *         },
  *         {
  *           "date": "2018-08-04T00:00:00Z",
  *           "openshift_instances": 1,
+ *           "openshift_memory_seconds": 8600.0,
  *           "openshift_runtime_seconds": 8000.0,
+ *           "openshift_vcpu_seconds": 1000.0,
  *           "rhel_instances": 2,
- *           "rhel_runtime_seconds": 9500.0
+ *           "rhel_memory_seconds": 10000.0,
+ *           "rhel_runtime_seconds": 9500.0,
+ *           "rhel_vcpu_seconds": 9400.0
  *         },
  *         {
  *           "date": "2018-08-05T00:00:00Z",
  *           "openshift_instances": 0,
+ *           "openshift_memory_seconds": 0.0,
  *           "openshift_runtime_seconds": 0.0,
+ *           "openshift_vcpu_seconds": 0.0,
  *           "rhel_instances": 2,
- *           "rhel_runtime_seconds": 10000.0
+ *           "rhel_memory_seconds": 10500.0,
+ *           "rhel_runtime_seconds": 10000.0,
+ *           "rhel_vcpu_seconds": 1900.0
  *         },
  *         {
  *           "date": "2018-08-06T00:00:00Z",
  *           "openshift_instances": 0,
+ *           "openshift_memory_seconds": 0.0,
  *           "openshift_runtime_seconds": 0.0,
+ *           "openshift_vcpu_seconds": 0.0,
  *           "rhel_instances": 2,
- *           "rhel_runtime_seconds": 7600.0
+ *           "rhel_memory_seconds": 8000.0,
+ *           "rhel_runtime_seconds": 7600.0,
+ *           "rhel_vcpu_seconds": 7200.0
  *         }
  *       ],
  *       "instances_seen_with_openshift": 1,

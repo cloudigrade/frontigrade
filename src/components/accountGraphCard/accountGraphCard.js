@@ -4,13 +4,23 @@ import { Card, CardGrid, Label as PFLabel, SparklineChart, Spinner } from 'patte
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import graphHelpers from '../../common/graphHelpers';
+import accountGraphCardTypes from './accountGraphCardConstants';
+import DropdownSelect from '../dropdownSelect/dropdownSelect';
 
 class AccountGraphCard extends React.Component {
   componentDidMount() {
-    const { filter, filterId, getAccountInstances } = this.props;
+    const { filter, filterId, getAccountInstances, rhelOptions, rhocpOptions } = this.props;
 
     if (filter.query) {
       getAccountInstances(filterId, filter.query);
+    }
+
+    if (!filter.graphOpenshiftValue) {
+      this.onSelectRhocpGraphFilter(rhocpOptions.find(option => option.active === true));
+    }
+
+    if (!filter.graphRhelValue) {
+      this.onSelectRhelGraphFilter(rhelOptions.find(option => option.active === true));
     }
   }
 
@@ -22,27 +32,29 @@ class AccountGraphCard extends React.Component {
     }
   }
 
-  onSelectGraphFilter = (event, graphType) => {
-    const { view } = this.props;
-    const { value } = event.target;
+  onSelectRhelGraphFilter = option => {
+    const { view, viewGlobal } = this.props;
 
-    switch (graphType) {
-      case 'rhel':
-        store.dispatch({
-          type: reduxTypes.filter.GRAPH_RHEL_SET_FILTER_VALUE,
-          graphRhelValue: value,
-          view
-        });
-        break;
-      case 'openshift':
-        store.dispatch({
-          type: reduxTypes.filter.GRAPH_OPENSHIFT_SET_FILTER_VALUE,
-          graphOpenshiftValue: value,
-          view
-        });
-        break;
-      default:
-        break;
+    if (option) {
+      store.dispatch({
+        type: reduxTypes.filter.GRAPH_RHEL_SET_FILTER_VALUE,
+        graphRhelValue: option.value,
+        view,
+        viewGlobal
+      });
+    }
+  };
+
+  onSelectRhocpGraphFilter = option => {
+    const { view, viewGlobal } = this.props;
+
+    if (option) {
+      store.dispatch({
+        type: reduxTypes.filter.GRAPH_OPENSHIFT_SET_FILTER_VALUE,
+        graphOpenshiftValue: option.value,
+        view,
+        viewGlobal
+      });
     }
   };
 
@@ -66,9 +78,14 @@ class AccountGraphCard extends React.Component {
   }
 
   render() {
-    const { error, fulfilled, graphData } = this.props;
+    const { error, filter, fulfilled, graphData, rhelOptions, rhocpOptions } = this.props;
+
     let chartTotals = {};
     let chartData = null;
+    let displayRHELChartTotal = {};
+    let displayRHELChartData = null;
+    let displayRHOCPChartTotal = {};
+    let displayRHOCPChartData = null;
 
     if (error) {
       return null;
@@ -77,6 +94,16 @@ class AccountGraphCard extends React.Component {
     if (graphData.dailyUsage && graphData.dailyUsage.length) {
       chartTotals = { ...graphHelpers.calculateGraphTotals({ ...graphData }) };
       chartData = graphHelpers.convertGraphData({ ...graphData });
+
+      if (filter.graphOpenshiftValue) {
+        displayRHOCPChartTotal = chartTotals[filter.graphOpenshiftValue];
+        displayRHOCPChartData = chartData[filter.graphOpenshiftValue];
+      }
+
+      if (filter.graphRhelValue) {
+        displayRHELChartTotal = chartTotals[filter.graphRhelValue];
+        displayRHELChartData = chartData[filter.graphRhelValue];
+      }
     }
 
     return (
@@ -87,17 +114,30 @@ class AccountGraphCard extends React.Component {
             {fulfilled && (
               <Card matchHeight accented className="cloudmeter-utilization-graph fadein">
                 <Card.Heading>
+                  <DropdownSelect
+                    id="graphRhel"
+                    className="card-pf-time-frame-filter"
+                    pullRight
+                    onSelect={this.onSelectRhelGraphFilter}
+                    options={rhelOptions}
+                    selectValue={filter.graphRhelValue}
+                  />
                   <Card.Title>Red Hat Enterprise Linux</Card.Title>
                 </Card.Heading>
                 <Card.Body>
                   <div className="cloudmeter-card-info">
-                    <strong>{chartTotals.rhelTime || 0}</strong>
+                    <strong>{displayRHELChartTotal || 0}</strong>
                     <PFLabel bsStyle="warning">
                       <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-                    </PFLabel>{' '}
-                    Hours
+                    </PFLabel>
                   </div>
-                  {chartData && <SparklineChart data={chartData.rhelTime} tooltip={chartData.tooltips} />}
+                  {displayRHELChartData && (
+                    <SparklineChart
+                      key={filter.graphRhelValue}
+                      data={displayRHELChartData}
+                      tooltip={chartData.tooltips}
+                    />
+                  )}
                 </Card.Body>
               </Card>
             )}
@@ -107,17 +147,30 @@ class AccountGraphCard extends React.Component {
             {fulfilled && (
               <Card matchHeight accented className="cloudmeter-utilization-graph fadein">
                 <Card.Heading>
+                  <DropdownSelect
+                    id="graphOpenshift"
+                    className="card-pf-time-frame-filter"
+                    pullRight
+                    onSelect={this.onSelectRhocpGraphFilter}
+                    options={rhocpOptions}
+                    selectValue={filter.graphOpenshiftValue}
+                  />
                   <Card.Title>Red Hat OpenShift Container Platform</Card.Title>
                 </Card.Heading>
                 <Card.Body>
                   <div className="cloudmeter-card-info">
-                    <strong>{chartTotals.openshiftTime || 0}</strong>
+                    <strong>{displayRHOCPChartTotal || 0}</strong>
                     <PFLabel bsStyle="primary">
                       <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-                    </PFLabel>{' '}
-                    Hours
+                    </PFLabel>
                   </div>
-                  {chartData && <SparklineChart data={chartData.openshiftTime} tooltip={chartData.tooltips} />}
+                  {displayRHOCPChartData && (
+                    <SparklineChart
+                      key={filter.graphOpenshiftValue}
+                      data={displayRHOCPChartData}
+                      tooltip={chartData.tooltips}
+                    />
+                  )}
                 </Card.Body>
               </Card>
             )}
@@ -144,8 +197,11 @@ AccountGraphCard.propTypes = {
     instancesRhel: PropTypes.number
   }),
   pending: PropTypes.bool,
+  rhelOptions: PropTypes.array,
+  rhocpOptions: PropTypes.array,
   updateInstances: PropTypes.bool,
-  view: PropTypes.string
+  view: PropTypes.string,
+  viewGlobal: PropTypes.string
 };
 
 AccountGraphCard.defaultProps = {
@@ -159,8 +215,11 @@ AccountGraphCard.defaultProps = {
     instancesRhel: 0
   },
   pending: false,
+  rhelOptions: accountGraphCardTypes.rhelOptions,
+  rhocpOptions: accountGraphCardTypes.rhocpOptions,
   updateInstances: false,
-  view: null
+  view: null,
+  viewGlobal: null
 };
 
 const mapDispatchToProps = dispatch => ({

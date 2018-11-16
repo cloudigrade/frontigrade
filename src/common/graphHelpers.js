@@ -1,22 +1,47 @@
 import moment from 'moment';
-import _sumBy from 'lodash/sumBy';
 import apiTypes from '../constants/apiConstants';
 import helpers from './helpers';
 
 const calculateGraphTotals = ({ dailyUsage, totalInstancesOpenshift, totalInstancesRhel }) => {
-  const openshiftTime = _sumBy(dailyUsage, val =>
-    Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME])
+  const openshiftMemoryTime = dailyUsage.reduce(
+    (acc, val) => acc + Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_MEMORY]),
+    0
   );
 
-  const rhelTime = _sumBy(dailyUsage, val =>
-    Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME])
+  const openshiftRuntimeTime = dailyUsage.reduce(
+    (acc, val) => acc + Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME]),
+    0
+  );
+
+  const openshiftVcpuTime = dailyUsage.reduce(
+    (acc, val) => acc + Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_VCPU]),
+    0
+  );
+
+  const rhelMemoryTime = dailyUsage.reduce(
+    (acc, val) => acc + Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_MEMORY]),
+    0
+  );
+
+  const rhelRuntimeTime = dailyUsage.reduce(
+    (acc, val) => acc + Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]),
+    0
+  );
+
+  const rhelVcpuTime = dailyUsage.reduce(
+    (acc, val) => acc + Number.parseFloat(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_VCPU]),
+    0
   );
 
   return {
     instancesOpenshift: totalInstancesOpenshift,
     instancesRhel: totalInstancesRhel,
-    openshiftTime: helpers.generateHoursFromSeconds(openshiftTime).hours,
-    rhelTime: helpers.generateHoursFromSeconds(rhelTime).hours
+    openshiftMemoryTime: helpers.generateHoursFromSeconds(openshiftMemoryTime).hours,
+    openshiftRuntimeTime: helpers.generateHoursFromSeconds(openshiftRuntimeTime).hours,
+    openshiftVcpuTime: helpers.generateHoursFromSeconds(openshiftVcpuTime).hours,
+    rhelMemoryTime: helpers.generateHoursFromSeconds(rhelMemoryTime).hours,
+    rhelRuntimeTime: helpers.generateHoursFromSeconds(rhelRuntimeTime).hours,
+    rhelVcpuTime: helpers.generateHoursFromSeconds(rhelVcpuTime).hours
   };
 };
 
@@ -24,10 +49,14 @@ const convertGraphData = ({ dailyUsage }) => {
   const graphData = {
     date: ['x'],
     tooltipTitle: [],
-    rhelInstances: ['rhelInstances'],
     openshiftInstances: ['openshiftInstances'],
-    rhelTime: ['rhelTime'],
-    openshiftTime: ['openshiftTime']
+    openshiftMemoryTime: ['openshiftMemoryTime'],
+    openshiftRuntimeTime: ['openshiftRuntimeTime'],
+    openshiftVcpuTime: ['openshiftVcpuTime'],
+    rhelInstances: ['rhelInstances'],
+    rhelMemoryTime: ['rhelMemoryTime'],
+    rhelRuntimeTime: ['rhelRuntimeTime'],
+    rhelVcpuTime: ['rhelVcpuTime']
   };
 
   dailyUsage.forEach(val => {
@@ -38,13 +67,29 @@ const convertGraphData = ({ dailyUsage }) => {
 
     graphData.tooltipTitle.push(formattedDate);
     graphData.date.push(formattedDate);
-    graphData.rhelInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL]);
+
     graphData.openshiftInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT]);
-    graphData.rhelTime.push(
+
+    graphData.openshiftMemoryTime.push(
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_MEMORY]).hours
+    );
+    graphData.openshiftRuntimeTime.push(
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME]).hours
+    );
+    graphData.openshiftVcpuTime.push(
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_VCPU]).hours
+    );
+
+    graphData.rhelInstances.push(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL]);
+
+    graphData.rhelMemoryTime.push(
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_MEMORY]).hours
+    );
+    graphData.rhelRuntimeTime.push(
       helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_RUNTIME]).hours
     );
-    graphData.openshiftTime.push(
-      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_OPENSHIFT_RUNTIME]).hours
+    graphData.rhelVcpuTime.push(
+      helpers.generateHoursFromSeconds(val[apiTypes.API_RESPONSE_INSTANCES_USAGE_RHEL_VCPU]).hours
     );
   });
 
@@ -64,20 +109,52 @@ const convertGraphData = ({ dailyUsage }) => {
     colors: { openshiftInstances: helpers.pfPaletteColors.blue300 }
   };
 
-  const rhelTime = {
+  const openshiftMemoryTime = {
     names: {
-      rhelTime: 'RHEL Hours'
+      openshiftMemoryTime: 'RHOCP GB Memory Hours'
     },
-    columns: [graphData.date, graphData.rhelTime],
-    colors: { rhelTime: helpers.pfPaletteColors.orange }
+    columns: [graphData.date, graphData.openshiftMemoryTime],
+    colors: { openshiftMemoryTime: helpers.pfPaletteColors.blue300 }
   };
 
-  const openshiftTime = {
+  const openshiftRuntimeTime = {
     names: {
-      openshiftTime: 'RHOCP Hours'
+      openshiftRuntimeTime: 'RHOCP Instance Hours'
     },
-    columns: [graphData.date, graphData.openshiftTime],
-    colors: { openshiftTime: helpers.pfPaletteColors.blue300 }
+    columns: [graphData.date, graphData.openshiftRuntimeTime],
+    colors: { openshiftRuntimeTime: helpers.pfPaletteColors.blue300 }
+  };
+
+  const openshiftVcpuTime = {
+    names: {
+      openshiftVcpuTime: 'RHOCP Core Hours'
+    },
+    columns: [graphData.date, graphData.openshiftVcpuTime],
+    colors: { openshiftVcpuTime: helpers.pfPaletteColors.blue300 }
+  };
+
+  const rhelMemoryTime = {
+    names: {
+      rhelMemoryTime: 'RHEL GB Memory Hours'
+    },
+    columns: [graphData.date, graphData.rhelMemoryTime],
+    colors: { rhelMemoryTime: helpers.pfPaletteColors.orange }
+  };
+
+  const rhelRuntimeTime = {
+    names: {
+      rhelRuntimeTime: 'RHEL Instance Hours'
+    },
+    columns: [graphData.date, graphData.rhelRuntimeTime],
+    colors: { rhelRuntimeTime: helpers.pfPaletteColors.orange }
+  };
+
+  const rhelVcpuTime = {
+    names: {
+      rhelVcpuTime: 'RHEL Core Hours'
+    },
+    columns: [graphData.date, graphData.rhelVcpuTime],
+    colors: { rhelVcpuTime: helpers.pfPaletteColors.orange }
   };
 
   const tooltips = {
@@ -89,7 +166,17 @@ const convertGraphData = ({ dailyUsage }) => {
     }
   };
 
-  return { openshiftInstances, rhelInstances, openshiftTime, rhelTime, tooltips };
+  return {
+    openshiftInstances,
+    rhelInstances,
+    openshiftMemoryTime,
+    openshiftRuntimeTime,
+    openshiftVcpuTime,
+    rhelMemoryTime,
+    rhelRuntimeTime,
+    rhelVcpuTime,
+    tooltips
+  };
 };
 
 const graphHelpers = { calculateGraphTotals, convertGraphData };

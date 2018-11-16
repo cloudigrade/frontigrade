@@ -95,12 +95,14 @@ class AccountImagesView extends React.Component {
 
   renderList() {
     const { accountId } = this.state;
-    const { account, filter, images, view } = this.props;
+    const { account, filter, images, view, viewGlobal } = this.props;
 
     if (images.length) {
       return (
         <React.Fragment>
-          {/\d/.test(accountId) && <AccountGraphCard filterId={accountId} filter={filter} view={view} />}
+          {/\d/.test(accountId) && (
+            <AccountGraphCard filterId={accountId} filter={filter} view={view} viewGlobal={viewGlobal} />
+          )}
           <Grid fluid>
             <Grid.Row className="row-cards-pf">
               <Grid.Col xs={12}>

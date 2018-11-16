@@ -23,8 +23,8 @@ const baseState = {
   expandedItems: [],
   filterField: null,
   filterValue: '',
-  graphRhelValue: 'time',
-  graphOpenshiftValue: 'time',
+  graphRhelValue: null,
+  graphOpenshiftValue: null,
   pageSize: 15,
   selectedCount: 0,
   selectedItems: [],
@@ -40,6 +40,8 @@ const baseState = {
 const baseGlobalState = {
   dateValue: null,
   dateValueDefault: false,
+  graphRhelValue: null,
+  graphOpenshiftValue: null,
   sortAscending: true,
   sortValue: null,
   query: {
@@ -248,11 +250,10 @@ const filterReducers = (state = initialState, action) => {
 
     case filterTypes.GRAPH_OPENSHIFT_SET_FILTER_VALUE:
       return helpers.setStateProp(
-        action.view,
+        action.viewGlobal || action.view,
         {
           graphOpenshiftValue:
-            (action.graphOpenshiftValue && action.graphOpenshiftValue.toLowerCase()) ||
-            state[action.view].graphOpenshiftValue
+            (action.graphOpenshiftValue && action.graphOpenshiftValue) || state[action.view].graphOpenshiftValue
         },
         {
           state,
@@ -262,10 +263,9 @@ const filterReducers = (state = initialState, action) => {
 
     case filterTypes.GRAPH_RHEL_SET_FILTER_VALUE:
       return helpers.setStateProp(
-        action.view,
+        action.viewGlobal || action.view,
         {
-          graphRhelValue:
-            (action.graphRhelValue && action.graphRhelValue.toLowerCase()) || state[action.view].graphRhelValue
+          graphRhelValue: (action.graphRhelValue && action.graphRhelValue) || state[action.view].graphRhelValue
         },
         {
           state,

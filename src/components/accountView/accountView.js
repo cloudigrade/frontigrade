@@ -81,12 +81,12 @@ class AccountView extends React.Component {
   };
 
   renderAccountsList() {
-    const { accounts, filter, view } = this.props;
+    const { accounts, filter, view, viewGlobal } = this.props;
 
     if (accounts.length) {
       return (
         <React.Fragment>
-          <AccountGraphCard filter={filter} view={view} />
+          <AccountGraphCard filter={filter} view={view} viewGlobal={viewGlobal} />
           <Grid fluid>
             <Grid.Row className="row-cards-pf">
               <Grid.Col xs={12}>
@@ -246,6 +246,8 @@ AccountView.defaultProps = {
   errorMessage: null,
   filter: {
     activeFilters: [],
+    graphRhelValue: null,
+    graphOpenshiftValue: null,
     query: {}
   },
   getAccounts: helpers.noop,
