@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownSelect Component should render: basic dropdown 1`] = `
+<div
+  class="cloudmeter-dropdownselect  dropdown btn-group"
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="dropdown-toggle btn btn-default"
+    id="test"
+    role="button"
+    type="button"
+  >
+    <span>
+      Select option
+    </span>
+     
+    <span
+      class="caret"
+    />
+  </button>
+  <ul
+    aria-labelledby="test"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <li
+      class=""
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      >
+        lorem
+      </a>
+    </li>
+    <li
+      class=""
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      >
+        hello
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`DropdownSelect Component should render: multiselect dropdown 1`] = `
+<div
+  class="cloudmeter-dropdownselect  dropdown btn-group"
+>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="dropdown-toggle btn btn-default"
+    id="test"
+    role="button"
+    type="button"
+  >
+    <span>
+      Select option
+    </span>
+     
+    <span
+      class="caret"
+    />
+  </button>
+  <ul
+    aria-labelledby="test"
+    class="dropdown-menu"
+    role="menu"
+  >
+    <li
+      class=""
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <div
+          class="cloudmeter-dropdownselect-menuitem row"
+        >
+          <div
+            class="cloudmeter-dropdownselect-menuitemname col-xs-10"
+          >
+            lorem
+          </div>
+          <div
+            class="cloudmeter-dropdownselect-menuitemcheck col-xs-2"
+          />
+        </div>
+      </a>
+    </li>
+    <li
+      class=""
+      role="presentation"
+    >
+      <a
+        href="#"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <div
+          class="cloudmeter-dropdownselect-menuitem row"
+        >
+          <div
+            class="cloudmeter-dropdownselect-menuitemname col-xs-10"
+          >
+            hello
+          </div>
+          <div
+            class="cloudmeter-dropdownselect-menuitemcheck col-xs-2"
+          />
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+`;

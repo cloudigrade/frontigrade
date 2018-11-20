@@ -23,6 +23,10 @@
   padding-bottom: 60px;
   z-index: 1;
 
+  .card-pf-heading .card-pf-time-frame-filter {
+    margin-left: 0;
+  }
+
   .chart-pf-sparkline {
     position: absolute!important;
     bottom: 20px;

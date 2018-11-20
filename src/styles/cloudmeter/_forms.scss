@@ -12,37 +12,16 @@
 }
 
 .cloudmeter-dropdownselect {
-  .dropdown {
-    border-width: 0;
-    display: flex;
-    padding: 0;
-    width: 100%;
-
-    .dropdown-menu {
-      width: 100%;
-    }
-    .dropdown-toggle.btn {
-      text-align: left;
-      width: 100%;
-    }
-    .dropdown-toggle.btn {
-      > span:first-child {
-        width: 92%;
-      }
-      > span {
-        display:inline-block;
-      }
-    }
-
+  &.dropdown {
     .cloudmeter-dropdownselect-menuitem {
       margin-left: 0;
       margin-right: 0;
     }
+
     .cloudmeter-dropdownselect-menuitem-selected,
     .cloudmeter-dropdownselect-menuitem-selected:hover,
     .cloudmeter-dropdownselect-menuitem-selected:focus {
       background-color: $color-pf-blue-400;
-      border-width: 0;
       color: $color-pf-white;
 
       > a, > a:focus {
@@ -52,12 +31,15 @@
         outline: inherit;
       }
     }
+
     .cloudmeter-dropdownselect-menuitemname {
       padding-left: 0;
       padding-right: 0;
     }
+
     .cloudmeter-dropdownselect-menuitemcheck {
-      padding-right: 5px;
+      padding-left: 0;
+      padding-right: 0;
       text-align: right;
     }
   }
