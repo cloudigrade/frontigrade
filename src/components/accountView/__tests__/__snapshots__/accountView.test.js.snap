@@ -137,6 +137,7 @@ exports[`AccountView Component should render a non-connected component in pendin
               className="cloudmeter-list-view"
             >
               <AccountViewListItem
+                className="cloudmeter-accountview-list-view-item-active"
                 item={
                   Object {
                     "arn": "arn:aws:iam::TEST",

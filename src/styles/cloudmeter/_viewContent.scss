@@ -55,6 +55,10 @@
     flex: 1 0 15%;
   }
 
+  .cloudmeter-accountview-list-view-item-active {
+    cursor: pointer;
+  }
+
   .list-group-item-heading {
     .cloudmeter-list-view-item-heading {
       font-weight: normal;

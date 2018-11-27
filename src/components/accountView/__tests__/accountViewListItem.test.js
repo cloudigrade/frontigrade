@@ -5,6 +5,7 @@ import AccountViewListItem from '../accountViewListItem';
 describe('AccountViewListItem Component', () => {
   it('should render a component', () => {
     const props = {
+      className: 'test',
       item: {
         arn: 'arn:aws:iam::TEST',
         creation_date: '2018-07-07',

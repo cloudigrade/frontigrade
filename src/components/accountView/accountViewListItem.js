@@ -170,11 +170,11 @@ class AccountViewListItem extends React.Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { className, item } = this.props;
 
     return (
       <ListView.Item
-        className="cloudmeter-accountview-list-view-item"
+        className={`cloudmeter-accountview-list-view-item ${className}`}
         onClick={this.onVerifyDetail}
         key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
         leftContent={AccountViewListItem.renderLeftContent()}
@@ -189,6 +189,7 @@ class AccountViewListItem extends React.Component {
 }
 
 AccountViewListItem.propTypes = {
+  className: PropTypes.string,
   item: PropTypes.object.isRequired,
   onDelete: PropTypes.func,
   onDetail: PropTypes.func,
@@ -197,6 +198,7 @@ AccountViewListItem.propTypes = {
 };
 
 AccountViewListItem.defaultProps = {
+  className: '',
   onDelete: null,
   onDetail: helpers.noop,
   onEdit: null,

@@ -2,7 +2,7 @@
 
 exports[`AccountViewListItem Component should render a component 1`] = `
 <div
-  class="list-group-item cloudmeter-accountview-list-view-item"
+  class="list-group-item cloudmeter-accountview-list-view-item test"
 >
   <div
     class="list-view-pf-actions"
@@ -121,7 +121,7 @@ exports[`AccountViewListItem Component should render a component 1`] = `
 
 exports[`AccountViewListItem Component should wrap long names with a on hover title 1`] = `
 <div
-  class="list-group-item cloudmeter-accountview-list-view-item"
+  class="list-group-item cloudmeter-accountview-list-view-item "
 >
   <div
     class="list-view-pf-actions"

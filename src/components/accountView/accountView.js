@@ -84,6 +84,11 @@ class AccountView extends React.Component {
     const { accounts, filter, view, viewGlobal } = this.props;
 
     if (accounts.length) {
+      const itemHasImagesClassName = item =>
+        Number.parseInt(item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES], 10) > 0
+          ? 'cloudmeter-accountview-list-view-item-active'
+          : '';
+
       return (
         <React.Fragment>
           <AccountGraphCard filter={filter} view={view} viewGlobal={viewGlobal} />
@@ -94,6 +99,7 @@ class AccountView extends React.Component {
                   <ListView className="cloudmeter-list-view">
                     {accounts.map(item => (
                       <AccountViewListItem
+                        className={itemHasImagesClassName(item)}
                         item={item}
                         key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
                         onDelete={this.onDelete}
