@@ -23,6 +23,54 @@ class AccountViewListItem extends React.Component {
     }
   };
 
+  static renderLeftContent() {
+    return null;
+  }
+
+  static renderDescription() {
+    return null;
+  }
+
+  rhelFilteredSecondsHours() {
+    const { filter, item } = this.props;
+
+    let rhelSecondsHours;
+
+    switch (filter.graphRhelValue) {
+      case 'rhelMemoryTime':
+        rhelSecondsHours = item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_MEMORY];
+        break;
+      case 'rhelVcpuTime':
+        rhelSecondsHours = item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_VCPU];
+        break;
+      default:
+        rhelSecondsHours = item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_RUNTIME];
+        break;
+    }
+
+    return helpers.generateHoursFromSeconds(rhelSecondsHours);
+  }
+
+  rhocpFilteredSecondsHours() {
+    const { filter, item } = this.props;
+
+    let rhocpSecondsHours;
+
+    switch (filter.graphOpenshiftValue) {
+      case 'openshiftMemoryTime':
+        rhocpSecondsHours = item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_MEMORY];
+        break;
+      case 'openshiftVcpuTime':
+        rhocpSecondsHours = item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_VCPU];
+        break;
+      default:
+        rhocpSecondsHours = item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_RUNTIME];
+        break;
+    }
+
+    return helpers.generateHoursFromSeconds(rhocpSecondsHours);
+  }
+
   renderActions() {
     const { item, onDelete, onEdit } = this.props;
 
@@ -64,14 +112,6 @@ class AccountViewListItem extends React.Component {
     );
   }
 
-  static renderLeftContent() {
-    return null;
-  }
-
-  static renderDescription() {
-    return null;
-  }
-
   /**
    * FixMe: PF-React issue
    * listview "additionalInfo" attribute "requires" an array propType, restrictive limit.
@@ -89,14 +129,11 @@ class AccountViewListItem extends React.Component {
     const instances =
       item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_INSTANCES];
 
-    const rhelSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_RUNTIME]);
-    const rhocpSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_RUNTIME]);
+    const rhelSecondsHours =
+      item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_INSTANCES] === null ? null : this.rhelFilteredSecondsHours();
 
-    const rhelSeconds = rhelSecondsHours.seconds;
-    const rhocpSeconds = rhocpSecondsHours.seconds;
-
-    const rhelHours = rhelSeconds === null ? 'N/A' : rhelSecondsHours.hours;
-    const rhocpHours = rhocpSeconds === null ? 'N/A' : rhocpSecondsHours.hours;
+    const rhocpSecondsHours =
+      item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_INSTANCES] === null ? null : this.rhocpFilteredSecondsHours();
 
     const imagesPopover = t(
       'list-accounts.images.images-tooltip',
@@ -132,16 +169,16 @@ class AccountViewListItem extends React.Component {
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
-        {rhelSeconds !== null && (
-          <Tooltip tooltip={`${rhelSeconds} seconds`} placement="bottom">
+        {rhelSecondsHours !== null && (
+          <Tooltip tooltip={`${rhelSecondsHours.seconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{rhelHours}</strong>
+            <strong>{rhelSecondsHours.hours}</strong>
           </Tooltip>
         )}
-        {rhelSeconds === null && (
+        {rhelSecondsHours === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>{rhelHours}</strong>
+            <strong>N/A</strong>
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
@@ -152,16 +189,16 @@ class AccountViewListItem extends React.Component {
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="4" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
-        {rhocpSeconds !== null && (
-          <Tooltip tooltip={`${rhocpSeconds} seconds`} placement="bottom">
+        {rhocpSecondsHours !== null && (
+          <Tooltip tooltip={`${rhocpSecondsHours.seconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{rhocpHours}</strong>
+            <strong>{rhocpSecondsHours.hours}</strong>
           </Tooltip>
         )}
-        {rhocpSeconds === null && (
+        {rhocpSecondsHours === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>{rhocpHours}</strong>
+            <strong>N/A</strong>
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
@@ -195,6 +232,10 @@ class AccountViewListItem extends React.Component {
 
 AccountViewListItem.propTypes = {
   className: PropTypes.string,
+  filter: PropTypes.shape({
+    graphOpenshiftValue: PropTypes.string,
+    graphRhelValue: PropTypes.string
+  }),
   item: PropTypes.object.isRequired,
   onDelete: PropTypes.func,
   onDetail: PropTypes.func,
@@ -204,6 +245,10 @@ AccountViewListItem.propTypes = {
 
 AccountViewListItem.defaultProps = {
   className: '',
+  filter: {
+    graphOpenshiftValue: null,
+    graphRhelValue: null
+  },
   onDelete: null,
   onDetail: helpers.noop,
   onEdit: null,

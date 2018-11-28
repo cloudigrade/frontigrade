@@ -101,6 +101,7 @@ class AccountView extends React.Component {
                     {accounts.map(item => (
                       <AccountViewListItem
                         className={itemHasImagesClassName(item)}
+                        filter={filter}
                         item={item}
                         key={item[apiTypes.API_RESPONSE_ACCOUNTS_ID]}
                         onDelete={this.onDelete}

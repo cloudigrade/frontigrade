@@ -138,16 +138,31 @@ exports[`AccountView Component should render a non-connected component in pendin
             >
               <AccountViewListItem
                 className="cloudmeter-accountview-list-view-item-active"
+                filter={
+                  Object {
+                    "dateFields": null,
+                    "query": Object {},
+                  }
+                }
                 item={
                   Object {
                     "arn": "arn:aws:iam::TEST",
-                    "creation_date": "2018-07-06T15:09:21.442412Z",
+                    "cloud_account_id": "000000000",
+                    "creation_date": "2018-12-01T15:09:21.442412Z",
                     "id": "1",
                     "images": 1,
                     "instances": 2,
-                    "name": "Lorem test",
-                    "openshift_instances": null,
+                    "name": "Lorem ipsum",
+                    "openshift_images_challenged": 0,
+                    "openshift_instances": 1,
+                    "openshift_memory_seconds": 11600,
+                    "openshift_runtime_seconds": 8000,
+                    "openshift_vcpu_seconds": 1000,
+                    "rhel_images_challenged": 0,
                     "rhel_instances": 1,
+                    "rhel_memory_seconds": 67000.4,
+                    "rhel_runtime_seconds": 10000,
+                    "rhel_vcpu_seconds": 32900.2,
                     "type": "aws",
                     "user_id": 1,
                   }
