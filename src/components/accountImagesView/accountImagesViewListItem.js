@@ -55,8 +55,8 @@ class AccountImagesViewListItem extends React.Component {
 
     const parsedSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
 
-    const rhelSeconds = !item[apiTypes.API_RESPONSE_IMAGES_RHEL_DETECTED] ? null : parsedSecondsHours.seconds;
-    const rhocpSeconds = !item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_DETECTED] ? null : parsedSecondsHours.seconds;
+    const rhelSeconds = !item[apiTypes.API_RESPONSE_IMAGES_RHEL] ? null : parsedSecondsHours.seconds;
+    const rhocpSeconds = !item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT] ? null : parsedSecondsHours.seconds;
 
     const rhelHours = rhelSeconds === null ? 'N/A' : parsedSecondsHours.hours;
     const rhocpHours = rhocpSeconds === null ? 'N/A' : parsedSecondsHours.hours;
