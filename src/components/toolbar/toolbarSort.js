@@ -13,16 +13,14 @@ const ToolbarSort = ({
 }) => (
   <Sort>
     {children}
-    {onUpdateField &&
-      sortFields &&
-      sortValue && (
-        <Sort.TypeSelector
-          disabled={disabled}
-          sortTypes={sortFields}
-          currentSortType={sortValue}
-          onSortTypeSelected={onUpdateField}
-        />
-      )}
+    {onUpdateField && sortFields && sortValue && (
+      <Sort.TypeSelector
+        disabled={disabled}
+        sortTypes={sortFields}
+        currentSortType={sortValue}
+        onSortTypeSelected={onUpdateField}
+      />
+    )}
     {onToggleDirection && (
       <Sort.DirectionSelector
         disabled={disabled}

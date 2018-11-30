@@ -130,11 +130,10 @@ const filterReducers = (state = initialState, action) => {
     case filterTypes.TOOLBAR_ADD_FILTER:
       activeFilters = [...state[action.view].activeFilters];
 
-      const currentFilter = activeFilters.find(
-        filter =>
-          typeof action.filter.field === 'string'
-            ? action.filter.field === filter.field
-            : _isEqual(action.filter.field, filter.field)
+      const currentFilter = activeFilters.find(filter =>
+        typeof action.filter.field === 'string'
+          ? action.filter.field === filter.field
+          : _isEqual(action.filter.field, filter.field)
       );
       const index = activeFilters.indexOf(currentFilter);
 
