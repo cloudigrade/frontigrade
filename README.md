@@ -9,7 +9,7 @@ Web user interface for [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade)
 Before developing for Frontigrade, the basic requirements:
  * Your system needs to be running [NodeJS version 8+](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
- * And **NOW REQUIRED** [Yarn 1.9+](https://yarnpkg.com) for dependency and script management.
+ * And [Yarn 1.12+](https://yarnpkg.com) for dependency and script management.
 
 ### Docker & Mac
 Setting Docker up on a Mac? Install the appropriate package and you should be good to go. To check if everything installed correctly you can try these steps.
