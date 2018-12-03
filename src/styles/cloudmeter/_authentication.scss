@@ -8,7 +8,7 @@
   position: fixed;
 
   @media (min-width: $screen-sm-min) {
-    background-image: url(../images/bg-login-2.png);
+    background-image: url(./images/bg-login-2.png);
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: 30%;
@@ -17,7 +17,7 @@
 
 .cloudmeter-login-body {
   @media (min-width: $screen-sm-min) {
-    background-image: url(../images/bg-login.png);
+    background-image: url(./images/bg-login.png);
     background-repeat: no-repeat;
     background-size: 30%;
   }

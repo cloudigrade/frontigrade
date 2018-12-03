@@ -35,7 +35,7 @@ checkContainerRunning()
 #
 devApi()
 {
-  local CONTAINER="cdcabrera/apidoc-mock:2.0.0"
+  local CONTAINER="cdcabrera/apidoc-mock:2.0.1"
   local NAME="frontigrade-dev"
   local PORT=$1
   local DIR=$2
@@ -44,7 +44,7 @@ devApi()
 
   docker stop -t 0 $NAME >/dev/null
 
-  if [ -z "$(docker images | grep ^$CONTAINER' ')" ] || [ "$UPDATE" = true ]; then
+  if [ -z "$(docker images -q $CONTAINER)" ] || [ "$UPDATE" = true ]; then
     echo "Setting up development Docker API container"
     docker pull $CONTAINER
   fi

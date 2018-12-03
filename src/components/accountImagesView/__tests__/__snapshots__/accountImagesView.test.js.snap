@@ -283,7 +283,7 @@ exports[`AccountImagesView Component should render a non-connected component in 
             <ListView
               className="cloudmeter-list-view"
             >
-              <Connect(Translate(AccountImagesViewListItem))
+              <Connect(LoadNamespace(AccountImagesViewListItem))
                 filter={
                   Object {
                     "dateFields": null,
