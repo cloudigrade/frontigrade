@@ -100,7 +100,7 @@ class AccountImagesViewListItem extends React.Component {
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
-          <PFLabel bsStyle={rhelChallenged ? 'default' : 'warning'}>
+          <PFLabel bsStyle="warning">
             <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
           </PFLabel>{' '}
           {rhelChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
@@ -120,7 +120,7 @@ class AccountImagesViewListItem extends React.Component {
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
-          <PFLabel bsStyle={openshiftChallenged ? 'default' : 'primary'}>
+          <PFLabel bsStyle="primary">
             <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
           </PFLabel>{' '}
           {openshiftChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}

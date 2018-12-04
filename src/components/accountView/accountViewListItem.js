@@ -80,6 +80,9 @@ class AccountViewListItem extends React.Component {
   renderAdditionalInfo() {
     const { item, t } = this.props;
 
+    const rhelChallenged = Number.parseInt(item[apiTypes.API_RESPONSE_ACCOUNTS_RHEL_CHALLENGED], 10) > 0;
+    const openshiftChallenged = Number.parseInt(item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_CHALLENGED], 10) > 0;
+
     const images =
       item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES] === null ? 'N/A' : item[apiTypes.API_RESPONSE_ACCOUNTS_IMAGES];
 
@@ -144,7 +147,8 @@ class AccountViewListItem extends React.Component {
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
           <PFLabel bsStyle="warning">
             <abbr title="Red Hat Enterprise Linux">RHEL</abbr>
-          </PFLabel>
+          </PFLabel>{' '}
+          {rhelChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="4" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
@@ -163,7 +167,8 @@ class AccountViewListItem extends React.Component {
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
           <PFLabel bsStyle="primary">
             <abbr title="Red Hat OpenShift Container Platform">RHOCP</abbr>
-          </PFLabel>
+          </PFLabel>{' '}
+          {openshiftChallenged && <Icon type="fa" name="flag" className="cloudmeter-pficon-error" />}
         </Tooltip>
       </ListView.InfoItem>
     ];

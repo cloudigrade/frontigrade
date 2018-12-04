@@ -99,7 +99,7 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
             </strong>
             <span>
               <span
-                class="label label-default"
+                class="label label-primary"
               >
                 <abbr
                   title="Red Hat OpenShift Container Platform"

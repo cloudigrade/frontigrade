@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountViewListItem Component should render a component 1`] = `
+exports[`AccountViewListItem Component should render a component: basic 1`] = `
 <div
   class="list-group-item cloudmeter-accountview-list-view-item test"
 >
@@ -27,7 +27,7 @@ exports[`AccountViewListItem Component should render a component 1`] = `
             <strong
               class="cloudmeter-list-view-item-heading-title"
             >
-              Lorem test
+              Lorem ipsum
             </strong>
             <br />
             Created 12:00AM, July 7th 2018
@@ -87,6 +87,7 @@ exports[`AccountViewListItem Component should render a component 1`] = `
                 RHEL
               </abbr>
             </span>
+             
           </span>
         </div>
         <div
@@ -111,6 +112,7 @@ exports[`AccountViewListItem Component should render a component 1`] = `
                 RHOCP
               </abbr>
             </span>
+             
           </span>
         </div>
       </div>
@@ -119,7 +121,136 @@ exports[`AccountViewListItem Component should render a component 1`] = `
 </div>
 `;
 
-exports[`AccountViewListItem Component should wrap long names with a on hover title 1`] = `
+exports[`AccountViewListItem Component should render challenged images: challenged 1`] = `
+<div
+  class="list-group-item cloudmeter-accountview-list-view-item "
+>
+  <div
+    class="list-view-pf-actions"
+  >
+    <div />
+  </div>
+  <div
+    class="list-view-pf-main-info"
+  >
+    <div
+      class="list-view-pf-body"
+    >
+      <div
+        class="list-view-pf-description"
+      >
+        <div
+          class="list-group-item-heading"
+        >
+          <span
+            class="cloudmeter-list-view-item-heading"
+          >
+            <strong
+              class="cloudmeter-list-view-item-heading-title"
+            >
+              Lorem ipsum
+            </strong>
+            <br />
+            Created 12:00AM, July 7th 2018
+          </span>
+        </div>
+      </div>
+      <div
+        class="list-view-pf-additional-info"
+      >
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-cluster"
+            />
+            <strong>
+              1
+            </strong>
+             Images
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-infoitem"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="pficon pficon-screen"
+            />
+            <strong>
+              2
+            </strong>
+             Instances
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
+            <strong>
+              0
+            </strong>
+          </span>
+          <span>
+            <span
+              class="label label-warning"
+            >
+              <abbr
+                title="Red Hat Enterprise Linux"
+              >
+                RHEL
+              </abbr>
+            </span>
+             
+            <span
+              aria-hidden="true"
+              class="fa fa-flag cloudmeter-pficon-error"
+            />
+          </span>
+        </div>
+        <div
+          class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
+        >
+          <span>
+            <span
+              aria-hidden="true"
+              class="fa fa-clock-o"
+            />
+            <strong>
+              1
+            </strong>
+          </span>
+          <span>
+            <span
+              class="label label-primary"
+            >
+              <abbr
+                title="Red Hat OpenShift Container Platform"
+              >
+                RHOCP
+              </abbr>
+            </span>
+             
+            <span
+              aria-hidden="true"
+              class="fa fa-flag cloudmeter-pficon-error"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AccountViewListItem Component should wrap long names with a on hover title: long names 1`] = `
 <div
   class="list-group-item cloudmeter-accountview-list-view-item "
 >
@@ -210,6 +341,7 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
                 RHEL
               </abbr>
             </span>
+             
           </span>
         </div>
         <div
@@ -234,6 +366,7 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
                 RHOCP
               </abbr>
             </span>
+             
           </span>
         </div>
       </div>
