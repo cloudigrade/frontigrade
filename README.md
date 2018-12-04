@@ -148,4 +148,4 @@ If you're having trouble getting an accurate code coverage report, or it's faili
 
 ### Running with the Cloudigrade API toolset locally
 
-[More detail regarding running Frontigrade with Cloudigrade](./docs/running_with_cloudigrade.md)
+Frontigrade is the web user interface for [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade), held together with [Shiftigrade](https://gitlab.com/cloudigrade/shiftigrade). Please refer to [Shiftigrade](https://gitlab.com/cloudigrade/shiftigrade) for up to date instructions on how to run [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade). These instructions are a prerequisite for setting up your developer environment.
