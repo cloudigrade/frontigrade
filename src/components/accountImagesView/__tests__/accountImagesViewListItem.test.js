@@ -17,7 +17,9 @@ describe('AccountImagesViewListItem Component', () => {
         rhel: true,
         rhel_challenged: false,
         rhel_detected: true,
+        memory_seconds: 0.0,
         runtime_seconds: 86400.5,
+        vcpu_seconds: 0.0,
         status: 'inspected'
       }
     };
@@ -30,16 +32,21 @@ describe('AccountImagesViewListItem Component', () => {
   it('should wrap long names with a on hover title', () => {
     const props = {
       item: {
-        arn: 'arn:aws:iam::TEST',
-        creation_date: '2018-07-07',
-        id: '1',
-        images: 1,
-        instances: 2,
-        name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.',
-        openshift_instances: null,
-        rhel_instances: 1,
-        type: 'aws',
-        user_id: 1
+        cloud_image_id: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed sodales eros.',
+        id: 2,
+        instances_seen: 2,
+        is_encrypted: false,
+        name: null,
+        openshift: false,
+        openshift_challenged: true,
+        openshift_detected: false,
+        rhel: true,
+        rhel_challenged: false,
+        rhel_detected: true,
+        memory_seconds: 0.0,
+        runtime_seconds: 86400.5,
+        vcpu_seconds: 0.0,
+        status: 'inspected'
       }
     };
 

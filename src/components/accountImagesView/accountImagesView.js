@@ -109,7 +109,11 @@ class AccountImagesView extends React.Component {
                 <Card className="cloudmeter-list-view-card">
                   <ListView className="cloudmeter-list-view">
                     {images.map(item => (
-                      <AccountImagesViewListItem item={item} key={item[apiTypes.API_RESPONSE_IMAGES_ID]} />
+                      <AccountImagesViewListItem
+                        filter={filter}
+                        item={item}
+                        key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
+                      />
                     ))}
                   </ListView>
                 </Card>

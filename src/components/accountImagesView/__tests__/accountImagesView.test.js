@@ -53,7 +53,9 @@ describe('AccountImagesView Component', () => {
           rhel: true,
           rhel_challenged: false,
           rhel_detected: true,
+          memory_seconds: 10000.0,
           runtime_seconds: 90362.5,
+          vcpu_seconds: 5000.0,
           status: 'inspected'
         }
       ],
@@ -104,13 +106,15 @@ describe('AccountImagesView Component', () => {
           instances_seen: 2,
           is_encrypted: false,
           name: null,
-          openshift: false,
-          openshift_challenged: false,
+          openshift: true,
+          openshift_challenged: true,
           openshift_detected: false,
           rhel: true,
           rhel_challenged: false,
           rhel_detected: true,
-          runtime_seconds: 86400.5,
+          memory_seconds: 500.5,
+          runtime_seconds: 2000.4,
+          vcpu_seconds: 500.2,
           status: 'inspected'
         }
       ]

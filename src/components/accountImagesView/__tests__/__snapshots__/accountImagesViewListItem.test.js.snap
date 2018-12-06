@@ -193,7 +193,7 @@ exports[`AccountImagesViewListItem Component should wrap long names with a on ho
                 class="pficon pficon-screen"
               />
               <strong>
-                N/A
+                2
               </strong>
                Instances
             </span>
@@ -201,13 +201,15 @@ exports[`AccountImagesViewListItem Component should wrap long names with a on ho
           <div
             class="list-view-pf-additional-info-item cloudmeter-listview-label cloudmeter-listview-label-has-badge"
           >
-            <span
-              aria-hidden="true"
-              class="fa fa-clock-o"
-            />
-            <strong>
-              N/A
-            </strong>
+            <span>
+              <span
+                aria-hidden="true"
+                class="fa fa-clock-o"
+              />
+              <strong>
+                25
+              </strong>
+            </span>
             <span>
               <span
                 class="label label-warning"
@@ -242,6 +244,10 @@ exports[`AccountImagesViewListItem Component should wrap long names with a on ho
                 </abbr>
               </span>
                
+              <span
+                aria-hidden="true"
+                class="fa fa-flag cloudmeter-pficon-error"
+              />
             </span>
           </div>
         </div>

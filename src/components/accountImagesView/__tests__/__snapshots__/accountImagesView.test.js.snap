@@ -284,21 +284,29 @@ exports[`AccountImagesView Component should render a non-connected component in 
               className="cloudmeter-list-view"
             >
               <AccountImagesViewListItem
+                filter={
+                  Object {
+                    "dateFields": null,
+                    "query": Object {},
+                  }
+                }
                 item={
                   Object {
                     "cloud_image_id": "ami-rhel7",
                     "id": 2,
                     "instances_seen": 2,
                     "is_encrypted": false,
+                    "memory_seconds": 500.5,
                     "name": null,
-                    "openshift": false,
-                    "openshift_challenged": false,
+                    "openshift": true,
+                    "openshift_challenged": true,
                     "openshift_detected": false,
                     "rhel": true,
                     "rhel_challenged": false,
                     "rhel_detected": true,
-                    "runtime_seconds": 86400.5,
+                    "runtime_seconds": 2000.4,
                     "status": "inspected",
+                    "vcpu_seconds": 500.2,
                   }
                 }
                 key="2"

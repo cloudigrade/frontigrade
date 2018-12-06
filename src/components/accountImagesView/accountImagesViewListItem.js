@@ -7,9 +7,55 @@ import helpers from '../../common/helpers';
 import AccountImagesViewListItemDetail from './accountImagesViewListItemDetail';
 import Tooltip from '../tooltip/tooltip';
 
+/**
+ * ToDo: Future, evaluate merging "rhelFilteredSecondsHours" and "rhocpFilteredSecondsHours"
+ * While we work through the display logic, we're aligning the accountViewListItem and accountImagesViewListItem
+ * components. This means being a little verbose and avoiding the merge around rhelFilteredSecondsHours and
+ * rhocpFilteredSecondsHours methods.
+ */
 class AccountImagesViewListItem extends React.Component {
   static renderLeftContent() {
     return <ListView.Icon name="unknown" />;
+  }
+
+  rhelFilteredSecondsHours() {
+    const { filter, item } = this.props;
+
+    let rhelSecondsHours;
+
+    switch (filter.graphRhelValue) {
+      case 'rhelMemoryTime':
+        rhelSecondsHours = item[apiTypes.API_RESPONSE_IMAGES_MEMORY];
+        break;
+      case 'rhelVcpuTime':
+        rhelSecondsHours = item[apiTypes.API_RESPONSE_IMAGES_VCPU];
+        break;
+      default:
+        rhelSecondsHours = item[apiTypes.API_RESPONSE_IMAGES_RUNTIME];
+        break;
+    }
+
+    return helpers.generateHoursFromSeconds(rhelSecondsHours);
+  }
+
+  rhocpFilteredSecondsHours() {
+    const { filter, item } = this.props;
+
+    let rhocpSecondsHours;
+
+    switch (filter.graphOpenshiftValue) {
+      case 'openshiftMemoryTime':
+        rhocpSecondsHours = item[apiTypes.API_RESPONSE_IMAGES_MEMORY];
+        break;
+      case 'openshiftVcpuTime':
+        rhocpSecondsHours = item[apiTypes.API_RESPONSE_IMAGES_VCPU];
+        break;
+      default:
+        rhocpSecondsHours = item[apiTypes.API_RESPONSE_IMAGES_RUNTIME];
+        break;
+    }
+
+    return helpers.generateHoursFromSeconds(rhocpSecondsHours);
   }
 
   renderHeading() {
@@ -53,13 +99,8 @@ class AccountImagesViewListItem extends React.Component {
     const rhelChallenged = item[apiTypes.API_RESPONSE_IMAGES_RHEL_CHALLENGED];
     const openshiftChallenged = item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT_CHALLENGED];
 
-    const parsedSecondsHours = helpers.generateHoursFromSeconds(item[apiTypes.API_RESPONSE_IMAGES_SECONDS]);
-
-    const rhelSeconds = !item[apiTypes.API_RESPONSE_IMAGES_RHEL] ? null : parsedSecondsHours.seconds;
-    const rhocpSeconds = !item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT] ? null : parsedSecondsHours.seconds;
-
-    const rhelHours = rhelSeconds === null ? 'N/A' : parsedSecondsHours.hours;
-    const rhocpHours = rhocpSeconds === null ? 'N/A' : parsedSecondsHours.hours;
+    const rhelSecondsHours = !item[apiTypes.API_RESPONSE_IMAGES_RHEL] ? null : this.rhelFilteredSecondsHours();
+    const rhocpSecondsHours = !item[apiTypes.API_RESPONSE_IMAGES_OPENSHIFT] ? null : this.rhocpFilteredSecondsHours();
 
     let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
     instances = Number.isNaN(instances) ? 'N/A' : instances;
@@ -87,16 +128,16 @@ class AccountImagesViewListItem extends React.Component {
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="2" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
-        {rhelSeconds !== null && (
-          <Tooltip tooltip={`${rhelSeconds} seconds`} placement="bottom">
+        {rhelSecondsHours !== null && (
+          <Tooltip tooltip={`${rhelSecondsHours.seconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{rhelHours}</strong>
+            <strong>{rhelSecondsHours.hours}</strong>
           </Tooltip>
         )}
-        {rhelSeconds === null && (
+        {rhelSecondsHours === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>{rhelHours}</strong>
+            <strong>N/A</strong>
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
@@ -107,16 +148,16 @@ class AccountImagesViewListItem extends React.Component {
         </Tooltip>
       </ListView.InfoItem>,
       <ListView.InfoItem key="3" className="cloudmeter-listview-label cloudmeter-listview-label-has-badge">
-        {rhocpSeconds !== null && (
-          <Tooltip tooltip={`${rhocpSeconds} seconds`} placement="bottom">
+        {rhocpSecondsHours !== null && (
+          <Tooltip tooltip={`${rhocpSecondsHours.seconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{rhocpHours}</strong>
+            <strong>{rhocpSecondsHours.hours}</strong>
           </Tooltip>
         )}
-        {rhocpSeconds === null && (
+        {rhocpSecondsHours === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>{rhocpHours}</strong>
+            <strong>N/A</strong>
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
@@ -149,11 +190,19 @@ class AccountImagesViewListItem extends React.Component {
 }
 
 AccountImagesViewListItem.propTypes = {
+  filter: PropTypes.shape({
+    graphOpenshiftValue: PropTypes.string,
+    graphRhelValue: PropTypes.string
+  }),
   item: PropTypes.object.isRequired,
   t: PropTypes.func
 };
 
 AccountImagesViewListItem.defaultProps = {
+  filter: {
+    graphOpenshiftValue: null,
+    graphRhelValue: null
+  },
   t: helpers.noopTranslate
 };
 

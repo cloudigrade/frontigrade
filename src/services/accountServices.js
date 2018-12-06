@@ -257,11 +257,13 @@ const getAccounts = (query = {}) =>
  *           "rhel": true,
  *           "rhel_challenged": false,
  *           "rhel_detected": true,
- *           "runtime_seconds": 86400.5,
+ *           "memory_seconds": 133907.5,
+ *           "runtime_seconds": 77600.4,
+ *           "vcpu_seconds": 77016.9,
  *           "status": "inspected"
  *         },
  *         {
- *           "cloud_image_id": "ami-rhel8",
+ *           "cloud_image_id": "ami-plain",
  *           "id": 7,
  *           "instances_seen": 1,
  *           "is_encrypted": false,
@@ -269,14 +271,16 @@ const getAccounts = (query = {}) =>
  *           "openshift": false,
  *           "openshift_challenged": false,
  *           "openshift_detected": false,
- *           "rhel": true,
+ *           "rhel": false,
  *           "rhel_challenged": true,
  *           "rhel_detected": true,
- *           "runtime_seconds": 3600.0,
+ *           "memory_seconds": 0.0,
+ *           "runtime_seconds": 0.0,
+ *           "vcpu_seconds": 0.0,
  *           "status": "inspecting"
  *         },
  *         {
- *           "cloud_image_id": "ami-plain",
+ *           "cloud_image_id": "ami-rhel8",
  *           "id": 9,
  *           "instances_seen": 1,
  *           "is_encrypted": false,
@@ -284,10 +288,12 @@ const getAccounts = (query = {}) =>
  *           "openshift": true,
  *           "openshift_challenged": false,
  *           "openshift_detected": true,
- *           "rhel": false,
+ *           "rhel": true,
  *           "rhel_challenged": false,
  *           "rhel_detected": false,
+ *           "memory_seconds": 11600.0,
  *           "runtime_seconds": 8000.0,
+ *           "vcpu_seconds": 1500.0,
  *           "status": "inspected"
  *         }
  *       ]
