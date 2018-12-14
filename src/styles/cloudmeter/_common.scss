@@ -13,12 +13,6 @@
   @keyframes fadein { 0%{opacity:0} 100%{opacity:1} }
 }
 
-.cloudmeter-about-modal-copy {
-  color: $color-pf-black-300;
-  margin-top: -20px;
-  text-align: right;
-}
-
 .cloudmeter-pficon-error,
 .pficon.pficon-disconnected.is-error::before {
   color: $color-pf-red-100;

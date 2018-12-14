@@ -1,8 +1,10 @@
-import { aboutModalTypes } from '../constants';
+import { aboutModalTypes, systemConfigTypes } from '../constants';
 import helpers from '../../common/helpers';
+import apiTypes from '../../constants/apiConstants';
 
 const initialState = {
-  show: false
+  show: false,
+  apiVersion: null
 };
 
 const aboutModalReducers = (state = initialState, action) => {
@@ -16,7 +18,7 @@ const aboutModalReducers = (state = initialState, action) => {
         },
         {
           state,
-          initialState
+          reset: false
         }
       );
 
@@ -29,6 +31,20 @@ const aboutModalReducers = (state = initialState, action) => {
         {
           state,
           initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(systemConfigTypes.GET_SYSTEM_CONFIG):
+      const configuration = action.payload.data;
+
+      return helpers.setStateProp(
+        null,
+        {
+          apiVersion: (configuration && configuration[apiTypes.API_RESPONSE_SYS_CONFIG_VERSION]) || null
+        },
+        {
+          state,
+          reset: false
         }
       );
 

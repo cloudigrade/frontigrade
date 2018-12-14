@@ -194,8 +194,6 @@ const prettyPrintJson = json => JSON.stringify(json, null, 2);
 
 const RH_BRAND = process.env.REACT_APP_RH_BRAND === 'true';
 
-const UI_SHA = process.env.REACT_APP_UI_SHA;
-
 const UI_VERSION = process.env.REACT_APP_UI_VERSION;
 
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';
@@ -225,7 +223,6 @@ const helpers = {
   pfPaletteColors,
   prettyPrintJson,
   RH_BRAND,
-  UI_SHA,
   UI_VERSION,
   DEV_MODE,
   OC_MODE,

@@ -1,8 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ConfirmationModalReducers should handle all defined fulfilled types: fulfilled types 1`] = `
+Object {
+  "result": Object {
+    "apiVersion": "test",
+    "show": false,
+  },
+  "type": "GET_SYSTEM_CONFIG_FULFILLED",
+}
+`;
+
 exports[`ConfirmationModalReducers should handle all defined types: defined types 1`] = `
 Object {
   "result": Object {
+    "apiVersion": null,
     "show": true,
     "type": "ABOUT_MODAL_SHOW",
   },
@@ -13,6 +24,7 @@ Object {
 exports[`ConfirmationModalReducers should handle all defined types: defined types 2`] = `
 Object {
   "result": Object {
+    "apiVersion": null,
     "show": false,
   },
   "type": "ABOUT_MODAL_HIDE",

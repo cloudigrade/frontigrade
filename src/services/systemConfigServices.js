@@ -10,7 +10,7 @@ import serviceConfig from './config';
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       "aws_account_id": "1234567890",
+ *       "aws_account_id": "123456789012",
  *       "aws_policies": {
  *         "traditional_inspection": {
  *           "Version":"2012-10-17",
@@ -37,7 +37,8 @@ import serviceConfig from './config';
  *             }
  *           ]
  *         }
- *       }
+ *       },
+ *       "version": "XXX-cloudigrade-version - d2b30c637ce3788e22990b21434bac2edcfb7ede"
  *     }
  * @apiError {String} detail
  * @apiErrorExample {json} Error-Response:

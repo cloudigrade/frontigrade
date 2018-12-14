@@ -14,6 +14,7 @@ import AccountViewListItem from './accountViewListItem';
 class AccountView extends React.Component {
   componentDidMount() {
     const { filter, getAccounts } = this.props;
+
     if (filter.query) {
       getAccounts(filter.query);
     }
