@@ -1,6 +1,6 @@
 {
   "name": "frontigrade",
-  "version": "0.0.1",
+  "version": "0.1.8",
   "description": "Frontigrade, web user interface for Cloudigrade",
   "author": "Red Hat",
   "license": "GPL-3.0",
@@ -39,6 +39,12 @@
       "enzyme-to-json/serializer"
     ]
   },
+  "standard-version": {
+    "skip": {
+      "commit": true,
+      "tag": true
+    }
+  },
   "scripts": {
     "api:dev": "sh ./scripts/dev.sh -p 5000 -d \"$(pwd)/src/services\"",
     "build:clean": "rm -rf -- \"$(pwd)\"/build",
@@ -47,6 +53,7 @@
     "build:rh": "sh -ac 'export REACT_APP_RH_BRAND=true && run-s -l build:clean build:css build:js'",
     "build": "run-s -l build:clean build:css build:js",
     "locale:gettext": "node ./scripts/gettext.js",
+    "release": "standard-version",
     "start:js": "react-scripts start",
     "start:review": "sh -ac '[[ -e ./.env.local ]] && . ./.env.local; . ./.env.review; [[ ! -z $API_HOST ]] && run-p -l watch:css start:js || echo \"API_HOST is not defined, review the README for review serve directions.\"'",
     "start": "run-p -l watch:css start:js api:dev",
@@ -107,7 +114,8 @@
     "jest-cli": "^23.6.0",
     "moxios": "^0.4.0",
     "prettier": "^1.14.2",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "standard-version": "^4.4.0"
   },
   "resolutions": {
     "**/jest": "23.6.0"
