@@ -125,6 +125,14 @@ To run the unit tests with a watch during development you'll need to open an add
   ```
   $ yarn test:dev
   ```
+  
+### Integration Testing
+Our testing team handles integration testing. To help with integration tests occasionally we add the attribute `data-test`, for example:
+  ```
+  <someElement data-test="some value">
+  ```
+
+If you come across these attributes the HTML can be modified, but the attributes and values should be retained.
 
 #### Updating snapshots
 To update snapshots from the terminal run 

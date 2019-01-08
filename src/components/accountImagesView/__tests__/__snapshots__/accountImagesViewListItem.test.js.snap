@@ -70,7 +70,9 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
                 aria-hidden="true"
                 class="fa fa-clock-o"
               />
-              <strong>
+              <strong
+                data-test="rhel"
+              >
                 25
               </strong>
             </span>
@@ -94,7 +96,9 @@ exports[`AccountImagesViewListItem Component should render a component 1`] = `
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhocp"
+            >
               N/A
             </strong>
             <span>
@@ -206,7 +210,9 @@ exports[`AccountImagesViewListItem Component should wrap long names with a on ho
                 aria-hidden="true"
                 class="fa fa-clock-o"
               />
-              <strong>
+              <strong
+                data-test="rhel"
+              >
                 25
               </strong>
             </span>
@@ -230,7 +236,9 @@ exports[`AccountImagesViewListItem Component should wrap long names with a on ho
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhocp"
+            >
               N/A
             </strong>
             <span>

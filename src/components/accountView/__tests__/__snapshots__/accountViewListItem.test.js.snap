@@ -73,7 +73,9 @@ exports[`AccountViewListItem Component should render a component: basic 1`] = `
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhel"
+            >
               3
             </strong>
           </span>
@@ -98,7 +100,9 @@ exports[`AccountViewListItem Component should render a component: basic 1`] = `
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhocp"
+            >
               3
             </strong>
           </span>
@@ -194,7 +198,9 @@ exports[`AccountViewListItem Component should render challenged images: challeng
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhel"
+            >
               0
             </strong>
           </span>
@@ -223,7 +229,9 @@ exports[`AccountViewListItem Component should render challenged images: challeng
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhocp"
+            >
               0
             </strong>
           </span>
@@ -327,7 +335,9 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhel"
+            >
               3
             </strong>
           </span>
@@ -352,7 +362,9 @@ exports[`AccountViewListItem Component should wrap long names with a on hover ti
               aria-hidden="true"
               class="fa fa-clock-o"
             />
-            <strong>
+            <strong
+              data-test="rhocp"
+            >
               3
             </strong>
           </span>

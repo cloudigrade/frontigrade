@@ -172,13 +172,13 @@ class AccountViewListItem extends React.Component {
         {rhelSecondsHours !== null && (
           <Tooltip tooltip={`${rhelSecondsHours.seconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{rhelSecondsHours.hours}</strong>
+            <strong data-test="rhel">{rhelSecondsHours.hours}</strong>
           </Tooltip>
         )}
         {rhelSecondsHours === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>N/A</strong>
+            <strong data-test="rhel">N/A</strong>
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhelPopover} trigger="click">
@@ -192,13 +192,13 @@ class AccountViewListItem extends React.Component {
         {rhocpSecondsHours !== null && (
           <Tooltip tooltip={`${rhocpSecondsHours.seconds} seconds`} placement="bottom">
             <Icon type="fa" name="clock-o" />
-            <strong>{rhocpSecondsHours.hours}</strong>
+            <strong data-test="rhocp">{rhocpSecondsHours.hours}</strong>
           </Tooltip>
         )}
         {rhocpSecondsHours === null && (
           <React.Fragment>
             <Icon type="fa" name="clock-o" />
-            <strong>N/A</strong>
+            <strong data-test="rhocp">N/A</strong>
           </React.Fragment>
         )}
         <Tooltip delayShow={100} popover={rhocpPopover} trigger="click">
