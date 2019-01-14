@@ -17,7 +17,7 @@ describe('AccountServices', () => {
   });
 
   it('should export a specific number of methods and classes', () => {
-    expect(Object.keys(accountServices)).toHaveLength(10);
+    expect(Object.keys(accountServices)).toHaveLength(11);
   });
 
   it('should have specific methods', () => {

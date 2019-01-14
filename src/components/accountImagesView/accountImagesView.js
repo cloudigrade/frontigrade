@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Alert, Button, Breadcrumb, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
-import { withRouter } from 'react-router-dom';
 import _isEqual from 'lodash/isEqual';
-import { connect, reduxActions, reduxTypes, store } from '../../redux';
+import { connectRouter, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import apiTypes from '../../constants/apiConstants';
 import accountImagesViewTypes from './accountImagesViewConstants';
@@ -299,26 +298,24 @@ const mapDispatchToProps = dispatch => ({
   getAccountImages: (id, query) => dispatch(reduxActions.account.getAccountImages(id, query))
 });
 
-const mapStateToProps = state => ({
-  ...state.accountImages.view,
-  account: { ...state.account.account },
-  filter: {
-    ...state.filter.accountImages,
-    ...state.filter.accountGlobal,
-    ...{
-      query: {
-        ...state.filter.accountImages.query,
-        ...state.filter.accountGlobal.query
+const makeMapStateToProps = () => {
+  const getImagesView = reduxSelectors.accountImages.makeImagesView();
+
+  return (state, props) => ({
+    ...getImagesView(state, props),
+    filter: {
+      ...state.filter.accountImages,
+      ...state.filter.accountGlobal,
+      ...{
+        query: {
+          ...state.filter.accountImages.query,
+          ...state.filter.accountGlobal.query
+        }
       }
     }
-  }
-});
+  });
+};
 
-const ConnectedAccountImagesView = withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(AccountImagesView)
-);
+const ConnectedAccountImagesView = connectRouter(makeMapStateToProps, mapDispatchToProps)(AccountImagesView);
 
 export { ConnectedAccountImagesView as default, ConnectedAccountImagesView, AccountImagesView };

@@ -1,31 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AccountImagesViewListItemDetail Component should render a connected component with default props: connected 1`] = `
-<AccountImagesViewListItemDetail
-  item={
+<Translate(AccountImagesViewListItemDetail)
+  getAccountImage={[Function]}
+  id={2}
+  image={
     Object {
-      "cloud_image_id": "ami-rhel7",
+      "created_at": "2018-07-3",
+      "ec2_ami_id": "ami-plain",
       "id": 2,
-      "instances_seen": 2,
+      "inspection_json": null,
+      "is_cloud_access": true,
       "is_encrypted": false,
-      "name": null,
+      "is_marketplace": false,
+      "name": "my favorite image",
       "openshift": false,
-      "openshift_challenged": true,
+      "openshift_challenged": false,
       "openshift_detected": false,
+      "owner_aws_account_id": "000000000000",
+      "platform": "none",
+      "resourcetype": "AwsMachineImage",
       "rhel": true,
-      "rhel_challenged": false,
+      "rhel_challenged": true,
       "rhel_detected": true,
-      "runtime_seconds": 86400.5,
-      "status": "inspected",
+      "rhel_enabled_repos_found": true,
+      "rhel_product_certs_found": true,
+      "rhel_release_files_found": true,
+      "rhel_signed_packages_found": true,
+      "status": "pending",
+      "updated_at": "2018-07-3",
+      "url": "http://cloudigrade.127.0.0.1.nip.io/api/v1/image/2/",
     }
   }
-  updateAccountImageField={[Function]}
+  updateAccountImageFieldRhel={[Function]}
+  updateAccountImageFieldRhocp={[Function]}
 />
 `;
 
 exports[`AccountImagesViewListItemDetail Component should render a non-connected component: non-connected 1`] = `
 <div
-  class="container-fluid"
+  class="fadein container-fluid"
 >
   <div
     class="row"
@@ -33,36 +47,33 @@ exports[`AccountImagesViewListItemDetail Component should render a non-connected
     <div
       class="col-xs-6"
     >
-      <strong>
-        Red Hat Enterprise Linux was detected
-      </strong>
-      <form
-        class=""
+      <h5>
+        <strong>
+          Red Hat Enterprise Linux is detected
+        </strong>
+      </h5>
+      <ul
+        class="cloudmeter-list"
       >
-        <div
-          class="form-group"
-        >
-          <div
-            class="checkbox"
-          >
-            <label
-              title=""
-            >
-              <input
-                type="checkbox"
-              />
-              Flag for review 
-            </label>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div
-      class="col-xs-6"
-    >
-      <strong>
-        Red Hat OpenShift Container Platform was not detected
-      </strong>
+        <li>
+          t('list-images.rhel.rhel-detail-enabled-repos')
+        </li>
+        <li>
+          t('list-images.rhel.rhel-detail-product-certs')
+        </li>
+        <li>
+          t('list-images.rhel.rhel-detail-release-files')
+        </li>
+        <li>
+          t('list-images.rhel.rhel-detail-signed-packages')
+        </li>
+        <li>
+          t('list-images.rhel.rhel-detail-cloud-access')
+        </li>
+      </ul>
+      <p>
+        t('list-images.rhel.rhel-not-running')
+      </p>
       <form
         class=""
       >
@@ -84,6 +95,38 @@ exports[`AccountImagesViewListItemDetail Component should render a non-connected
                 aria-hidden="true"
                 class="fa fa-flag cloudmeter-pficon-error"
               />
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      class="col-xs-6"
+    >
+      <h5>
+        <strong>
+          Red Hat OpenShift Container Platform is not detected
+        </strong>
+      </h5>
+      <p>
+        t('list-images.rhocp.rhocp-running')
+      </p>
+      <form
+        class=""
+      >
+        <div
+          class="form-group"
+        >
+          <div
+            class="checkbox"
+          >
+            <label
+              title=""
+            >
+              <input
+                type="checkbox"
+              />
+              Flag for review 
             </label>
           </div>
         </div>

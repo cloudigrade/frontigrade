@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import AccountViewListItem from '../accountViewListItem';
+import { AccountViewListItem } from '../accountViewListItem';
 
 describe('AccountViewListItem Component', () => {
-  it('should render a component', () => {
+  it('should render a non-connected component', () => {
     const props = {
       className: 'test',
       item: {

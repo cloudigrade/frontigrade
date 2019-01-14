@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountImageEditReducers should handle all defined error types: rejected types GET_ACCOUNT_IMAGE 1`] = `
+Object {
+  "result": Object {},
+  "type": "GET_ACCOUNT_IMAGE_REJECTED",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined error types: rejected types UPDATE_ACCOUNT_IMAGE_FIELD_RHEL 1`] = `
+Object {
+  "result": Object {},
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_RHEL_REJECTED",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined error types: rejected types UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP 1`] = `
+Object {
+  "result": Object {},
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP_REJECTED",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined fulfilled types: fulfilled types GET_ACCOUNT_IMAGE 1`] = `
+Object {
+  "result": Object {},
+  "type": "GET_ACCOUNT_IMAGE_FULFILLED",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined fulfilled types: fulfilled types UPDATE_ACCOUNT_IMAGE_FIELD_RHEL 1`] = `
+Object {
+  "result": Object {},
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_RHEL_FULFILLED",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined fulfilled types: fulfilled types UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP 1`] = `
+Object {
+  "result": Object {},
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP_FULFILLED",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined pending types: pending types GET_ACCOUNT_IMAGE 1`] = `
+Object {
+  "result": Object {},
+  "type": "GET_ACCOUNT_IMAGE_PENDING",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined pending types: pending types UPDATE_ACCOUNT_IMAGE_FIELD_RHEL 1`] = `
+Object {
+  "result": Object {},
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_RHEL_PENDING",
+}
+`;
+
+exports[`AccountImageEditReducers should handle all defined pending types: pending types UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP 1`] = `
+Object {
+  "result": Object {},
+  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP_PENDING",
+}
+`;

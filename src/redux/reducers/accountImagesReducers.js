@@ -3,19 +3,65 @@ import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 
 const initialState = {
+  account: {
+    data: {},
+    error: false,
+    errorStatus: null,
+    errorMessage: null,
+    pending: false,
+    fulfilled: false
+  },
   view: {
     images: [],
     error: false,
     errorStatus: null,
     errorMessage: null,
     pending: false,
-    fulfilled: false,
-    updateImages: false
+    fulfilled: false
   }
 };
 
 const accountImagesReducers = (state = initialState, action) => {
   switch (action.type) {
+    case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNT):
+      return helpers.setStateProp(
+        'account',
+        {
+          error: action.error,
+          errorMessage: helpers.getMessageFromResults(action.payload),
+          errorStatus: helpers.getStatusFromResults(action.payload)
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.PENDING_ACTION(accountTypes.GET_ACCOUNT):
+      return helpers.setStateProp(
+        'account',
+        {
+          pending: true
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
+    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT):
+      return helpers.setStateProp(
+        'account',
+        {
+          data: action.payload.data || {},
+          fulfilled: true
+        },
+        {
+          state,
+          initialState
+        }
+      );
+
     case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNT_IMAGES):
       return helpers.setStateProp(
         'view',
@@ -52,28 +98,6 @@ const accountImagesReducers = (state = initialState, action) => {
         {
           state,
           initialState
-        }
-      );
-
-    case helpers.FULFILLED_ACTION(accountTypes.UPDATE_ACCOUNT_IMAGE):
-    case helpers.FULFILLED_ACTION(accountTypes.UPDATE_ACCOUNT_IMAGE_FIELD):
-      const updatedImage = action.payload.data || {};
-      const existingImageIndex = state.view.images.findIndex(image => updatedImage.id === image.id);
-      const updatedImages = [...state.view.images];
-
-      if (existingImageIndex > -1) {
-        updatedImages[existingImageIndex] = Object.assign({ ...updatedImages[existingImageIndex] }, updatedImage);
-      }
-
-      return helpers.setStateProp(
-        'view',
-        {
-          images: updatedImages,
-          updateImages: true
-        },
-        {
-          state,
-          reset: false
         }
       );
 

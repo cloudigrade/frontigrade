@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import aboutModalReducers from './aboutModalReducers';
-import accountReducers from './accountReducers';
-import accountImagesReducers from './accountImagesReducers';
 import accountEditReducers from './accountEditReducers';
 import accountGraphReducers from './accountGraphReducers';
+import accountImageEditReducers from './accountImageEditReducers';
+import accountImagesReducers from './accountImagesReducers';
+import accountReducers from './accountReducers';
 import accountWizardReducers from './accountWizardReducers';
 import confirmationModalReducers from './confirmationModalReducers';
 import filterReducers from './filterReducers';
@@ -14,9 +15,10 @@ import userReducers from './userReducers';
 const reducers = {
   aboutModal: aboutModalReducers,
   account: accountReducers,
-  accountImages: accountImagesReducers,
   accountEdit: accountEditReducers,
   accountGraph: accountGraphReducers,
+  accountImageEdit: accountImageEditReducers,
+  accountImages: accountImagesReducers,
   accountWizard: accountWizardReducers,
   confirmationModal: confirmationModalReducers,
   filter: filterReducers,
@@ -32,9 +34,10 @@ export {
   reduxReducers,
   aboutModalReducers,
   accountReducers,
-  accountImagesReducers,
   accountEditReducers,
   accountGraphReducers,
+  accountImageEditReducers,
+  accountImagesReducers,
   accountWizardReducers,
   confirmationModalReducers,
   filterReducers,

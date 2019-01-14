@@ -7,6 +7,7 @@ import {
   accountEditReducers,
   accountGraphReducers,
   accountImagesReducers,
+  accountImageEditReducers,
   accountWizardReducers
 } from '../../reducers';
 import apiTypes from '../../../constants/apiConstants';
@@ -20,6 +21,7 @@ describe('UserActions', () => {
         accountEdit: accountEditReducers,
         accountGraph: accountGraphReducers,
         accountImages: accountImagesReducers,
+        accountImageEdit: accountImageEditReducers,
         accountWizard: accountWizardReducers
       }),
       applyMiddleware(...middleware)
@@ -75,9 +77,21 @@ describe('UserActions', () => {
     const dispatcher = accountActions.getAccount();
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().account.view;
+      const response = store.getState().accountImages.account;
 
-      expect(response.accounts.length).toEqual(0);
+      expect(response.fulfilled).toEqual(true);
+      done();
+    });
+  });
+
+  it('Should return response content for getAccountImage method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.getAccountImage('testId');
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountImageEdit;
+
+      expect(response.testId).toBeDefined();
       done();
     });
   });
@@ -150,14 +164,26 @@ describe('UserActions', () => {
     expect(accountActions.updateAccountImage()).toBeDefined();
   });
 
-  it('Should return response content for updateAccountImageField method', done => {
+  it('Should return response content for updateAccountImageFieldRhel method', done => {
     const store = generateStore();
-    const dispatcher = accountActions.updateAccountImageField();
+    const dispatcher = accountActions.updateAccountImageFieldRhel('testId');
 
     dispatcher(store.dispatch).then(() => {
-      const response = store.getState().accountImages.view;
+      const response = store.getState().accountImageEdit;
 
-      expect(response.updateImages).toEqual(true);
+      expect(response.testId).toBeDefined();
+      done();
+    });
+  });
+
+  it('Should return response content for updateAccountImageFieldRhocp method', done => {
+    const store = generateStore();
+    const dispatcher = accountActions.updateAccountImageFieldRhocp('testId');
+
+    dispatcher(store.dispatch).then(() => {
+      const response = store.getState().accountImageEdit;
+
+      expect(response.testId).toBeDefined();
       done();
     });
   });

@@ -19,6 +19,19 @@ const getAccount = id => dispatch =>
     payload: accountServices.getAccount(id)
   });
 
+const getAccounts = query => dispatch =>
+  dispatch({
+    type: accountTypes.GET_ACCOUNTS,
+    payload: accountServices.getAccounts(query)
+  });
+
+const getAccountImage = id => dispatch =>
+  dispatch({
+    type: accountTypes.GET_ACCOUNT_IMAGE,
+    payload: accountServices.getAccountImage(id),
+    meta: { id }
+  });
+
 const getAccountImages = (id, query) => dispatch =>
   dispatch({
     type: accountTypes.GET_ACCOUNT_IMAGES,
@@ -29,12 +42,6 @@ const getAccountInstances = (id, query) => dispatch =>
   dispatch({
     type: id ? accountTypes.GET_ACCOUNT_IMAGES_INSTANCES : accountTypes.GET_ACCOUNT_INSTANCES,
     payload: accountServices.getAccountInstances(id, query)
-  });
-
-const getAccounts = query => dispatch =>
-  dispatch({
-    type: accountTypes.GET_ACCOUNTS,
-    payload: accountServices.getAccounts(query)
   });
 
 const updateAccount = (id, data) => dispatch =>
@@ -52,24 +59,35 @@ const updateAccountField = (id, data) => dispatch =>
 const updateAccountImage = (id, data) => dispatch =>
   dispatch({
     type: accountTypes.UPDATE_ACCOUNT_IMAGE,
-    payload: accountServices.updateAccountImage(id, data)
+    payload: accountServices.updateAccountImage(id, data),
+    meta: { id, data }
   });
 
-const updateAccountImageField = (id, data) => dispatch =>
+const updateAccountImageFieldRhel = (id, data) => dispatch =>
   dispatch({
-    type: accountTypes.UPDATE_ACCOUNT_IMAGE_FIELD,
-    payload: accountServices.updateAccountImageField(id, data)
+    type: accountTypes.UPDATE_ACCOUNT_IMAGE_FIELD_RHEL,
+    payload: accountServices.updateAccountImageField(id, data),
+    meta: { id, data }
+  });
+
+const updateAccountImageFieldRhocp = (id, data) => dispatch =>
+  dispatch({
+    type: accountTypes.UPDATE_ACCOUNT_IMAGE_FIELD_RHOCP,
+    payload: accountServices.updateAccountImageField(id, data),
+    meta: { id, data }
   });
 
 export {
   addAccount,
   deleteAccount,
   getAccount,
+  getAccounts,
+  getAccountImage,
   getAccountImages,
   getAccountInstances,
-  getAccounts,
   updateAccount,
   updateAccountField,
   updateAccountImage,
-  updateAccountImageField
+  updateAccountImageFieldRhel,
+  updateAccountImageFieldRhocp
 };

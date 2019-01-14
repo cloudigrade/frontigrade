@@ -147,7 +147,7 @@ const getStatusFromResults = results => {
 
 const noop = Function.prototype;
 
-const noopTranslate = (key, value) => value;
+const noopTranslate = (key, value) => value || `t('${key}')`;
 
 const setStateProp = (prop, data, options) => {
   const { state = {}, initialState = {}, reset = true } = options;

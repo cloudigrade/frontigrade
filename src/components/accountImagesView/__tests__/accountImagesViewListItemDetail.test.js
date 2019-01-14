@@ -10,23 +10,41 @@ describe('AccountImagesViewListItemDetail Component', () => {
   const generateEmptyStore = (obj = {}) => configureMockStore()(obj);
 
   it('should render a connected component with default props', () => {
-    const store = generateEmptyStore({});
-    const props = {
-      item: {
-        cloud_image_id: 'ami-rhel7',
-        id: 2,
-        instances_seen: 2,
-        is_encrypted: false,
-        name: null,
-        openshift: false,
-        openshift_challenged: true,
-        openshift_detected: false,
-        rhel: true,
-        rhel_challenged: false,
-        rhel_detected: true,
-        runtime_seconds: 86400.5,
-        status: 'inspected'
+    const store = generateEmptyStore({
+      accountImageEdit: {
+        2: {
+          image: {
+            created_at: '2018-07-3',
+            ec2_ami_id: 'ami-plain',
+            id: 2,
+            inspection_json: null,
+            is_cloud_access: true,
+            is_encrypted: false,
+            is_marketplace: false,
+            name: 'my favorite image',
+            openshift: false,
+            openshift_challenged: false,
+            openshift_detected: false,
+            owner_aws_account_id: '000000000000',
+            platform: 'none',
+            resourcetype: 'AwsMachineImage',
+            rhel: true,
+            rhel_challenged: true,
+            rhel_detected: true,
+            rhel_enabled_repos_found: true,
+            rhel_product_certs_found: true,
+            rhel_release_files_found: true,
+            rhel_signed_packages_found: true,
+            status: 'pending',
+            updated_at: '2018-07-3',
+            url: 'http://cloudigrade.127.0.0.1.nip.io/api/v1/image/2/'
+          }
+        }
       }
+    });
+
+    const props = {
+      id: 2
     };
     const component = shallow(<ConnectedAccountImagesViewListItemDetail {...props} />, { context: { store } });
 
@@ -35,20 +53,32 @@ describe('AccountImagesViewListItemDetail Component', () => {
 
   it('should render a non-connected component', () => {
     const props = {
-      item: {
-        cloud_image_id: 'ami-rhel7',
+      id: 2,
+      image: {
+        created_at: '2018-07-3',
+        ec2_ami_id: 'ami-plain',
         id: 2,
-        instances_seen: 2,
+        inspection_json: null,
+        is_cloud_access: true,
         is_encrypted: false,
-        name: null,
+        is_marketplace: false,
+        name: 'my favorite image',
         openshift: false,
-        openshift_challenged: true,
+        openshift_challenged: false,
         openshift_detected: false,
+        owner_aws_account_id: '000000000000',
+        platform: 'none',
+        resourcetype: 'AwsMachineImage',
         rhel: true,
-        rhel_challenged: false,
+        rhel_challenged: true,
         rhel_detected: true,
-        runtime_seconds: 86400.5,
-        status: 'inspected'
+        rhel_enabled_repos_found: true,
+        rhel_product_certs_found: true,
+        rhel_release_files_found: true,
+        rhel_signed_packages_found: true,
+        status: 'pending',
+        updated_at: '2018-07-3',
+        url: 'http://cloudigrade.127.0.0.1.nip.io/api/v1/image/2/'
       }
     };
 

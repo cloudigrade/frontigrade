@@ -33,7 +33,10 @@
       "!src/setupTests.js",
       "!src/redux/index.js",
       "!src/redux/store.js",
-      "!src/redux/middleware/**"
+      "!src/redux/middleware/**",
+      "!src/redux/actions/index.js",
+      "!src/redux/reducers/index.js",
+      "!src/redux/selectors/index.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -95,6 +98,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "prop-types": "^15.6.2"
   },
   "devDependencies": {
@@ -118,7 +122,7 @@
     "prettier": "^1.14.2",
     "redux-mock-store": "^1.5.3",
     "standard-version": "^4.4.0",
-    "wordigrade": "https://gitlab.com/cloudigrade/wordigrade.git"
+    "wordigrade": "https://gitlab.com/cloudigrade/wordigrade.git#master"
   },
   "resolutions": {
     "**/jest": "23.6.0"

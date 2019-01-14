@@ -1,8 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 1`] = `
+exports[`AccountImagesReducers should handle all defined error types: rejected types GET_ACCOUNT 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": true,
+      "errorMessage": "ERROR",
+      "errorStatus": 0,
+      "fulfilled": false,
+      "pending": false,
+    },
+    "view": Object {
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "images": Array [],
+      "pending": false,
+    },
+  },
+  "type": "GET_ACCOUNT_REJECTED",
+}
+`;
+
+exports[`AccountImagesReducers should handle all defined error types: rejected types GET_ACCOUNT_IMAGES 1`] = `
+Object {
+  "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
     "view": Object {
       "error": true,
       "errorMessage": "ERROR",
@@ -10,16 +42,23 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": false,
-      "updateImages": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_REJECTED",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 2`] = `
+exports[`AccountImagesReducers should handle all defined error types: rejected types UPDATE_ACCOUNT_IMAGE 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -27,16 +66,27 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": false,
-      "updateImages": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_REJECTED",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined error types: rejected types 3`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types GET_ACCOUNT 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {
+        "images": Array [
+          "success",
+        ],
+      },
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": true,
+      "pending": false,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -44,16 +94,23 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": false,
-      "updateImages": false,
     },
   },
-  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_REJECTED",
+  "type": "GET_ACCOUNT_FULFILLED",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 1`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types GET_ACCOUNT_IMAGES 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -63,16 +120,23 @@ Object {
         "success",
       ],
       "pending": false,
-      "updateImages": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_FULFILLED",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 2`] = `
+exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types UPDATE_ACCOUNT_IMAGE 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -80,16 +144,23 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": false,
-      "updateImages": true,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_FULFILLED",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined fulfilled types: fulfilled types 3`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types GET_ACCOUNT 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": true,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -97,16 +168,23 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": false,
-      "updateImages": true,
     },
   },
-  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_FULFILLED",
+  "type": "GET_ACCOUNT_PENDING",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 1`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types GET_ACCOUNT_IMAGES 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -114,16 +192,23 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": true,
-      "updateImages": false,
     },
   },
   "type": "GET_ACCOUNT_IMAGES_PENDING",
 }
 `;
 
-exports[`AccountImagesReducers should handle all defined pending types: pending types 2`] = `
+exports[`AccountImagesReducers should handle all defined pending types: pending types UPDATE_ACCOUNT_IMAGE 1`] = `
 Object {
   "result": Object {
+    "account": Object {
+      "data": Object {},
+      "error": false,
+      "errorMessage": null,
+      "errorStatus": null,
+      "fulfilled": false,
+      "pending": false,
+    },
     "view": Object {
       "error": false,
       "errorMessage": null,
@@ -131,26 +216,8 @@ Object {
       "fulfilled": false,
       "images": Array [],
       "pending": false,
-      "updateImages": false,
     },
   },
   "type": "UPDATE_ACCOUNT_IMAGE_PENDING",
-}
-`;
-
-exports[`AccountImagesReducers should handle all defined pending types: pending types 3`] = `
-Object {
-  "result": Object {
-    "view": Object {
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "images": Array [],
-      "pending": false,
-      "updateImages": false,
-    },
-  },
-  "type": "UPDATE_ACCOUNT_IMAGE_FIELD_PENDING",
 }
 `;

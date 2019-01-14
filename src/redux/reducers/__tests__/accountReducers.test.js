@@ -23,7 +23,7 @@ describe('AccountReducers', () => {
   });
 
   it('should handle all defined error types', () => {
-    const specificTypes = [types.GET_ACCOUNT, types.GET_ACCOUNTS];
+    const specificTypes = [types.GET_ACCOUNTS];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -48,7 +48,7 @@ describe('AccountReducers', () => {
   });
 
   it('should handle all defined pending types', () => {
-    const specificTypes = [types.GET_ACCOUNT, types.GET_ACCOUNTS];
+    const specificTypes = [types.GET_ACCOUNTS];
 
     specificTypes.forEach(value => {
       const dispatched = {
@@ -62,7 +62,7 @@ describe('AccountReducers', () => {
   });
 
   it('should handle all defined fulfilled types', () => {
-    const specificTypes = [types.GET_ACCOUNT, types.GET_ACCOUNTS];
+    const specificTypes = [types.GET_ACCOUNTS];
 
     specificTypes.forEach(value => {
       const dispatched = {

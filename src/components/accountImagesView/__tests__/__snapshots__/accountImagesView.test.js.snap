@@ -283,7 +283,7 @@ exports[`AccountImagesView Component should render a non-connected component in 
             <ListView
               className="cloudmeter-list-view"
             >
-              <AccountImagesViewListItem
+              <Connect(Translate(AccountImagesViewListItem))
                 filter={
                   Object {
                     "dateFields": null,
@@ -310,7 +310,6 @@ exports[`AccountImagesView Component should render a non-connected component in 
                   }
                 }
                 key="2"
-                t={[Function]}
               />
             </ListView>
           </Card>

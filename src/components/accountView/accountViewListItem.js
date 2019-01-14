@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { DropdownKebab, Icon, ListView, Label as PFLabel, MenuItem } from 'patternfly-react';
+import { connectTranslate } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import Tooltip from '../tooltip/tooltip';
@@ -94,18 +95,18 @@ class AccountViewListItem extends React.Component {
     const { item } = this.props;
 
     const timestamp = item[apiTypes.API_RESPONSE_ACCOUNTS_DATE];
-    let title =
+    const title =
       item[apiTypes.API_RESPONSE_ACCOUNTS_NAME] ||
       item[apiTypes[apiTypes.API_RESPONSE_ACCOUNTS_ACCOUNT_ID]] ||
       `Account ${item[apiTypes.API_RESPONSE_ACCOUNTS_ID] || ''}`;
 
-    if (title && title.length > 25) {
-      title = <span title={title}>{title}</span>;
-    }
+    const titleOverflow = title && title.length > 25 ? { title } : {};
 
     return (
       <span className="cloudmeter-list-view-item-heading">
-        <strong className="cloudmeter-list-view-item-heading-title">{title}</strong>
+        <strong className="cloudmeter-list-view-item-heading-title">
+          <span {...titleOverflow}>{title}</span>
+        </strong>
         <br />
         Created {moment(timestamp).format('h:mmA, MMMM Do YYYY')}
       </span>
@@ -135,25 +136,10 @@ class AccountViewListItem extends React.Component {
     const rhocpSecondsHours =
       item[apiTypes.API_RESPONSE_ACCOUNTS_OPENSHIFT_INSTANCES] === null ? null : this.rhocpFilteredSecondsHours();
 
-    const imagesPopover = t(
-      'list-accounts.images.images-tooltip',
-      'Total number of machine images that are in use by active instances for the selected date range.'
-    );
-
-    const instancesPopover = t(
-      'list-accounts.instances.instances-tooltip',
-      'Total number of active instances for the selected date range.'
-    );
-
-    const rhelPopover = t(
-      'list-accounts.rhel.rhel-tooltip',
-      'Hours of Red Hat Enterprise Linux usage for the selected date range.'
-    );
-
-    const rhocpPopover = t(
-      'list-accounts.rhocp.rhocp-tooltip',
-      'Hours of Red Hat OpenShift Container Platform usage for the selected date range.'
-    );
+    const imagesPopover = t('list-accounts.images.images-tooltip');
+    const instancesPopover = t('list-accounts.instances.instances-tooltip');
+    const rhelPopover = t('list-accounts.rhel.rhel-tooltip');
+    const rhocpPopover = t('list-accounts.rhocp.rhocp-tooltip');
 
     return [
       <ListView.InfoItem key="1" className="cloudmeter-listview-infoitem">
@@ -255,4 +241,6 @@ AccountViewListItem.defaultProps = {
   t: helpers.noopTranslate
 };
 
-export { AccountViewListItem as default, AccountViewListItem };
+const ConnectedAccountViewListItem = connectTranslate()(AccountViewListItem);
+
+export { ConnectedAccountViewListItem as default, ConnectedAccountViewListItem, AccountViewListItem };

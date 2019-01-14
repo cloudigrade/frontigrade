@@ -23,6 +23,7 @@ import apiTypes from '../constants/apiConstants';
  * @apiSuccess {Date} updated_at
  * @apiSuccess {String} url
  * @apiSuccess {Number} user_id
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -111,6 +112,7 @@ const deleteAccount = id =>
  * @apiSuccess {Date} updated_at
  * @apiSuccess {String} url
  * @apiSuccess {Number} user_id
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -151,6 +153,7 @@ const getAccount = id =>
  *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {Array} cloud_account_overviews
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -227,6 +230,87 @@ const getAccounts = (query = {}) =>
   );
 
 /**
+ * @apiMock {DelayResponse} 2000
+ * @api {get} /api/v1/image/:id/ Get image
+ * @apiDescription Get a specific image, and its corresponding details.
+ *
+ * @apiParam {Number} id Image identifier
+ *
+ * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
+ * @apiSuccess {Date} created_at
+ * @apiSuccess {String} ec2_ami_id
+ * @apiSuccess {Number} id
+ * @apiSuccess {Unknown} inspection_json
+ * @apiSuccess {Boolean} is_cloud_access
+ * @apiSuccess {Boolean} is_encrypted
+ * @apiSuccess {Boolean} is_marketplace
+ * @apiSuccess {String} name
+ * @apiSuccess {Boolean} openshift
+ * @apiSuccess {Boolean} openshift_challenged
+ * @apiSuccess {Boolean} openshift_detected
+ * @apiSuccess {String} owner_aws_account_id
+ * @apiSuccess {String} platform
+ * @apiSuccess {String} resourcetype
+ * @apiSuccess {Boolean} rhel
+ * @apiSuccess {Boolean} rhel_challenged
+ * @apiSuccess {Boolean} rhel_detected
+ * @apiSuccess {Boolean} rhel_enabled_repos_found
+ * @apiSuccess {Boolean} rhel_product_certs_found
+ * @apiSuccess {Boolean} rhel_release_files_found
+ * @apiSuccess {Boolean} rhel_signed_packages_found
+ * @apiSuccess {Enum} status
+ * - pending
+ * - preparing
+ * - inspecting
+ * - inspected
+ * - error
+ * @apiSuccess {Date} updated_at
+ * @apiSuccess {String} url
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "created_at": "2018-07-30T15:41:16.310031Z",
+ *       "ec2_ami_id": "ami-plain",
+ *       "id": 2,
+ *       "inspection_json": null,
+ *       "is_cloud_access": true,
+ *       "is_encrypted": false,
+ *       "is_marketplace": false,
+ *       "name": "my favorite image",
+ *       "openshift": false,
+ *       "openshift_challenged": false,
+ *       "openshift_detected": false,
+ *       "owner_aws_account_id": "273470430754",
+ *       "platform": "none",
+ *       "resourcetype": "AwsMachineImage",
+ *       "rhel": true,
+ *       "rhel_challenged": true,
+ *       "rhel_detected": true,
+ *       "rhel_enabled_repos_found": true,
+ *       "rhel_product_certs_found": true,
+ *       "rhel_release_files_found": true,
+ *       "rhel_signed_packages_found": true,
+ *       "status": "pending",
+ *       "updated_at": "2018-07-30T15:31:02.026393Z",
+ *       "url": "http://cloudigrade.127.0.0.1.nip.io/api/v1/image/2/"
+ *     }
+ *
+ * @apiError {String} detail
+ * @apiErrorExample {json} Error-Response:
+ *     HTTP/1.1 401 Unauthorized
+ *     {
+ *       "detail": "Authentication credentials were not provided."
+ *     }
+ */
+const getAccountImage = id =>
+  axios(
+    serviceConfig({
+      url: `${process.env.REACT_APP_ACCOUNTS_SERVICE_IMAGE}${id}/`
+    })
+  );
+
+/**
  * @api {get} /api/v1/report/images/ Get images
  * @apiDescription Get images for an account (or account detail).
  *
@@ -241,6 +325,7 @@ const getAccounts = (query = {}) =>
  *
  * @apiHeader {String} Authorization Authorization: Token AUTH_TOKEN
  * @apiSuccess {Array} images
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -251,9 +336,9 @@ const getAccounts = (query = {}) =>
  *           "instances_seen": 2,
  *           "is_encrypted": false,
  *           "name": null,
- *           "openshift": false,
+ *           "openshift": true,
  *           "openshift_challenged": false,
- *           "openshift_detected": false,
+ *           "openshift_detected": true,
  *           "rhel": true,
  *           "rhel_challenged": false,
  *           "rhel_detected": true,
@@ -337,6 +422,7 @@ const getAccountImages = (id, query = {}) =>
  * @apiSuccess {Array} daily_usage
  * @apiSuccess {Number} instances_seen_with_openshift
  * @apiSuccess {Number} instances_seen_with_rhel
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -454,6 +540,7 @@ const getAccountInstances = (id = null, query = {}) =>
  * @apiSuccess {Date} updated_at
  * @apiSuccess {String} url
  * @apiSuccess {Number} user_id
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -503,6 +590,7 @@ const updateAccount = (id, data = {}) =>
  * @apiSuccess {Date} updated_at
  * @apiSuccess {String} url
  * @apiSuccess {Number} user_id
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -550,15 +638,23 @@ const updateAccountField = (id, data = {}) =>
  * @apiSuccess {String} ec2_ami_id
  * @apiSuccess {Number} id
  * @apiSuccess {Unknown} inspection_json
+ * @apiSuccess {Boolean} is_cloud_access
  * @apiSuccess {Boolean} is_encrypted
+ * @apiSuccess {Boolean} is_marketplace
+ * @apiSuccess {String} name
  * @apiSuccess {Boolean} openshift
  * @apiSuccess {Boolean} openshift_challenged
  * @apiSuccess {Boolean} openshift_detected
  * @apiSuccess {String} owner_aws_account_id
+ * @apiSuccess {String} platform
  * @apiSuccess {String} resourcetype
  * @apiSuccess {Boolean} rhel
  * @apiSuccess {Boolean} rhel_challenged
  * @apiSuccess {Boolean} rhel_detected
+ * @apiSuccess {Boolean} rhel_enabled_repos_found
+ * @apiSuccess {Boolean} rhel_product_certs_found
+ * @apiSuccess {Boolean} rhel_release_files_found
+ * @apiSuccess {Boolean} rhel_signed_packages_found
  * @apiSuccess {Enum} status
  * - pending
  * - preparing
@@ -566,6 +662,8 @@ const updateAccountField = (id, data = {}) =>
  * - inspected
  * - error
  * @apiSuccess {Date} updated_at
+ * @apiSuccess {String} url
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -573,17 +671,26 @@ const updateAccountField = (id, data = {}) =>
  *       "ec2_ami_id": "ami-plain",
  *       "id": 2,
  *       "inspection_json": null,
+ *       "is_cloud_access": false,
  *       "is_encrypted": false,
+ *       "is_marketplace": false,
+ *       "name": null,
  *       "openshift": false,
  *       "openshift_challenged": true,
  *       "openshift_detected": false,
  *       "owner_aws_account_id": "273470430754",
+ *       "platform": "none",
  *       "resourcetype": "AwsMachineImage",
  *       "rhel": true,
  *       "rhel_challenged": true,
  *       "rhel_detected": false,
+ *       "rhel_enabled_repos_found": false,
+ *       "rhel_product_certs_found": false,
+ *       "rhel_release_files_found": false,
+ *       "rhel_signed_packages_found": false,
  *       "status": "pending",
- *       "updated_at": "2018-07-30T15:31:02.026393Z"
+ *       "updated_at": "2018-07-30T15:31:02.026393Z",
+ *       "url": "http://cloudigrade.127.0.0.1.nip.io/api/v1/image/2/"
  *     }
  *
  * @apiError {String} detail
@@ -621,15 +728,23 @@ const updateAccountImage = (id, data = {}) =>
  * @apiSuccess {String} ec2_ami_id
  * @apiSuccess {Number} id
  * @apiSuccess {Unknown} inspection_json
+ * @apiSuccess {Boolean} is_cloud_access
  * @apiSuccess {Boolean} is_encrypted
+ * @apiSuccess {Boolean} is_marketplace
+ * @apiSuccess {String} name
  * @apiSuccess {Boolean} openshift
  * @apiSuccess {Boolean} openshift_challenged
  * @apiSuccess {Boolean} openshift_detected
  * @apiSuccess {String} owner_aws_account_id
+ * @apiSuccess {String} platform
  * @apiSuccess {String} resourcetype
  * @apiSuccess {Boolean} rhel
  * @apiSuccess {Boolean} rhel_challenged
  * @apiSuccess {Boolean} rhel_detected
+ * @apiSuccess {Boolean} rhel_enabled_repos_found
+ * @apiSuccess {Boolean} rhel_product_certs_found
+ * @apiSuccess {Boolean} rhel_release_files_found
+ * @apiSuccess {Boolean} rhel_signed_packages_found
  * @apiSuccess {Enum} status
  * - pending
  * - preparing
@@ -637,6 +752,8 @@ const updateAccountImage = (id, data = {}) =>
  * - inspected
  * - error
  * @apiSuccess {Date} updated_at
+ * @apiSuccess {String} url
+ *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
@@ -644,17 +761,26 @@ const updateAccountImage = (id, data = {}) =>
  *       "ec2_ami_id": "ami-plain",
  *       "id": 2,
  *       "inspection_json": null,
+ *       "is_cloud_access": false,
  *       "is_encrypted": false,
+ *       "is_marketplace": false,
+ *       "name": null,
  *       "openshift": false,
  *       "openshift_challenged": true,
  *       "openshift_detected": false,
  *       "owner_aws_account_id": "273470430754",
+ *       "platform": "none",
  *       "resourcetype": "AwsMachineImage",
- *       "rhel": true,
+ *       "rhel": false,
  *       "rhel_challenged": true,
  *       "rhel_detected": false,
+ *       "rhel_enabled_repos_found": true,
+ *       "rhel_product_certs_found": true,
+ *       "rhel_release_files_found": true,
+ *       "rhel_signed_packages_found": true,
  *       "status": "pending",
- *       "updated_at": "2018-07-30T15:31:02.026393Z"
+ *       "updated_at": "2018-07-30T15:31:02.026393Z",
+ *       "url": "http://cloudigrade.127.0.0.1.nip.io/api/v1/image/2/"
  *     }
  *
  * @apiError {String} detail
@@ -678,6 +804,7 @@ export {
   deleteAccount,
   getAccount,
   getAccounts,
+  getAccountImage,
   getAccountImages,
   getAccountInstances,
   updateAccount,

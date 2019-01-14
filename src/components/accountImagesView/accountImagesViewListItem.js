@@ -2,17 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Icon, ListView, Label as PFLabel } from 'patternfly-react';
+import { connectTranslate } from '../../redux';
 import apiTypes from '../../constants/apiConstants';
 import helpers from '../../common/helpers';
 import AccountImagesViewListItemDetail from './accountImagesViewListItemDetail';
 import Tooltip from '../tooltip/tooltip';
 
-/**
- * ToDo: Future, evaluate merging "rhelFilteredSecondsHours" and "rhocpFilteredSecondsHours"
- * While we work through the display logic, we're aligning the accountViewListItem and accountImagesViewListItem
- * components. This means being a little verbose and avoiding the merge around rhelFilteredSecondsHours and
- * rhocpFilteredSecondsHours methods.
- */
 class AccountImagesViewListItem extends React.Component {
   static renderLeftContent() {
     return <ListView.Icon name="unknown" />;
@@ -62,18 +57,18 @@ class AccountImagesViewListItem extends React.Component {
     const { item } = this.props;
 
     const timestamp = item[apiTypes.API_RESPONSE_IMAGES_EDIT_UPDATED];
-    let title =
+    const title =
       item[apiTypes.API_RESPONSE_IMAGES_NAME] ||
       item[apiTypes.API_RESPONSE_IMAGES_IMAGE_ID] ||
       `Image #${item[apiTypes.API_RESPONSE_IMAGES_ID] || ''}`;
 
-    if (title && title.length > 25) {
-      title = <span title={title}>{title}</span>;
-    }
+    const titleOverflow = title && title.length > 25 ? { title } : {};
 
     return (
       <span className="cloudmeter-list-view-item-heading">
-        <strong className="cloudmeter-list-view-item-heading-title">{title}</strong>
+        <strong className="cloudmeter-list-view-item-heading-title">
+          <span {...titleOverflow}>{title}</span>
+        </strong>
         {timestamp && (
           <React.Fragment>
             <br />
@@ -105,20 +100,9 @@ class AccountImagesViewListItem extends React.Component {
     let instances = Number.parseInt(item[apiTypes.API_RESPONSE_IMAGES_INSTANCES], 10);
     instances = Number.isNaN(instances) ? 'N/A' : instances;
 
-    const instancesPopover = t(
-      'list-images.instances.instances-tooltip',
-      'Total number of active instances for the selected date range.'
-    );
-
-    const rhelPopover = t(
-      'list-images.rhel.rhel-tooltip',
-      'Hours of Red Hat Enterprise Linux usage for the selected date range.'
-    );
-
-    const rhocpPopover = t(
-      'list-images.rhocp.rhocp-tooltip',
-      'Hours of Red Hat OpenShift Container Platform usage for the selected date range.'
-    );
+    const instancesPopover = t('list-images.instances.instances-tooltip');
+    const rhelPopover = t('list-images.rhel.rhel-tooltip');
+    const rhocpPopover = t('list-images.rhocp.rhocp-tooltip');
 
     return [
       <ListView.InfoItem key="1" className="cloudmeter-listview-infoitem">
@@ -172,18 +156,20 @@ class AccountImagesViewListItem extends React.Component {
 
   render() {
     const { item } = this.props;
+    const itemId = item[apiTypes.API_RESPONSE_IMAGES_ID];
 
     return (
       <ListView.Item
         className="cloudmeter-accountview-list-view-item"
-        key={item[apiTypes.API_RESPONSE_IMAGES_ID]}
+        key={itemId}
         leftContent={AccountImagesViewListItem.renderLeftContent()}
         heading={this.renderHeading()}
         description={AccountImagesViewListItem.renderDescription()}
         additionalInfo={this.renderAdditionalInfo()}
         stacked={false}
+        aria-live="polite"
       >
-        <AccountImagesViewListItemDetail item={item} />
+        <AccountImagesViewListItemDetail id={itemId} />
       </ListView.Item>
     );
   }
@@ -206,4 +192,6 @@ AccountImagesViewListItem.defaultProps = {
   t: helpers.noopTranslate
 };
 
-export { AccountImagesViewListItem as default, AccountImagesViewListItem };
+const ConnectedAccountImagesViewListItem = connectTranslate()(AccountImagesViewListItem);
+
+export { ConnectedAccountImagesViewListItem as default, ConnectedAccountImagesViewListItem, AccountImagesViewListItem };

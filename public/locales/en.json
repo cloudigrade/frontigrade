@@ -25,7 +25,8 @@
       "rhel-detail-product-certs": "A RHEL product certificate is detected in /etc/pki/product",
       "rhel-detail-release-files": "System release information is found in one or more /etc/*-release files",
       "rhel-detail-signed-packages": "Installed packages from RHEL repositories are signed by the Red Hat GPG key",
-      "rhel-detail-marketplace": "This image contains Red Hat products that are billed through AWS Marketplace"
+      "rhel-detail-marketplace": "This image contains Red Hat products that are billed through AWS Marketplace",
+      "rhel-detail-cloud-access": "Cloud Access enabled subscriptions are found"
     },
     "rhocp": {
       "rhocp-tooltip": "Hours of Red Hat OpenShift Container Platform usage for the selected date range.",

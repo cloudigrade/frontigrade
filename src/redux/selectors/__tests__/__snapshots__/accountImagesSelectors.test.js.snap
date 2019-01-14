@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountImagesSelectors Should filter the state with imageDetail: imageDetail 1`] = `
+Object {
+  "test": "success",
+}
+`;
+
+exports[`AccountImagesSelectors Should filter the state with imagesView: imagesView 1`] = `
+Object {
+  "account": undefined,
+  "images": Array [
+    Object {
+      "id": 2,
+    },
+  ],
+}
+`;
+
+exports[`AccountImagesSelectors Should filter the state with imagesView: imagesViewUpdated 1`] = `
+Object {
+  "account": undefined,
+  "images": Array [
+    Object {
+      "id": 2,
+      "test": "success",
+    },
+  ],
+}
+`;
+
+exports[`AccountImagesSelectors Should return specific selectors: selectors 1`] = `
+Object {
+  "imageDetail": [Function],
+  "imagesView": [Function],
+  "makeImageDetail": [Function],
+  "makeImagesView": [Function],
+}
+`;

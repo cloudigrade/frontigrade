@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import AccountImagesViewListItem from '../accountImagesViewListItem';
+import { AccountImagesViewListItem } from '../accountImagesViewListItem';
 
 describe('AccountImagesViewListItem Component', () => {
-  it('should render a component', () => {
+  it('should render a non-connected component', () => {
     const props = {
       item: {
         cloud_image_id: 'ami-rhel7',

@@ -9,14 +9,6 @@ import helpers from '../../common/helpers';
  * rejected, pending, or fulfilled.
  */
 const initialState = {
-  account: {
-    data: {},
-    error: false,
-    errorStatus: null,
-    errorMessage: null,
-    pending: false,
-    fulfilled: false
-  },
   view: {
     accounts: [],
     error: false,
@@ -30,45 +22,6 @@ const initialState = {
 
 const accountReducers = (state = initialState, action) => {
   switch (action.type) {
-    case helpers.REJECTED_ACTION(accountTypes.GET_ACCOUNT):
-      return helpers.setStateProp(
-        'account',
-        {
-          error: action.error,
-          errorMessage: helpers.getMessageFromResults(action.payload),
-          errorStatus: helpers.getStatusFromResults(action.payload)
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case helpers.PENDING_ACTION(accountTypes.GET_ACCOUNT):
-      return helpers.setStateProp(
-        'account',
-        {
-          pending: true
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
-    case helpers.FULFILLED_ACTION(accountTypes.GET_ACCOUNT):
-      return helpers.setStateProp(
-        'account',
-        {
-          data: action.payload.data || {},
-          fulfilled: true
-        },
-        {
-          state,
-          initialState
-        }
-      );
-
     case accountTypes.UPDATE_ACCOUNTS:
       return helpers.setStateProp(
         'view',

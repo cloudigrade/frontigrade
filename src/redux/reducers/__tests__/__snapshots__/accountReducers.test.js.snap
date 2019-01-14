@@ -3,39 +3,6 @@
 exports[`AccountReducers should handle all defined error types: rejected types 1`] = `
 Object {
   "result": Object {
-    "account": Object {
-      "data": Object {},
-      "error": true,
-      "errorMessage": "ERROR",
-      "errorStatus": 0,
-      "fulfilled": false,
-      "pending": false,
-    },
-    "view": Object {
-      "accounts": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-      "updateAccounts": false,
-    },
-  },
-  "type": "GET_ACCOUNT_REJECTED",
-}
-`;
-
-exports[`AccountReducers should handle all defined error types: rejected types 2`] = `
-Object {
-  "result": Object {
-    "account": Object {
-      "data": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-    },
     "view": Object {
       "accounts": Array [],
       "error": true,
@@ -53,43 +20,6 @@ Object {
 exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 1`] = `
 Object {
   "result": Object {
-    "account": Object {
-      "data": Object {
-        "cloud_account_overviews": Array [
-          "success",
-        ],
-      },
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": true,
-      "pending": false,
-    },
-    "view": Object {
-      "accounts": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-      "updateAccounts": false,
-    },
-  },
-  "type": "GET_ACCOUNT_FULFILLED",
-}
-`;
-
-exports[`AccountReducers should handle all defined fulfilled types: fulfilled types 2`] = `
-Object {
-  "result": Object {
-    "account": Object {
-      "data": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-    },
     "view": Object {
       "accounts": Array [
         "success",
@@ -109,39 +39,6 @@ Object {
 exports[`AccountReducers should handle all defined pending types: pending types 1`] = `
 Object {
   "result": Object {
-    "account": Object {
-      "data": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": true,
-    },
-    "view": Object {
-      "accounts": Array [],
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-      "updateAccounts": false,
-    },
-  },
-  "type": "GET_ACCOUNT_PENDING",
-}
-`;
-
-exports[`AccountReducers should handle all defined pending types: pending types 2`] = `
-Object {
-  "result": Object {
-    "account": Object {
-      "data": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-    },
     "view": Object {
       "accounts": Array [],
       "error": false,
@@ -159,14 +56,6 @@ Object {
 exports[`AccountReducers should handle specific defined types: defined type UPDATE_ACCOUNTS 1`] = `
 Object {
   "result": Object {
-    "account": Object {
-      "data": Object {},
-      "error": false,
-      "errorMessage": null,
-      "errorStatus": null,
-      "fulfilled": false,
-      "pending": false,
-    },
     "view": Object {
       "accounts": Array [],
       "error": false,

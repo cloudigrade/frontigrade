@@ -13,6 +13,10 @@
   @keyframes fadein { 0%{opacity:0} 100%{opacity:1} }
 }
 
+.cloudmeter-list {
+  padding-left: 20px;
+}
+
 .cloudmeter-pficon-error,
 .pficon.pficon-disconnected.is-error::before {
   color: $color-pf-red-100;
