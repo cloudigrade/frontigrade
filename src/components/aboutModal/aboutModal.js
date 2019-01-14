@@ -97,8 +97,8 @@ class AboutModal extends React.Component {
               <PfAboutModal.VersionItem label="Browser Version" versionText={`${browser.name} ${browser.version}`} />
             )}
             {browser && <PfAboutModal.VersionItem label="Browser OS" versionText={browser.os || ''} />}
-            {uiVersion && <PfAboutModal.VersionItem label="UI Version" className="hidden" versionText={uiVersion} />}
             {apiVersion && <PfAboutModal.VersionItem label="API Version" versionText={apiVersion} />}
+            {uiVersion && <PfAboutModal.VersionItem label="UI Version" versionText={uiVersion} />}
           </PfAboutModal.Versions>
         </div>
         <div className="cloudmeter-about-modal-copy-footer">

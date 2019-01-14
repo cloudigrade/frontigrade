@@ -154,6 +154,9 @@ If you're having trouble getting an accurate code coverage report, or it's faili
   $ yarn test:clearCache
   ```
 
+### Contributing
+Contributing to Frontigrade encompasses repository specific requirements and the global [Cloudigrade contribution guidelines](https://gitlab.com/cloudigrade/cloudigrade/blob/master/CONTRIBUTING.rst). 
+
 ### Running with the Cloudigrade API toolset locally
 
 Frontigrade is the web user interface for [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade), held together with [Shiftigrade](https://gitlab.com/cloudigrade/shiftigrade). Please refer to [Shiftigrade](https://gitlab.com/cloudigrade/shiftigrade) for up to date instructions on how to run [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade). These instructions are a prerequisite for setting up your developer environment.

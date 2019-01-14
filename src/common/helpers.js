@@ -194,6 +194,9 @@ const prettyPrintJson = json => JSON.stringify(json, null, 2);
 
 const RH_BRAND = process.env.REACT_APP_RH_BRAND === 'true';
 
+/**
+ * UI_VERSION is a generated aspect of the current build. See contribution guidelines.
+ */
 const UI_VERSION = process.env.REACT_APP_UI_VERSION;
 
 const DEV_MODE = process.env.REACT_APP_ENV === 'development';

@@ -29,9 +29,9 @@ exports[`AboutModal Component should contain brand: brand 1`] = `
         versionText=""
       />
       <AboutModalVersionItem
-        className="hidden"
+        className=""
         label="UI Version"
-        versionText="0.0.0"
+        versionText="XXX-frontigrade-version - 0000000000000000000000000000000000000000"
       />
     </AboutModalVersions>
   </div>
@@ -70,7 +70,7 @@ exports[`AboutModal Component should render a connected component with default p
     }
   }
   show={true}
-  uiVersion="0.0.0"
+  uiVersion="XXX-frontigrade-version - 0000000000000000000000000000000000000000"
 />
 `;
 
@@ -87,7 +87,7 @@ exports[`AboutModal Component should render a non-connected component: hidden mo
     }
   }
   show={false}
-  uiVersion="0.0.0"
+  uiVersion="XXX-frontigrade-version - 0000000000000000000000000000000000000000"
   user={
     Object {
       "session": Object {
@@ -183,7 +183,7 @@ exports[`AboutModal Component should render a non-connected component: show moda
     }
   }
   show={false}
-  uiVersion="0.0.0"
+  uiVersion="XXX-frontigrade-version - 0000000000000000000000000000000000000000"
   user={
     Object {
       "session": Object {

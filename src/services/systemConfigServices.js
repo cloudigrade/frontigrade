@@ -38,7 +38,7 @@ import serviceConfig from './config';
  *           ]
  *         }
  *       },
- *       "version": "XXX-cloudigrade-version - d2b30c637ce3788e22990b21434bac2edcfb7ede"
+ *       "version": "XXX-cloudigrade-version - 0000000000000000000000000000000000000000"
  *     }
  * @apiError {String} detail
  * @apiErrorExample {json} Error-Response:
