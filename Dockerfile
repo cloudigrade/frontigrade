@@ -13,13 +13,13 @@ WORKDIR /opt/frontigrade
 ADD . /opt/frontigrade
 ADD deployment/nginx.conf /etc/nginx/nginx.conf
 
-RUN yarn --production --non-interactive \
-    && yarn build
-
 ARG CI
 ARG CI_COMMIT_REF_NAME
 ARG CI_COMMIT_SHA
-RUN if [ "$CI" ]; then echo ${CI_COMMIT_REF_NAME} - ${CI_COMMIT_SHA} > ./build/version; else echo 'local build' > ./build/version; fi;
+RUN if [ "$CI" ]; then echo UI_VERSION=${CI_COMMIT_REF_NAME} - ${CI_COMMIT_SHA} > ./.env.production.local; else echo UI_VERSION='local build' > ./.env.production.local; fi;
+
+RUN yarn --production --non-interactive \
+    && yarn build
 
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
