@@ -54,7 +54,7 @@ Push Frontigrade Image:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
     - docker pull ${IMAGE_NAME}:latest || true
-    - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME_COMMIT} --tag ${IMAGE_NAME}:latest .
+    - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME_COMMIT} --tag ${IMAGE_NAME}:latest --build-arg CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} --build-arg CI_COMMIT_SHA=${CI_COMMIT_SHA} --build-arg CI=${CI} .
     - docker push ${IMAGE_NAME_COMMIT}
     - docker push ${IMAGE_NAME}:latest
 
@@ -72,7 +72,7 @@ Push Frontigrade Tagged Image:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
   script:
     - docker pull ${IMAGE_NAME}:latest || true
-    - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME}:${CI_COMMIT_TAG} .
+    - docker build --cache-from ${IMAGE_NAME}:latest --tag ${IMAGE_NAME}:${CI_COMMIT_TAG} --build-arg CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} --build-arg CI_COMMIT_SHA=${CI_COMMIT_SHA} --build-arg CI=${CI} .
     - docker push ${IMAGE_NAME}:${CI_COMMIT_TAG}
 
 ### REVIEW STAGE ###
@@ -95,7 +95,7 @@ Deploy Review:
     - export FRONTIGRADE_ROUTE_HOST=review-${CI_COMMIT_REF_SLUG}.5a9f.insights-dev.openshiftapps.com
     - export DEPLOYMENT_PREFIX=$(echo review-${CI_COMMIT_REF_SLUG} | cut -c 1-36)
     - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
-    - oc start-build -F f-${DEPLOYMENT_PREFIX}
+    - oc start-build --build-arg CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} --build-arg CI_COMMIT_SHA=${CI_COMMIT_SHA} --build-arg CI=${CI} -F f-${DEPLOYMENT_PREFIX}
     - if ! oc rollout status dc/f-${DEPLOYMENT_PREFIX}; then oc rollout latest dc/f-${DEPLOYMENT_PREFIX} && oc rollout status dc/f-${DEPLOYMENT_PREFIX}; fi;
   environment:
     name: review/${CI_COMMIT_REF_NAME}
@@ -147,7 +147,7 @@ Clean Up Review:
         exit 1
       fi
     - kontemplate template ocp/review.yaml -i frontigrade | oc apply -f -
-    - oc start-build -F f-${DEPLOYMENT_PREFIX}
+    - oc start-build --build-arg CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME} --build-arg CI_COMMIT_SHA=${CI_COMMIT_SHA} --build-arg CI=${CI} -F f-${DEPLOYMENT_PREFIX}
     - if ! oc rollout status dc/f-${CI_COMMIT_REF_SLUG}; then oc rollout latest dc/f-${CI_COMMIT_REF_SLUG} && oc rollout status dc/f-${CI_COMMIT_REF_SLUG}; fi;
     - echo -e "section_start:$( date +%s ):chat_reply\r\033[0K\nDeployed [frontigrade] ${CHAT_INPUT}, available at https://${CI_COMMIT_REF_SLUG}.5a9f.insights-dev.openshiftapps.com/ If both cloudigrade and frontigrade are deployed you can login with username 'admin@example.com' and the current Red Hat Guest WiFi password as the password.\nsection_end:$( date +%s ):chat_reply\r\033[0K"
 
