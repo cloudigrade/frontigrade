@@ -16,5 +16,10 @@ ADD deployment/nginx.conf /etc/nginx/nginx.conf
 RUN yarn --production --non-interactive \
     && yarn build
 
+ARG CI
+ARG CI_COMMIT_REF_NAME
+ARG CI_COMMIT_SHA
+RUN if [ "$CI" ]; then echo ${CI_COMMIT_REF_NAME} - ${CI_COMMIT_SHA} > ./build/version; else echo 'local build' > ./build/version; fi;
+
 EXPOSE 8080
 CMD ["nginx", "-g", "daemon off;"]
