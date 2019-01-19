@@ -7,7 +7,7 @@ Web user interface for [Cloudigrade](https://gitlab.com/cloudigrade/cloudigrade)
 
 ## Requirements
 Before developing for Frontigrade, the basic requirements:
- * Your system needs to be running [NodeJS version 8+](https://nodejs.org/)
+ * Your system needs to be running [NodeJS version 10+](https://nodejs.org/)
  * [Docker](https://docs.docker.com/engine/installation/)
  * And [Yarn 1.12+](https://yarnpkg.com) for dependency and script management.
 
@@ -89,7 +89,7 @@ You can take advantage of the review serve setup by running your local copy of F
 If you've run the development command `$ yarn start` you can spoof and force a specific http status for an endpoint.
 
 To force a specific http status you'll need to add an annotation to the ApiDoc service file annotations located here:
-- `src/services/*.js` 
+- `[repo]/src/services/*.js` 
 
 Add a line similar to `* @apiMock {ForceStatus} 503` where `503` is the status you want to emulate. A "hot" reload means you can manipulate the status in real time. Example:
   ```js

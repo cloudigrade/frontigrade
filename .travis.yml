@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - "8"
+  - "10"
 cache: yarn
 
 jobs:
@@ -9,7 +9,7 @@ jobs:
     - stage: test
       env:
         - NAME=yarn
-      node_js: "8"
+      node_js: "10"
       before_script: yarn global add codecov
       script: yarn test
       after_success: codecov

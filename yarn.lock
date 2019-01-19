@@ -5645,6 +5645,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+iso-639-1@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/iso-639-1/-/iso-639-1-2.0.3.tgz#72dd3448ac5629c271628c5ac566369428d6ccd0"
+  integrity sha512-PZhOTDH05ZLJyCqxAH65EzGaLO801KCvoEahAFoiqlp2HmnGUm8sO19KwWPCiWd3odjmoYd9ytzk2WtVYgWyCg==
+
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
@@ -10824,6 +10829,10 @@ window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
   integrity sha1-VDjNLqk7IC76Ohn+iIeu58lPnJ0=
+
+"wordigrade@https://gitlab.com/cloudigrade/wordigrade.git":
+  version "0.0.0"
+  resolved "https://gitlab.com/cloudigrade/wordigrade.git#b06d2df2af078231e18e52cdfe849c5b35273a0d"
 
 wordwrap@0.0.2:
   version "0.0.2"

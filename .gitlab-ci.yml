@@ -17,7 +17,7 @@ variables:
 ### TEST STAGE ###
 Yarn:
   stage: test
-  image: node:8
+  image: node:10
   except:
     - chat
     - trigger

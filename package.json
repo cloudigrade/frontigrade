@@ -13,7 +13,7 @@
     "url": "https://gitlab.com/cloudigrade/frontigrade/issues"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   },
   "jest": {
     "coverageThreshold": {
@@ -53,6 +53,7 @@
     "build:rh": "sh -ac 'export REACT_APP_RH_BRAND=true && run-s -l build:clean build:css build:js'",
     "build": "run-s -l build:clean build:css build:js",
     "locale:gettext": "node ./scripts/gettext.js",
+    "locale:wordigrade": "node ./scripts/wordigrade.js",
     "release": "standard-version",
     "start:js": "react-scripts start",
     "start:review": "sh -ac '[[ -e ./.env.local ]] && . ./.env.local; . ./.env.review; [[ ! -z $API_HOST ]] && run-p -l watch:css start:js || echo \"API_HOST is not defined, review the README for review serve directions.\"'",
@@ -110,12 +111,14 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.11.1",
     "gettext-extractor": "^3.3.2",
+    "iso-639-1": "^2.0.3",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "moxios": "^0.4.0",
     "prettier": "^1.14.2",
     "redux-mock-store": "^1.5.3",
-    "standard-version": "^4.4.0"
+    "standard-version": "^4.4.0",
+    "wordigrade": "https://gitlab.com/cloudigrade/wordigrade.git"
   },
   "resolutions": {
     "**/jest": "23.6.0"

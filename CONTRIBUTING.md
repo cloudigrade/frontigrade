@@ -42,3 +42,27 @@ Our testing team handles integration testing. To help with integration tests occ
   ```
 
 If you come across these attributes the testing team should be consulted before alteration. Typically the HTML can be modified, but the attributes and values will be retained.
+
+
+### Translation
+#### Compile locale strings
+Locales are pulled from [Wordigrade](https://gitlab.com/cloudigrade/wordigrade) through a manual run NPM script using:
+  ```
+    yarn locale:wordigrade
+  ```
+
+the compiled JSON can be found within
+  ```
+    [repo]/public/locales
+  ```
+
+### What copy aspects of Frontigrade are setup for translation?
+To determine the current strings within Frontigrade hooked into locale data
+  ```
+    yarn locale:gettext
+  ```
+
+the generated `POT` file can be found within the `.gitignore`'d directory
+  ```
+    [repo]/translations
+  ```

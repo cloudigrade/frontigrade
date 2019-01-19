@@ -1,1 +1,42 @@
-{}
+{
+  "list-accounts": {
+    "images": {
+      "images-tooltip": "Total number of machine images that are in use by active instances for the selected date range."
+    },
+    "instances": {
+      "instances-tooltip": "Total number of active instances for the selected date range."
+    },
+    "rhel": {
+      "rhel-tooltip": "Hours of Red Hat Enterprise Linux usage for the selected date range."
+    },
+    "rhocp": {
+      "rhocp-tooltip": "Hours of Red Hat OpenShift Container Platform usage for the selected date range."
+    }
+  },
+  "list-images": {
+    "instances": {
+      "instances-tooltip": "Total number of active instances for the selected date range."
+    },
+    "rhel": {
+      "rhel-tooltip": "Hours of Red Hat Enterprise Linux usage for the selected date range.",
+      "rhel-running": "If you believe RHEL is running on this image, you can flag the report for review.",
+      "rhel-not-running": "If you believe RHEL is not running on this image, you can flag the report for review.",
+      "rhel-detail-enabled-repos": "Active RHEL repositories are detected",
+      "rhel-detail-product-certs": "A RHEL product certificate is detected in /etc/pki/product",
+      "rhel-detail-release-files": "System release information is found in one or more /etc/*-release files",
+      "rhel-detail-signed-packages": "Installed packages from RHEL repositories are signed by the Red Hat GPG key",
+      "rhel-detail-marketplace": "This image contains Red Hat products that are billed through AWS Marketplace"
+    },
+    "rhocp": {
+      "rhocp-tooltip": "Hours of Red Hat OpenShift Container Platform usage for the selected date range.",
+      "rhocp-running": "If you believe RHOCP is running on this image, you can flag the report for review.",
+      "rhocp-not-running": "If you believe RHOCP is not running on this image, you can flag the report for review.",
+      "rhocp-detail-detected": "The cloudigrade-ocp-present custom tag is found on the AMI"
+    }
+  },
+  "toolbar": {
+    "export": {
+      "export-tooltip": "Export data from the current view to a JSON file."
+    }
+  }
+}
