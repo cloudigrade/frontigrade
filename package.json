@@ -1,6 +1,6 @@
 {
   "name": "frontigrade",
-  "version": "0.1.8",
+  "version": "0.1.11",
   "description": "Frontigrade, web user interface for Cloudigrade",
   "author": "Red Hat",
   "license": "GPL-3.0",
