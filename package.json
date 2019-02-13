@@ -74,6 +74,12 @@
     "test": "run-s test:lint-js test:ci"
   },
   "dependencies": {
+    "@patternfly/patternfly-next": "1.0.129",
+    "@patternfly/react-charts": "1.2.7",
+    "@patternfly/react-core": "1.51.6",
+    "@patternfly/react-icons": "2.9.7",
+    "@patternfly/react-styles": "2.3.0",
+    "@patternfly/react-tokens": "1.9.6",
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "detect-browser": "^4.1.0",

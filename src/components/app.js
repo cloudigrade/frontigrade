@@ -10,7 +10,7 @@ import AccountEditModal from './accountEditModals/accountEditModal';
 import Authentication from './authentication/authentication';
 import ConfirmationModal from './confirmationModal/confirmationModal';
 import I18n from './i18n/i18n';
-import Masthead from './masthead/masthead';
+import PageLayout from './pageLayout/pageLayout';
 import ToastNotificationsList from './toastNotificationsList/toastNotificationsList';
 
 class App extends React.Component {
@@ -26,18 +26,15 @@ class App extends React.Component {
     return (
       <I18n locale={(locale && locale.value) || null}>
         <Authentication>
-          <div className="layout-pf layout-pf-fixed">
-            <Masthead />
-            <div>
-              <ToastNotificationsList />
-              <AboutModal />
-              <AccountWizard />
-              <AccountDeleteModal />
-              <AccountEditModal />
-              <ConfirmationModal />
-              <Router />
-            </div>
-          </div>
+          <PageLayout>
+            <ToastNotificationsList />
+            <AboutModal />
+            <AccountWizard />
+            <AccountDeleteModal />
+            <AccountEditModal />
+            <ConfirmationModal />
+            <Router />
+          </PageLayout>
         </Authentication>
       </I18n>
     );

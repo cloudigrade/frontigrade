@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PatternflyConstants Should have specific bg images: background image strings 1`] = `
+Object {
+  "filter": "background-filter.svg#image_overlay",
+  "lg": "pfbg_1200.jpg",
+  "sm": "pfbg_768.jpg",
+  "sm2x": "pfbg_768@2x.jpg",
+  "undefined": "pfbg_2000.jpg",
+  "xs": "pfbg_576.jpg",
+  "xs2x": "pfbg_576@2x.jpg",
+}
+`;

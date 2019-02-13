@@ -8,6 +8,7 @@ import store from './redux/store';
 
 import 'patternfly/dist/css/rcue.css';
 import 'patternfly/dist/css/rcue-additions.css';
+import '@patternfly/react-core/dist/styles/base.css';
 import './styles/index.scss';
 
 ReactDOM.render(

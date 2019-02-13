@@ -1,0 +1,709 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLayout Component should render a basic component: basic 1`] = `
+<PageLayout
+  brand={false}
+  logoutUser={[Function]}
+  user={
+    Object {
+      "username": "Admin",
+    }
+  }
+>
+  <div>
+    test child
+  </div>
+</PageLayout>
+`;
+
+exports[`PageLayout Component should render mobile navigation: mobile collapsed 1`] = `
+<PageLayout
+  brand={false}
+  logoutUser={[Function]}
+  user={Object {}}
+>
+  <BackgroundImage
+    className=""
+    src={
+      Object {
+        "filter": "background-filter.svg#image_overlay",
+        "lg": "pfbg_1200.jpg",
+        "sm": "pfbg_768.jpg",
+        "sm2x": "pfbg_768@2x.jpg",
+        "undefined": "pfbg_2000.jpg",
+        "xs": "pfbg_576.jpg",
+        "xs2x": "pfbg_576@2x.jpg",
+      }
+    }
+  >
+    <div
+      className="pf-c-background-image css-1p97zyn"
+    />
+  </BackgroundImage>
+  <Page
+    className="layout-pf layout-pf-fixed"
+    header={
+      <PageHeader
+        =""
+        aria-label="Toggle global navigation"
+        avatar={null}
+        className="cloudmeter-nav"
+        isNavOpen={false}
+        logo={
+          <Brand
+            alt="Cloud Meter Logo"
+            className=""
+            src="title.svg"
+          />
+        }
+        logoProps={null}
+        onNavToggle={[Function]}
+        showNavToggle={true}
+        title="Cloud Meter"
+        toolbar={null}
+        topNav={null}
+      />
+    }
+    isManagedSidebar={false}
+    onPageResize={[Function]}
+    sidebar={
+      <PageSidebar
+        className=""
+        isNavOpen={false}
+        nav={
+          <Nav
+            aria-label="Mobile Navigation"
+            className=""
+            onSelect={[Function]}
+            onToggle={[Function]}
+          >
+            <NavList
+              className=""
+              variant="default"
+            >
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                About
+              </NavItem>
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                Logout
+              </NavItem>
+            </NavList>
+          </Nav>
+        }
+      />
+    }
+  >
+    <div
+      className="pf-c-page layout-pf layout-pf-fixed"
+    >
+      <PageHeader
+        =""
+        aria-label="Toggle global navigation"
+        avatar={null}
+        className="cloudmeter-nav"
+        isNavOpen={false}
+        logo={
+          <Brand
+            alt="Cloud Meter Logo"
+            className=""
+            src="title.svg"
+          />
+        }
+        logoProps={null}
+        onNavToggle={[Function]}
+        showNavToggle={true}
+        title="Cloud Meter"
+        toolbar={null}
+        topNav={null}
+      >
+        <header
+          =""
+          className="pf-c-page__header cloudmeter-nav"
+          role="banner"
+          title="Cloud Meter"
+        >
+          <div
+            className="pf-c-page__header-brand"
+          >
+            <div
+              className="pf-c-page__header-brand-toggle"
+            >
+              <Button
+                aria-controls="page-sidebar"
+                aria-expanded="false"
+                aria-label="Toggle global navigation"
+                className=""
+                component="button"
+                id="nav-toggle"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                onClick={[Function]}
+                type="button"
+                variant="plain"
+              >
+                <button
+                  aria-controls="page-sidebar"
+                  aria-disabled={null}
+                  aria-expanded="false"
+                  aria-label="Toggle global navigation"
+                  className="pf-c-button pf-m-plain"
+                  disabled={false}
+                  id="nav-toggle"
+                  onClick={[Function]}
+                  tabIndex={null}
+                  type="button"
+                >
+                  <BarsIcon
+                    color="currentColor"
+                    size="sm"
+                    title={null}
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-labelledby={null}
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style={
+                        Object {
+                          "verticalAlign": "-0.125em",
+                        }
+                      }
+                      viewBox="0 0 448 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+                        transform=""
+                      />
+                    </svg>
+                  </BarsIcon>
+                </button>
+              </Button>
+            </div>
+            <a
+              className="pf-c-page__header-brand-link"
+            >
+              <Brand
+                alt="Cloud Meter Logo"
+                className=""
+                src="title.svg"
+              >
+                <img
+                  alt="Cloud Meter Logo"
+                  className="pf-c-brand"
+                  src="title.svg"
+                />
+              </Brand>
+            </a>
+          </div>
+          <div
+            className="pf-c-page__header-tools"
+          />
+        </header>
+      </PageHeader>
+      <PageSidebar
+        className=""
+        isNavOpen={false}
+        nav={
+          <Nav
+            aria-label="Mobile Navigation"
+            className=""
+            onSelect={[Function]}
+            onToggle={[Function]}
+          >
+            <NavList
+              className=""
+              variant="default"
+            >
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                About
+              </NavItem>
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                Logout
+              </NavItem>
+            </NavList>
+          </Nav>
+        }
+      >
+        <div
+          className="pf-c-page__sidebar pf-m-collapsed"
+          id="page-sidebar"
+        >
+          <Nav
+            aria-label="Mobile Navigation"
+            className=""
+            onSelect={[Function]}
+            onToggle={[Function]}
+          >
+            <nav
+              aria-label="Mobile Navigation"
+              className="pf-c-nav"
+              onSelect={[Function]}
+              onToggle={[Function]}
+            >
+              <NavList
+                className=""
+                variant="default"
+              >
+                <ul
+                  className="pf-c-nav__list"
+                >
+                  <NavItem
+                    className=""
+                    groupId={null}
+                    isActive={false}
+                    isSeparated={false}
+                    itemId={null}
+                    onClick={[Function]}
+                    preventDefault={false}
+                    to=""
+                  >
+                    <li
+                      className="pf-c-nav__item"
+                    >
+                      <a
+                        aria-current={null}
+                        className="pf-c-nav__link"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        About
+                      </a>
+                    </li>
+                  </NavItem>
+                  <NavItem
+                    className=""
+                    groupId={null}
+                    isActive={false}
+                    isSeparated={false}
+                    itemId={null}
+                    onClick={[Function]}
+                    preventDefault={false}
+                    to=""
+                  >
+                    <li
+                      className="pf-c-nav__item"
+                    >
+                      <a
+                        aria-current={null}
+                        className="pf-c-nav__link"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </a>
+                    </li>
+                  </NavItem>
+                </ul>
+              </NavList>
+            </nav>
+          </Nav>
+        </div>
+      </PageSidebar>
+      <main
+        className="pf-c-page__main"
+        role="main"
+      >
+        <PageSection
+          className="cloudmeter-page-section"
+          variant="default"
+        >
+          <section
+            className="pf-c-page__main-section cloudmeter-page-section"
+          >
+            <div>
+              test child
+            </div>
+          </section>
+        </PageSection>
+      </main>
+    </div>
+  </Page>
+</PageLayout>
+`;
+
+exports[`PageLayout Component should render mobile navigation: mobile expanded 1`] = `
+<PageLayout
+  brand={false}
+  logoutUser={[Function]}
+  user={Object {}}
+>
+  <BackgroundImage
+    className=""
+    src={
+      Object {
+        "filter": "background-filter.svg#image_overlay",
+        "lg": "pfbg_1200.jpg",
+        "sm": "pfbg_768.jpg",
+        "sm2x": "pfbg_768@2x.jpg",
+        "undefined": "pfbg_2000.jpg",
+        "xs": "pfbg_576.jpg",
+        "xs2x": "pfbg_576@2x.jpg",
+      }
+    }
+  >
+    <div
+      className="pf-c-background-image css-1p97zyn"
+    />
+  </BackgroundImage>
+  <Page
+    className="layout-pf layout-pf-fixed"
+    header={
+      <PageHeader
+        =""
+        aria-label="Toggle global navigation"
+        avatar={null}
+        className="cloudmeter-nav"
+        isNavOpen={false}
+        logo={
+          <Brand
+            alt="Cloud Meter Logo"
+            className=""
+            src="title.svg"
+          />
+        }
+        logoProps={null}
+        onNavToggle={[Function]}
+        showNavToggle={true}
+        title="Cloud Meter"
+        toolbar={null}
+        topNav={null}
+      />
+    }
+    isManagedSidebar={false}
+    onPageResize={[Function]}
+    sidebar={
+      <PageSidebar
+        className=""
+        isNavOpen={false}
+        nav={
+          <Nav
+            aria-label="Mobile Navigation"
+            className=""
+            onSelect={[Function]}
+            onToggle={[Function]}
+          >
+            <NavList
+              className=""
+              variant="default"
+            >
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                About
+              </NavItem>
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                Logout
+              </NavItem>
+            </NavList>
+          </Nav>
+        }
+      />
+    }
+  >
+    <div
+      className="pf-c-page layout-pf layout-pf-fixed"
+    >
+      <PageHeader
+        =""
+        aria-label="Toggle global navigation"
+        avatar={null}
+        className="cloudmeter-nav"
+        isNavOpen={false}
+        logo={
+          <Brand
+            alt="Cloud Meter Logo"
+            className=""
+            src="title.svg"
+          />
+        }
+        logoProps={null}
+        onNavToggle={[Function]}
+        showNavToggle={true}
+        title="Cloud Meter"
+        toolbar={null}
+        topNav={null}
+      >
+        <header
+          =""
+          className="pf-c-page__header cloudmeter-nav"
+          role="banner"
+          title="Cloud Meter"
+        >
+          <div
+            className="pf-c-page__header-brand"
+          >
+            <div
+              className="pf-c-page__header-brand-toggle"
+            >
+              <Button
+                aria-controls="page-sidebar"
+                aria-expanded="false"
+                aria-label="Toggle global navigation"
+                className=""
+                component="button"
+                id="nav-toggle"
+                isActive={false}
+                isBlock={false}
+                isDisabled={false}
+                isFocus={false}
+                isHover={false}
+                onClick={[Function]}
+                type="button"
+                variant="plain"
+              >
+                <button
+                  aria-controls="page-sidebar"
+                  aria-disabled={null}
+                  aria-expanded="false"
+                  aria-label="Toggle global navigation"
+                  className="pf-c-button pf-m-plain"
+                  disabled={false}
+                  id="nav-toggle"
+                  onClick={[Function]}
+                  tabIndex={null}
+                  type="button"
+                >
+                  <BarsIcon
+                    color="currentColor"
+                    size="sm"
+                    title={null}
+                  >
+                    <svg
+                      aria-hidden={true}
+                      aria-labelledby={null}
+                      fill="currentColor"
+                      height="1em"
+                      role="img"
+                      style={
+                        Object {
+                          "verticalAlign": "-0.125em",
+                        }
+                      }
+                      viewBox="0 0 448 512"
+                      width="1em"
+                    >
+                      <path
+                        d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+                        transform=""
+                      />
+                    </svg>
+                  </BarsIcon>
+                </button>
+              </Button>
+            </div>
+            <a
+              className="pf-c-page__header-brand-link"
+            >
+              <Brand
+                alt="Cloud Meter Logo"
+                className=""
+                src="title.svg"
+              >
+                <img
+                  alt="Cloud Meter Logo"
+                  className="pf-c-brand"
+                  src="title.svg"
+                />
+              </Brand>
+            </a>
+          </div>
+          <div
+            className="pf-c-page__header-tools"
+          />
+        </header>
+      </PageHeader>
+      <PageSidebar
+        className=""
+        isNavOpen={false}
+        nav={
+          <Nav
+            aria-label="Mobile Navigation"
+            className=""
+            onSelect={[Function]}
+            onToggle={[Function]}
+          >
+            <NavList
+              className=""
+              variant="default"
+            >
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                About
+              </NavItem>
+              <NavItem
+                className=""
+                groupId={null}
+                isActive={false}
+                isSeparated={false}
+                itemId={null}
+                onClick={[Function]}
+                preventDefault={false}
+                to=""
+              >
+                Logout
+              </NavItem>
+            </NavList>
+          </Nav>
+        }
+      >
+        <div
+          className="pf-c-page__sidebar pf-m-collapsed"
+          id="page-sidebar"
+        >
+          <Nav
+            aria-label="Mobile Navigation"
+            className=""
+            onSelect={[Function]}
+            onToggle={[Function]}
+          >
+            <nav
+              aria-label="Mobile Navigation"
+              className="pf-c-nav"
+              onSelect={[Function]}
+              onToggle={[Function]}
+            >
+              <NavList
+                className=""
+                variant="default"
+              >
+                <ul
+                  className="pf-c-nav__list"
+                >
+                  <NavItem
+                    className=""
+                    groupId={null}
+                    isActive={false}
+                    isSeparated={false}
+                    itemId={null}
+                    onClick={[Function]}
+                    preventDefault={false}
+                    to=""
+                  >
+                    <li
+                      className="pf-c-nav__item"
+                    >
+                      <a
+                        aria-current={null}
+                        className="pf-c-nav__link"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        About
+                      </a>
+                    </li>
+                  </NavItem>
+                  <NavItem
+                    className=""
+                    groupId={null}
+                    isActive={false}
+                    isSeparated={false}
+                    itemId={null}
+                    onClick={[Function]}
+                    preventDefault={false}
+                    to=""
+                  >
+                    <li
+                      className="pf-c-nav__item"
+                    >
+                      <a
+                        aria-current={null}
+                        className="pf-c-nav__link"
+                        href=""
+                        onClick={[Function]}
+                      >
+                        Logout
+                      </a>
+                    </li>
+                  </NavItem>
+                </ul>
+              </NavList>
+            </nav>
+          </Nav>
+        </div>
+      </PageSidebar>
+      <main
+        className="pf-c-page__main"
+        role="main"
+      >
+        <PageSection
+          className="cloudmeter-page-section"
+          variant="default"
+        >
+          <section
+            className="pf-c-page__main-section cloudmeter-page-section"
+          >
+            <div>
+              test child
+            </div>
+          </section>
+        </PageSection>
+      </main>
+    </div>
+  </Page>
+</PageLayout>
+`;

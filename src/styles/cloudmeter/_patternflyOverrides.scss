@@ -1,0 +1,30 @@
+.cloudmeter {
+  height: 100%;
+
+  .cloudmeter-nav {
+    --pf-c-page__header--MinHeight: 58px;
+    .pf-c-dropdown .pf-c-dropdown__toggle {
+      --pf-c-dropdown__toggle-icon--MarginLeft: 10px;
+    }
+
+    .pf-c-dropdown .pf-c-dropdown__menu-item:hover {
+      color: $color-pf-black;
+    }
+  }
+
+  .blank-slate-pf {
+    background-color: inherit;
+  }
+}
+
+.pf-c-page__main .cloudmeter-page-section {
+  padding: 0;
+}
+
+.form-group.btn-group {
+  display: inline;
+}
+
+.cards-pf {
+  --pf-global--FontSize--md: 13px;
+}

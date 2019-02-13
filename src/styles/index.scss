@@ -3,8 +3,8 @@
  */
 
 // Variables
-$font-path:      '~patternfly/dist/fonts/';
-$img-path:       '~patternfly/dist/img/';
+$font-path: '~patternfly/dist/fonts/';
+$img-path: '~patternfly/dist/img/';
 $icon-font-path: '~patternfly/dist/fonts/';
 
 // Include patternfly variables before bootstrap variables
@@ -29,4 +29,4 @@ $icon-font-path: '~patternfly/dist/fonts/';
 @import 'cloudmeter/masthead';
 @import 'cloudmeter/viewContent';
 @import 'cloudmeter/wizard';
-
+@import 'cloudmeter/patternflyOverrides';
