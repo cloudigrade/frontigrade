@@ -1,11 +1,11 @@
 import moxios from 'moxios';
-import promiseMiddleware from 'redux-promise-middleware';
+import { createPromise } from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { systemConfigActions } from '..';
 import { systemConfigReducers } from '../../reducers';
 
 describe('UserActions', () => {
-  const middleware = [promiseMiddleware()];
+  const middleware = [createPromise()];
   const generateStore = () =>
     createStore(combineReducers({ systemConfig: systemConfigReducers }), applyMiddleware(...middleware));
 

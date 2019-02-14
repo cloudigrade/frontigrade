@@ -1,12 +1,12 @@
 import cookies from 'js-cookie';
 import moxios from 'moxios';
-import promiseMiddleware from 'redux-promise-middleware';
+import { createPromise } from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { userActions } from '..';
 import { userReducers } from '../../reducers';
 
 describe('UserActions', () => {
-  const middleware = [promiseMiddleware()];
+  const middleware = [createPromise()];
   const generateStore = () => createStore(combineReducers({ user: userReducers }), applyMiddleware(...middleware));
 
   beforeEach(() => {

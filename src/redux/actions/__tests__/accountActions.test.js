@@ -1,5 +1,5 @@
 import moxios from 'moxios';
-import promiseMiddleware from 'redux-promise-middleware';
+import { createPromise } from 'redux-promise-middleware';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { accountActions } from '..';
 import {
@@ -13,7 +13,7 @@ import {
 import apiTypes from '../../../constants/apiConstants';
 
 describe('UserActions', () => {
-  const middleware = [promiseMiddleware()];
+  const middleware = [createPromise()];
   const generateStore = () =>
     createStore(
       combineReducers({

@@ -1,5 +1,5 @@
 import { createLogger } from 'redux-logger';
-import promiseMiddleware from 'redux-promise-middleware';
+import { createPromise } from 'redux-promise-middleware';
 import thunkMiddleware from 'redux-thunk';
 import actionRecordMiddleware from './actionRecordMiddleware';
 import statusMiddleware from './statusMiddleware';
@@ -7,7 +7,7 @@ import statusMiddleware from './statusMiddleware';
 const reduxMiddleware = [
   thunkMiddleware,
   statusMiddleware(),
-  promiseMiddleware(),
+  createPromise(),
   actionRecordMiddleware({ id: `${process.env.REACT_APP_UI_LOGGER_ID}` })
 ];
 
@@ -15,11 +15,4 @@ if (process.env.NODE_ENV !== 'production' && process.env.REACT_APP_DEBUG_MIDDLEW
   reduxMiddleware.push(createLogger());
 }
 
-export {
-  reduxMiddleware as default,
-  reduxMiddleware,
-  createLogger,
-  promiseMiddleware,
-  statusMiddleware,
-  thunkMiddleware
-};
+export { reduxMiddleware as default, reduxMiddleware, createLogger, createPromise, statusMiddleware, thunkMiddleware };
