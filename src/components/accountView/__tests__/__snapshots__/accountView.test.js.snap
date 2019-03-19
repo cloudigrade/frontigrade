@@ -18,21 +18,23 @@ exports[`AccountView Component should render a non-connected component in pendin
 >
   <Grid
     bsClass="container"
+    className="cloudmeter-app-header"
     componentClass="div"
     fluid={true}
   >
     <Breadcrumb
+      aria-label="breadcrumb"
       className="cloudmeter-breadcrumb"
-      title={true}
     >
-      <BreadcrumbItem
-        active={true}
+      <BreadcrumbHeading
         aria-current="page"
+        className=""
+        component="a"
+        target={null}
+        to={null}
       >
-        <strong>
-          Accounts
-        </strong>
-      </BreadcrumbItem>
+        Accounts
+      </BreadcrumbHeading>
     </Breadcrumb>
   </Grid>
   <ViewToolbar

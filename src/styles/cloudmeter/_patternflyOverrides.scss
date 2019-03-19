@@ -12,6 +12,32 @@
     }
   }
 
+  .cloudmeter-breadcrumb {
+    --pf-c-breadcrumb__link--FontWeight: var(--pf-global--FontWeight--normal);
+    --pf-c-breadcrumb__item--FontWeight: var(--pf-global--FontWeight--normal);
+  }
+
+  .cloudmeter-app-header {
+    background: $color-pf-white;
+    padding: 0 var(--pf-c-page__main-section--PaddingRight) 0 var(--pf-c-page__main-section--PaddingLeft);
+  }
+
+  .container-fluid .toolbar-pf {
+    .col-sm-12 {
+      padding: 0;
+    }
+
+    .toolbar-pf-actions,
+    .toolbar-pf-results {
+      background: $color-pf-white;
+      padding: 0 var(--pf-c-page__main-section--PaddingRight) 0 var(--pf-c-page__main-section--PaddingLeft);
+
+      .col-sm-12 {
+        padding: 0 20px;
+      }
+    }
+  }
+
   .blank-slate-pf {
     background-color: inherit;
   }

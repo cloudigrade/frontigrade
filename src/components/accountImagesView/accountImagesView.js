@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Alert, Button, Breadcrumb, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Alert, Button, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Breadcrumb, BreadcrumbItem } from '@patternfly/react-core';
 import _isEqual from 'lodash/isEqual';
 import { connectRouter, reduxActions, reduxSelectors, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
@@ -196,18 +197,18 @@ class AccountImagesView extends React.Component {
     if ((account.fulfilled && fulfilled) || (filter.activeFilters && filter.activeFilters.length)) {
       return (
         <div className="cloudmeter-view-container fadein">
-          <Grid fluid>
-            <Breadcrumb title className="cloudmeter-breadcrumb">
-              <Breadcrumb.Item onClick={e => this.backToAccounts(e)}>Accounts</Breadcrumb.Item>
-              <Breadcrumb.Item active aria-current="page">
-                <strong>
-                  {(account.data &&
-                    (account.data[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
-                      account.data[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
-                      `Account ${account.data[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`)) ||
-                    ''}
-                </strong>
-              </Breadcrumb.Item>
+          <Grid fluid className="cloudmeter-app-header">
+            <Breadcrumb className="cloudmeter-breadcrumb">
+              <BreadcrumbItem onClick={e => this.backToAccounts(e)} to="#">
+                Accounts
+              </BreadcrumbItem>
+              <BreadcrumbItem aria-current="page" isActive>
+                {(account.data &&
+                  (account.data[apiTypes.API_RESPONSE_ACCOUNT_NAME] ||
+                    account.data[apiTypes.API_RESPONSE_ACCOUNT_ACCOUNT_ID] ||
+                    `Account ${account.data[apiTypes.API_RESPONSE_ACCOUNT_ID] || ''}`)) ||
+                  ''}
+              </BreadcrumbItem>
             </Breadcrumb>
           </Grid>
           <ViewToolbar

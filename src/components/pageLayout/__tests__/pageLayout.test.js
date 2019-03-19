@@ -24,13 +24,10 @@ describe('PageLayout Component', () => {
         <div>test child</div>
       </PageLayout>
     );
-    const componentInstance = component.instance();
 
     component.setState({ isMobile: true });
     expect(component.state().isMobile).toEqual(true);
-    expect(component).toMatchSnapshot('mobile collapsed');
-    componentInstance.onNavToggle();
-    expect(component).toMatchSnapshot('mobile expanded');
+    expect(component).toMatchSnapshot('mobile');
   });
 
   it('should have specific events defined', () => {
@@ -42,13 +39,9 @@ describe('PageLayout Component', () => {
     const componentInstance = component.instance();
 
     expect(componentInstance.onAbout).toBeDefined();
-    expect(componentInstance.onHelp).toBeDefined();
     expect(componentInstance.onLogoutUser).toBeDefined();
     expect(componentInstance.onHelpDropdownToggle).toBeDefined();
-    expect(componentInstance.onHelpDropdownSelect).toBeDefined();
     expect(componentInstance.onUserDropdownToggle).toBeDefined();
-    expect(componentInstance.onUserDropdownSelect).toBeDefined();
-    expect(componentInstance.onNavToggle).toBeDefined();
     expect(componentInstance.onPageResize).toBeDefined();
   });
 

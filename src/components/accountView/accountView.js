@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Button, Breadcrumb, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Alert, Button, Card, EmptyState, Grid, ListView, Modal, Row, Spinner } from 'patternfly-react';
+import { Breadcrumb, BreadcrumbHeading } from '@patternfly/react-core';
 import { withRouter } from 'react-router-dom';
 import _isEqual from 'lodash/isEqual';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
@@ -173,11 +174,9 @@ class AccountView extends React.Component {
     if (accounts.length || (filter.activeFilters && filter.activeFilters.length)) {
       return (
         <div className="cloudmeter-view-container fadein">
-          <Grid fluid>
-            <Breadcrumb title className="cloudmeter-breadcrumb">
-              <Breadcrumb.Item active aria-current="page">
-                <strong>Accounts</strong>
-              </Breadcrumb.Item>
+          <Grid fluid className="cloudmeter-app-header">
+            <Breadcrumb className="cloudmeter-breadcrumb">
+              <BreadcrumbHeading aria-current="page">Accounts</BreadcrumbHeading>
             </Breadcrumb>
           </Grid>
           <ViewToolbar

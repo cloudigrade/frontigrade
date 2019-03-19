@@ -55,26 +55,33 @@ exports[`AccountImagesView Component should render a non-connected component in 
 >
   <Grid
     bsClass="container"
+    className="cloudmeter-app-header"
     componentClass="div"
     fluid={true}
   >
     <Breadcrumb
+      aria-label="breadcrumb"
       className="cloudmeter-breadcrumb"
-      title={true}
     >
       <BreadcrumbItem
-        active={false}
+        className=""
+        component="a"
+        isActive={false}
         onClick={[Function]}
+        target={null}
+        to="#"
       >
         Accounts
       </BreadcrumbItem>
       <BreadcrumbItem
-        active={true}
         aria-current="page"
+        className=""
+        component="a"
+        isActive={true}
+        target={null}
+        to={null}
       >
-        <strong>
-          Account 
-        </strong>
+        Account 
       </BreadcrumbItem>
     </Breadcrumb>
   </Grid>
@@ -178,26 +185,33 @@ exports[`AccountImagesView Component should render a non-connected component in 
 >
   <Grid
     bsClass="container"
+    className="cloudmeter-app-header"
     componentClass="div"
     fluid={true}
   >
     <Breadcrumb
+      aria-label="breadcrumb"
       className="cloudmeter-breadcrumb"
-      title={true}
     >
       <BreadcrumbItem
-        active={false}
+        className=""
+        component="a"
+        isActive={false}
         onClick={[Function]}
+        target={null}
+        to="#"
       >
         Accounts
       </BreadcrumbItem>
       <BreadcrumbItem
-        active={true}
         aria-current="page"
+        className=""
+        component="a"
+        isActive={true}
+        target={null}
+        to={null}
       >
-        <strong>
-          Account 
-        </strong>
+        Account 
       </BreadcrumbItem>
     </Breadcrumb>
   </Grid>

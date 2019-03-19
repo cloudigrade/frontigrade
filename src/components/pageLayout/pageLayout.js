@@ -6,16 +6,13 @@ import {
   Page,
   PageHeader,
   PageSection,
-  PageSidebar,
   Toolbar,
   ToolbarGroup,
   ToolbarItem,
   Dropdown,
   DropdownToggle,
   DropdownItem,
-  Nav,
-  NavList,
-  NavItem
+  KebabToggle
 } from '@patternfly/react-core';
 import { HelpIcon, UserIcon } from '@patternfly/react-icons';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
@@ -29,7 +26,7 @@ class PageLayout extends React.Component {
     isMobile: false,
     isHelpDropdownOpen: false,
     isUserDropdownOpen: false,
-    isMobileNavOpen: false
+    isMobileDropdownOpen: false
   };
 
   onAbout = e => {
@@ -39,10 +36,6 @@ class PageLayout extends React.Component {
     });
   };
 
-  onHelp = e => {
-    e.preventDefault();
-  };
-
   onLogoutUser = e => {
     const { logoutUser } = this.props;
 
@@ -50,34 +43,24 @@ class PageLayout extends React.Component {
     Promise.all([logoutUser()]).then(() => window.location.replace('/'));
   };
 
-  onHelpDropdownToggle = isHelpDropdownOpen => {
+  onHelpDropdownToggle = () => {
+    const { isHelpDropdownOpen } = this.state;
     this.setState({
-      isHelpDropdownOpen
+      isHelpDropdownOpen: !isHelpDropdownOpen
     });
   };
 
-  onHelpDropdownSelect = () => {
+  onUserDropdownToggle = () => {
+    const { isUserDropdownOpen } = this.state;
     this.setState({
-      isHelpDropdownOpen: false
+      isUserDropdownOpen: !isUserDropdownOpen
     });
   };
 
-  onUserDropdownToggle = isUserDropdownOpen => {
+  onMobileDropdownToggle = () => {
+    const { isMobileDropdownOpen } = this.state;
     this.setState({
-      isUserDropdownOpen
-    });
-  };
-
-  onUserDropdownSelect = () => {
-    this.setState({
-      isUserDropdownOpen: false
-    });
-  };
-
-  onNavToggle = () => {
-    const { isMobileNavOpen } = this.state;
-    this.setState({
-      isMobileNavOpen: !isMobileNavOpen
+      isMobileDropdownOpen: !isMobileDropdownOpen
     });
   };
 
@@ -89,9 +72,10 @@ class PageLayout extends React.Component {
     }
   };
 
-  render() {
-    const { brand, user, children } = this.props;
-    const { isMobile, isUserDropdownOpen, isHelpDropdownOpen, isMobileNavOpen } = this.state;
+  renderToolbar() {
+    const { isUserDropdownOpen, isHelpDropdownOpen } = this.state;
+    const { user } = this.props;
+
     const helpDropdownItems = [
       <DropdownItem key="help0" component="button" onClick={this.onAbout}>
         About
@@ -105,7 +89,7 @@ class PageLayout extends React.Component {
     ];
 
     const helpDropdownToggle = (
-      <DropdownToggle onToggle={this.onHelpDropdownToggle}>
+      <DropdownToggle onToggle={this.onHelpDropdownToggle} iconComponent={null}>
         <HelpIcon />
       </DropdownToggle>
     );
@@ -116,14 +100,14 @@ class PageLayout extends React.Component {
       </DropdownToggle>
     );
 
-    const PageToolbar = (
+    return (
       <Toolbar>
         <ToolbarGroup>
           <ToolbarItem>
             <Dropdown
               isPlain
               position="right"
-              onSelect={this.onHelpDropdownSelect}
+              onSelect={this.onHelpDropdownToggle}
               isOpen={isHelpDropdownOpen}
               toggle={helpDropdownToggle}
               dropdownItems={helpDropdownItems}
@@ -133,7 +117,7 @@ class PageLayout extends React.Component {
             <Dropdown
               isPlain
               position="right"
-              onSelect={this.onUserDropdownSelect}
+              onSelect={this.onUserDropdownToggle}
               isOpen={isUserDropdownOpen}
               toggle={userDropdownToggle}
               dropdownItems={userDropdownItems}
@@ -142,47 +126,57 @@ class PageLayout extends React.Component {
         </ToolbarGroup>
       </Toolbar>
     );
+  }
 
-    const Header = (
+  renderMobileToolbar() {
+    const { isMobileDropdownOpen } = this.state;
+
+    const mobileDropdownItems = [
+      <DropdownItem key="help0" component="button" onClick={this.onAbout}>
+        About
+      </DropdownItem>,
+      <DropdownItem key="user0" component="button" onClick={this.onLogoutUser}>
+        Logout
+      </DropdownItem>
+    ];
+
+    const mobileDropdownToggle = <KebabToggle onToggle={this.onMobileDropdownToggle} />;
+
+    return (
+      <Toolbar>
+        <ToolbarGroup>
+          <ToolbarItem>
+            <Dropdown
+              isPlain
+              position="right"
+              onSelect={this.onMobileDropdownToggle}
+              isOpen={isMobileDropdownOpen}
+              toggle={mobileDropdownToggle}
+              dropdownItems={mobileDropdownItems}
+            />
+          </ToolbarItem>
+        </ToolbarGroup>
+      </Toolbar>
+    );
+  }
+
+  render() {
+    const { isMobile } = this.state;
+    const { brand, children } = this.props;
+
+    const header = (
       <PageHeader
         logo={<Brand src={brand ? titleImgBrand : titleImg} alt="Cloud Meter Logo" />}
-        toolbar={PageToolbar}
+        toolbar={isMobile ? this.renderMobileToolbar() : this.renderToolbar()}
         title="Cloud Meter"
         className="cloudmeter-nav"
-      />
-    );
-
-    const MobileNav = (
-      <Nav aria-label="Mobile Navigation">
-        <NavList>
-          <NavItem onClick={this.onAbout}>About</NavItem>
-          <NavItem onClick={this.onLogoutUser}>Logout</NavItem>
-        </NavList>
-      </Nav>
-    );
-
-    const Sidebar = <PageSidebar nav={MobileNav} isNavOpen={isMobileNavOpen} />;
-
-    const MobileHeader = (
-      <PageHeader
-        logo={<Brand src={brand ? titleImgBrand : titleImg} alt="Cloud Meter Logo" />}
-        title="Cloud Meter"
-        className="cloudmeter-nav"
-        showNavToggle
-        onNavToggle={this.onNavToggle}
-        isNavOpen={isMobileNavOpen}
       />
     );
 
     return (
       <React.Fragment>
         <BackgroundImage src={bgImages} />
-        <Page
-          className="layout-pf layout-pf-fixed"
-          header={isMobile ? MobileHeader : Header}
-          sidebar={isMobile && Sidebar}
-          onPageResize={this.onPageResize}
-        >
+        <Page className="layout-pf layout-pf-fixed" header={header} onPageResize={this.onPageResize}>
           <PageSection className="cloudmeter-page-section">{children}</PageSection>
         </Page>
       </React.Fragment>
