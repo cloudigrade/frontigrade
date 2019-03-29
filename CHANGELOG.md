@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.13"></a>
+## 0.1.13 (2019-02-18)
+
+
+### Features
+
+* **pf4 styling:** 95 pf4 app chroming ([7da135d](https://gitlab.com/cloudigrade/frontigrade/commit/7da135d))
+
+
+
 <a name="0.1.12"></a>
 ## 0.1.12 (2019-02-04)
 
