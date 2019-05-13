@@ -2,8 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<a name="0.1.13"></a>
-## 0.1.13 (2019-02-18)
+## 0.1.14 (2019-04-15)
+
+
+### Bug Fixes
+
+* **build:** 94 browser cache ([01aa528](https://gitlab.com/cloudigrade/frontigrade/commit/01aa528))
+
+
+### Features
+
+* **pf4 styling:** 97 pf4 breadcrumb ([54457e6](https://gitlab.com/cloudigrade/frontigrade/commit/54457e6))
+
+
+
+### 0.1.13 (2019-02-18)
 
 
 ### Features
@@ -12,8 +25,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.12"></a>
-## 0.1.12 (2019-02-04)
+### 0.1.12 (2019-02-04)
 
 
 ### Features
@@ -24,8 +36,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.11"></a>
-## 0.1.11 (2019-01-15)
+### 0.1.11 (2019-01-15)
 
 
 ### Bug Fixes
@@ -34,8 +45,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.10"></a>
-## 0.1.10 (2019-01-08)
+### 0.1.10 (2019-01-08)
 
 
 ### Bug Fixes
@@ -50,8 +60,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.9"></a>
-## 0.1.9 (2018-12-19)
+### 0.1.9 (2018-12-19)
 
 
 ### Features
@@ -60,8 +69,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.8"></a>
-## 0.1.8 (2018-12-04)
+### 0.1.8 (2018-12-04)
 
 
 ### Features
@@ -70,8 +78,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.7"></a>
-## 0.1.7 (2018-12-03)
+### 0.1.7 (2018-12-03)
 
 
 ### Bug Fixes
@@ -91,8 +98,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.6"></a>
-## 0.1.6 (2018-11-05)
+### 0.1.6 (2018-11-05)
 
 
 ### Bug Fixes
@@ -114,8 +120,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.5"></a>
-## 0.1.5 (2018-09-25)
+### 0.1.5 (2018-09-25)
 
 
 ### Bug Fixes
@@ -126,8 +131,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.4"></a>
-## 0.1.4 (2018-08-31)
+### 0.1.4 (2018-08-31)
 
 
 ### Bug Fixes
@@ -136,8 +140,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.3"></a>
-## 0.1.3 (2018-08-30)
+### 0.1.3 (2018-08-30)
 
 
 ### Bug Fixes
@@ -152,8 +155,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.2"></a>
-## 0.1.2 (2018-08-23)
+### 0.1.2 (2018-08-23)
 
 
 ### Bug Fixes
@@ -164,8 +166,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.1.1"></a>
-## 0.1.1 (2018-08-20)
+### 0.1.1 (2018-08-20)
 
 
 ### Bug Fixes
@@ -184,8 +185,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.0.1"></a>
-## 0.0.1 (2018-08-07)
+### 0.0.1 (2018-08-07)
 
 
 ### Bug Fixes
