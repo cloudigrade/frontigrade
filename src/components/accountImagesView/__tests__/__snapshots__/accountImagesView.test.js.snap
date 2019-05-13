@@ -60,7 +60,7 @@ exports[`AccountImagesView Component should render a non-connected component in 
     fluid={true}
   >
     <Breadcrumb
-      aria-label="breadcrumb"
+      aria-label="Breadcrumb"
       className="cloudmeter-breadcrumb"
     >
       <BreadcrumbItem
@@ -190,7 +190,7 @@ exports[`AccountImagesView Component should render a non-connected component in 
     fluid={true}
   >
     <Breadcrumb
-      aria-label="breadcrumb"
+      aria-label="Breadcrumb"
       className="cloudmeter-breadcrumb"
     >
       <BreadcrumbItem

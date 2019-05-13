@@ -76,7 +76,7 @@
   "dependencies": {
     "@patternfly/patternfly-next": "1.0.129",
     "@patternfly/react-charts": "1.2.7",
-    "@patternfly/react-core": "1.51.6",
+    "@patternfly/react-core": "2.10.0",
     "@patternfly/react-icons": "2.9.7",
     "@patternfly/react-styles": "2.3.0",
     "@patternfly/react-tokens": "1.9.6",
@@ -91,10 +91,11 @@
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
-    "npm-run-all": "^4.1.5",
     "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
     "patternfly": "3.55.0",
     "patternfly-react": "^2.29.12",
+    "prop-types": "^15.7.2",
     "react": "^16.8.1",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.8.1",
@@ -107,8 +108,7 @@
     "redux-logger": "^3.0.6",
     "redux-promise-middleware": "^6.1.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "prop-types": "^15.7.2"
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "enzyme": "^3.8.0",

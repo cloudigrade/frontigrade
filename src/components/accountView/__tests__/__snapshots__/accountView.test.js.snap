@@ -23,7 +23,7 @@ exports[`AccountView Component should render a non-connected component in pendin
     fluid={true}
   >
     <Breadcrumb
-      aria-label="breadcrumb"
+      aria-label="Breadcrumb"
       className="cloudmeter-breadcrumb"
     >
       <BreadcrumbHeading

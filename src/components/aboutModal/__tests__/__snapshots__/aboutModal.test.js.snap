@@ -2,55 +2,75 @@
 
 exports[`AboutModal Component should contain brand: brand 1`] = `
 <AboutModal
-  altLogo="RH CM"
+  brandImageAlt=""
+  brandImageSrc=""
   className=""
-  logo="logo-brand.svg"
-  onHide={[Function]}
-  productTitle={
-    <img
-      alt="Red Hat Cloud Meter"
-      src="title-brand.svg"
-    />
-  }
-  show={true}
-  trademarkText="Copyright (c) 2018 Red Hat Inc."
+  isOpen={true}
+  logoImageAlt="Cloud Meter Logo"
+  logoImageSrc="logo.svg"
+  onClose={[Function]}
+  productName="Cloud Meter"
+  trademark=""
 >
   <div
     aria-label="Application information copied"
     aria-live="polite"
+    className="cloudmeter-about-modal-list"
     tabIndex={-1}
   >
-    <AboutModalVersions
-      className="cloudmeter-about-modal-list"
+    <TextContent
+      className=""
     >
-      <AboutModalVersionItem
+      <TextList
         className=""
-        label="Username"
-        versionText=""
-      />
-      <AboutModalVersionItem
-        className=""
-        label="UI Version"
-        versionText="XXX-frontigrade-version - 0000000000000000000000000000000000000000"
-      />
-    </AboutModalVersions>
+        component="dl"
+      >
+        <TextListItem
+          className=""
+          component="dt"
+        >
+          Username
+        </TextListItem>
+        <TextListItem
+          className=""
+          component="dd"
+        />
+        <TextListItem
+          className=""
+          component="dt"
+        >
+          UI Version
+        </TextListItem>
+        <TextListItem
+          className=""
+          component="dd"
+        >
+          XXX-frontigrade-version - 0000000000000000000000000000000000000000
+        </TextListItem>
+      </TextList>
+    </TextContent>
   </div>
   <div
     className="cloudmeter-about-modal-copy-footer"
   >
     <Button
-      active={false}
-      block={false}
-      bsClass="btn"
-      bsStyle="default"
+      aria-label={null}
       className="cloudmeter-about-modal-copy-button"
-      disabled={false}
+      component="button"
+      isActive={false}
+      isBlock={false}
+      isDisabled={false}
+      isFocus={false}
+      isHover={false}
       onClick={[Function]}
       title="Copy application information"
+      type="button"
+      variant="tertiary"
     >
-      <Icon
-        name="paste"
-        type="fa"
+      <PasteIcon
+        color="currentColor"
+        size="sm"
+        title={null}
       />
     </Button>
   </div>
@@ -97,75 +117,33 @@ exports[`AboutModal Component should render a non-connected component: hidden mo
   }
 >
   <AboutModal
-    altLogo="CM"
+    brandImageAlt=""
+    brandImageSrc=""
     className=""
-    logo="logo.svg"
-    onHide={[Function]}
-    productTitle={
-      <img
-        alt="Cloud Meter"
-        src="title.svg"
-      />
-    }
-    show={false}
-    trademarkText=""
+    isOpen={false}
+    logoImageAlt="Cloud Meter Logo"
+    logoImageSrc="logo.svg"
+    onClose={[Function]}
+    productName="Cloud Meter"
+    trademark=""
   >
-    <Modal
-      animation={true}
-      autoFocus={true}
-      backdrop={true}
-      bsClass="modal"
-      className=""
-      contentClassName="about-modal-pf"
-      dialogComponentClass={[Function]}
-      enforceFocus={true}
-      keyboard={true}
-      manager={
-        ModalManager {
-          "add": [Function],
-          "containers": Array [],
-          "data": Array [],
-          "handleContainerOverflow": true,
-          "hideSiblingNodes": true,
-          "isTopModal": [Function],
-          "modals": Array [],
-          "remove": [Function],
-        }
-      }
-      onHide={[Function]}
-      renderBackdrop={[Function]}
-      restoreFocus={true}
-      show={false}
+    <Portal
+      containerInfo={<div />}
     >
-      <Modal
-        autoFocus={true}
-        backdrop={true}
-        backdropClassName="modal-backdrop"
-        backdropTransition={[Function]}
-        containerClassName="modal-open"
-        enforceFocus={true}
-        keyboard={true}
-        manager={
-          ModalManager {
-            "add": [Function],
-            "containers": Array [],
-            "data": Array [],
-            "handleContainerOverflow": true,
-            "hideSiblingNodes": true,
-            "isTopModal": [Function],
-            "modals": Array [],
-            "remove": [Function],
-          }
-        }
-        onEntering={[Function]}
-        onExited={[Function]}
-        onHide={[Function]}
-        renderBackdrop={[Function]}
-        restoreFocus={true}
-        show={false}
-        transition={[Function]}
+      <ModalContent
+        ariaDescribedById="pf-about-modal-content-1"
+        ariaLabelledbyId="pf-about-modal-title-0"
+        brandImageAlt=""
+        brandImageSrc=""
+        className=""
+        isOpen={false}
+        logoImageAlt="Cloud Meter Logo"
+        logoImageSrc="logo.svg"
+        onClose={[Function]}
+        productName="Cloud Meter"
+        trademark=""
       />
-    </Modal>
+    </Portal>
   </AboutModal>
 </AboutModal>
 `;
@@ -193,75 +171,33 @@ exports[`AboutModal Component should render a non-connected component: show moda
   }
 >
   <AboutModal
-    altLogo="CM"
+    brandImageAlt=""
+    brandImageSrc=""
     className=""
-    logo="logo.svg"
-    onHide={[Function]}
-    productTitle={
-      <img
-        alt="Cloud Meter"
-        src="title.svg"
-      />
-    }
-    show={false}
-    trademarkText=""
+    isOpen={false}
+    logoImageAlt="Cloud Meter Logo"
+    logoImageSrc="logo.svg"
+    onClose={[Function]}
+    productName="Cloud Meter"
+    trademark=""
   >
-    <Modal
-      animation={true}
-      autoFocus={true}
-      backdrop={true}
-      bsClass="modal"
-      className=""
-      contentClassName="about-modal-pf"
-      dialogComponentClass={[Function]}
-      enforceFocus={true}
-      keyboard={true}
-      manager={
-        ModalManager {
-          "add": [Function],
-          "containers": Array [],
-          "data": Array [],
-          "handleContainerOverflow": true,
-          "hideSiblingNodes": true,
-          "isTopModal": [Function],
-          "modals": Array [],
-          "remove": [Function],
-        }
-      }
-      onHide={[Function]}
-      renderBackdrop={[Function]}
-      restoreFocus={true}
-      show={false}
+    <Portal
+      containerInfo={<div />}
     >
-      <Modal
-        autoFocus={true}
-        backdrop={true}
-        backdropClassName="modal-backdrop"
-        backdropTransition={[Function]}
-        containerClassName="modal-open"
-        enforceFocus={true}
-        keyboard={true}
-        manager={
-          ModalManager {
-            "add": [Function],
-            "containers": Array [],
-            "data": Array [],
-            "handleContainerOverflow": true,
-            "hideSiblingNodes": true,
-            "isTopModal": [Function],
-            "modals": Array [],
-            "remove": [Function],
-          }
-        }
-        onEntering={[Function]}
-        onExited={[Function]}
-        onHide={[Function]}
-        renderBackdrop={[Function]}
-        restoreFocus={true}
-        show={false}
-        transition={[Function]}
+      <ModalContent
+        ariaDescribedById="pf-about-modal-content-1"
+        ariaLabelledbyId="pf-about-modal-title-0"
+        brandImageAlt=""
+        brandImageSrc=""
+        className=""
+        isOpen={false}
+        logoImageAlt="Cloud Meter Logo"
+        logoImageSrc="logo.svg"
+        onClose={[Function]}
+        productName="Cloud Meter"
+        trademark=""
       />
-    </Modal>
+    </Portal>
   </AboutModal>
 </AboutModal>
 `;

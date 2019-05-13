@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { detect } from 'detect-browser';
-import { AboutModal as PfAboutModal, Button, Icon } from 'patternfly-react';
+import {
+  AboutModal as PfAboutModal,
+  Button,
+  ButtonVariant,
+  TextContent,
+  TextList,
+  TextListItem
+} from '@patternfly/react-core';
+import { CheckIcon, PasteIcon } from '@patternfly/react-icons';
 import { connect, reduxActions, reduxTypes, store } from '../../redux';
 import helpers from '../../common/helpers';
 import logo from '../../styles/images/logo.svg';
@@ -89,26 +97,61 @@ class AboutModal extends React.Component {
     }
 
     return (
-      <PfAboutModal {...props}>
-        <div ref={this.selectElement} tabIndex={-1} aria-label="Application information copied" aria-live="polite">
-          <PfAboutModal.Versions className="cloudmeter-about-modal-list">
-            {session && <PfAboutModal.VersionItem label="Username" versionText={session.username || ''} />}
-            {browser && (
-              <PfAboutModal.VersionItem label="Browser Version" versionText={`${browser.name} ${browser.version}`} />
-            )}
-            {browser && <PfAboutModal.VersionItem label="Browser OS" versionText={browser.os || ''} />}
-            {apiVersion && <PfAboutModal.VersionItem label="API Version" versionText={apiVersion} />}
-            {uiVersion && <PfAboutModal.VersionItem label="UI Version" versionText={uiVersion} />}
-          </PfAboutModal.Versions>
+      <PfAboutModal
+        isOpen={props.show}
+        onClose={this.onClose}
+        productName="Cloud Meter"
+        brandImageSrc=""
+        brandImageAlt=""
+        logoImageSrc={logo}
+        logoImageAlt="Cloud Meter Logo"
+      >
+        <div
+          ref={this.selectElement}
+          className="cloudmeter-about-modal-list"
+          tabIndex={-1}
+          aria-label="Application information copied"
+          aria-live="polite"
+        >
+          <TextContent>
+            <TextList component="dl">
+              {session && (
+                <React.Fragment>
+                  <TextListItem component="dt">Username</TextListItem>
+                  <TextListItem component="dd">{session.username}</TextListItem>
+                </React.Fragment>
+              )}
+              {browser && (
+                <React.Fragment>
+                  <TextListItem component="dt">Browser Version</TextListItem>
+                  <TextListItem component="dd">{`${browser.name} ${browser.version}`}</TextListItem>
+                  <TextListItem component="dt">Browser OS</TextListItem>
+                  <TextListItem component="dd">{browser.os || ''}</TextListItem>
+                </React.Fragment>
+              )}
+              {apiVersion && (
+                <React.Fragment>
+                  <TextListItem component="dt">API Version</TextListItem>
+                  <TextListItem component="dd">{apiVersion}</TextListItem>
+                </React.Fragment>
+              )}
+              {uiVersion && (
+                <React.Fragment>
+                  <TextListItem component="dt">UI Version</TextListItem>
+                  <TextListItem component="dd">{uiVersion}</TextListItem>
+                </React.Fragment>
+              )}
+            </TextList>
+          </TextContent>
         </div>
         <div className="cloudmeter-about-modal-copy-footer">
           <Button
             onClick={this.onCopy}
             title="Copy application information"
             className="cloudmeter-about-modal-copy-button"
+            variant={ButtonVariant.tertiary}
           >
-            {copied && <Icon type="fa" name="check" />}
-            {!copied && <Icon type="fa" name="paste" />}
+            {(copied && <CheckIcon />) || <PasteIcon />}
           </Button>
         </div>
       </PfAboutModal>

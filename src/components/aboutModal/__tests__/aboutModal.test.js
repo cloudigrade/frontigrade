@@ -34,4 +34,17 @@ describe('AboutModal Component', () => {
     const component = shallow(<AboutModal {...props} />);
     expect(component).toMatchSnapshot('brand');
   });
+
+  it('should close on click', () => {
+    const props = {
+      show: true,
+      user: { session: { username: 'test' } },
+      onClose: jest.fn()
+    };
+
+    const component = mount(<AboutModal {...props} />);
+
+    component.find('button[aria-label="Close Dialog"]').simulate('click');
+    expect(props.onClose).toHaveBeenCalledTimes(1);
+  });
 });
